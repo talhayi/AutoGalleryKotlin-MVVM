@@ -1,6 +1,7 @@
-package com.example.autogallerykotlin.data.service
+package com.example.autogallerykotlin.service
 
-import com.example.autogallerykotlin.data.model.Login
+import androidx.lifecycle.LiveData
+import com.example.autogallerykotlin.model.Login
 import retrofit2.Response
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
