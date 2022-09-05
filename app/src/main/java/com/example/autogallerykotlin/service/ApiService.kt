@@ -1,7 +1,8 @@
 package com.example.autogallerykotlin.service
 
-import androidx.lifecycle.LiveData
+
 import com.example.autogallerykotlin.model.Login
+import com.example.autogallerykotlin.model.Register
 import retrofit2.Response
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
@@ -16,4 +17,13 @@ interface ApiService {
         @Field("password") password: String
     ): Response<Login>
 
+
+    @FormUrlEncoded
+    @POST("register.php")
+    suspend fun register(
+        @Field("name") name: String,
+        @Field("surname") surname: String,
+        @Field("email") email: String,
+        @Field("password") password: String
+    ): Response<Register>
 }

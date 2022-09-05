@@ -1,13 +1,12 @@
 package com.example.autogallerykotlin.viewmodel
 
-import android.text.TextUtils
-import android.util.Patterns
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.autogallerykotlin.model.Login
-import com.example.autogallerykotlin.repository.LoginRepository
+import com.example.autogallerykotlin.model.Register
+import com.example.autogallerykotlin.repository.RegisterRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -16,28 +15,22 @@ import retrofit2.Response
 import javax.inject.Inject
 
 @HiltViewModel
-class LoginViewModel @Inject constructor(
-
-    private val repository: LoginRepository
+class RegisterViewModel @Inject constructor(
+    private val repository: RegisterRepository
 
 ) : ViewModel() {
 
-    private val _login = MutableLiveData<Response<Login>>()
-    val login: LiveData<Response<Login>>
-        get() = _login
+    private val _register = MutableLiveData<Response<Register>>()
+    val register: LiveData<Response<Register>>
+        get() = _register
 
-
-
-    fun login(
+    fun register(
+        name: String,
+        surname: String,
         email: String,
         password: String
     ) = CoroutineScope(Dispatchers.IO).launch {
 
-        _login.postValue(repository.login(email, password))
+        _register.postValue(repository.register(name, surname, email, password))
     }
-
-
-
-
-
 }
