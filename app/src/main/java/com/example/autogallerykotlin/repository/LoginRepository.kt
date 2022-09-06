@@ -8,8 +8,10 @@ class LoginRepository @Inject constructor(
 ) {
 
     suspend fun login(
-        email: String, password: String
+        email: String,
+        password: String
     ) = apiService.login(email, password)
+
 
 
 }

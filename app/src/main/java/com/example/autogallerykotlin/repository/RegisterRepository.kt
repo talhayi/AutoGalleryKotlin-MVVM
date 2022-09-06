@@ -12,5 +12,5 @@ class RegisterRepository @Inject constructor(
         surname: String,
         email:String,
         password:String
-    )= apiService.register(name, surname,email, password)
+    )= apiService.register(name, surname, email, password)
 }

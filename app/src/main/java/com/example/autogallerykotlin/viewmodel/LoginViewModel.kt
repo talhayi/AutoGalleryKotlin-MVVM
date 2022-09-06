@@ -1,7 +1,5 @@
 package com.example.autogallerykotlin.viewmodel
 
-import android.text.TextUtils
-import android.util.Patterns
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -9,8 +7,6 @@ import androidx.lifecycle.viewModelScope
 import com.example.autogallerykotlin.model.Login
 import com.example.autogallerykotlin.repository.LoginRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.Response
 import javax.inject.Inject
@@ -26,18 +22,13 @@ class LoginViewModel @Inject constructor(
     val login: LiveData<Response<Login>>
         get() = _login
 
-
-
     fun login(
         email: String,
         password: String
-    ) = CoroutineScope(Dispatchers.IO).launch {
+    ) = viewModelScope.launch {
 
         _login.postValue(repository.login(email, password))
     }
-
-
-
 
 
 }
