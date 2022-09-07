@@ -6,7 +6,6 @@ import javax.inject.Inject
 class LoginRepository @Inject constructor(
     private val apiService: ApiService
 ) {
-
     suspend fun login(
         email: String,
         password: String
