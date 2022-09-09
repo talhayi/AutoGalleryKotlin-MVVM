@@ -1,6 +1,10 @@
 package com.example.autogallerykotlin.view
 
+import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
@@ -11,6 +15,7 @@ import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import com.example.autogallerykotlin.R
 import com.example.autogallerykotlin.databinding.ActivityLoginBinding
+import com.example.autogallerykotlin.util.Util.checkForInternet
 import com.example.autogallerykotlin.viewmodel.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -50,17 +55,22 @@ class LoginActivity : AppCompatActivity() {
             // todo: input validations
             viewModel.login(email, password)
 
-            if (email.isEmpty()) {
-                Toast.makeText(this, "email boş olamaz", Toast.LENGTH_SHORT).show()
-            }
-            else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-                Toast.makeText(this, "geçerli mail girin", Toast.LENGTH_SHORT).show()
-            }
-            else if (password.isEmpty() || password.length < 6) {
-                Toast.makeText(this, "en az 6 karekter", Toast.LENGTH_SHORT).show()
-            }
-            else if (email.isNotEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches() && password.length > 6) {
-                Toast.makeText(this, "Mailiniz veya şifreniz hatalıdır", Toast.LENGTH_SHORT).show()
+            if (checkForInternet(this)) {
+                if (email.isEmpty()) {
+                    Toast.makeText(this, "email boş olamaz", Toast.LENGTH_SHORT).show()
+                } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                    Toast.makeText(this, "geçerli mail girin", Toast.LENGTH_SHORT).show()
+                } else if (password.isEmpty() || password.length < 6) {
+                    Toast.makeText(this, "en az 6 karekter", Toast.LENGTH_SHORT).show()
+                } else if (email.isNotEmpty() && Patterns.EMAIL_ADDRESS.matcher(email)
+                        .matches() && password.length > 6
+                ) {
+                    Toast.makeText(this, "Mailiniz veya şifreniz hatalıdır", Toast.LENGTH_SHORT)
+                        .show()
+                }
+            } else {
+                Toast.makeText(this, "İnternet bağlantınızı kontrol edin", Toast.LENGTH_SHORT)
+                    .show()
             }
 
         }
@@ -70,7 +80,6 @@ class LoginActivity : AppCompatActivity() {
         }
 
     }
-
 
 }
 

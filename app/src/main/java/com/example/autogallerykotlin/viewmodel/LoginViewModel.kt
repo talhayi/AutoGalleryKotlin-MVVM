@@ -6,16 +6,17 @@ import com.example.autogallerykotlin.repository.LoginRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import retrofit2.Response
-
 import javax.inject.Inject
+
 
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(
 
-    private val repository: LoginRepository
+    private val repository: LoginRepository,
 
-) : ViewModel() {
+
+    ) : ViewModel() {
 
 
     private val _login = MutableLiveData<Response<Login>>()
@@ -26,10 +27,12 @@ class LoginViewModel @Inject constructor(
         email: String,
         password: String
     ) = viewModelScope.launch {
-        _login.postValue(repository.login(email, password))
-    }
+            _login.postValue(repository.login(email, password))
+
+        }
 
 
 }
+
 
 

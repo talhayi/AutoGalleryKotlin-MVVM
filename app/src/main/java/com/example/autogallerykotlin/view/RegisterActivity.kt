@@ -3,9 +3,14 @@ package com.example.autogallerykotlin.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextUtils.isEmpty
+import android.text.TextWatcher
+import android.util.Patterns
 import android.widget.Toast
 import androidx.activity.viewModels
 import com.example.autogallerykotlin.databinding.ActivityRegisterBinding
+import com.example.autogallerykotlin.util.Util.checkForInternet
 import com.example.autogallerykotlin.viewmodel.RegisterViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -20,17 +25,20 @@ class RegisterActivity : AppCompatActivity() {
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+
         viewModel.register.observe(this) { registerResponse ->
 
             if (registerResponse.isSuccessful) {
 
-                    println("deneme")
-                if (registerResponse.body()?.tf==true) {
 
-                    println("basarili")
+                if (registerResponse.body()?.tf == true) {
+
                     startActivity(Intent(this, MainActivity::class.java))
 
-                    Toast.makeText(this, registerResponse.body()?.result, Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, registerResponse.body()?.result, Toast.LENGTH_LONG)
+                        .show()
+
                 } else {
 
                     Toast.makeText(this, registerResponse.body()?.result, Toast.LENGTH_LONG)
@@ -51,11 +59,28 @@ class RegisterActivity : AppCompatActivity() {
             val surname = binding.registerSurnameEditText.text.toString().trim()
             val email = binding.registerEmailEditText.text.toString().trim()
             val password = binding.registerPasswordEditText.text.toString().trim()
+            viewModel.register(name, surname, email, password)
+
+            if (checkForInternet(this)) {
 
 
-            viewModel.register(name,surname,email,password)
+                if (name.isEmpty() && surname.isEmpty() && email.isEmpty() && password.isEmpty()) {
+
+                    Toast.makeText(this, "Alanları doldurmak zorunludur", Toast.LENGTH_SHORT).show()
+                } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                    Toast.makeText(this, "geçerli mail girin", Toast.LENGTH_SHORT).show()
+                } else if (password.length < 6) {
+                    Toast.makeText(this, "en az 6 karekter", Toast.LENGTH_SHORT).show()
+                }
+            } else {
+                Toast.makeText(this, "internet bağlantınızı kontrol edin", Toast.LENGTH_SHORT)
+                    .show()
+            }
         }
 
 
     }
+
+
 }
+
