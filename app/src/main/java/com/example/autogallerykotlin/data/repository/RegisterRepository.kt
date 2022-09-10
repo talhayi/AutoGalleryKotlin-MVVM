@@ -13,4 +13,11 @@ class RegisterRepository @Inject constructor(
         email:String,
         password:String
     )= apiService.register(name, surname, email, password)
+
+    suspend fun verification(
+        email: String,
+        code: String
+    ) = apiService.verification(email, code)
+
+
 }

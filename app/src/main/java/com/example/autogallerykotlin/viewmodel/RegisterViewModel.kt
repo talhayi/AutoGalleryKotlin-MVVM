@@ -3,6 +3,7 @@ package com.example.autogallerykotlin.viewmodel
 
 import androidx.lifecycle.*
 import com.example.autogallerykotlin.data.model.Register
+import com.example.autogallerykotlin.data.model.Verification
 import com.example.autogallerykotlin.data.repository.RegisterRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -21,6 +22,11 @@ class RegisterViewModel @Inject constructor(
         get() = _register
 
 
+    private val _verification = MutableLiveData<Response<Verification>>()
+    val verification: LiveData<Response<Verification>>
+        get() = _verification
+
+
     fun register(
         name: String,
         surname: String,
@@ -31,6 +37,14 @@ class RegisterViewModel @Inject constructor(
             _register.postValue(repository.register(name, surname, email, password))
 
         }
+
+    fun verification(
+        email: String,
+        code: String
+    ) = viewModelScope.launch {
+        _verification.postValue(repository.verification(email, code))
+
+    }
     }
 
 

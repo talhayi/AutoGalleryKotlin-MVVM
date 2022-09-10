@@ -25,14 +25,14 @@ class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
     private val viewModel: LoginViewModel by viewModels()
-    private val sharedPreferences = getSharedPreferences("login", MODE_PRIVATE)
-    private val editor = sharedPreferences.edit()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
+        val sharedPreferences = getSharedPreferences("login", MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
 
         if (sharedPreferences.getString("users_id",null)!=null &&sharedPreferences.getString("users_email",null)!=null){
             startActivity(Intent(this, MainActivity::class.java))
@@ -50,7 +50,7 @@ class LoginActivity : AppCompatActivity() {
 
                     startActivity(Intent(this, MainActivity::class.java))
 
-                    Toast.makeText(this, "basarili", Toast.LENGTH_LONG).show()
+                   finish()
                 }
 
             } else {
@@ -91,7 +91,10 @@ class LoginActivity : AppCompatActivity() {
             startActivity(Intent(this, RegisterActivity::class.java))
         }
 
+
     }
+
+
 
 
 }
