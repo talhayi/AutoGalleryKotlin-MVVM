@@ -1,8 +1,8 @@
 package com.example.autogallerykotlin.viewmodel
 
 import androidx.lifecycle.*
-import com.example.autogallerykotlin.model.Login
-import com.example.autogallerykotlin.repository.LoginRepository
+import com.example.autogallerykotlin.data.model.Login
+import com.example.autogallerykotlin.data.repository.LoginRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import retrofit2.Response

@@ -1,10 +1,9 @@
 package com.example.autogallerykotlin.viewmodel
 
-import android.app.Application
+
 import androidx.lifecycle.*
-import com.example.autogallerykotlin.model.Register
-import com.example.autogallerykotlin.repository.RegisterRepository
-import com.example.autogallerykotlin.util.Util.checkForInternet
+import com.example.autogallerykotlin.data.model.Register
+import com.example.autogallerykotlin.data.repository.RegisterRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import retrofit2.Response

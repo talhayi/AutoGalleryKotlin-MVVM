@@ -1,6 +1,7 @@
 package com.example.autogallerykotlin.view
 
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -20,6 +21,8 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
     private val viewModel: RegisterViewModel by viewModels()
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
@@ -34,9 +37,9 @@ class RegisterActivity : AppCompatActivity() {
 
                 if (registerResponse.body()?.tf == true) {
 
-                    startActivity(Intent(this, MainActivity::class.java))
+                    //  startActivity(Intent(this, MainActivity::class.java))
 
-                    Toast.makeText(this, registerResponse.body()?.result, Toast.LENGTH_LONG)
+                    Toast.makeText(this, "Lütfen doğrulama kodunu giriniz", Toast.LENGTH_LONG)
                         .show()
 
                 } else {
@@ -59,12 +62,12 @@ class RegisterActivity : AppCompatActivity() {
             val surname = binding.registerSurnameEditText.text.toString().trim()
             val email = binding.registerEmailEditText.text.toString().trim()
             val password = binding.registerPasswordEditText.text.toString().trim()
+
             viewModel.register(name, surname, email, password)
 
             if (checkForInternet(this)) {
-
-
-                if (name.isEmpty() && surname.isEmpty() && email.isEmpty() && password.isEmpty()) {
+/*
+                if (name.isEmpty() || surname.isEmpty() || email.isEmpty() || password.isEmpty()) {
 
                     Toast.makeText(this, "Alanları doldurmak zorunludur", Toast.LENGTH_SHORT).show()
                 } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
@@ -72,6 +75,7 @@ class RegisterActivity : AppCompatActivity() {
                 } else if (password.length < 6) {
                     Toast.makeText(this, "en az 6 karekter", Toast.LENGTH_SHORT).show()
                 }
+                */
             } else {
                 Toast.makeText(this, "internet bağlantınızı kontrol edin", Toast.LENGTH_SHORT)
                     .show()

@@ -1,6 +1,6 @@
 package com.example.autogallerykotlin.di
 
-import com.example.autogallerykotlin.service.ApiService
+import com.example.autogallerykotlin.data.service.ApiService
 import com.example.autogallerykotlin.util.Util.BASE_URL
 import com.example.autogallerykotlin.util.Util.client
 import dagger.Module

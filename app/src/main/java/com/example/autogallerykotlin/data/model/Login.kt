@@ -1,4 +1,4 @@
-package com.example.autogallerykotlin.model
+package com.example.autogallerykotlin.data.model
 
 
 data class Login(
