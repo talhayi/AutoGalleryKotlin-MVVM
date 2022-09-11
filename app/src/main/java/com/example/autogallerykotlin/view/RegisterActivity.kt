@@ -37,7 +37,7 @@ class RegisterActivity : AppCompatActivity() {
         viewModel.register.observe(this) { registerResponse ->
 
             if (registerResponse.isSuccessful) {
-
+                println("dedede")
 
                 if (registerResponse.body()?.tf == true) {
                     binding.registerNameEditText.visibility = GONE
@@ -54,7 +54,7 @@ class RegisterActivity : AppCompatActivity() {
                         .show()
 
                 } else {
-
+                        println(registerResponse.body()?.result)
                     Toast.makeText(this, registerResponse.body()?.result, Toast.LENGTH_LONG)
                         .show()
                 }
@@ -69,7 +69,7 @@ class RegisterActivity : AppCompatActivity() {
 
         binding.registerButton.setOnClickListener {
 
-            if (checkForInternet(this)) {
+        //    if (checkForInternet(this)) {
 
 
                 val name = binding.registerNameEditText.text.toString().trim()
@@ -78,24 +78,27 @@ class RegisterActivity : AppCompatActivity() {
                 val password = binding.registerPasswordEditText.text.toString().trim()
 
                 viewModel.register(name, surname, email, password)
-
+/*
             } else {
                 Toast.makeText(this, "internet bağlantınızı kontrol edin", Toast.LENGTH_SHORT)
                     .show()
-            }
+            }*/
         }
 
 
-        viewModel.verification.observe(this){verificationResponce->
+        viewModel.verification.observe(this){verificationResponse->
 
-            if (verificationResponce.isSuccessful){
+            if (verificationResponse.isSuccessful){
 
-                if (verificationResponce.body()?.tf ==true){
-                    editor.putString("users_id", verificationResponce.body()?.id.toString())
-                    editor.putString("users_email", verificationResponce.body()?.email.toString())
+                if (verificationResponse.body()?.tf ==true){
+                    editor.putString("users_id", verificationResponse.body()?.id.toString())
+                    editor.putString("users_email", verificationResponse.body()?.email.toString())
                     editor.apply()
                     startActivity(Intent(this, MainActivity::class.java))
+                    Toast.makeText(this, "Email adresiniz doğrulandı", Toast.LENGTH_SHORT).show()
                     finish()
+                }else{
+                    Toast.makeText(this, "Email adresiniz doğrulanmadı", Toast.LENGTH_SHORT).show()
                 }
 
             }

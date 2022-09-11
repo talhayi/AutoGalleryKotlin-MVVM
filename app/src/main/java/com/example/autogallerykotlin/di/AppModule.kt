@@ -3,6 +3,7 @@ package com.example.autogallerykotlin.di
 import com.example.autogallerykotlin.data.service.ApiService
 import com.example.autogallerykotlin.util.Util.BASE_URL
 import com.example.autogallerykotlin.util.Util.client
+import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -21,7 +22,9 @@ object AppModule {
         Retrofit.Builder()
             .baseUrl(BASE_URL)
             .client(client)
-            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create(GsonBuilder()
+                .setLenient()
+                .create()))
             .build()
             .create(ApiService::class.java)
 

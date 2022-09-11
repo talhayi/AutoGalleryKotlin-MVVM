@@ -6,6 +6,8 @@ import com.example.autogallerykotlin.data.model.Register
 import com.example.autogallerykotlin.data.model.Verification
 import com.example.autogallerykotlin.data.repository.RegisterRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.Response
 import javax.inject.Inject
