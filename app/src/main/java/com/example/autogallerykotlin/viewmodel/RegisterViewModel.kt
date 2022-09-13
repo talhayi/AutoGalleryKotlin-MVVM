@@ -1,18 +1,14 @@
 package com.example.autogallerykotlin.viewmodel
 
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.example.autogallerykotlin.data.model.Register
 import com.example.autogallerykotlin.data.model.Verification
 import com.example.autogallerykotlin.data.repository.RegisterRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import retrofit2.Response
 import javax.inject.Inject
 
@@ -41,7 +37,8 @@ class RegisterViewModel @Inject constructor(
     ) = viewModelScope.launch {
 
             _register.postValue(repository.register(name, surname, email, password))
-    }
+
+        }
 
     fun verification(
         email: String,
@@ -50,6 +47,6 @@ class RegisterViewModel @Inject constructor(
         _verification.postValue(repository.verification(email, code))
 
     }
-}
+    }
 
 

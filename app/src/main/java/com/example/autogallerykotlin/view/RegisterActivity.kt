@@ -17,11 +17,6 @@ import com.example.autogallerykotlin.databinding.ActivityRegisterBinding
 import com.example.autogallerykotlin.util.Util.checkForInternet
 import com.example.autogallerykotlin.viewmodel.RegisterViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-
-@Suppress("UNCHECKED_CAST")
 
 @AndroidEntryPoint
 class RegisterActivity : AppCompatActivity() {
@@ -41,72 +36,68 @@ class RegisterActivity : AppCompatActivity() {
 
         viewModel.register.observe(this) { registerResponse ->
 
-                if (registerResponse.isSuccessful) {
+            if (registerResponse.isSuccessful) {
+                println("dedede")
 
+                if (registerResponse.body()?.tf == true) {
+                    binding.registerNameEditText.visibility = GONE
+                    binding.registerSurnameEditText.visibility = GONE
+                    binding.registerEmailEditText.visibility = GONE
+                    binding.registerPasswordEditText.visibility = GONE
+                    binding.registerButton.visibility = GONE
+                    binding.registerLoginButton.visibility = VISIBLE
+                    binding.verificationCodeEditText.visibility = VISIBLE
 
-                    if (registerResponse.body()?.tf == true) {
-                        binding.registerNameEditText.visibility = GONE
-                        binding.registerSurnameEditText.visibility = GONE
-                        binding.registerEmailEditText.visibility = GONE
-                        binding.registerPasswordEditText.visibility = GONE
-                        binding.registerButton.visibility = GONE
-                        binding.registerLoginButton.visibility = VISIBLE
-                        binding.verificationCodeEditText.visibility = VISIBLE
+                   // startActivity(Intent(this, MainActivity::class.java))
 
-                        // startActivity(Intent(this, MainActivity::class.java))
-
-                       // Toast.makeText(this, "Lütfen doğrulama kodunu giriniz", Toast.LENGTH_LONG)
-                       //     .show()
-
-                    } else {
-                        println(registerResponse.body()?.result)
-                      //  Toast.makeText(this, registerResponse.body()?.result, Toast.LENGTH_LONG)
-                        //    .show()
-                    }
-
+                    Toast.makeText(this, "Lütfen doğrulama kodunu giriniz", Toast.LENGTH_LONG)
+                        .show()
 
                 } else {
-                  //  Toast.makeText(this, "Sunucu Hatası", Toast.LENGTH_LONG).show()
-
+                        println(registerResponse.body()?.result)
+                    Toast.makeText(this, registerResponse.body()?.result, Toast.LENGTH_LONG)
+                        .show()
                 }
 
 
+            } else {
+                Toast.makeText(this, "Sunucu Hatası", Toast.LENGTH_LONG).show()
 
+            }
 
         }
 
         binding.registerButton.setOnClickListener {
 
-                if (checkForInternet(this)) {
+        //    if (checkForInternet(this)) {
 
 
-            val name = binding.registerNameEditText.text.toString().trim()
-            val surname = binding.registerSurnameEditText.text.toString().trim()
-            val email = binding.registerEmailEditText.text.toString().trim()
-            val password = binding.registerPasswordEditText.text.toString().trim()
+                val name = binding.registerNameEditText.text.toString().trim()
+                val surname = binding.registerSurnameEditText.text.toString().trim()
+                val email = binding.registerEmailEditText.text.toString().trim()
+                val password = binding.registerPasswordEditText.text.toString().trim()
 
-            viewModel.register(name, surname, email, password)
-
-
+                viewModel.register(name, surname, email, password)
+/*
             } else {
                 Toast.makeText(this, "internet bağlantınızı kontrol edin", Toast.LENGTH_SHORT)
                     .show()
-            }
+            }*/
         }
 
 
-        viewModel.verification.observe(this) { verificationResponse ->
+        viewModel.verification.observe(this){verificationResponse->
 
-            if (verificationResponse.isSuccessful) {
+            if (verificationResponse.isSuccessful){
 
-                if (verificationResponse.body()?.tf == true) {
+                if (verificationResponse.body()?.tf ==true){
                     editor.putString("users_id", verificationResponse.body()?.id.toString())
                     editor.putString("users_email", verificationResponse.body()?.email.toString())
                     editor.apply()
                     startActivity(Intent(this, MainActivity::class.java))
                     Toast.makeText(this, "Email adresiniz doğrulandı", Toast.LENGTH_SHORT).show()
                     finish()
-                } else {
+                }else{
                     Toast.makeText(this, "Email adresiniz doğrulanmadı", Toast.LENGTH_SHORT).show()
                 }
 
@@ -119,13 +110,14 @@ class RegisterActivity : AppCompatActivity() {
                 val email = binding.registerEmailEditText.text.toString().trim()
                 val code = binding.verificationCodeEditText.text.toString().trim()
 
-                viewModel.verification(email, code)
+                viewModel.verification(email,code)
 
             } else {
                 Toast.makeText(this, "internet bağlantınızı kontrol edin", Toast.LENGTH_SHORT)
                     .show()
             }
         }
+
 
 
     }

@@ -10,7 +10,6 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.converter.scalars.ScalarsConverterFactory
 import javax.inject.Singleton
 
 @Module
@@ -19,19 +18,15 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideRetrofitInstance(): ApiService {
-
-        return Retrofit.Builder()
+    fun provideRetrofitInstance(): ApiService =
+        Retrofit.Builder()
             .baseUrl(BASE_URL)
-            .addConverterFactory(ScalarsConverterFactory.create())
+            .client(client)
             .addConverterFactory(GsonConverterFactory.create(GsonBuilder()
                 .setLenient()
                 .create()))
-            .client(client)
             .build()
             .create(ApiService::class.java)
-
-    }
 
 
 }
