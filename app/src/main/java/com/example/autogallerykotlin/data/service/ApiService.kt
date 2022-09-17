@@ -12,7 +12,7 @@ import retrofit2.http.POST
 interface ApiService {
 
     @FormUrlEncoded
-    @POST("login.php")
+    @POST("login.php")---
     suspend fun login(
         @Field("email") email: String,
         @Field("password") password: String
@@ -31,7 +31,7 @@ interface ApiService {
     @FormUrlEncoded
     @POST("verification.php")
     suspend fun verification(
-        @Field("email") email: String,
+       // @Field("email") email: String,
         @Field("code") code: String
     ): Response<Verification>
 }

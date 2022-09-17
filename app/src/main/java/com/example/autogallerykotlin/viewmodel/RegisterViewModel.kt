@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 import retrofit2.Response
 import javax.inject.Inject
 
-@HiltViewModel
+
 class RegisterViewModel @Inject constructor(
 
     private val repository: RegisterRepository
@@ -24,9 +24,6 @@ class RegisterViewModel @Inject constructor(
         get() = _register
 
 
-    private val _verification = MutableLiveData<Response<Verification>>()
-    val verification: LiveData<Response<Verification>>
-        get() = _verification
 
 
     fun register(
@@ -40,13 +37,6 @@ class RegisterViewModel @Inject constructor(
 
         }
 
-    fun verification(
-        email: String,
-        code: String
-    ) = viewModelScope.launch {
-        _verification.postValue(repository.verification(email, code))
-
-    }
     }
 
 

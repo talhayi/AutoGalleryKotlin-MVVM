@@ -31,8 +31,7 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-        val sharedPreferences = getSharedPreferences("login", MODE_PRIVATE)
-        val editor = sharedPreferences.edit()
+
 
         viewModel.register.observe(this) { registerResponse ->
 
@@ -45,16 +44,16 @@ class RegisterActivity : AppCompatActivity() {
                     binding.registerEmailEditText.visibility = GONE
                     binding.registerPasswordEditText.visibility = GONE
                     binding.registerButton.visibility = GONE
-                    binding.registerLoginButton.visibility = VISIBLE
-                    binding.verificationCodeEditText.visibility = VISIBLE
+                    //  binding.registerLoginButton.visibility = VISIBLE
+                    //  binding.verificationCodeEditText.visibility = VISIBLE
 
-                   // startActivity(Intent(this, MainActivity::class.java))
+                    // startActivity(Intent(this, MainActivity::class.java))
 
                     Toast.makeText(this, "Lütfen doğrulama kodunu giriniz", Toast.LENGTH_LONG)
                         .show()
 
                 } else {
-                        println(registerResponse.body()?.result)
+                    println(registerResponse.body()?.result)
                     Toast.makeText(this, registerResponse.body()?.result, Toast.LENGTH_LONG)
                         .show()
                 }
@@ -69,55 +68,21 @@ class RegisterActivity : AppCompatActivity() {
 
         binding.registerButton.setOnClickListener {
 
-        //    if (checkForInternet(this)) {
+            //    if (checkForInternet(this)) {
 
+            val name = binding.registerNameEditText.text.toString().trim()
+            val surname = binding.registerSurnameEditText.text.toString().trim()
+            val email = binding.registerEmailEditText.text.toString().trim()
+            val password = binding.registerPasswordEditText.text.toString().trim()
 
-                val name = binding.registerNameEditText.text.toString().trim()
-                val surname = binding.registerSurnameEditText.text.toString().trim()
-                val email = binding.registerEmailEditText.text.toString().trim()
-                val password = binding.registerPasswordEditText.text.toString().trim()
-
-                viewModel.register(name, surname, email, password)
+            viewModel.register(name, surname, email, password)
+            startActivity(Intent(this, VerificationActivity::class.java))
 /*
             } else {
                 Toast.makeText(this, "internet bağlantınızı kontrol edin", Toast.LENGTH_SHORT)
                     .show()
             }*/
         }
-
-
-        viewModel.verification.observe(this){verificationResponse->
-
-            if (verificationResponse.isSuccessful){
-
-                if (verificationResponse.body()?.tf ==true){
-                    editor.putString("users_id", verificationResponse.body()?.id.toString())
-                    editor.putString("users_email", verificationResponse.body()?.email.toString())
-                    editor.apply()
-                    startActivity(Intent(this, MainActivity::class.java))
-                    Toast.makeText(this, "Email adresiniz doğrulandı", Toast.LENGTH_SHORT).show()
-                    finish()
-                }else{
-                    Toast.makeText(this, "Email adresiniz doğrulanmadı", Toast.LENGTH_SHORT).show()
-                }
-
-            }
-        }
-
-        binding.registerLoginButton.setOnClickListener {
-            if (checkForInternet(this)) {
-
-                val email = binding.registerEmailEditText.text.toString().trim()
-                val code = binding.verificationCodeEditText.text.toString().trim()
-
-                viewModel.verification(email,code)
-
-            } else {
-                Toast.makeText(this, "internet bağlantınızı kontrol edin", Toast.LENGTH_SHORT)
-                    .show()
-            }
-        }
-
 
 
     }
