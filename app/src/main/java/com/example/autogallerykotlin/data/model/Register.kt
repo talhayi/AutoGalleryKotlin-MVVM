@@ -10,10 +10,3 @@ data class Register(
     val code: String? = null,
 
 )
-
-data class Verification(
-    val id: Int? = null,
-    val email: String? = null,
-    val result: String? = null,
-    val tf: Boolean? = null
-)

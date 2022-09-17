@@ -3,7 +3,7 @@ package com.example.autogallerykotlin.data.service
 
 import com.example.autogallerykotlin.data.model.Login
 import com.example.autogallerykotlin.data.model.Register
-import com.example.autogallerykotlin.data.model.Verification
+import com.example.autogallerykotlin.data.model.EmailVerification
 import retrofit2.Response
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
@@ -30,8 +30,8 @@ interface ApiService {
 
     @FormUrlEncoded
     @POST("verification.php")
-    suspend fun verification(
+    suspend fun emailVerification(
         @Field("email") email: String,
         @Field("code") code: String
-    ): Response<Verification>
+    ): Response<EmailVerification>
 }
