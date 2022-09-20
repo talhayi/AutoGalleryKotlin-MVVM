@@ -1,4 +1,9 @@
 package com.example.autogallerykotlin.data.model
 
-class ForgotPassword {
-}
+data class ForgotPassword(
+
+      val email: String? = null,
+      val code: String? = null,
+      val result: String? = null,
+      val success: Boolean? = null
+)

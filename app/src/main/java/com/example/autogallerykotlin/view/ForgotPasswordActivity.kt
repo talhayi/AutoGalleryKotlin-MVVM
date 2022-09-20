@@ -1,16 +1,15 @@
 package com.example.autogallerykotlin.view
 
-import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.activity.viewModels
-import com.example.autogallerykotlin.R
 import com.example.autogallerykotlin.databinding.ActivityForgotPasswordBinding
-import com.example.autogallerykotlin.databinding.ActivityLoginBinding
 import com.example.autogallerykotlin.viewmodel.ForgotPasswordViewModel
-import com.example.autogallerykotlin.viewmodel.LoginViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ForgotPasswordActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityForgotPasswordBinding
@@ -20,25 +19,49 @@ class ForgotPasswordActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityForgotPasswordBinding.inflate(layoutInflater)
         setContentView(binding.root)
+/*
+        viewModel.forgotPasswordEmail.observe(this){forgotPasswordEmailResponse->
 
-        binding.forgotPasswordEmailButton.setOnClickListener {
-            binding.forgotPasswordEditText.visibility = View.GONE
-            binding.forgotPasswordEmailButton.visibility = View.GONE
-            binding.forgotPasswordtextView.visibility = View.GONE
-            binding.forgotPasswordCodeEditText.visibility = View.VISIBLE
-            binding.forgotPasswordCodeButton.visibility = View.VISIBLE
-            binding.forgotPasswordCodetextView.visibility = View.VISIBLE
+            if (forgotPasswordEmailResponse.isSuccessful){
+
+                //Toast.makeText(this, forgotPasswordEmailResponse.body()?.result, Toast.LENGTH_SHORT).show()
+
+                if (forgotPasswordEmailResponse.body()?.success == true){
+
+                   // Toast.makeText(this, forgotPasswordEmailResponse.body()?.result, Toast.LENGTH_SHORT).show()
+                }
+                else{
+                    Toast.makeText(this, forgotPasswordEmailResponse.body()?.result, Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+*/
+        binding.apply {
+            forgotPasswordEmailButton.setOnClickListener {
+
+                forgotPasswordEditText.visibility = View.GONE
+                forgotPasswordEmailButton.visibility = View.GONE
+                forgotPasswordtextView.visibility = View.GONE
+                forgotPasswordCodeEditText.visibility = View.VISIBLE
+                forgotPasswordCodeButton.visibility = View.VISIBLE
+                forgotPasswordCodetextView.visibility = View.VISIBLE
+
+                val email = binding.forgotPasswordEditText.text.toString().trim()
+                viewModel.forgotPasswordEmail(email)
+
+            }
         }
 
-        binding.forgotPasswordCodeButton.setOnClickListener {
+        binding.apply {
+            forgotPasswordCodeButton.setOnClickListener {
 
-            binding.forgotPasswordCodeEditText.visibility = View.GONE
-            binding.forgotPasswordCodeButton.visibility = View.GONE
-            binding.forgotPasswordCodetextView.visibility = View.GONE
-            binding.newPasswordEditText.visibility = View.VISIBLE
-            binding.newPasswordButton.visibility = View.VISIBLE
-            binding.newPasswordtextView.visibility = View.VISIBLE
+                forgotPasswordCodeEditText.visibility = View.GONE
+                forgotPasswordCodeButton.visibility = View.GONE
+                forgotPasswordCodetextView.visibility = View.GONE
+                newPasswordEditText.visibility = View.VISIBLE
+                newPasswordButton.visibility = View.VISIBLE
+                newPasswordtextView.visibility = View.VISIBLE
+            }
         }
-
     }
 }

@@ -4,6 +4,7 @@ package com.example.autogallerykotlin.data.service
 import com.example.autogallerykotlin.data.model.Login
 import com.example.autogallerykotlin.data.model.Register
 import com.example.autogallerykotlin.data.model.EmailVerification
+import com.example.autogallerykotlin.data.model.ForgotPassword
 import retrofit2.Response
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
@@ -17,7 +18,6 @@ interface ApiService {
         @Field("email") email: String,
         @Field("password") password: String
     ): Response<Login>
-
 
     @FormUrlEncoded
     @POST("register.php")
@@ -34,4 +34,10 @@ interface ApiService {
         @Field("email") email: String,
         @Field("code") code: String
     ): Response<EmailVerification>
+
+    @FormUrlEncoded
+    @POST("forgotPasswordEmail.php")
+    suspend fun forgotPasswordEmail(
+        @Field("email") email: String
+    ): Response<ForgotPassword>
 }
