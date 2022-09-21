@@ -1,5 +1,6 @@
 package com.example.autogallerykotlin.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -19,23 +20,10 @@ class ForgotPasswordActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityForgotPasswordBinding.inflate(layoutInflater)
         setContentView(binding.root)
-/*
-        viewModel.forgotPasswordEmail.observe(this){forgotPasswordEmailResponse->
 
-            if (forgotPasswordEmailResponse.isSuccessful){
 
-                //Toast.makeText(this, forgotPasswordEmailResponse.body()?.result, Toast.LENGTH_SHORT).show()
 
-                if (forgotPasswordEmailResponse.body()?.success == true){
 
-                   // Toast.makeText(this, forgotPasswordEmailResponse.body()?.result, Toast.LENGTH_SHORT).show()
-                }
-                else{
-                    Toast.makeText(this, forgotPasswordEmailResponse.body()?.result, Toast.LENGTH_SHORT).show()
-                }
-            }
-        }
-*/
         binding.apply {
             forgotPasswordEmailButton.setOnClickListener {
 
@@ -47,6 +35,7 @@ class ForgotPasswordActivity : AppCompatActivity() {
                 forgotPasswordCodetextView.visibility = View.VISIBLE
 
                 val email = binding.forgotPasswordEditText.text.toString().trim()
+
                 viewModel.forgotPasswordEmail(email)
 
             }
@@ -62,6 +51,29 @@ class ForgotPasswordActivity : AppCompatActivity() {
                 newPasswordButton.visibility = View.VISIBLE
                 newPasswordtextView.visibility = View.VISIBLE
             }
+        }
+
+        binding.apply {
+            newPasswordButton.setOnClickListener {
+                val email = binding.forgotPasswordEditText.text.toString().trim()
+                val password = binding.newPasswordEditText.text.toString().trim()
+                viewModel.resetPassword(email, password)
+            }
+        }
+
+        viewModel.resetPassword.observe(this){resetPasswordResponse->
+
+            if(resetPasswordResponse.isSuccessful){
+                if (resetPasswordResponse.body()?.success == true){
+                    startActivity(Intent(this, MainActivity::class.java))
+                    Toast.makeText(this, "Şifreniz yenilendi", Toast.LENGTH_SHORT).show()
+                    finish()
+                }
+                else{
+                    Toast.makeText(this, resetPasswordResponse.body()?.result, Toast.LENGTH_SHORT).show()
+                }
+            }
+
         }
     }
 }

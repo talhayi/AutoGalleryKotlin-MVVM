@@ -25,6 +25,5 @@ class LoginViewModel @Inject constructor(
         password: String
     ) = viewModelScope.launch {
         _login.postValue(repository.login(email, password))
-
     }
 }

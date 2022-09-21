@@ -7,3 +7,11 @@ data class ForgotPassword(
       val result: String? = null,
       val success: Boolean? = null
 )
+
+data class ResetPassword(
+      val email: String? = null,
+      val result: String? = null,
+      val success: Boolean? = null,
+      val password: String? = null
+
+)
