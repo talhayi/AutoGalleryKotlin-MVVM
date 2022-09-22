@@ -42,4 +42,10 @@ interface ApiService {
         @Field("email") email: String,
         @Field("password") password: String
     ): Response<ResetPassword>
+
+    @FormUrlEncoded
+    @POST("resetPasswordCode.php")
+    suspend fun resetPasswordCode(
+        @Field("code") code: String
+    ): Response<resetPasswordCode>
 }

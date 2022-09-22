@@ -10,7 +10,4 @@ class LoginRepository @Inject constructor(
         email: String,
         password: String
     ) = apiService.login(email, password)
-
-
-
 }

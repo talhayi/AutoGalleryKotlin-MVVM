@@ -12,4 +12,6 @@ class ForgotPasswordRepository @Inject constructor(
         email: String,
         password: String
     ) = apiService.resetPassword(email, password)
+
+    suspend fun resetPasswordCode(code: String) = apiService.resetPasswordCode(code)
 }

@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
+import com.example.autogallerykotlin.data.model.resetPasswordCode
 import com.example.autogallerykotlin.databinding.ActivityForgotPasswordBinding
 import com.example.autogallerykotlin.viewmodel.ForgotPasswordViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -21,36 +22,66 @@ class ForgotPasswordActivity : AppCompatActivity() {
         binding = ActivityForgotPasswordBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-
-
         binding.apply {
             forgotPasswordEmailButton.setOnClickListener {
 
-                forgotPasswordEditText.visibility = View.GONE
-                forgotPasswordEmailButton.visibility = View.GONE
-                forgotPasswordtextView.visibility = View.GONE
-                forgotPasswordCodeEditText.visibility = View.VISIBLE
-                forgotPasswordCodeButton.visibility = View.VISIBLE
-                forgotPasswordCodetextView.visibility = View.VISIBLE
+                if(forgotPasswordEditText.text.toString() != ""){
 
-                val email = binding.forgotPasswordEditText.text.toString().trim()
+                    forgotPasswordEditText.visibility = View.GONE
+                    forgotPasswordEmailButton.visibility = View.GONE
+                    forgotPasswordtextView.visibility = View.GONE
+                    forgotPasswordCodeEditText.visibility = View.VISIBLE
+                    forgotPasswordCodeButton.visibility = View.VISIBLE
+                    forgotPasswordCodetextView.visibility = View.VISIBLE
 
-                viewModel.forgotPasswordEmail(email)
+                    val email = binding.forgotPasswordEditText.text.toString().trim()
+
+                    viewModel.forgotPasswordEmail(email)
+                }
+                else{
+                    Toast.makeText(applicationContext, "Lütfen email adresinizi girin", Toast.LENGTH_SHORT).show()
+                }
+
+
 
             }
         }
 
+
+
         binding.apply {
             forgotPasswordCodeButton.setOnClickListener {
 
-                forgotPasswordCodeEditText.visibility = View.GONE
-                forgotPasswordCodeButton.visibility = View.GONE
-                forgotPasswordCodetextView.visibility = View.GONE
-                newPasswordEditText.visibility = View.VISIBLE
-                newPasswordButton.visibility = View.VISIBLE
-                newPasswordtextView.visibility = View.VISIBLE
+                if (forgotPasswordCodeEditText.text.toString() !=""){
+                    forgotPasswordCodeEditText.visibility = View.GONE
+                    forgotPasswordCodeButton.visibility = View.GONE
+                    forgotPasswordCodetextView.visibility = View.GONE
+                    newPasswordEditText.visibility = View.VISIBLE
+                    newPasswordButton.visibility = View.VISIBLE
+                    newPasswordtextView.visibility = View.VISIBLE
+                    val code = forgotPasswordCodeEditText.text.toString()
+                    viewModel.resetPasswordCode(code)
+                }
+                else{
+                    Toast.makeText(applicationContext, "Lütfen doğrulama kodunu girin", Toast.LENGTH_SHORT).show()
+                }
+
+
             }
+        }
+
+        viewModel.resetPasswordCode.observe(this){resetPasswordCodeResponse->
+
+            if(resetPasswordCodeResponse.isSuccessful){
+                if (resetPasswordCodeResponse.body()?.success == true){
+                    startActivity(Intent(this, MainActivity::class.java))
+                    finish()
+                }
+                else{
+                    Toast.makeText(this, resetPasswordCodeResponse.body()?.result, Toast.LENGTH_SHORT).show()
+                }
+            }
+
         }
 
         binding.apply {
@@ -73,7 +104,7 @@ class ForgotPasswordActivity : AppCompatActivity() {
                     Toast.makeText(this, resetPasswordResponse.body()?.result, Toast.LENGTH_SHORT).show()
                 }
             }
-
         }
+
     }
 }

@@ -15,3 +15,10 @@ data class ResetPassword(
       val password: String? = null
 
 )
+
+data class resetPasswordCode(
+
+      val result: String? = null,
+      val success: Boolean? = null,
+      val code: Boolean? = null
+)
