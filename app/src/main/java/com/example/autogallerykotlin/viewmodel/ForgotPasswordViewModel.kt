@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.autogallerykotlin.data.model.ForgotPassword
 import com.example.autogallerykotlin.data.model.ResetPassword
-import com.example.autogallerykotlin.data.model.resetPasswordCode
+import com.example.autogallerykotlin.data.model.ResetPasswordCode
 import com.example.autogallerykotlin.data.repository.ForgotPasswordRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -27,8 +27,8 @@ class ForgotPasswordViewModel @Inject constructor(
     val resetPassword: LiveData<Response<ResetPassword>>
         get() = _resetPassword
 
-    private val _resetPasswordCode = MutableLiveData<Response<resetPasswordCode>>()
-    val resetPasswordCode: LiveData<Response<resetPasswordCode>>
+    private val _resetPasswordCode = MutableLiveData<Response<ResetPasswordCode>>()
+    val resetPasswordCode: LiveData<Response<ResetPasswordCode>>
         get() = _resetPasswordCode
 
     fun forgotPasswordEmail(

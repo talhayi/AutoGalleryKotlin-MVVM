@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
-import com.example.autogallerykotlin.data.model.resetPasswordCode
 import com.example.autogallerykotlin.databinding.ActivityForgotPasswordBinding
 import com.example.autogallerykotlin.viewmodel.ForgotPasswordViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -22,51 +21,40 @@ class ForgotPasswordActivity : AppCompatActivity() {
         binding = ActivityForgotPasswordBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.apply {
-            forgotPasswordEmailButton.setOnClickListener {
 
-                if(forgotPasswordEditText.text.toString() != ""){
-
-                    forgotPasswordEditText.visibility = View.GONE
-                    forgotPasswordEmailButton.visibility = View.GONE
-                    forgotPasswordtextView.visibility = View.GONE
-                    forgotPasswordCodeEditText.visibility = View.VISIBLE
-                    forgotPasswordCodeButton.visibility = View.VISIBLE
-                    forgotPasswordCodetextView.visibility = View.VISIBLE
+            binding.forgotPasswordEmailButton.setOnClickListener {
 
                     val email = binding.forgotPasswordEditText.text.toString().trim()
 
                     viewModel.forgotPasswordEmail(email)
+            }
+
+        viewModel.forgotPasswordEmail.observe(this){forgotPasswordEmailResponse->
+
+            if (forgotPasswordEmailResponse.isSuccessful){
+
+                if(forgotPasswordEmailResponse.body()?.email != null){
+
+                    binding.apply {
+                        forgotPasswordEditText.visibility = View.GONE
+                        forgotPasswordEmailButton.visibility = View.GONE
+                        forgotPasswordtextView.visibility = View.GONE
+                        forgotPasswordCodeEditText.visibility = View.VISIBLE
+                        forgotPasswordCodeButton.visibility = View.VISIBLE
+                        forgotPasswordCodetextView.visibility = View.VISIBLE
+                    }
                 }
                 else{
-                    Toast.makeText(applicationContext, "Lütfen email adresinizi girin", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Doğru e mail adresini girdiğinizden emin olun", Toast.LENGTH_LONG).show()
                 }
-
-
-
             }
         }
-
-
 
         binding.apply {
             forgotPasswordCodeButton.setOnClickListener {
 
-                if (forgotPasswordCodeEditText.text.toString() !=""){
-                    forgotPasswordCodeEditText.visibility = View.GONE
-                    forgotPasswordCodeButton.visibility = View.GONE
-                    forgotPasswordCodetextView.visibility = View.GONE
-                    newPasswordEditText.visibility = View.VISIBLE
-                    newPasswordButton.visibility = View.VISIBLE
-                    newPasswordtextView.visibility = View.VISIBLE
                     val code = forgotPasswordCodeEditText.text.toString()
                     viewModel.resetPasswordCode(code)
-                }
-                else{
-                    Toast.makeText(applicationContext, "Lütfen doğrulama kodunu girin", Toast.LENGTH_SHORT).show()
-                }
-
-
             }
         }
 
@@ -74,14 +62,19 @@ class ForgotPasswordActivity : AppCompatActivity() {
 
             if(resetPasswordCodeResponse.isSuccessful){
                 if (resetPasswordCodeResponse.body()?.success == true){
-                    startActivity(Intent(this, MainActivity::class.java))
-                    finish()
+                   binding.apply {
+                       forgotPasswordCodeEditText.visibility = View.GONE
+                       forgotPasswordCodeButton.visibility = View.GONE
+                       forgotPasswordCodetextView.visibility = View.GONE
+                       newPasswordEditText.visibility = View.VISIBLE
+                       newPasswordButton.visibility = View.VISIBLE
+                       newPasswordtextView.visibility = View.VISIBLE
+                   }
                 }
                 else{
                     Toast.makeText(this, resetPasswordCodeResponse.body()?.result, Toast.LENGTH_SHORT).show()
                 }
             }
-
         }
 
         binding.apply {
@@ -105,6 +98,5 @@ class ForgotPasswordActivity : AppCompatActivity() {
                 }
             }
         }
-
     }
 }

@@ -47,5 +47,5 @@ interface ApiService {
     @POST("resetPasswordCode.php")
     suspend fun resetPasswordCode(
         @Field("code") code: String
-    ): Response<resetPasswordCode>
+    ): Response<ResetPasswordCode>
 }

@@ -16,7 +16,7 @@ data class ResetPassword(
 
 )
 
-data class resetPasswordCode(
+data class ResetPasswordCode(
 
       val result: String? = null,
       val success: Boolean? = null,
