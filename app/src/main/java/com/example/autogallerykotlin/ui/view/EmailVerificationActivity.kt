@@ -1,4 +1,4 @@
-package com.example.autogallerykotlin.view
+package com.example.autogallerykotlin.ui.view
 
 import android.content.Intent
 import android.os.Bundle

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item android:title="Adverts"
+        android:id="@+id/advertsFragment"
+        android:icon="@drawable/ic_home"
+        />
+
+    <item android:title="My Adverts"
+        android:id="@+id/myAdvertsFragment"
+        android:icon="@drawable/ic_my_advertises"
+        />
+
+    <item android:title=""
+        android:id="@+id/placeholder"
+
+        />
+
+    <item android:title="My Favorites"
+        android:id="@+id/myFavoritesFragment"
+        android:icon="@drawable/ic_my_favorites"
+        />
+
+    <item
+        android:icon="@drawable/ic_sign_out"
+        android:id="@+id/SignOut"
+        android:title="@string/signout" />
+
+</menu>

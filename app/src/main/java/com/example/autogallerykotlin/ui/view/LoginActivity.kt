@@ -1,4 +1,4 @@
-package com.example.autogallerykotlin.view
+package com.example.autogallerykotlin.ui.view
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import com.example.autogallerykotlin.databinding.ActivityLoginBinding
-import com.example.autogallerykotlin.util.Util.checkForInternet
 import com.example.autogallerykotlin.viewmodel.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
 

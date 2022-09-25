@@ -7,4 +7,6 @@
     <string name="forgot_password">Please enter your registered e-mail address. We will send the necessary information to your e-mail address.</string>
     <string name="forgot_password_code">Please enter the code sent to your e-mail.</string>
     <string name="new_password">Set your new password to use in your account..</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

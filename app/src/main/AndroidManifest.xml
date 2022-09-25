@@ -19,16 +19,16 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".view.ForgotPasswordActivity"
+            android:name="com.example.autogallerykotlin.ui.view.ForgotPasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".view.EmailVerificationActivity"
+            android:name="com.example.autogallerykotlin.ui.view.EmailVerificationActivity"
             android:exported="false" />
         <activity
-            android:name=".view.RegisterActivity"
+            android:name="com.example.autogallerykotlin.ui.view.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".view.LoginActivity"
+            android:name="com.example.autogallerykotlin.ui.view.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -37,7 +37,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".view.MainActivity"
+            android:name="com.example.autogallerykotlin.ui.view.MainActivity"
             android:exported="false" />
     </application>
 

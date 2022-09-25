@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/advertsFragment">
+
+    <fragment
+        android:id="@+id/advertsFragment"
+        android:name="com.example.autogallerykotlin.ui.fragment.AdvertsFragment"
+        android:label="fragment_adverts"
+        tools:layout="@layout/fragment_adverts" />
+    <fragment
+        android:id="@+id/myAdvertsFragment"
+        android:name="com.example.autogallerykotlin.ui.fragment.MyAdvertsFragment"
+        android:label="fragment_my_adverts"
+        tools:layout="@layout/fragment_my_adverts" />
+    <fragment
+        android:id="@+id/addAdvertiseFragment"
+        android:name="com.example.autogallerykotlin.ui.fragment.AddAdvertiseFragment"
+        android:label="fragment_add_advertise"
+        tools:layout="@layout/fragment_add_advertise" />
+    <fragment
+        android:id="@+id/myFavoritesFragment"
+        android:name="com.example.autogallerykotlin.ui.fragment.MyFavoritesFragment"
+        android:label="fragment_my_favorites"
+        tools:layout="@layout/fragment_my_favorites" />
+</navigation>
