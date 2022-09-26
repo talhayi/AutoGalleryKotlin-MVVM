@@ -4,23 +4,19 @@
 
     <item android:title="Adverts"
         android:id="@+id/advertsFragment"
-        android:icon="@drawable/ic_home"
-        />
+        android:icon="@drawable/ic_home"/>
 
     <item android:title="My Adverts"
         android:id="@+id/myAdvertsFragment"
-        android:icon="@drawable/ic_my_advertises"
-        />
+        android:icon="@drawable/ic_my_advertises"/>
 
     <item android:title=""
-        android:id="@+id/placeholder"
-
-        />
+        android:id="@+id/addAdvertiseFragment"
+        android:enabled="false"/>
 
     <item android:title="My Favorites"
         android:id="@+id/myFavoritesFragment"
-        android:icon="@drawable/ic_my_favorites"
-        />
+        android:icon="@drawable/ic_my_favorites"/>
 
     <item
         android:icon="@drawable/ic_sign_out"

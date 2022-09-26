@@ -36,9 +36,12 @@ class LoginActivity : AppCompatActivity() {
                     editor.putString("users_id", loginResponse.body()?.id.toString())
                     editor.putString("users_email", loginResponse.body()?.email.toString())
                     editor.apply()
+                    editor.clear()
 
                     startActivity(Intent(this, MainActivity::class.java))
                     finish()
+
+
                 }
                 else {
                     Toast.makeText(this, loginResponse.body()?.result, Toast.LENGTH_SHORT).show()
@@ -55,6 +58,7 @@ class LoginActivity : AppCompatActivity() {
             val password = binding.loginPasswordEditText.text.toString().trim()
 
             viewModel.login(email, password)
+
                    /*
             if (checkForInternet(this)) {
 
