@@ -18,9 +18,10 @@
         android:id="@+id/myFavoritesFragment"
         android:icon="@drawable/ic_my_favorites"/>
 
-    <item
-        android:icon="@drawable/ic_sign_out"
-        android:id="@+id/SignOut"
-        android:title="@string/signout" />
+    <item android:title="Settings"
+        android:id="@+id/settings"
+        android:icon="@drawable/ic_settings"/>
+
+
 
 </menu>

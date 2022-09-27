@@ -4,6 +4,8 @@ package com.example.autogallerykotlin.ui.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
@@ -31,22 +33,32 @@ class MainActivity : AppCompatActivity() {
 
         val bottomNavigationView = binding.bottomNavigationView
         setupWithNavController(bottomNavigationView, navController)
+    }
 
-        binding.bottomNavigationView.setOnItemSelectedListener {
 
-            when (it.itemId) {
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 
-                R.id.SignOut -> {
-                    val sharedPreferences = getSharedPreferences("login", MODE_PRIVATE)
-                    val editor = sharedPreferences.edit()
-                    sharedPreferences.getString("users_id", null)
-                    editor.clear()
-                    editor.apply()
+        val inflater = menuInflater
+        inflater.inflate(R.menu.menu,menu)
+        return true
+    }
 
-                    startActivity(Intent(this, LoginActivity::class.java))
-                }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        return when(item.itemId){
+            R.id.SignOut->{
+                val sharedPreferences = getSharedPreferences("login", MODE_PRIVATE)
+                val editor = sharedPreferences.edit()
+                sharedPreferences.getString("users_id",null)
+                editor.clear()
+                editor.apply()
+
+                startActivity(Intent(this, LoginActivity::class.java))
+                true
             }
-            true
+            else->{
+                super.onOptionsItemSelected(item)
+            }
         }
     }
 }
