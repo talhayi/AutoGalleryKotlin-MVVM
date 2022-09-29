@@ -17,16 +17,16 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="16dp"
-            android:text="Temel Bilgileri giriniz"
+            android:text="Gerekli Olan Bilgileri Giriniz"
             android:textColor="@color/text_color"
-            android:textSize="30sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
-            android:id="@+id/ilanBasliğiLinearLayout"
+            android:id="@+id/advertiseTitleLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
@@ -36,7 +36,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView">
 
             <TextView
-                android:id="@+id/ilanBaslikTextView"
+                android:id="@+id/advertiseTitleTextView0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -46,7 +46,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/ilanBaslikTextView2"
+                android:id="@+id/advertiseTitleTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -57,17 +57,17 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/aciklamaLinearLayout"
+            android:id="@+id/explanationLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ilanBasliğiLinearLayout">
+            app:layout_constraintTop_toBottomOf="@+id/advertiseTitleLinearLayout">
 
             <TextView
-                android:id="@+id/ilanBaslikTextView3"
+                android:id="@+id/explanationTextView0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -77,7 +77,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/ilanBaslikTextView4"
+                android:id="@+id/explanationTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -88,17 +88,17 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/fiyatLinearLayout"
+            android:id="@+id/priceLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/aciklamaLinearLayout">
+            app:layout_constraintTop_toBottomOf="@+id/explanationLinearLayout">
 
             <TextView
-                android:id="@+id/ilanBaslikTextView23s3"
+                android:id="@+id/priceTextView0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -108,7 +108,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/ilanBaslikTextView4rw"
+                android:id="@+id/priceTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -118,17 +118,17 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/adresLinearLayout"
+            android:id="@+id/addressLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/fiyatLinearLayout">
+            app:layout_constraintTop_toBottomOf="@+id/priceLinearLayout">
 
             <TextView
-                android:id="@+id/ilanBaslikTextViewew3"
+                android:id="@+id/addressTextView0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -138,7 +138,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/ilanBaslikTextViewew"
+                android:id="@+id/addressTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -148,17 +148,17 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/markaLinearLayout"
+            android:id="@+id/brandLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/adresLinearLayout">
+            app:layout_constraintTop_toBottomOf="@+id/addressLinearLayout">
 
             <TextView
-                android:id="@+id/ilanBaslikTexewtViewew3"
+                android:id="@+id/brandTextView0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -168,7 +168,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/ilanBaslikTextVewiew4"
+                android:id="@+id/brandTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -178,17 +178,17 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/seriLinearLayout"
+            android:id="@+id/serialLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/markaLinearLayout">
+            app:layout_constraintTop_toBottomOf="@+id/brandLinearLayout">
 
             <TextView
-                android:id="@+id/ilanBaslikTextV23iew3"
+                android:id="@+id/serialTextView0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -198,7 +198,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/ilanBaslikTextViewrew4"
+                android:id="@+id/serialTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -215,10 +215,10 @@
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/seriLinearLayout">
+            app:layout_constraintTop_toBottomOf="@+id/serialLinearLayout">
 
             <TextView
-                android:id="@+id/ilanBaslikTeewqxtView3"
+                android:id="@+id/modelTextView0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -228,7 +228,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/ilanBaslikTexwertView4"
+                android:id="@+id/modelTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -238,7 +238,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/yilLinearLayout"
+            android:id="@+id/yearLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
@@ -248,7 +248,7 @@
             app:layout_constraintTop_toBottomOf="@+id/modelLinearLayout">
 
             <TextView
-                android:id="@+id/ilanBaslikTexwerwtView3"
+                android:id="@+id/yearTextView0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -258,7 +258,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/ilanBaslikTexw2ertView4"
+                android:id="@+id/yearTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -268,17 +268,17 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/yakitLinearLayout"
+            android:id="@+id/fuelLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/yilLinearLayout">
+            app:layout_constraintTop_toBottomOf="@+id/yearLinearLayout">
 
             <TextView
-                android:id="@+id/ilanBaslwerwikTextView3"
+                android:id="@+id/fuelTextView0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -288,7 +288,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/ilanBaslwerewikTextView4"
+                android:id="@+id/fuelTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -298,17 +298,17 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/vitesLinearLayout"
+            android:id="@+id/gearLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/yakitLinearLayout">
+            app:layout_constraintTop_toBottomOf="@+id/fuelLinearLayout">
 
             <TextView
-                android:id="@+id/ilanBasliwerewrkTextView3"
+                android:id="@+id/gearTextView0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -318,7 +318,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/ilanBaslikewrTextView4"
+                android:id="@+id/gearTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -328,17 +328,17 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/aracDurumuLinearLayout"
+            android:id="@+id/vehicleStatusLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/vitesLinearLayout">
+            app:layout_constraintTop_toBottomOf="@+id/gearLinearLayout">
 
             <TextView
-                android:id="@+id/ilanBaslewrweikTextView3"
+                android:id="@+id/vehicleStatusTextView0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -348,7 +348,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/ilanBaslikTwerextView4"
+                android:id="@+id/vehicleStatusTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -365,10 +365,10 @@
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/aracDurumuLinearLayout">
+            app:layout_constraintTop_toBottomOf="@+id/vehicleStatusLinearLayout">
 
             <TextView
-                android:id="@+id/ilanBaslsdikTextView3"
+                android:id="@+id/kmTextView0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -378,7 +378,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/ilanBaslikTsadextView4"
+                android:id="@+id/kmTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -388,7 +388,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/kasaTipiLinearLayout"
+            android:id="@+id/caseTypeLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
@@ -398,7 +398,7 @@
             app:layout_constraintTop_toBottomOf="@+id/kmLinearLayout">
 
             <TextView
-                android:id="@+id/ilanBdsfaslikTextView3"
+                android:id="@+id/caseTypeTextView0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -408,7 +408,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/ilanBsdaslikTextView4"
+                android:id="@+id/caseTypeTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -418,17 +418,17 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/motorGücüLinearLayout"
+            android:id="@+id/motorPowerLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/kasaTipiLinearLayout">
+            app:layout_constraintTop_toBottomOf="@+id/caseTypeLinearLayout">
 
             <TextView
-                android:id="@+id/ilanBaslikTexasdtView3"
+                android:id="@+id/motorPowerTextView0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -438,7 +438,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/ilanBdsfaslikTextView4"
+                android:id="@+id/motorPowerTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -448,17 +448,17 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/motorHacmiLinearLayout"
+            android:id="@+id/motorCapacityLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/motorGücüLinearLayout">
+            app:layout_constraintTop_toBottomOf="@+id/motorPowerLinearLayout">
 
             <TextView
-                android:id="@+id/ilanBaslikTextVewweiew3"
+                android:id="@+id/motorCapacityTextView0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -468,7 +468,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/ilanBaslikTewqewqextView4"
+                android:id="@+id/motorCapacityTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -478,17 +478,17 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/cekisLinearLayout"
+            android:id="@+id/tractionLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/motorHacmiLinearLayout">
+            app:layout_constraintTop_toBottomOf="@+id/motorCapacityLinearLayout">
 
             <TextView
-                android:id="@+id/ilanwqeBaslikTextView3"
+                android:id="@+id/tractionTextView0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -498,7 +498,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/iewrlanBaslikTextView4"
+                android:id="@+id/tractionTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -508,17 +508,17 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/renkLinearLayout"
+            android:id="@+id/colorLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cekisLinearLayout">
+            app:layout_constraintTop_toBottomOf="@+id/tractionLinearLayout">
 
             <TextView
-                android:id="@+id/ilanBaslik23TextView3"
+                android:id="@+id/colorTextView0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -528,7 +528,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/ilandsfBaslikTextView4"
+                android:id="@+id/colorTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -538,17 +538,17 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/garantiLinearLayout"
+            android:id="@+id/guaranteeLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/renkLinearLayout">
+            app:layout_constraintTop_toBottomOf="@+id/colorLinearLayout">
 
             <TextView
-                android:id="@+id/ilanwBaslikTextView3"
+                android:id="@+id/guaranteeTextView0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -558,7 +558,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/ilanBaslikTextVidsfeew4"
+                android:id="@+id/guaranteeTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -568,17 +568,17 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/takasliLinearLayout"
+            android:id="@+id/swapLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/garantiLinearLayout">
+            app:layout_constraintTop_toBottomOf="@+id/guaranteeLinearLayout">
 
             <TextView
-                android:id="@+id/ilanBawqeqwerslikTextView3"
+                android:id="@+id/swapTextView0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -588,7 +588,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/ilanBaslikTextVidasew4"
+                android:id="@+id/swapTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -597,10 +597,54 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/phoneNumberLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/swapLinearLayout">
 
+            <TextView
+                android:id="@+id/phoneNumberTextView0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="Phone Number *"
+                android:textColor="@color/text_color"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
+            <TextView
+                android:id="@+id/phoneNumberTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:textColor="@color/text_color"
+                android:textSize="14sp" />
 
+        </LinearLayout>
 
+        <Button
+            android:id="@+id/registerButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="48dp"
+
+            android:background="@drawable/background_button"
+            android:backgroundTint="@color/primary_color"
+            android:text="Sıgn Up"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/phoneNumberLinearLayout" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
