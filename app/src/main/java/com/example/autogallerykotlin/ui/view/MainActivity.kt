@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
@@ -33,6 +35,23 @@ class MainActivity : AppCompatActivity() {
 
         val bottomNavigationView = binding.bottomNavigationView
         setupWithNavController(bottomNavigationView, navController)
+
+        binding.addAdvertiseFAB.setOnClickListener {
+
+            val addAdvertiseFragment = AddAdvertiseFragment()
+            val fragment : Fragment? = supportFragmentManager.findFragmentByTag(addAdvertiseFragment::class.java.simpleName)
+
+            if(fragment !is AddAdvertiseFragment){
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.fragmentContainerView, addAdvertiseFragment, AddAdvertiseFragment::class.java.simpleName )
+                    .commit()
+            }
+
+            binding.bottomNavigationView.visibility = View.GONE
+            binding.navigationBottomBar.visibility = View.GONE
+            binding.addAdvertiseFAB.visibility = View.GONE
+
+        }
     }
 
 

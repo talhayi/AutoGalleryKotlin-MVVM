@@ -19,7 +19,11 @@
         android:id="@+id/addAdvertiseFragment"
         android:name="com.example.autogallerykotlin.ui.fragment.AddAdvertiseFragment"
         android:label="fragment_add_advertise"
-        tools:layout="@layout/fragment_add_advertise" />
+        tools:layout="@layout/fragment_add_advertise" >
+        <action
+            android:id="@+id/action_addAdvertiseFragment_to_advertsFragment"
+            app:destination="@id/advertsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/myFavoritesFragment"
         android:name="com.example.autogallerykotlin.ui.fragment.MyFavoritesFragment"
