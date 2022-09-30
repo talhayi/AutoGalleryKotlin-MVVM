@@ -40,6 +40,22 @@ class AddAdvertiseFragment : Fragment() {
         serial()
         model()
         year()
+        fuel()
+        gear()
+        vehicleStatus()
+        km()/*
+        caseType()
+        motorPower()
+        motorCapacity()
+        traction()
+        color()
+        guarantee()
+        swap()
+        phoneNumber()*/
+
+
+
+
 
 
 
@@ -206,7 +222,7 @@ class AddAdvertiseFragment : Fragment() {
         binding.yearLinearLayout.setOnClickListener {
 
             val mDialogView = LayoutInflater.from(requireContext())
-                .inflate(R.layout.year_alert_dialog, null)
+                .inflate(R.layout.number_alert_dialog, null)
 
             alertDialog = AlertDialog.Builder(requireContext()).setView(mDialogView)
 
@@ -215,7 +231,7 @@ class AddAdvertiseFragment : Fragment() {
             alertDialog.setPositiveButton("TAMAM") { _, _ ->
 
                 val explanationDialog =
-                    mDialogView.findViewById<EditText>(R.id.yearAlertDialogEditText).text.toString()
+                    mDialogView.findViewById<EditText>(R.id.numberAlertDialogEditText).text.toString()
                         .trim()
 
                 binding.yearTextView.text = explanationDialog
@@ -224,5 +240,39 @@ class AddAdvertiseFragment : Fragment() {
 
         }
     }
+    private fun fuel(){
+    //todo radioButton or spinner
+    }
+
+    private fun gear(){
+        //todo radioButton or spinner
+    }
+
+    private fun vehicleStatus(){
+        //todo radioButton or spinner
+    }
+    private fun km(){
+        binding.kmLinearLayout.setOnClickListener {
+
+            val mDialogView = LayoutInflater.from(requireContext())
+                .inflate(R.layout.number_alert_dialog, null)
+
+            alertDialog = AlertDialog.Builder(requireContext()).setView(mDialogView)
+
+            alertDialog.setNegativeButton("İPTAL") { _, _ -> }
+
+            alertDialog.setPositiveButton("TAMAM") { _, _ ->
+
+                val explanationDialog =
+                    mDialogView.findViewById<EditText>(R.id.numberAlertDialogEditText).text.toString()
+                        .trim()
+
+                binding.kmTextView.text = "$explanationDialog KM"
+            }
+            alertDialog.show()
+
+        }
+    }
+
 }
 
