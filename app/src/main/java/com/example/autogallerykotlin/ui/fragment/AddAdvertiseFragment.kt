@@ -43,9 +43,9 @@ class AddAdvertiseFragment : Fragment() {
         fuel()
         gear()
         vehicleStatus()
-        km()/*
+        km()
         caseType()
-        motorPower()
+        /*motorPower()
         motorCapacity()
         traction()
         color()
@@ -226,6 +226,8 @@ class AddAdvertiseFragment : Fragment() {
 
             alertDialog = AlertDialog.Builder(requireContext()).setView(mDialogView)
 
+            mDialogView.findViewById<TextView>(R.id.textView).text = "Yıl"
+
             alertDialog.setNegativeButton("İPTAL") { _, _ -> }
 
             alertDialog.setPositiveButton("TAMAM") { _, _ ->
@@ -252,12 +254,15 @@ class AddAdvertiseFragment : Fragment() {
         //todo radioButton or spinner
     }
     private fun km(){
+
         binding.kmLinearLayout.setOnClickListener {
 
             val mDialogView = LayoutInflater.from(requireContext())
                 .inflate(R.layout.number_alert_dialog, null)
 
             alertDialog = AlertDialog.Builder(requireContext()).setView(mDialogView)
+
+            mDialogView.findViewById<TextView>(R.id.textView).text = "KM"
 
             alertDialog.setNegativeButton("İPTAL") { _, _ -> }
 
@@ -268,6 +273,29 @@ class AddAdvertiseFragment : Fragment() {
                         .trim()
 
                 binding.kmTextView.text = "$explanationDialog KM"
+            }
+            alertDialog.show()
+
+        }
+    }
+
+    private fun caseType(){
+        binding.caseTypeLinearLayout.setOnClickListener {
+
+            val mDialogView = LayoutInflater.from(requireContext())
+                .inflate(R.layout.one_edit_text_alert_dialog, null)
+
+            alertDialog = AlertDialog.Builder(requireContext()).setView(mDialogView)
+
+            alertDialog.setNegativeButton("İPTAL") { _, _ -> }
+
+            alertDialog.setPositiveButton("TAMAM") { _, _ ->
+
+                val explanationDialog =
+                    mDialogView.findViewById<EditText>(R.id.alertDialogOneEditText).text.toString()
+                        .trim()
+
+                binding.caseTypeTextView.text = explanationDialog
             }
             alertDialog.show()
 
