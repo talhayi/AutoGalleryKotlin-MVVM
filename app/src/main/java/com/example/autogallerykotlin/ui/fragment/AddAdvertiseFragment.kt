@@ -39,6 +39,7 @@ class AddAdvertiseFragment : Fragment() {
         brand()
         serial()
         model()
+        year()
 
 
 
@@ -198,6 +199,29 @@ class AddAdvertiseFragment : Fragment() {
                 binding.modelTextView.text = explanationDialog
             }
             alertDialog.show()
+        }
+    }
+
+    private fun year(){
+        binding.yearLinearLayout.setOnClickListener {
+
+            val mDialogView = LayoutInflater.from(requireContext())
+                .inflate(R.layout.year_alert_dialog, null)
+
+            alertDialog = AlertDialog.Builder(requireContext()).setView(mDialogView)
+
+            alertDialog.setNegativeButton("İPTAL") { _, _ -> }
+
+            alertDialog.setPositiveButton("TAMAM") { _, _ ->
+
+                val explanationDialog =
+                    mDialogView.findViewById<EditText>(R.id.yearAlertDialogEditText).text.toString()
+                        .trim()
+
+                binding.yearTextView.text = explanationDialog
+            }
+            alertDialog.show()
+
         }
     }
 }
