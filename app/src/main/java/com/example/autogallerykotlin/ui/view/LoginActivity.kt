@@ -58,6 +58,7 @@ class LoginActivity : AppCompatActivity() {
             val password = binding.loginPasswordEditText.text.toString().trim()
 
             viewModel.login(email, password)
+            finish()
 
                    /*
             if (checkForInternet(this)) {

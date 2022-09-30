@@ -1,5 +1,6 @@
 package com.example.autogallerykotlin.ui.fragment
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -31,28 +32,9 @@ class AddAdvertiseFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        advertiseTitle()
+        explanation()
 
-
-        binding.advertiseTitleLinearLayout.setOnClickListener {
-
-            val mDialogView = LayoutInflater.from(requireContext())
-                .inflate(R.layout.advertise_title_alert_dialog, null)
-            alertDialog = AlertDialog.Builder(requireContext()).setView(mDialogView)
-
-            alertDialog.setNegativeButton("İPTAL") { _, _ -> }
-
-            alertDialog.setPositiveButton("TAMAM") { _, _ ->
-
-                val advertiseTitleDialog =
-                    mDialogView.findViewById<EditText>(R.id.advertiseTitleDialogEditText).text.toString()
-                        .trim()
-                binding.advertiseTitleTextView.text = advertiseTitleDialog
-
-            }
-
-            alertDialog.show()
-
-        }
 
 /*
         binding.addAdvertiseButton.setOnClickListener {
@@ -61,8 +43,6 @@ class AddAdvertiseFragment : Fragment() {
                 val intent = Intent (it, MainActivity::class.java)
                 it.startActivity(intent)
             }
-*/
-/*
 
             val action = AddAdvertiseFragmentDirections.actionAddAdvertiseFragmentToAdvertsFragment()
             Navigation.findNavController(view).navigate(action)
@@ -70,5 +50,49 @@ class AddAdvertiseFragment : Fragment() {
 
     }
 
+    private fun advertiseTitle() {
+        binding.advertiseTitleLinearLayout.setOnClickListener {
+
+            val mDialogView = LayoutInflater.from(requireContext())
+                .inflate(R.layout.one_edit_text_alert_dialog, null)
+            alertDialog = AlertDialog.Builder(requireContext()).setView(mDialogView)
+
+            alertDialog.setNegativeButton("İPTAL") { _, _ -> }
+
+            alertDialog.setPositiveButton("TAMAM") { _, _ ->
+
+                val advertiseTitleDialog =
+                    mDialogView.findViewById<EditText>(R.id.alertDialogOneEditText).text.toString()
+                        .trim()
+                binding.advertiseTitleTextView.text = advertiseTitleDialog
+            }
+            alertDialog.show()
+        }
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun explanation() {
+        binding.explanationLinearLayout.setOnClickListener {
+
+            val mDialogView = LayoutInflater.from(requireContext())
+                .inflate(R.layout.one_edit_text_alert_dialog, null)
+
+            alertDialog = AlertDialog.Builder(requireContext()).setView(mDialogView)
+
+            mDialogView.findViewById<TextView>(R.id.textView).text = "Açıklama"
+
+            alertDialog.setNegativeButton("İPTAL") { _, _ -> }
+
+            alertDialog.setPositiveButton("TAMAM") { _, _ ->
+
+                val explanationDialog =
+                    mDialogView.findViewById<EditText>(R.id.alertDialogOneEditText).text.toString()
+                        .trim()
+
+                binding.explanationTextView.text = explanationDialog
+            }
+            alertDialog.show()
+        }
+    }
 }
 
