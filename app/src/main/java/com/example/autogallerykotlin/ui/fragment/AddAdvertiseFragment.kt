@@ -46,9 +46,8 @@ class AddAdvertiseFragment : Fragment() {
         km()
         caseType()
         motorPower()
-        /*
         motorCapacity()
-        traction()
+        /*traction()
         color()
         guarantee()
         swap()
@@ -324,6 +323,31 @@ class AddAdvertiseFragment : Fragment() {
                         .trim()
 
                 binding.motorPowerTextView.text = explanationDialog
+            }
+            alertDialog.show()
+
+        }
+    }
+
+    private fun motorCapacity(){
+        binding.motorCapacityLinearLayout.setOnClickListener {
+
+            val mDialogView = LayoutInflater.from(requireContext())
+                .inflate(R.layout.one_edit_text_alert_dialog, null)
+
+            alertDialog = AlertDialog.Builder(requireContext()).setView(mDialogView)
+
+            mDialogView.findViewById<TextView>(R.id.textView).text = "Motor Hacmi"
+
+            alertDialog.setNegativeButton("İPTAL") { _, _ -> }
+
+            alertDialog.setPositiveButton("TAMAM") { _, _ ->
+
+                val explanationDialog =
+                    mDialogView.findViewById<EditText>(R.id.alertDialogOneEditText).text.toString()
+                        .trim()
+
+                binding.motorCapacityTextView.text = explanationDialog
             }
             alertDialog.show()
 
