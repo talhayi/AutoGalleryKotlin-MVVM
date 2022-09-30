@@ -38,6 +38,7 @@ class AddAdvertiseFragment : Fragment() {
         address()
         brand()
         serial()
+        model()
 
 
 
@@ -175,5 +176,29 @@ class AddAdvertiseFragment : Fragment() {
         }
     }
 
+    private fun model(){
+
+        binding.modelLinearLayout.setOnClickListener {
+
+            val mDialogView = LayoutInflater.from(requireContext())
+                .inflate(R.layout.one_edit_text_alert_dialog, null)
+
+            alertDialog = AlertDialog.Builder(requireContext()).setView(mDialogView)
+
+            mDialogView.findViewById<TextView>(R.id.textView).text = "Model"
+
+            alertDialog.setNegativeButton("İPTAL") { _, _ -> }
+
+            alertDialog.setPositiveButton("TAMAM") { _, _ ->
+
+                val explanationDialog =
+                    mDialogView.findViewById<EditText>(R.id.alertDialogOneEditText).text.toString()
+                        .trim()
+
+                binding.modelTextView.text = explanationDialog
+            }
+            alertDialog.show()
+        }
+    }
 }
 
