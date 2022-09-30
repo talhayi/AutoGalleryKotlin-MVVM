@@ -34,6 +34,7 @@ class AddAdvertiseFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         advertiseTitle()
         explanation()
+        price()
 
 
 /*
@@ -90,6 +91,29 @@ class AddAdvertiseFragment : Fragment() {
                         .trim()
 
                 binding.explanationTextView.text = explanationDialog
+            }
+            alertDialog.show()
+        }
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun price() {
+        binding.priceLinearLayout.setOnClickListener {
+
+            val mDialogView = LayoutInflater.from(requireContext())
+                .inflate(R.layout.price_alert_dialog, null)
+
+            alertDialog = AlertDialog.Builder(requireContext()).setView(mDialogView)
+
+            alertDialog.setNegativeButton("İPTAL") { _, _ -> }
+
+            alertDialog.setPositiveButton("TAMAM") { _, _ ->
+
+                val explanationDialog =
+                    mDialogView.findViewById<EditText>(R.id.priceAlertDialogEditText).text.toString()
+                        .trim()
+
+                binding.priceTextView.text = "$explanationDialog TL"
             }
             alertDialog.show()
         }
