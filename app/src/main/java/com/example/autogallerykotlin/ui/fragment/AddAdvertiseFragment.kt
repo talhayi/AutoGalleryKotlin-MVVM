@@ -3,14 +3,16 @@ package com.example.autogallerykotlin.ui.fragment
 import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import com.example.autogallerykotlin.R
 import com.example.autogallerykotlin.databinding.FragmentAddAdvertiseBinding
+
+
 @SuppressLint("SetTextI18n")
 class AddAdvertiseFragment : Fragment() {
 
@@ -47,11 +49,11 @@ class AddAdvertiseFragment : Fragment() {
         caseType()
         motorPower()
         motorCapacity()
-        /*traction()
+        traction()
         color()
         guarantee()
         swap()
-        phoneNumber()*/
+        phoneNumber()
 
 
 
@@ -354,5 +356,42 @@ class AddAdvertiseFragment : Fragment() {
         }
     }
 
+    private fun traction(){
+        //todo radioButton or spinner
+    }
+    private fun color(){
+        //todo radioButton or spinner
+    }
+    private fun guarantee(){
+        //todo radioButton or spinner
+    }
+    private fun swap(){
+        //todo radioButton or spinner
+    }
+
+    private fun phoneNumber(){
+
+        binding.phoneNumberLinearLayout.setOnClickListener {
+
+            val mDialogView = LayoutInflater.from(requireContext())
+                .inflate(R.layout.phone_number_alert_dialog, null)
+
+            alertDialog = AlertDialog.Builder(requireContext()).setView(mDialogView)
+
+            alertDialog.setNegativeButton("İPTAL") { _, _ -> }
+
+            alertDialog.setPositiveButton("TAMAM") { _, _ ->
+
+                val explanationDialog =
+                    mDialogView.findViewById<EditText>(R.id.phoneNumberAlertDialogEditText).text.toString()
+                        .trim()
+
+                binding.phoneNumberTextView.text = explanationDialog
+
+            }
+            alertDialog.show()
+
+        }
+    }
 }
 
