@@ -45,7 +45,8 @@ class AddAdvertiseFragment : Fragment() {
         vehicleStatus()
         km()
         caseType()
-        /*motorPower()
+        motorPower()
+        /*
         motorCapacity()
         traction()
         color()
@@ -287,6 +288,8 @@ class AddAdvertiseFragment : Fragment() {
 
             alertDialog = AlertDialog.Builder(requireContext()).setView(mDialogView)
 
+            mDialogView.findViewById<TextView>(R.id.textView).text = "Kasa Tipi"
+
             alertDialog.setNegativeButton("İPTAL") { _, _ -> }
 
             alertDialog.setPositiveButton("TAMAM") { _, _ ->
@@ -296,6 +299,31 @@ class AddAdvertiseFragment : Fragment() {
                         .trim()
 
                 binding.caseTypeTextView.text = explanationDialog
+            }
+            alertDialog.show()
+
+        }
+    }
+
+    private fun motorPower(){
+        binding.motorPowerLinearLayout.setOnClickListener {
+
+            val mDialogView = LayoutInflater.from(requireContext())
+                .inflate(R.layout.one_edit_text_alert_dialog, null)
+
+            alertDialog = AlertDialog.Builder(requireContext()).setView(mDialogView)
+
+            mDialogView.findViewById<TextView>(R.id.textView).text = "Motor Gücü"
+
+            alertDialog.setNegativeButton("İPTAL") { _, _ -> }
+
+            alertDialog.setPositiveButton("TAMAM") { _, _ ->
+
+                val explanationDialog =
+                    mDialogView.findViewById<EditText>(R.id.alertDialogOneEditText).text.toString()
+                        .trim()
+
+                binding.motorPowerTextView.text = explanationDialog
             }
             alertDialog.show()
 
