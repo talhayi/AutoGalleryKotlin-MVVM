@@ -11,7 +11,7 @@ import android.widget.EditText
 import android.widget.TextView
 import com.example.autogallerykotlin.R
 import com.example.autogallerykotlin.databinding.FragmentAddAdvertiseBinding
-
+@SuppressLint("SetTextI18n")
 class AddAdvertiseFragment : Fragment() {
 
     private var _binding: FragmentAddAdvertiseBinding? = null
@@ -35,6 +35,9 @@ class AddAdvertiseFragment : Fragment() {
         advertiseTitle()
         explanation()
         price()
+        address()
+        brand()
+
 
 
 /*
@@ -71,7 +74,7 @@ class AddAdvertiseFragment : Fragment() {
         }
     }
 
-    @SuppressLint("SetTextI18n")
+
     private fun explanation() {
         binding.explanationLinearLayout.setOnClickListener {
 
@@ -96,7 +99,6 @@ class AddAdvertiseFragment : Fragment() {
         }
     }
 
-    @SuppressLint("SetTextI18n")
     private fun price() {
         binding.priceLinearLayout.setOnClickListener {
 
@@ -118,5 +120,35 @@ class AddAdvertiseFragment : Fragment() {
             alertDialog.show()
         }
     }
+
+    private fun address(){
+        //TODO ADRES EKELENECEK
+    }
+
+    private fun brand(){
+        binding.brandLinearLayout.setOnClickListener {
+
+            val mDialogView = LayoutInflater.from(requireContext())
+                .inflate(R.layout.one_edit_text_alert_dialog, null)
+
+            alertDialog = AlertDialog.Builder(requireContext()).setView(mDialogView)
+
+            mDialogView.findViewById<TextView>(R.id.textView).text = "Marka"
+
+            alertDialog.setNegativeButton("İPTAL") { _, _ -> }
+
+            alertDialog.setPositiveButton("TAMAM") { _, _ ->
+
+                val explanationDialog =
+                    mDialogView.findViewById<EditText>(R.id.alertDialogOneEditText).text.toString()
+                        .trim()
+
+                binding.brandTextView.text = explanationDialog
+            }
+            alertDialog.show()
+        }
+    }
+
+
 }
 
