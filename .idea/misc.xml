@@ -12,6 +12,7 @@
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/AutoGalleryKotlin/app/src/main/res/drawable/background_alert_dialog.xml" value="0.2075" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/AutoGalleryKotlin/app/src/main/res/drawable/background_button.xml" value="0.2555" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/AutoGalleryKotlin/app/src/main/res/drawable/background_edittext.xml" value="0.2515" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/AutoGalleryKotlin/app/src/main/res/drawable/background_textinput.xml" value="0.2075" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/AutoGalleryKotlin/app/src/main/res/drawable/ic_add_advertise.xml" value="0.152" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/AutoGalleryKotlin/app/src/main/res/drawable/ic_email.xml" value="0.2515" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/AutoGalleryKotlin/app/src/main/res/drawable/ic_home.xml" value="0.152" />
@@ -28,6 +29,7 @@
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/AutoGalleryKotlin/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/AutoGalleryKotlin/app/src/main/res/layout/activity_register.xml" value="0.25" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/AutoGalleryKotlin/app/src/main/res/layout/activity_verification.xml" value="0.25" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/AutoGalleryKotlin/app/src/main/res/layout/address_alert_dialog.xml" value="0.25" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/AutoGalleryKotlin/app/src/main/res/layout/advertise_title_alert_dialog.xml" value="0.37447916666666664" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/AutoGalleryKotlin/app/src/main/res/layout/fragment_add_advertise.xml" value="0.2722772277227723" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/AutoGalleryKotlin/app/src/main/res/layout/fragment_adverts.xml" value="0.37447916666666664" />

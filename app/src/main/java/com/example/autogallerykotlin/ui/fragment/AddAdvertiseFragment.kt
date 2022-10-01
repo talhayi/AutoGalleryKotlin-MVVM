@@ -11,6 +11,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.autogallerykotlin.R
 import com.example.autogallerykotlin.databinding.FragmentAddAdvertiseBinding
+import com.google.android.material.textfield.TextInputEditText
 
 
 @SuppressLint("SetTextI18n")
@@ -143,7 +144,25 @@ class AddAdvertiseFragment : Fragment() {
     }
 
     private fun address(){
-        //TODO ADRES EKELENECEK
+        binding.addressLinearLayout.setOnClickListener {
+
+            val mDialogView = LayoutInflater.from(requireContext())
+                .inflate(R.layout.address_alert_dialog, null)
+
+            alertDialog = AlertDialog.Builder(requireContext()).setView(mDialogView)
+
+            alertDialog.setNegativeButton("İPTAL") { _, _ -> }
+
+            alertDialog.setPositiveButton("TAMAM") { _, _ ->
+
+                val city = mDialogView.findViewById<TextInputEditText>(R.id.alertDialogCityEditDText).text.toString().trim()
+                val district = mDialogView.findViewById<TextInputEditText>(R.id.alertDialogDistrictEditText).text.toString().trim()
+                val neighborhood = mDialogView.findViewById<TextInputEditText>(R.id.alertDialogNeighborhoodEditText).text.toString().trim()
+
+                binding.addressTextView.text = "$city / $district / $neighborhood"
+            }
+            alertDialog.show()
+        }
     }
 
     private fun brand(){
