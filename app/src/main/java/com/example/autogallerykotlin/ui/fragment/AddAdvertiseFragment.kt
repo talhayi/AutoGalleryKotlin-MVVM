@@ -473,7 +473,30 @@ class AddAdvertiseFragment : Fragment() {
         //todo radioButton or spinner
     }
     private fun guarantee(){
-        //todo radioButton or spinner
+        binding.guaranteeLinearLayout.setOnClickListener {
+
+            val guarantees = resources.getStringArray(R.array.guarantees)
+            val arrayAdapter = ArrayAdapter(requireContext(), R.layout.dropdown_item, guarantees)
+
+            val mDialogView = LayoutInflater.from(requireContext())
+                .inflate(R.layout.guatantee_alert_dialog, null)
+
+            alertDialog = AlertDialog.Builder(requireContext()).setView(mDialogView)
+
+            mDialogView.findViewById<AutoCompleteTextView>(R.id.autoCompleteGuaranteeTextView)
+                .setAdapter(arrayAdapter)
+
+            alertDialog.setNegativeButton("İPTAL") { _, _ -> }
+
+            alertDialog.setPositiveButton("TAMAM") { _, _ ->
+
+                val vehicleStatusDialog =
+                    mDialogView.findViewById<AutoCompleteTextView>(R.id.autoCompleteGuaranteeTextView).text.toString()
+
+                binding.guaranteeTextView.text = vehicleStatusDialog
+            }
+            alertDialog.show()
+        }
     }
     private fun swap(){
         //todo radioButton or spinner
