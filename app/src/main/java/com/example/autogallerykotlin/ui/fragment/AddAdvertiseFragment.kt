@@ -499,7 +499,31 @@ class AddAdvertiseFragment : Fragment() {
         }
     }
     private fun swap(){
-        //todo radioButton or spinner
+            binding.swapLinearLayout.setOnClickListener {
+
+                val guarantees = resources.getStringArray(R.array.guarantees)
+                val arrayAdapter = ArrayAdapter(requireContext(), R.layout.dropdown_item, guarantees)
+
+                val mDialogView = LayoutInflater.from(requireContext())
+                    .inflate(R.layout.swap_alert_dialog, null)
+
+                alertDialog = AlertDialog.Builder(requireContext()).setView(mDialogView)
+
+                mDialogView.findViewById<AutoCompleteTextView>(R.id.autoCompleteSwapTextView)
+                    .setAdapter(arrayAdapter)
+
+                alertDialog.setNegativeButton("İPTAL") { _, _ -> }
+
+                alertDialog.setPositiveButton("TAMAM") { _, _ ->
+
+                    val vehicleStatusDialog =
+                        mDialogView.findViewById<AutoCompleteTextView>(R.id.autoCompleteSwapTextView).text.toString()
+
+                    binding.swapTextView.text = vehicleStatusDialog
+                }
+                alertDialog.show()
+            }
+
     }
 
     private fun phoneNumber(){
