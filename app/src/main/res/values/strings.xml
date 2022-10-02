@@ -35,4 +35,27 @@
         <item>Hayır</item>
     </string-array>
 
+    <string-array name="colors">
+        <item>Bej</item>
+        <item>Beyaz</item>
+        <item>Bordo</item>
+        <item>Füme</item>
+        <item>Gri</item>
+        <item>Gümüş Gri</item>
+        <item>Kahverengi</item>
+        <item>Kırmızı</item>
+        <item>Larcivet</item>
+        <item>Mavi</item>
+        <item>Mor</item>
+        <item>Pembe</item>
+        <item>Sarı</item>
+        <item>Siyah</item>
+        <item>Şampanya</item>
+        <item>Turkuaz</item>
+        <item>Turuncu</item>
+        <item>Yeşil</item>
+
+
+    </string-array>
+
 </resources>

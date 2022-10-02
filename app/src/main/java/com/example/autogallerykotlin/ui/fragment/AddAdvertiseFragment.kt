@@ -2,10 +2,10 @@ package com.example.autogallerykotlin.ui.fragment
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
+import android.app.Dialog
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import android.view.WindowManager.LayoutParams
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.EditText
@@ -470,7 +470,32 @@ class AddAdvertiseFragment : Fragment() {
         }
     }
     private fun color(){
-        //todo radioButton or spinner
+        binding.colorLinearLayout.setOnClickListener {
+
+            val colors = resources.getStringArray(R.array.colors)
+            val arrayAdapter = ArrayAdapter(requireContext(), R.layout.dropdown_item, colors)
+
+            val mDialogView = LayoutInflater.from(requireContext())
+                .inflate(R.layout.color_alert_dialog, null)
+
+            alertDialog = AlertDialog.Builder(requireContext()).setView(mDialogView)
+
+
+            mDialogView.findViewById<AutoCompleteTextView>(R.id.autoCompleteColorTextView)
+                .setAdapter(arrayAdapter)
+
+            alertDialog.setNegativeButton("İPTAL") { _, _ -> }
+
+            alertDialog.setPositiveButton("TAMAM") { _, _ ->
+
+                val colorDialog =
+                    mDialogView.findViewById<AutoCompleteTextView>(R.id.autoCompleteColorTextView).text.toString()
+
+                binding.colorTextView.text = colorDialog
+
+            }
+            alertDialog.show()
+        }
     }
     private fun guarantee(){
         binding.guaranteeLinearLayout.setOnClickListener {
@@ -490,10 +515,10 @@ class AddAdvertiseFragment : Fragment() {
 
             alertDialog.setPositiveButton("TAMAM") { _, _ ->
 
-                val vehicleStatusDialog =
+                val guaranteeDialog =
                     mDialogView.findViewById<AutoCompleteTextView>(R.id.autoCompleteGuaranteeTextView).text.toString()
 
-                binding.guaranteeTextView.text = vehicleStatusDialog
+                binding.guaranteeTextView.text = guaranteeDialog
             }
             alertDialog.show()
         }
@@ -516,14 +541,13 @@ class AddAdvertiseFragment : Fragment() {
 
                 alertDialog.setPositiveButton("TAMAM") { _, _ ->
 
-                    val vehicleStatusDialog =
+                    val swapDialog =
                         mDialogView.findViewById<AutoCompleteTextView>(R.id.autoCompleteSwapTextView).text.toString()
 
-                    binding.swapTextView.text = vehicleStatusDialog
+                    binding.swapTextView.text = swapDialog
                 }
                 alertDialog.show()
             }
-
     }
 
     private fun phoneNumber(){
