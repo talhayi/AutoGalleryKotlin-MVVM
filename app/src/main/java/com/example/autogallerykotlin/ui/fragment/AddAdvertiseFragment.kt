@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.Fragment
@@ -55,11 +57,6 @@ class AddAdvertiseFragment : Fragment() {
         guarantee()
         swap()
         phoneNumber()
-
-
-
-
-
 
 
 /*
@@ -133,17 +130,17 @@ class AddAdvertiseFragment : Fragment() {
 
             alertDialog.setPositiveButton("TAMAM") { _, _ ->
 
-                val explanationDialog =
+                val priceDialog =
                     mDialogView.findViewById<EditText>(R.id.priceAlertDialogEditText).text.toString()
                         .trim()
 
-                binding.priceTextView.text = "$explanationDialog TL"
+                binding.priceTextView.text = "$priceDialog TL"
             }
             alertDialog.show()
         }
     }
 
-    private fun address(){
+    private fun address() {
         binding.addressLinearLayout.setOnClickListener {
 
             val mDialogView = LayoutInflater.from(requireContext())
@@ -155,9 +152,15 @@ class AddAdvertiseFragment : Fragment() {
 
             alertDialog.setPositiveButton("TAMAM") { _, _ ->
 
-                val city = mDialogView.findViewById<TextInputEditText>(R.id.alertDialogCityEditDText).text.toString().trim()
-                val district = mDialogView.findViewById<TextInputEditText>(R.id.alertDialogDistrictEditText).text.toString().trim()
-                val neighborhood = mDialogView.findViewById<TextInputEditText>(R.id.alertDialogNeighborhoodEditText).text.toString().trim()
+                val city =
+                    mDialogView.findViewById<TextInputEditText>(R.id.alertDialogCityEditDText).text.toString()
+                        .trim()
+                val district =
+                    mDialogView.findViewById<TextInputEditText>(R.id.alertDialogDistrictEditText).text.toString()
+                        .trim()
+                val neighborhood =
+                    mDialogView.findViewById<TextInputEditText>(R.id.alertDialogNeighborhoodEditText).text.toString()
+                        .trim()
 
                 binding.addressTextView.text = "$city / $district / $neighborhood"
             }
@@ -165,7 +168,7 @@ class AddAdvertiseFragment : Fragment() {
         }
     }
 
-    private fun brand(){
+    private fun brand() {
         binding.brandLinearLayout.setOnClickListener {
 
             val mDialogView = LayoutInflater.from(requireContext())
@@ -179,17 +182,17 @@ class AddAdvertiseFragment : Fragment() {
 
             alertDialog.setPositiveButton("TAMAM") { _, _ ->
 
-                val explanationDialog =
+                val brandDialog =
                     mDialogView.findViewById<EditText>(R.id.alertDialogOneEditText).text.toString()
                         .trim()
 
-                binding.brandTextView.text = explanationDialog
+                binding.brandTextView.text = brandDialog
             }
             alertDialog.show()
         }
     }
 
-    private fun serial(){
+    private fun serial() {
 
         binding.serialLinearLayout.setOnClickListener {
 
@@ -204,17 +207,17 @@ class AddAdvertiseFragment : Fragment() {
 
             alertDialog.setPositiveButton("TAMAM") { _, _ ->
 
-                val explanationDialog =
+                val serialDialog =
                     mDialogView.findViewById<EditText>(R.id.alertDialogOneEditText).text.toString()
                         .trim()
 
-                binding.serialTextView.text = explanationDialog
+                binding.serialTextView.text = serialDialog
             }
             alertDialog.show()
         }
     }
 
-    private fun model(){
+    private fun model() {
 
         binding.modelLinearLayout.setOnClickListener {
 
@@ -229,17 +232,17 @@ class AddAdvertiseFragment : Fragment() {
 
             alertDialog.setPositiveButton("TAMAM") { _, _ ->
 
-                val explanationDialog =
+                val modelDialog =
                     mDialogView.findViewById<EditText>(R.id.alertDialogOneEditText).text.toString()
                         .trim()
 
-                binding.modelTextView.text = explanationDialog
+                binding.modelTextView.text = modelDialog
             }
             alertDialog.show()
         }
     }
 
-    private fun year(){
+    private fun year() {
         binding.yearLinearLayout.setOnClickListener {
 
             val mDialogView = LayoutInflater.from(requireContext())
@@ -253,28 +256,53 @@ class AddAdvertiseFragment : Fragment() {
 
             alertDialog.setPositiveButton("TAMAM") { _, _ ->
 
-                val explanationDialog =
+                val yearDialog =
                     mDialogView.findViewById<EditText>(R.id.numberAlertDialogEditText).text.toString()
                         .trim()
 
-                binding.yearTextView.text = explanationDialog
+                binding.yearTextView.text = yearDialog
             }
             alertDialog.show()
 
         }
     }
-    private fun fuel(){
-    //todo radioButton or spinner
+
+    private fun fuel() {
+        binding.fuelLinearLayout.setOnClickListener {
+
+            val fuels = resources.getStringArray(R.array.fuels)
+            val arrayAdapter = ArrayAdapter(requireContext(), R.layout.fuel_dropdown_item, fuels)
+
+            val mDialogView = LayoutInflater.from(requireContext())
+                .inflate(R.layout.fuel_alert_dialog, null)
+
+            alertDialog = AlertDialog.Builder(requireContext()).setView(mDialogView)
+
+            mDialogView.findViewById<AutoCompleteTextView>(R.id.autoCompleteFuelTextView)
+                .setAdapter(arrayAdapter)
+
+            alertDialog.setNegativeButton("İPTAL") { _, _ -> }
+
+            alertDialog.setPositiveButton("TAMAM") { _, _ ->
+
+                val fuelDialog =
+                    mDialogView.findViewById<AutoCompleteTextView>(R.id.autoCompleteFuelTextView).text.toString()
+
+                binding.fuelTextView.text = fuelDialog
+            }
+            alertDialog.show()
+        }
     }
 
-    private fun gear(){
+    private fun gear() {
         //todo radioButton or spinner
     }
 
-    private fun vehicleStatus(){
+    private fun vehicleStatus() {
         //todo radioButton or spinner
     }
-    private fun km(){
+
+    private fun km() {
 
         binding.kmLinearLayout.setOnClickListener {
 
@@ -289,18 +317,18 @@ class AddAdvertiseFragment : Fragment() {
 
             alertDialog.setPositiveButton("TAMAM") { _, _ ->
 
-                val explanationDialog =
+                val kmDialog =
                     mDialogView.findViewById<EditText>(R.id.numberAlertDialogEditText).text.toString()
                         .trim()
 
-                binding.kmTextView.text = "$explanationDialog KM"
+                binding.kmTextView.text = "$kmDialog KM"
             }
             alertDialog.show()
 
         }
     }
 
-    private fun caseType(){
+    private fun caseType() {
         binding.caseTypeLinearLayout.setOnClickListener {
 
             val mDialogView = LayoutInflater.from(requireContext())
@@ -314,18 +342,18 @@ class AddAdvertiseFragment : Fragment() {
 
             alertDialog.setPositiveButton("TAMAM") { _, _ ->
 
-                val explanationDialog =
+                val caseTypeDialog =
                     mDialogView.findViewById<EditText>(R.id.alertDialogOneEditText).text.toString()
                         .trim()
 
-                binding.caseTypeTextView.text = explanationDialog
+                binding.caseTypeTextView.text = caseTypeDialog
             }
             alertDialog.show()
 
         }
     }
 
-    private fun motorPower(){
+    private fun motorPower() {
         binding.motorPowerLinearLayout.setOnClickListener {
 
             val mDialogView = LayoutInflater.from(requireContext())
@@ -339,18 +367,18 @@ class AddAdvertiseFragment : Fragment() {
 
             alertDialog.setPositiveButton("TAMAM") { _, _ ->
 
-                val explanationDialog =
+                val motorPowerDialog =
                     mDialogView.findViewById<EditText>(R.id.alertDialogOneEditText).text.toString()
                         .trim()
 
-                binding.motorPowerTextView.text = explanationDialog
+                binding.motorPowerTextView.text = motorPowerDialog
             }
             alertDialog.show()
 
         }
     }
 
-    private fun motorCapacity(){
+    private fun motorCapacity() {
         binding.motorCapacityLinearLayout.setOnClickListener {
 
             val mDialogView = LayoutInflater.from(requireContext())
@@ -364,31 +392,34 @@ class AddAdvertiseFragment : Fragment() {
 
             alertDialog.setPositiveButton("TAMAM") { _, _ ->
 
-                val explanationDialog =
+                val motorCapacityDialog =
                     mDialogView.findViewById<EditText>(R.id.alertDialogOneEditText).text.toString()
                         .trim()
 
-                binding.motorCapacityTextView.text = explanationDialog
+                binding.motorCapacityTextView.text = motorCapacityDialog
             }
             alertDialog.show()
 
         }
     }
 
-    private fun traction(){
-        //todo radioButton or spinner
-    }
-    private fun color(){
-        //todo radioButton or spinner
-    }
-    private fun guarantee(){
-        //todo radioButton or spinner
-    }
-    private fun swap(){
+    private fun traction() {
         //todo radioButton or spinner
     }
 
-    private fun phoneNumber(){
+    private fun color() {
+        //todo radioButton or spinner
+    }
+
+    private fun guarantee() {
+        //todo radioButton or spinner
+    }
+
+    private fun swap() {
+        //todo radioButton or spinner
+    }
+
+    private fun phoneNumber() {
 
         binding.phoneNumberLinearLayout.setOnClickListener {
 
@@ -401,11 +432,11 @@ class AddAdvertiseFragment : Fragment() {
 
             alertDialog.setPositiveButton("TAMAM") { _, _ ->
 
-                val explanationDialog =
+                val phoneNumberDialog =
                     mDialogView.findViewById<EditText>(R.id.phoneNumberAlertDialogEditText).text.toString()
                         .trim()
 
-                binding.phoneNumberTextView.text = explanationDialog
+                binding.phoneNumberTextView.text = phoneNumberDialog
 
             }
             alertDialog.show()
