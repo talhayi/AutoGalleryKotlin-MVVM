@@ -295,7 +295,30 @@ class AddAdvertiseFragment : Fragment() {
     }
 
     private fun gear() {
-        //todo radioButton or spinner
+        binding.gearLinearLayout.setOnClickListener {
+
+            val gears = resources.getStringArray(R.array.gears)
+            val arrayAdapter = ArrayAdapter(requireContext(), R.layout.fuel_dropdown_item, gears)
+
+            val mDialogView = LayoutInflater.from(requireContext())
+                .inflate(R.layout.gear_alert_dialog, null)
+
+            alertDialog = AlertDialog.Builder(requireContext()).setView(mDialogView)
+
+            mDialogView.findViewById<AutoCompleteTextView>(R.id.autoCompleteGearTextView)
+                .setAdapter(arrayAdapter)
+
+            alertDialog.setNegativeButton("İPTAL") { _, _ -> }
+
+            alertDialog.setPositiveButton("TAMAM") { _, _ ->
+
+                val fuelDialog =
+                    mDialogView.findViewById<AutoCompleteTextView>(R.id.autoCompleteGearTextView).text.toString()
+
+                binding.gearTextView.text = fuelDialog
+            }
+            alertDialog.show()
+        }
     }
 
     private fun vehicleStatus() {
