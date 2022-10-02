@@ -447,7 +447,27 @@ class AddAdvertiseFragment : Fragment() {
     }
 
     private fun traction(){
-        //todo radioButton or spinner
+        binding.tractionLinearLayout.setOnClickListener {
+
+            val mDialogView = LayoutInflater.from(requireContext())
+                .inflate(R.layout.one_edit_text_alert_dialog, null)
+
+            alertDialog = AlertDialog.Builder(requireContext()).setView(mDialogView)
+
+            mDialogView.findViewById<TextView>(R.id.textView).text = "Çekiş"
+
+            alertDialog.setNegativeButton("İPTAL") { _, _ -> }
+
+            alertDialog.setPositiveButton("TAMAM") { _, _ ->
+
+                val tractionDialog =
+                    mDialogView.findViewById<EditText>(R.id.alertDialogOneEditText).text.toString()
+                        .trim()
+
+                binding.tractionTextView.text = tractionDialog
+            }
+            alertDialog.show()
+        }
     }
     private fun color(){
         //todo radioButton or spinner
