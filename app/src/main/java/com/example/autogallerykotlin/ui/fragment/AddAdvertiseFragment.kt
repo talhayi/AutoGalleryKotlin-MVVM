@@ -59,6 +59,11 @@ class AddAdvertiseFragment : Fragment() {
         phoneNumber()
 
 
+
+
+
+
+
 /*
         binding.addAdvertiseButton.setOnClickListener {
 
@@ -140,7 +145,7 @@ class AddAdvertiseFragment : Fragment() {
         }
     }
 
-    private fun address() {
+    private fun address(){
         binding.addressLinearLayout.setOnClickListener {
 
             val mDialogView = LayoutInflater.from(requireContext())
@@ -152,15 +157,9 @@ class AddAdvertiseFragment : Fragment() {
 
             alertDialog.setPositiveButton("TAMAM") { _, _ ->
 
-                val city =
-                    mDialogView.findViewById<TextInputEditText>(R.id.alertDialogCityEditDText).text.toString()
-                        .trim()
-                val district =
-                    mDialogView.findViewById<TextInputEditText>(R.id.alertDialogDistrictEditText).text.toString()
-                        .trim()
-                val neighborhood =
-                    mDialogView.findViewById<TextInputEditText>(R.id.alertDialogNeighborhoodEditText).text.toString()
-                        .trim()
+                val city = mDialogView.findViewById<TextInputEditText>(R.id.alertDialogCityEditDText).text.toString().trim()
+                val district = mDialogView.findViewById<TextInputEditText>(R.id.alertDialogDistrictEditText).text.toString().trim()
+                val neighborhood = mDialogView.findViewById<TextInputEditText>(R.id.alertDialogNeighborhoodEditText).text.toString().trim()
 
                 binding.addressTextView.text = "$city / $district / $neighborhood"
             }
@@ -168,7 +167,7 @@ class AddAdvertiseFragment : Fragment() {
         }
     }
 
-    private fun brand() {
+    private fun brand(){
         binding.brandLinearLayout.setOnClickListener {
 
             val mDialogView = LayoutInflater.from(requireContext())
@@ -192,7 +191,7 @@ class AddAdvertiseFragment : Fragment() {
         }
     }
 
-    private fun serial() {
+    private fun serial(){
 
         binding.serialLinearLayout.setOnClickListener {
 
@@ -217,7 +216,7 @@ class AddAdvertiseFragment : Fragment() {
         }
     }
 
-    private fun model() {
+    private fun model(){
 
         binding.modelLinearLayout.setOnClickListener {
 
@@ -242,7 +241,7 @@ class AddAdvertiseFragment : Fragment() {
         }
     }
 
-    private fun year() {
+    private fun year(){
         binding.yearLinearLayout.setOnClickListener {
 
             val mDialogView = LayoutInflater.from(requireContext())
@@ -266,12 +265,11 @@ class AddAdvertiseFragment : Fragment() {
 
         }
     }
-
-    private fun fuel() {
+    private fun fuel(){
         binding.fuelLinearLayout.setOnClickListener {
 
-            val fuels = resources.getStringArray(R.array.fuels)
-            val arrayAdapter = ArrayAdapter(requireContext(), R.layout.fuel_dropdown_item, fuels)
+            val gears = resources.getStringArray(R.array.fuels)
+            val arrayAdapter = ArrayAdapter(requireContext(), R.layout.dropdown_item, gears)
 
             val mDialogView = LayoutInflater.from(requireContext())
                 .inflate(R.layout.fuel_alert_dialog, null)
@@ -294,11 +292,11 @@ class AddAdvertiseFragment : Fragment() {
         }
     }
 
-    private fun gear() {
+    private fun gear(){
         binding.gearLinearLayout.setOnClickListener {
 
             val gears = resources.getStringArray(R.array.gears)
-            val arrayAdapter = ArrayAdapter(requireContext(), R.layout.fuel_dropdown_item, gears)
+            val arrayAdapter = ArrayAdapter(requireContext(), R.layout.dropdown_item, gears)
 
             val mDialogView = LayoutInflater.from(requireContext())
                 .inflate(R.layout.gear_alert_dialog, null)
@@ -312,20 +310,19 @@ class AddAdvertiseFragment : Fragment() {
 
             alertDialog.setPositiveButton("TAMAM") { _, _ ->
 
-                val fuelDialog =
+                val gearDialog =
                     mDialogView.findViewById<AutoCompleteTextView>(R.id.autoCompleteGearTextView).text.toString()
 
-                binding.gearTextView.text = fuelDialog
+                binding.gearTextView.text = gearDialog
             }
             alertDialog.show()
         }
     }
 
-    private fun vehicleStatus() {
+    private fun vehicleStatus(){
         //todo radioButton or spinner
     }
-
-    private fun km() {
+    private fun km(){
 
         binding.kmLinearLayout.setOnClickListener {
 
@@ -340,18 +337,18 @@ class AddAdvertiseFragment : Fragment() {
 
             alertDialog.setPositiveButton("TAMAM") { _, _ ->
 
-                val kmDialog =
+                val vehicleStatusDialog =
                     mDialogView.findViewById<EditText>(R.id.numberAlertDialogEditText).text.toString()
                         .trim()
 
-                binding.kmTextView.text = "$kmDialog KM"
+                binding.kmTextView.text = "$vehicleStatusDialog KM"
             }
             alertDialog.show()
 
         }
     }
 
-    private fun caseType() {
+    private fun caseType(){
         binding.caseTypeLinearLayout.setOnClickListener {
 
             val mDialogView = LayoutInflater.from(requireContext())
@@ -376,7 +373,7 @@ class AddAdvertiseFragment : Fragment() {
         }
     }
 
-    private fun motorPower() {
+    private fun motorPower(){
         binding.motorPowerLinearLayout.setOnClickListener {
 
             val mDialogView = LayoutInflater.from(requireContext())
@@ -401,7 +398,7 @@ class AddAdvertiseFragment : Fragment() {
         }
     }
 
-    private fun motorCapacity() {
+    private fun motorCapacity(){
         binding.motorCapacityLinearLayout.setOnClickListener {
 
             val mDialogView = LayoutInflater.from(requireContext())
@@ -426,23 +423,20 @@ class AddAdvertiseFragment : Fragment() {
         }
     }
 
-    private fun traction() {
+    private fun traction(){
+        //todo radioButton or spinner
+    }
+    private fun color(){
+        //todo radioButton or spinner
+    }
+    private fun guarantee(){
+        //todo radioButton or spinner
+    }
+    private fun swap(){
         //todo radioButton or spinner
     }
 
-    private fun color() {
-        //todo radioButton or spinner
-    }
-
-    private fun guarantee() {
-        //todo radioButton or spinner
-    }
-
-    private fun swap() {
-        //todo radioButton or spinner
-    }
-
-    private fun phoneNumber() {
+    private fun phoneNumber(){
 
         binding.phoneNumberLinearLayout.setOnClickListener {
 
