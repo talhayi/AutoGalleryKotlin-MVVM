@@ -24,4 +24,10 @@
         <item>Otomotik</item>
     </string-array>
 
+    <string-array name="vehicleStatus">
+        <item>Sıfır</item>
+        <item>İkinci El</item>
+        <item>Yurtdışından ithal sıfır</item>
+    </string-array>
+
 </resources>

@@ -268,8 +268,8 @@ class AddAdvertiseFragment : Fragment() {
     private fun fuel(){
         binding.fuelLinearLayout.setOnClickListener {
 
-            val gears = resources.getStringArray(R.array.fuels)
-            val arrayAdapter = ArrayAdapter(requireContext(), R.layout.dropdown_item, gears)
+            val fuels = resources.getStringArray(R.array.fuels)
+            val arrayAdapter = ArrayAdapter(requireContext(), R.layout.dropdown_item, fuels)
 
             val mDialogView = LayoutInflater.from(requireContext())
                 .inflate(R.layout.fuel_alert_dialog, null)
@@ -320,7 +320,30 @@ class AddAdvertiseFragment : Fragment() {
     }
 
     private fun vehicleStatus(){
-        //todo radioButton or spinner
+        binding.vehicleStatusLinearLayout.setOnClickListener {
+
+            val vehicleStatus = resources.getStringArray(R.array.vehicleStatus)
+            val arrayAdapter = ArrayAdapter(requireContext(), R.layout.dropdown_item, vehicleStatus)
+
+            val mDialogView = LayoutInflater.from(requireContext())
+                .inflate(R.layout.vehicle_status_alert_dialog, null)
+
+            alertDialog = AlertDialog.Builder(requireContext()).setView(mDialogView)
+
+            mDialogView.findViewById<AutoCompleteTextView>(R.id.autoCompleteVehicleStatusTextView)
+                .setAdapter(arrayAdapter)
+
+            alertDialog.setNegativeButton("İPTAL") { _, _ -> }
+
+            alertDialog.setPositiveButton("TAMAM") { _, _ ->
+
+                val vehicleStatusDialog =
+                    mDialogView.findViewById<AutoCompleteTextView>(R.id.autoCompleteVehicleStatusTextView).text.toString()
+
+                binding.vehicleStatusTextView.text = vehicleStatusDialog
+            }
+            alertDialog.show()
+        }
     }
     private fun km(){
 
