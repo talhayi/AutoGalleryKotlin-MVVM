@@ -3,24 +3,29 @@ package com.example.autogallerykotlin.ui.fragment
 import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.app.Dialog
+import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import android.view.WindowManager.LayoutParams
-import android.widget.ArrayAdapter
-import android.widget.AutoCompleteTextView
-import android.widget.EditText
-import android.widget.TextView
+import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.navigation.Navigation
 import com.example.autogallerykotlin.R
 import com.example.autogallerykotlin.databinding.FragmentAddAdvertiseBinding
+import com.example.autogallerykotlin.ui.view.MainActivity
+import com.example.autogallerykotlin.viewmodel.AddAdvertiseViewModel
 import com.google.android.material.textfield.TextInputEditText
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 @SuppressLint("SetTextI18n")
 class AddAdvertiseFragment : Fragment() {
 
     private var _binding: FragmentAddAdvertiseBinding? = null
     private val binding get() = _binding!!
+    private val viewModel: AddAdvertiseViewModel by viewModels()
 
     private lateinit var alertDialog: AlertDialog.Builder
 
@@ -35,6 +40,7 @@ class AddAdvertiseFragment : Fragment() {
 
     }
 
+    @SuppressLint("CommitPrefEdits")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         advertiseTitle()
@@ -58,23 +64,78 @@ class AddAdvertiseFragment : Fragment() {
         swap()
         phoneNumber()
 
+        val sharedPreferences = this.activity?.getSharedPreferences("login", AppCompatActivity.MODE_PRIVATE)
 
 
+        viewModel.addAdvertiseResult.observe(viewLifecycleOwner){addAdvertiseResult->
+            if(addAdvertiseResult.isSuccessful){
+                if(addAdvertiseResult.body()?.success == true){
+
+                    Toast.makeText(requireContext(), "İlan yayınlandı", Toast.LENGTH_SHORT).show()
+
+                    /*
+                    val action = AddAdvertiseFragmentDirections.actionAddAdvertiseFragmentToAdvertsFragment()
+                    Navigation.findNavController(view).navigate(action)*/
+                }
+                else{
+                    Toast.makeText(requireContext(), "not success", Toast.LENGTH_SHORT).show()
+                }
+            }else{
+                Toast.makeText(requireContext(), "not isSuccessful", Toast.LENGTH_SHORT).show()
+            }
+
+    
+
+        }
+
+        binding.addAdvertiseNextButton.setOnClickListener {
 
 
+            val userId = sharedPreferences?.getString("users_id",null)!!
+            val advertTitle = binding.advertiseTitleTextView.text.toString().trim()
+            val explanation = binding.explanationTextView.text.toString().trim()
 
+            val price = binding.priceTextView.text.toString().trim()
+            val address = binding.addressTextView.text.toString().trim()
+            val brand = binding.brandTextView.text.toString().trim()
 
-/*
-        binding.addAdvertiseButton.setOnClickListener {
+            val serial = binding.serialTextView.text.toString().trim()
+            val model = binding.modelTextView.text.toString().trim()
+            val year = binding.yearTextView.text.toString().trim()
 
+            val fuel = binding.fuelTextView.text.toString().trim()
+            val gear = binding.gearTextView.text.toString().trim()
+            val vehicleStatus = binding.vehicleStatusTextView.text.toString().trim()
+
+            val km = binding.kmTextView.text.toString().trim()
+            val caseType = binding.caseTypeTextView.text.toString().trim()
+            val motorPower = binding.motorPowerTextView.text.toString().trim()
+
+            val motorCapacity = binding.motorCapacityTextView.text.toString().trim()
+            val traction = binding.tractionTextView.text.toString().trim()
+            val color = binding.colorTextView.text.toString().trim()
+
+            val guarantee = binding.guaranteeTextView.text.toString().trim()
+            val swap = binding.swapTextView.text.toString().trim()
+            val phoneNumber = binding.phoneNumberTextView.text.toString().trim()
+
+            viewModel.addAdvertise(
+                userId,advertTitle,explanation,
+                price,address,brand,
+                serial,model,year,
+                fuel,gear,vehicleStatus,
+                km,caseType,motorPower,
+                motorCapacity,traction,color,
+                guarantee,swap,phoneNumber,
+            )
             activity?.let{
                 val intent = Intent (it, MainActivity::class.java)
                 it.startActivity(intent)
             }
-
+/*
             val action = AddAdvertiseFragmentDirections.actionAddAdvertiseFragmentToAdvertsFragment()
-            Navigation.findNavController(view).navigate(action)
-        }*/
+            Navigation.findNavController(view).navigate(action)*/
+        }
 
     }
 

@@ -48,4 +48,36 @@ interface ApiService {
     suspend fun resetPasswordCode(
         @Field("code") code: String
     ): Response<ResetPasswordCode>
+
+    @FormUrlEncoded
+    @POST("advertise.php")
+    suspend fun addAdvertise(
+        @Field("user_id") user_id: String, @Field("advert_title") advert_title: String, @Field("explanation") explanation: String,
+        @Field("price") price: String, @Field("address") address: String, @Field("brand") brand: String,
+        @Field("serial") serial: String, @Field("model") model: String, @Field("year") year: String,
+        @Field("fuel") fuel: String, @Field("gear") gear: String, @Field("vehicleStatus") vehicleStatus: String,
+        @Field("km") km: String, @Field("caseType") caseType: String, @Field("motorPower") motorPower: String,
+        @Field("motorCapacity") motorCapacity: String, @Field("traction") traction: String, @Field("color") color: String,
+        @Field("guarantee") guarantee: String, @Field("swap") swap: String, @Field("phoneNumber") phoneNumber: String
+    ): Response<AddAdvertise>
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
