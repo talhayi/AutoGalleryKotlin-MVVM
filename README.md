@@ -1,6 +1,7 @@
 - #### MVVM architecture and DataBinding are used.
 
 - In this application users can sell, buy and rent cars.
+- Users add informations and pictures of cars to sell or rent.
 
 ## Important Libraries in Project
 
