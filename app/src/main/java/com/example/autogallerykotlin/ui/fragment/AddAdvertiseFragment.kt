@@ -2,20 +2,25 @@ package com.example.autogallerykotlin.ui.fragment
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
-import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.*
-import android.view.WindowManager.LayoutParams
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.example.autogallerykotlin.R
 import com.example.autogallerykotlin.databinding.FragmentAddAdvertiseBinding
 import com.example.autogallerykotlin.ui.view.MainActivity
 import com.example.autogallerykotlin.viewmodel.AddAdvertiseViewModel
+import com.google.android.material.bottomappbar.BottomAppBar
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.textfield.TextInputEditText
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -26,6 +31,8 @@ class AddAdvertiseFragment : Fragment() {
     private var _binding: FragmentAddAdvertiseBinding? = null
     private val binding get() = _binding!!
     private val viewModel: AddAdvertiseViewModel by viewModels()
+
+    private lateinit var navController: NavController
 
     private lateinit var alertDialog: AlertDialog.Builder
 
@@ -64,34 +71,33 @@ class AddAdvertiseFragment : Fragment() {
         swap()
         phoneNumber()
 
-        val sharedPreferences = this.activity?.getSharedPreferences("login", AppCompatActivity.MODE_PRIVATE)
+        val sharedPreferences =
+            this.activity?.getSharedPreferences("login", AppCompatActivity.MODE_PRIVATE)
 
-
-        viewModel.addAdvertiseResult.observe(viewLifecycleOwner){addAdvertiseResult->
-            if(addAdvertiseResult.isSuccessful){
-                if(addAdvertiseResult.body()?.success == true){
+        viewModel.addAdvertise.observe(viewLifecycleOwner) { addAdvertiseResult ->
+            if (addAdvertiseResult.isSuccessful) {
+                if (addAdvertiseResult.body()?.success == true) {
 
                     Toast.makeText(requireContext(), "İlan yayınlandı", Toast.LENGTH_SHORT).show()
 
-                    /*
-                    val action = AddAdvertiseFragmentDirections.actionAddAdvertiseFragmentToAdvertsFragment()
-                    Navigation.findNavController(view).navigate(action)*/
-                }
-                else{
+                    findNavController().navigate(AddAdvertiseFragmentDirections.actionAddAdvertiseFragmentToUploadImagesFragment())
+
+                } else {
                     Toast.makeText(requireContext(), "not success", Toast.LENGTH_SHORT).show()
                 }
-            }else{
+            } else {
                 Toast.makeText(requireContext(), "not isSuccessful", Toast.LENGTH_SHORT).show()
             }
 
-    
 
         }
 
         binding.addAdvertiseNextButton.setOnClickListener {
 
+            
 
-            val userId = sharedPreferences?.getString("users_id",null)!!
+
+            val userId = sharedPreferences?.getString("users_id", null)!!
             val advertTitle = binding.advertiseTitleTextView.text.toString().trim()
             val explanation = binding.explanationTextView.text.toString().trim()
 
@@ -120,21 +126,15 @@ class AddAdvertiseFragment : Fragment() {
             val phoneNumber = binding.phoneNumberTextView.text.toString().trim()
 
             viewModel.addAdvertise(
-                userId,advertTitle,explanation,
-                price,address,brand,
-                serial,model,year,
-                fuel,gear,vehicleStatus,
-                km,caseType,motorPower,
-                motorCapacity,traction,color,
-                guarantee,swap,phoneNumber,
+                userId, advertTitle, explanation,
+                price, address, brand,
+                serial, model, year,
+                fuel, gear, vehicleStatus,
+                km, caseType, motorPower,
+                motorCapacity, traction, color,
+                guarantee, swap, phoneNumber,
             )
-            activity?.let{
-                val intent = Intent (it, MainActivity::class.java)
-                it.startActivity(intent)
-            }
-/*
-            val action = AddAdvertiseFragmentDirections.actionAddAdvertiseFragmentToAdvertsFragment()
-            Navigation.findNavController(view).navigate(action)*/
+
         }
 
     }
@@ -206,7 +206,7 @@ class AddAdvertiseFragment : Fragment() {
         }
     }
 
-    private fun address(){
+    private fun address() {
         binding.addressLinearLayout.setOnClickListener {
 
             val mDialogView = LayoutInflater.from(requireContext())
@@ -218,9 +218,15 @@ class AddAdvertiseFragment : Fragment() {
 
             alertDialog.setPositiveButton("TAMAM") { _, _ ->
 
-                val city = mDialogView.findViewById<TextInputEditText>(R.id.alertDialogCityEditDText).text.toString().trim()
-                val district = mDialogView.findViewById<TextInputEditText>(R.id.alertDialogDistrictEditText).text.toString().trim()
-                val neighborhood = mDialogView.findViewById<TextInputEditText>(R.id.alertDialogNeighborhoodEditText).text.toString().trim()
+                val city =
+                    mDialogView.findViewById<TextInputEditText>(R.id.alertDialogCityEditDText).text.toString()
+                        .trim()
+                val district =
+                    mDialogView.findViewById<TextInputEditText>(R.id.alertDialogDistrictEditText).text.toString()
+                        .trim()
+                val neighborhood =
+                    mDialogView.findViewById<TextInputEditText>(R.id.alertDialogNeighborhoodEditText).text.toString()
+                        .trim()
 
                 binding.addressTextView.text = "$city / $district / $neighborhood"
             }
@@ -228,7 +234,7 @@ class AddAdvertiseFragment : Fragment() {
         }
     }
 
-    private fun brand(){
+    private fun brand() {
         binding.brandLinearLayout.setOnClickListener {
 
             val mDialogView = LayoutInflater.from(requireContext())
@@ -252,7 +258,7 @@ class AddAdvertiseFragment : Fragment() {
         }
     }
 
-    private fun serial(){
+    private fun serial() {
 
         binding.serialLinearLayout.setOnClickListener {
 
@@ -277,7 +283,7 @@ class AddAdvertiseFragment : Fragment() {
         }
     }
 
-    private fun model(){
+    private fun model() {
 
         binding.modelLinearLayout.setOnClickListener {
 
@@ -302,7 +308,7 @@ class AddAdvertiseFragment : Fragment() {
         }
     }
 
-    private fun year(){
+    private fun year() {
         binding.yearLinearLayout.setOnClickListener {
 
             val mDialogView = LayoutInflater.from(requireContext())
@@ -326,7 +332,8 @@ class AddAdvertiseFragment : Fragment() {
 
         }
     }
-    private fun fuel(){
+
+    private fun fuel() {
         binding.fuelLinearLayout.setOnClickListener {
 
             val fuels = resources.getStringArray(R.array.fuels)
@@ -353,7 +360,7 @@ class AddAdvertiseFragment : Fragment() {
         }
     }
 
-    private fun gear(){
+    private fun gear() {
         binding.gearLinearLayout.setOnClickListener {
 
             val gears = resources.getStringArray(R.array.gears)
@@ -380,7 +387,7 @@ class AddAdvertiseFragment : Fragment() {
         }
     }
 
-    private fun vehicleStatus(){
+    private fun vehicleStatus() {
         binding.vehicleStatusLinearLayout.setOnClickListener {
 
             val vehicleStatus = resources.getStringArray(R.array.vehicleStatus)
@@ -406,7 +413,8 @@ class AddAdvertiseFragment : Fragment() {
             alertDialog.show()
         }
     }
-    private fun km(){
+
+    private fun km() {
 
         binding.kmLinearLayout.setOnClickListener {
 
@@ -432,7 +440,7 @@ class AddAdvertiseFragment : Fragment() {
         }
     }
 
-    private fun caseType(){
+    private fun caseType() {
         binding.caseTypeLinearLayout.setOnClickListener {
 
             val mDialogView = LayoutInflater.from(requireContext())
@@ -457,7 +465,7 @@ class AddAdvertiseFragment : Fragment() {
         }
     }
 
-    private fun motorPower(){
+    private fun motorPower() {
         binding.motorPowerLinearLayout.setOnClickListener {
 
             val mDialogView = LayoutInflater.from(requireContext())
@@ -482,7 +490,7 @@ class AddAdvertiseFragment : Fragment() {
         }
     }
 
-    private fun motorCapacity(){
+    private fun motorCapacity() {
         binding.motorCapacityLinearLayout.setOnClickListener {
 
             val mDialogView = LayoutInflater.from(requireContext())
@@ -507,7 +515,7 @@ class AddAdvertiseFragment : Fragment() {
         }
     }
 
-    private fun traction(){
+    private fun traction() {
         binding.tractionLinearLayout.setOnClickListener {
 
             val mDialogView = LayoutInflater.from(requireContext())
@@ -530,7 +538,8 @@ class AddAdvertiseFragment : Fragment() {
             alertDialog.show()
         }
     }
-    private fun color(){
+
+    private fun color() {
         binding.colorLinearLayout.setOnClickListener {
 
             val colors = resources.getStringArray(R.array.colors)
@@ -558,7 +567,8 @@ class AddAdvertiseFragment : Fragment() {
             alertDialog.show()
         }
     }
-    private fun guarantee(){
+
+    private fun guarantee() {
         binding.guaranteeLinearLayout.setOnClickListener {
 
             val guarantees = resources.getStringArray(R.array.guarantees)
@@ -584,34 +594,35 @@ class AddAdvertiseFragment : Fragment() {
             alertDialog.show()
         }
     }
-    private fun swap(){
-            binding.swapLinearLayout.setOnClickListener {
 
-                val guarantees = resources.getStringArray(R.array.guarantees)
-                val arrayAdapter = ArrayAdapter(requireContext(), R.layout.dropdown_item, guarantees)
+    private fun swap() {
+        binding.swapLinearLayout.setOnClickListener {
 
-                val mDialogView = LayoutInflater.from(requireContext())
-                    .inflate(R.layout.swap_alert_dialog, null)
+            val guarantees = resources.getStringArray(R.array.guarantees)
+            val arrayAdapter = ArrayAdapter(requireContext(), R.layout.dropdown_item, guarantees)
 
-                alertDialog = AlertDialog.Builder(requireContext()).setView(mDialogView)
+            val mDialogView = LayoutInflater.from(requireContext())
+                .inflate(R.layout.swap_alert_dialog, null)
 
-                mDialogView.findViewById<AutoCompleteTextView>(R.id.autoCompleteSwapTextView)
-                    .setAdapter(arrayAdapter)
+            alertDialog = AlertDialog.Builder(requireContext()).setView(mDialogView)
 
-                alertDialog.setNegativeButton("İPTAL") { _, _ -> }
+            mDialogView.findViewById<AutoCompleteTextView>(R.id.autoCompleteSwapTextView)
+                .setAdapter(arrayAdapter)
 
-                alertDialog.setPositiveButton("TAMAM") { _, _ ->
+            alertDialog.setNegativeButton("İPTAL") { _, _ -> }
 
-                    val swapDialog =
-                        mDialogView.findViewById<AutoCompleteTextView>(R.id.autoCompleteSwapTextView).text.toString()
+            alertDialog.setPositiveButton("TAMAM") { _, _ ->
 
-                    binding.swapTextView.text = swapDialog
-                }
-                alertDialog.show()
+                val swapDialog =
+                    mDialogView.findViewById<AutoCompleteTextView>(R.id.autoCompleteSwapTextView).text.toString()
+
+                binding.swapTextView.text = swapDialog
             }
+            alertDialog.show()
+        }
     }
 
-    private fun phoneNumber(){
+    private fun phoneNumber() {
 
         binding.phoneNumberLinearLayout.setOnClickListener {
 

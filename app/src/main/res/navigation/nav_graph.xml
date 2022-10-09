@@ -9,7 +9,11 @@
         android:id="@+id/advertsFragment"
         android:name="com.example.autogallerykotlin.ui.fragment.AdvertsFragment"
         android:label="fragment_adverts"
-        tools:layout="@layout/fragment_adverts" />
+        tools:layout="@layout/fragment_adverts" >
+        <action
+            android:id="@+id/action_advertsFragment_to_addAdvertiseFragment"
+            app:destination="@id/addAdvertiseFragment" />
+    </fragment>
     <fragment
         android:id="@+id/myAdvertsFragment"
         android:name="com.example.autogallerykotlin.ui.fragment.MyAdvertsFragment"
@@ -23,10 +27,23 @@
         <action
             android:id="@+id/action_addAdvertiseFragment_to_advertsFragment"
             app:destination="@id/advertsFragment" />
+        <action
+            android:id="@+id/action_addAdvertiseFragment_to_uploadImagesFragment"
+            app:destination="@id/uploadImagesFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/myFavoritesFragment"
         android:name="com.example.autogallerykotlin.ui.fragment.MyFavoritesFragment"
         android:label="fragment_my_favorites"
         tools:layout="@layout/fragment_my_favorites" />
+    <fragment
+        android:id="@+id/uploadImagesFragment"
+        android:name="com.example.autogallerykotlin.ui.fragment.UploadImagesFragment"
+        android:label="fragment_upload_images"
+        tools:layout="@layout/fragment_upload_images" >
+        <action
+            android:id="@+id/action_uploadImagesFragment_to_advertsFragment"
+            app:destination="@id/advertsFragment" />
+    </fragment>
 </navigation>

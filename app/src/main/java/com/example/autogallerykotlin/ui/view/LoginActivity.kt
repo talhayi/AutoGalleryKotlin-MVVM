@@ -39,7 +39,8 @@ class LoginActivity : AppCompatActivity() {
                     editor.clear()
 
                     startActivity(Intent(this, MainActivity::class.java))
-                    finish()
+
+
 
 
                 }
@@ -58,7 +59,7 @@ class LoginActivity : AppCompatActivity() {
             val password = binding.loginPasswordEditText.text.toString().trim()
 
             viewModel.login(email, password)
-            finish()
+
 
                    /*
             if (checkForInternet(this)) {

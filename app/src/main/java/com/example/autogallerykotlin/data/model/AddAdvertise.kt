@@ -2,6 +2,9 @@ package com.example.autogallerykotlin.data.model
 
 data class AddAdvertise(
     val user_id: String? = null,
+    val advert_id: String? = null,
+    val success: Boolean? = null,
+
     val advert_title: String? = null,
     val explanation: String? = null,
 
@@ -27,11 +30,7 @@ data class AddAdvertise(
 
     val guarantee: String? = null,
     val swap: String? = null,
-    val phoneNumber: String? = null
-)
+    val phoneNumber: String? = null,
 
-data class AddAdvertiseResult(
-    val user_id: String? = null,
-    val advert_id: String? = null,
-    val success: Boolean? = null
+
 )

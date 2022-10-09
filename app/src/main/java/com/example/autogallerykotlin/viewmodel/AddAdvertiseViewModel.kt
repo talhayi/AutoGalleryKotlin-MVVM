@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.autogallerykotlin.data.model.AddAdvertise
-import com.example.autogallerykotlin.data.model.AddAdvertiseResult
 import com.example.autogallerykotlin.data.repository.AddAdvertiseRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -21,11 +20,11 @@ class AddAdvertiseViewModel @Inject constructor(
     val addAdvertise: LiveData<Response<AddAdvertise>>
     get() = _addAdvertise
 
-
+/*
     private val _addAdvertiseResult = MutableLiveData<Response<AddAdvertiseResult>>()
     val addAdvertiseResult: LiveData<Response<AddAdvertiseResult>>
         get() = _addAdvertiseResult
-
+*/
 
     fun addAdvertise(
 

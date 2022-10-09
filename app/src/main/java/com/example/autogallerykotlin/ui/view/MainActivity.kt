@@ -15,6 +15,7 @@ import androidx.navigation.ui.NavigationUI.setupWithNavController
 import com.example.autogallerykotlin.R
 import com.example.autogallerykotlin.databinding.ActivityMainBinding
 import com.example.autogallerykotlin.ui.fragment.AddAdvertiseFragment
+import com.example.autogallerykotlin.ui.fragment.AdvertsFragmentDirections
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -33,23 +34,13 @@ class MainActivity : AppCompatActivity() {
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
         navController = navHostFragment.navController
 
-        val bottomNavigationView = binding.bottomNavigationView
-        setupWithNavController(bottomNavigationView, navController)
-
         binding.addAdvertiseFAB.setOnClickListener {
 
-            val addAdvertiseFragment = AddAdvertiseFragment()
-            val fragment : Fragment? = supportFragmentManager.findFragmentByTag(addAdvertiseFragment::class.java.simpleName)
-
-            if(fragment !is AddAdvertiseFragment){
-                supportFragmentManager.beginTransaction()
-                    .replace(R.id.fragmentContainerView, addAdvertiseFragment, AddAdvertiseFragment::class.java.simpleName )
-                    .commit()
-            }
-
+            navController.navigate(AdvertsFragmentDirections.actionAdvertsFragmentToAddAdvertiseFragment())
+/*
             binding.bottomNavigationView.visibility = View.GONE
             binding.navigationBottomBar.visibility = View.GONE
-            binding.addAdvertiseFAB.visibility = View.GONE
+            binding.addAdvertiseFAB.visibility = View.GONE*/
 
         }
     }
