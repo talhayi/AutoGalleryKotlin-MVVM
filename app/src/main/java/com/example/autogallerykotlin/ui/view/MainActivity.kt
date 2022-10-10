@@ -1,22 +1,22 @@
 
 package com.example.autogallerykotlin.ui.view
 
+
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
-import androidx.fragment.app.Fragment
+import androidx.appcompat.app.AppCompatActivity
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.NavigationUI.setupWithNavController
-import com.example.autogallerykotlin.R
+
 import com.example.autogallerykotlin.databinding.ActivityMainBinding
-import com.example.autogallerykotlin.ui.fragment.AddAdvertiseFragment
 import com.example.autogallerykotlin.ui.fragment.AdvertsFragmentDirections
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
+
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.bottomNavigationView.background = null
 
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
+        val navHostFragment = supportFragmentManager.findFragmentById(com.example.autogallerykotlin.R.id.fragmentContainerView) as NavHostFragment
         navController = navHostFragment.navController
 
         binding.addAdvertiseFAB.setOnClickListener {
@@ -43,20 +43,21 @@ class MainActivity : AppCompatActivity() {
             binding.addAdvertiseFAB.visibility = View.GONE*/
 
         }
+
     }
 
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 
         val inflater = menuInflater
-        inflater.inflate(R.menu.menu,menu)
+        inflater.inflate(com.example.autogallerykotlin.R.menu.menu,menu)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         return when(item.itemId){
-            R.id.SignOut->{
+            com.example.autogallerykotlin.R.id.SignOut->{
                 val sharedPreferences = getSharedPreferences("login", MODE_PRIVATE)
                 val editor = sharedPreferences.edit()
                 sharedPreferences.getString("users_id",null)

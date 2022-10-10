@@ -94,8 +94,6 @@ class AddAdvertiseFragment : Fragment() {
 
         binding.addAdvertiseNextButton.setOnClickListener {
 
-            
-
 
             val userId = sharedPreferences?.getString("users_id", null)!!
             val advertTitle = binding.advertiseTitleTextView.text.toString().trim()
