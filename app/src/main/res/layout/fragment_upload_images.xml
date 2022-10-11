@@ -8,14 +8,7 @@
     tools:context=".ui.fragment.UploadImagesFragment">
 
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/addImageButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pickImageButton" />
+
 
     <Button
         android:id="@+id/pickImageButton"
@@ -35,6 +28,20 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText" />
 
+    <ImageView
+        android:id="@+id/uploadImageView"
+        android:layout_width="0dp"
+        android:layout_height="300dp"
+        android:visibility="gone"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/addImageButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pickImageButton" />
+
     <Button
         android:id="@+id/addImageButton"
         android:layout_width="0dp"
@@ -47,7 +54,7 @@
         android:text="Resim Ekle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pickImageButton"
+        app:layout_constraintTop_toBottomOf="@+id/uploadImageView"
         tools:ignore="HardcodedText" />
 
     <Button
