@@ -1,5 +1,9 @@
 package com.example.autogallerykotlin.data.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class AddAdvertise(
     val user_id: String? = null,
     val advert_id: String? = null,
@@ -33,4 +37,4 @@ data class AddAdvertise(
     val phoneNumber: String? = null,
 
 
-)
+):Parcelable

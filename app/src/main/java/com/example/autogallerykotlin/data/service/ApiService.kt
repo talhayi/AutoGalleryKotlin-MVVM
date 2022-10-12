@@ -2,6 +2,7 @@ package com.example.autogallerykotlin.data.service
 
 
 import com.example.autogallerykotlin.data.model.*
+import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -60,6 +61,14 @@ interface ApiService {
         @Field("motorCapacity") motorCapacity: String, @Field("traction") traction: String, @Field("color") color: String,
         @Field("guarantee") guarantee: String, @Field("swap") swap: String, @Field("phoneNumber") phoneNumber: String
     ): Response<AddAdvertise>
+
+    @FormUrlEncoded
+    @POST("addAdvertiseImage.php")
+    suspend fun addAdvertiseImage(
+        @Field("user_id") user_id: String?,
+        @Field("advert_id") advert_id: String?,
+        @Field("image") image: String?
+    ):Response<AddAdvertiseImage>
 }
 
 

@@ -2,7 +2,7 @@ package com.example.autogallerykotlin.ui.fragment
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
-import android.content.Intent
+
 import android.os.Bundle
 import android.view.*
 import android.widget.*
@@ -11,16 +11,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.NavigationUI
 import com.example.autogallerykotlin.R
 import com.example.autogallerykotlin.databinding.FragmentAddAdvertiseBinding
-import com.example.autogallerykotlin.ui.view.MainActivity
 import com.example.autogallerykotlin.viewmodel.AddAdvertiseViewModel
-import com.google.android.material.bottomappbar.BottomAppBar
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.textfield.TextInputEditText
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -31,8 +25,6 @@ class AddAdvertiseFragment : Fragment() {
     private var _binding: FragmentAddAdvertiseBinding? = null
     private val binding get() = _binding!!
     private val viewModel: AddAdvertiseViewModel by viewModels()
-
-    private lateinit var navController: NavController
 
     private lateinit var alertDialog: AlertDialog.Builder
 
@@ -74,13 +66,18 @@ class AddAdvertiseFragment : Fragment() {
         val sharedPreferences =
             this.activity?.getSharedPreferences("login", AppCompatActivity.MODE_PRIVATE)
 
+
+
         viewModel.addAdvertise.observe(viewLifecycleOwner) { addAdvertiseResult ->
             if (addAdvertiseResult.isSuccessful) {
                 if (addAdvertiseResult.body()?.success == true) {
 
+                    val advertId = addAdvertiseResult.body()!!.advert_id.toString()
+
                     Toast.makeText(requireContext(), "İlan yayınlandı", Toast.LENGTH_SHORT).show()
 
-                    findNavController().navigate(AddAdvertiseFragmentDirections.actionAddAdvertiseFragmentToUploadImagesFragment())
+                   findNavController().navigate(AddAdvertiseFragmentDirections.actionAddAdvertiseFragmentToUploadImagesFragment(advertId))
+
 
                 } else {
                     Toast.makeText(requireContext(), "not success", Toast.LENGTH_SHORT).show()

@@ -18,24 +18,30 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.autogallerykotlin.R
 import com.example.autogallerykotlin.databinding.FragmentUploadImagesBinding
+import com.example.autogallerykotlin.viewmodel.AddAdvertiseImageViewModel
 import com.google.android.material.snackbar.Snackbar
+import dagger.hilt.android.AndroidEntryPoint
 import java.io.ByteArrayOutputStream
 import java.io.IOException
 
-
+@AndroidEntryPoint
 class UploadImagesFragment : Fragment() {
     private var _binding: FragmentUploadImagesBinding? = null
     private val binding get() = _binding!!
     private lateinit var activityResultLauncher: ActivityResultLauncher<Intent>
     private lateinit var permissionLauncher: ActivityResultLauncher<String>
     private var bitmap: Bitmap? = null
+    private val viewModel: AddAdvertiseImageViewModel by viewModels()
+    private var advertId = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -55,8 +61,50 @@ class UploadImagesFragment : Fragment() {
         selectImage(view)
         registerLauncher()
       //  makeSmallerBitmap()
+        addImage()
+
+        viewModel.addAdvertiseImage.observe(viewLifecycleOwner){addAdvertiseImageResponse->
+            
+            if (addAdvertiseImageResponse.isSuccessful){
+                if(addAdvertiseImageResponse.body()?.success ==true){
+                    Toast.makeText(requireContext(), addAdvertiseImageResponse.body()?.result, Toast.LENGTH_SHORT).show()
+                } 
+                else {
+                    Toast.makeText(requireContext(), addAdvertiseImageResponse.body()?.result, Toast.LENGTH_SHORT).show()
+                }
+            }
+            else {
+                Toast.makeText(requireContext(), "not isSuccessful", Toast.LENGTH_SHORT).show()
+            }
+            
+        }
+      //  println(imageToString())
 
     }
+
+
+    private fun addImage(){
+
+        binding.addImageButton.setOnClickListener {
+
+            val sharedPreferences = this.activity?.getSharedPreferences("login", AppCompatActivity.MODE_PRIVATE)
+            val userId = sharedPreferences?.getString("users_id", null)!!
+            arguments?.let {
+                advertId = UploadImagesFragmentArgs.fromBundle(it).advertId
+            }
+
+            //todo imageToString'de sıkıntı yok
+            val image = imageToString()
+
+            println("userId: " + userId +" advertId: " + advertId + " image: " +image)
+
+            viewModel.addAdvertiseImage(userId,advertId,image)
+
+
+        }
+    }
+
+
 
     private fun selectImage(view: View) {
         binding.pickImageButton.setOnClickListener {
@@ -72,7 +120,7 @@ class UploadImagesFragment : Fragment() {
                         permissionLauncher.launch(Manifest.permission.READ_EXTERNAL_STORAGE)
 
                     }.show()
-                  //  binding.uploadImageView.visibility = View.VISIBLE
+
                     val params = snackbar.view.layoutParams as CoordinatorLayout.LayoutParams
                     params.anchorId = R.id.navigationBottomBar //id of the bottom navigation view
 
@@ -93,7 +141,17 @@ class UploadImagesFragment : Fragment() {
         }
     }
 
+    private fun imageToString(): String {
 
+        val smallBitmap = makeSmallerBitmap(bitmap!!,300)
+
+        val outputStream = ByteArrayOutputStream()
+        smallBitmap.compress(Bitmap.CompressFormat.PNG,50,outputStream)
+        val byteArray = outputStream.toByteArray()
+        return Base64.encodeToString(byteArray, Base64.DEFAULT)
+
+
+    }
     private fun registerLauncher() {
         activityResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
                 if (result.resultCode == RESULT_OK) {
@@ -139,15 +197,6 @@ class UploadImagesFragment : Fragment() {
             }
     }
 
-    private fun imageToString(): String {
-
-        // resmi base64 Stringine çevirmek için
-        val byteArrayOutputStream = ByteArrayOutputStream()
-        bitmap!!.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream)
-        val byt = byteArrayOutputStream.toByteArray()
-        return Base64.encodeToString(byt, Base64.DEFAULT)
-
-    }
 
     private fun makeSmallerBitmap(image: Bitmap, maximumSize : Int) : Bitmap {
         var width = image.width
