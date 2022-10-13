@@ -60,7 +60,6 @@ class UploadImagesFragment : Fragment() {
         }
         selectImage(view)
         registerLauncher()
-      //  makeSmallerBitmap()
         addImage()
 
         viewModel.addAdvertiseImage.observe(viewLifecycleOwner){addAdvertiseImageResponse->
@@ -78,8 +77,6 @@ class UploadImagesFragment : Fragment() {
             }
             
         }
-      //  println(imageToString())
-
     }
 
 
@@ -93,10 +90,7 @@ class UploadImagesFragment : Fragment() {
                 advertId = UploadImagesFragmentArgs.fromBundle(it).advertId
             }
 
-            //todo imageToString'de sıkıntı yok
             val image = imageToString()
-
-            println("userId: " + userId +" advertId: " + advertId + " image: " +image)
 
             viewModel.addAdvertiseImage(userId,advertId,image)
 

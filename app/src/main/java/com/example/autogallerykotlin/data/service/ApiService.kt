@@ -69,6 +69,10 @@ interface ApiService {
         @Field("advert_id") advert_id: String?,
         @Field("image") image: String?
     ):Response<AddAdvertiseImage>
+
+    @GET("myAdvertise.php")
+    suspend fun myAdvertise(@Query("user_id") user_id: String?): Response<List<MyAdvertise?>?>
+
 }
 
 
