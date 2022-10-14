@@ -10,6 +10,7 @@ data class MyAdvertiseItem(
 	val user_id: String? = null,
 	val advert_title: String? = null,
 	val price: String? = null,
+	val address: String? = null,
 	val success: Boolean? = null,
 	val count: Int? = null,
 	val explanation: String? = null,
