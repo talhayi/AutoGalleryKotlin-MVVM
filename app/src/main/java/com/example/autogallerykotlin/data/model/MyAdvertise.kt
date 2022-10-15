@@ -1,10 +1,10 @@
 package com.example.autogallerykotlin.data.model
+/*
+data class MyAdvertise(
+	val myAdvertise: List<MyAdvertiseItem>? = null
+)*/
 
 data class MyAdvertise(
-	val myAdvertise: List<MyAdvertiseItem?>? = null
-)
-
-data class MyAdvertiseItem(
 	val result: String? = null,
 	val image: String? = null,
 	val user_id: String? = null,

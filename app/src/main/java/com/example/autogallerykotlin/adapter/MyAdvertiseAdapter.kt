@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.autogallerykotlin.data.model.MyAdvertise
-import com.example.autogallerykotlin.data.model.MyAdvertiseItem
 import com.example.autogallerykotlin.databinding.MyadvertiseItemLayoutBinding
 
 class MyAdvertiseAdapter : RecyclerView.Adapter<MyAdvertiseAdapter.MyAdvertiseViewHolder>() {
@@ -16,20 +15,20 @@ class MyAdvertiseAdapter : RecyclerView.Adapter<MyAdvertiseAdapter.MyAdvertiseVi
 
     }
 
-    private val diffCallBack = object : DiffUtil.ItemCallback<MyAdvertiseItem>(){
+    private val diffCallBack = object : DiffUtil.ItemCallback<MyAdvertise>(){
 
-        override fun areItemsTheSame(oldItem: MyAdvertiseItem, newItem: MyAdvertiseItem): Boolean {
-          return oldItem.advert_id == newItem.advert_id
+        override fun areItemsTheSame(oldItem: MyAdvertise, newItem: MyAdvertise): Boolean {
+            return oldItem.advert_id == newItem.advert_id
         }
 
-        override fun areContentsTheSame(oldItem: MyAdvertiseItem, newItem: MyAdvertiseItem): Boolean {
+        override fun areContentsTheSame(oldItem: MyAdvertise, newItem: MyAdvertise): Boolean {
             return newItem == oldItem
         }
 
     }
 
     private val differ = AsyncListDiffer(this,diffCallBack)
-    var myAdvertise: List<MyAdvertiseItem>
+    var myAdvertise: List<MyAdvertise>
     get() = differ.currentList
     set(value){
         differ.submitList(value)
