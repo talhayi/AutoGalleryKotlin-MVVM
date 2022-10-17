@@ -3,6 +3,7 @@
 - In this application users can sell, buy and rent cars.
 - Users add informations and pictures of cars to sell or rent.
 - Users can add announcements to favorites.
+- Users can see all the announcements of all other users
 
 ## Important Libraries in Project
 
