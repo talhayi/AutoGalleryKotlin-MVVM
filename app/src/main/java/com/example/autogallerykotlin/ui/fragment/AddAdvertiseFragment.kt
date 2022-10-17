@@ -223,7 +223,7 @@ class AddAdvertiseFragment : Fragment() {
                     mDialogView.findViewById<TextInputEditText>(R.id.alertDialogNeighborhoodEditText).text.toString()
                         .trim()
 
-                binding.addressTextView.text = "$city / $district / $neighborhood"
+                binding.addressTextView.text = "$city, $district, $neighborhood"
             }
             alertDialog.show()
         }

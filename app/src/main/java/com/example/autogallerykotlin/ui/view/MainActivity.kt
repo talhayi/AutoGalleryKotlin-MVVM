@@ -11,8 +11,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
 
 import com.example.autogallerykotlin.databinding.ActivityMainBinding
+import com.example.autogallerykotlin.ui.fragment.AddAdvertiseFragment
 import com.example.autogallerykotlin.ui.fragment.AdvertsFragmentDirections
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
@@ -33,6 +35,8 @@ class MainActivity : AppCompatActivity() {
 
         val navHostFragment = supportFragmentManager.findFragmentById(com.example.autogallerykotlin.R.id.fragmentContainerView) as NavHostFragment
         navController = navHostFragment.navController
+
+
 
         binding.addAdvertiseFAB.setOnClickListener {
 

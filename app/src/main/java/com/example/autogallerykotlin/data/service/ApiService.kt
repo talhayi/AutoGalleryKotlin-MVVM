@@ -2,7 +2,6 @@ package com.example.autogallerykotlin.data.service
 
 
 import com.example.autogallerykotlin.data.model.*
-import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -71,7 +70,7 @@ interface ApiService {
     ):Response<AddAdvertiseImage>
 
     @GET("myAdvertise.php")
-    suspend fun myAdvertise(@Query("user_id") user_id: String?): Response<List<MyAdvertise?>?>
+    suspend fun myAdvertise(@Query("user_id") user_id: String?): List<MyAdvertise>?
 
 }
 

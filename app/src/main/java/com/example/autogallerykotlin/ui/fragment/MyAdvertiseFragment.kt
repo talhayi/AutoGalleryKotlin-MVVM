@@ -5,8 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.autogallerykotlin.adapter.MyAdvertiseAdapter
 import com.example.autogallerykotlin.databinding.FragmentMyAdvertiseBinding
 import com.example.autogallerykotlin.viewmodel.MyAdvertiseViewModel
@@ -34,22 +36,35 @@ class MyAdvertiseFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setUpRV()
-    }
 
-    private fun setUpRV(){
-        myAdvertiseAdapter = MyAdvertiseAdapter()
-        binding.myAdvertiseRecyclerView.apply {
-            layoutManager = GridLayoutManager(context,1)
-            setHasFixedSize(true)
-        }
+
+        val sharedPreferences =
+            this.activity?.getSharedPreferences("login", AppCompatActivity.MODE_PRIVATE)
+        val userId = sharedPreferences?.getString("users_id", null)!!
+        viewModel.getMyAdvertise(userId)
 
         viewModel.myAdvertise.observe(viewLifecycleOwner){myAdvertiseResponse->
             myAdvertiseResponse.let {
                 myAdvertiseAdapter.myAdvertise = myAdvertiseResponse
             }
         }
+        setUpRV()
+
+
     }
+
+    private fun setUpRV(){
+
+        myAdvertiseAdapter = MyAdvertiseAdapter()
+        binding.myAdvertiseRecyclerView.apply {
+
+            layoutManager = LinearLayoutManager(requireContext())
+            adapter = myAdvertiseAdapter
+
+        }
+    }
+
+
     override fun onDestroy() {
         super.onDestroy()
         _binding = null

@@ -21,7 +21,8 @@ class MyAdvertiseViewModel @Inject constructor(
 
 
 
-    fun myAdvertise(
+
+    fun getMyAdvertise(
         user_id : String
     )=viewModelScope.launch {
         _myAdvertise.postValue(repository.myAdvertise(user_id))

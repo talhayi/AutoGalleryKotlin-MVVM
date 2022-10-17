@@ -1,5 +1,7 @@
 package com.example.autogallerykotlin.adapter
 
+
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
@@ -8,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.autogallerykotlin.data.model.MyAdvertise
 import com.example.autogallerykotlin.databinding.MyadvertiseItemLayoutBinding
+
 
 class MyAdvertiseAdapter : RecyclerView.Adapter<MyAdvertiseAdapter.MyAdvertiseViewHolder>() {
 
@@ -35,24 +38,30 @@ class MyAdvertiseAdapter : RecyclerView.Adapter<MyAdvertiseAdapter.MyAdvertiseVi
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyAdvertiseViewHolder {
-        return MyAdvertiseViewHolder(MyadvertiseItemLayoutBinding.inflate(LayoutInflater.from(parent.context),parent,false))
+        return MyAdvertiseViewHolder(MyadvertiseItemLayoutBinding.inflate(
+            LayoutInflater.from(parent.context),parent,false))
     }
 
     override fun onBindViewHolder(holder: MyAdvertiseViewHolder, position: Int) {
         val currentMyAdvertise = myAdvertise[position]
+
         holder.binding.apply {
+
             myAdvertiseRowAdvertTitleTextView.text = currentMyAdvertise.advert_title
             myAdvertiseRowAddressTextView.text = currentMyAdvertise.address
             myAdvertiseRowPriceTextView.text = currentMyAdvertise.price
-            myAdvertiseRowImageView.load(currentMyAdvertise.image){
+            myAdvertiseRowImageView.load("http://yazilimgunlukleri.com/autogallerykotlin/"+currentMyAdvertise.image){
                 crossfade(true)
                 crossfade(1000)
             }
+
         }
+
 
     }
 
     override fun getItemCount(): Int {
        return myAdvertise.size
     }
+
 }
