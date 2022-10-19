@@ -9,6 +9,7 @@
     <string name="new_password">Set your new password to use in your account..</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="deleteMyAdvertise">Silmek istiyor musunuz?</string>
 
     <string-array name="fuels">
         <item>Benzin</item>

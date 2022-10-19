@@ -1,14 +1,21 @@
 package com.example.autogallerykotlin.ui.fragment
 
+import android.annotation.SuppressLint
+import android.app.AlertDialog
+import android.os.Binder
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.autogallerykotlin.R
 import com.example.autogallerykotlin.adapter.MyAdvertiseAdapter
 import com.example.autogallerykotlin.databinding.FragmentMyAdvertiseBinding
 import com.example.autogallerykotlin.viewmodel.MyAdvertiseViewModel
@@ -21,6 +28,8 @@ class MyAdvertiseFragment : Fragment() {
     private val binding get() = _binding!!
     private val viewModel: MyAdvertiseViewModel by viewModels()
     private lateinit var myAdvertiseAdapter: MyAdvertiseAdapter
+
+    private lateinit var alertDialog: AlertDialog.Builder
 
 
 
@@ -49,6 +58,23 @@ class MyAdvertiseFragment : Fragment() {
             }
         }
         setUpRV()
+        deleteMyAdvertise()
+
+
+
+    }
+
+
+    private fun deleteMyAdvertise() {
+
+        myAdvertiseAdapter.setOnItemClickListener(object : MyAdvertiseAdapter.onItemClickListener{
+            override fun onItemClick(position: Int) {
+                Toast.makeText(requireContext(), "Tıklandı $position", Toast.LENGTH_SHORT).show()
+            }
+
+        })
+
+
 
 
     }
@@ -59,9 +85,11 @@ class MyAdvertiseFragment : Fragment() {
         binding.myAdvertiseRecyclerView.apply {
 
             layoutManager = LinearLayoutManager(requireContext())
+
             adapter = myAdvertiseAdapter
 
         }
+
     }
 
 
