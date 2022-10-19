@@ -32,10 +32,10 @@ class MyAdvertiseFragment : Fragment() {
     private lateinit var alertDialog: AlertDialog.Builder
 
 
-
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentMyAdvertiseBinding.inflate(inflater, container, false)
         return binding.root
@@ -52,7 +52,7 @@ class MyAdvertiseFragment : Fragment() {
         val userId = sharedPreferences?.getString("users_id", null)!!
         viewModel.getMyAdvertise(userId)
 
-        viewModel.myAdvertise.observe(viewLifecycleOwner){myAdvertiseResponse->
+        viewModel.myAdvertise.observe(viewLifecycleOwner) { myAdvertiseResponse ->
             myAdvertiseResponse.let {
                 myAdvertiseAdapter.myAdvertise = myAdvertiseResponse
             }
@@ -61,25 +61,66 @@ class MyAdvertiseFragment : Fragment() {
         deleteMyAdvertise()
 
 
-
     }
 
 
     private fun deleteMyAdvertise() {
 
-        myAdvertiseAdapter.setOnItemClickListener(object : MyAdvertiseAdapter.onItemClickListener{
+        myAdvertiseAdapter.setOnItemClickListener(object : MyAdvertiseAdapter.onItemClickListener {
             override fun onItemClick(position: Int) {
                 Toast.makeText(requireContext(), "Tıklandı $position", Toast.LENGTH_SHORT).show()
+
+                val mDialogView = LayoutInflater.from(requireContext())
+                    .inflate(R.layout.delete_alert_dialog, null)
+
+                alertDialog = AlertDialog.Builder(requireContext()).setView(mDialogView)
+
+
+
+                alertDialog.setNegativeButton("HAYIR") { _, _ -> }
+
+                alertDialog.setPositiveButton("EVET") { _, _ ->
+
+
+                }
+
+                alertDialog.show()
             }
 
         })
+/*
+        myAdvertiseAdapter.onItemClick={
+            Toast.makeText(requireContext(), "Tıklandı", Toast.LENGTH_SHORT).show()
+        }*/
+/*
+        binding.myAdvertiseRecyclerView.setOnClickListener {
+
+            val mDialogView = LayoutInflater.from(requireContext())
+                .inflate(R.layout.myadvertise_item_layout, null)
+
+            val deleteMyAdvertiseDialog =
+                mDialogView.findViewById<LinearLayout>(R.id.myAdvertiseRowLinearLayout)
+
+            deleteMyAdvertiseDialog.setOnClickListener {
+                alertDialog = AlertDialog.Builder(requireContext()).setView(mDialogView)
+
+                alertDialog.setNegativeButton("HAYIR") { _, _ -> }
+
+                alertDialog.setPositiveButton("EVET") { _, _ ->
 
 
+
+                }
+                alertDialog.show()
+        }
+
+
+        }*/
 
 
     }
 
-    private fun setUpRV(){
+    private fun setUpRV() {
 
         myAdvertiseAdapter = MyAdvertiseAdapter()
         binding.myAdvertiseRecyclerView.apply {
@@ -89,7 +130,6 @@ class MyAdvertiseFragment : Fragment() {
             adapter = myAdvertiseAdapter
 
         }
-
     }
 
 
