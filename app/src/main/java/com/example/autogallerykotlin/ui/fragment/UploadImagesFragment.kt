@@ -57,6 +57,7 @@ class UploadImagesFragment : Fragment() {
 
         binding.uploadImageBackButton.setOnClickListener {
             findNavController().navigate(UploadImagesFragmentDirections.actionUploadImagesFragmentToAdvertsFragment())
+
         }
         selectImage(view)
         registerLauncher()
@@ -92,7 +93,9 @@ class UploadImagesFragment : Fragment() {
 
             val image = imageToString()
 
-            viewModel.addAdvertiseImage(userId,advertId,image)
+                viewModel.addAdvertiseImage(userId,advertId,image)
+
+
 
 
         }
