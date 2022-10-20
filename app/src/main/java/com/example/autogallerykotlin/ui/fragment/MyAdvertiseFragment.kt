@@ -1,22 +1,18 @@
 package com.example.autogallerykotlin.ui.fragment
 
-import android.annotation.SuppressLint
 import android.app.AlertDialog
-import android.os.Binder
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
-import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.autogallerykotlin.R
 import com.example.autogallerykotlin.adapter.MyAdvertiseAdapter
+import com.example.autogallerykotlin.data.model.MyAdvertise
 import com.example.autogallerykotlin.databinding.FragmentMyAdvertiseBinding
 import com.example.autogallerykotlin.viewmodel.MyAdvertiseViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -28,9 +24,9 @@ class MyAdvertiseFragment : Fragment() {
     private val binding get() = _binding!!
     private val viewModel: MyAdvertiseViewModel by viewModels()
     private lateinit var myAdvertiseAdapter: MyAdvertiseAdapter
-
     private lateinit var alertDialog: AlertDialog.Builder
-
+    private var advertId=""
+    private var userId=""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -46,78 +42,71 @@ class MyAdvertiseFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        myAdvertiseRequest()
+        setUpRV()
+        deleteMyAdvertiseRequest()
+        deleteMyAdvertise()
 
-        val sharedPreferences =
-            this.activity?.getSharedPreferences("login", AppCompatActivity.MODE_PRIVATE)
-        val userId = sharedPreferences?.getString("users_id", null)!!
-        viewModel.getMyAdvertise(userId)
+    }
+
+    private fun deleteMyAdvertise() {
 
         viewModel.myAdvertise.observe(viewLifecycleOwner) { myAdvertiseResponse ->
             myAdvertiseResponse.let {
                 myAdvertiseAdapter.myAdvertise = myAdvertiseResponse
+
+                myAdvertiseAdapter.setOnItemClickListener(object : MyAdvertiseAdapter.onItemClickListener {
+                    override fun onItemClick(position: Int) {
+
+                        Toast.makeText(requireContext(), "Tıklandı $position", Toast.LENGTH_SHORT).show()
+
+                        val mDialogView = LayoutInflater.from(requireContext())
+                            .inflate(R.layout.delete_alert_dialog, null)
+
+                        alertDialog = AlertDialog.Builder(requireContext()).setView(mDialogView)
+
+                        alertDialog.setNegativeButton("HAYIR") { _, _ -> }
+
+                        alertDialog.setPositiveButton("EVET") { _, _ ->
+                            //todo silme işlemini burda yap ilan id bi şekilde bulman lazım
+                            advertId = myAdvertiseResponse[position].advert_id.toString()
+
+                           // myAdvertiseAdapter.notifyItemRemoved(position)
+                            viewModel.getDeleteMyAdvertise(advertId)
+                            viewModel.getMyAdvertise(userId)
+
+                        }
+                        alertDialog.show()
+                    }
+                })
             }
         }
-        setUpRV()
-        deleteMyAdvertise()
-
-
     }
 
+    private fun deleteMyAdvertiseRequest(){
 
-    private fun deleteMyAdvertise() {
+        viewModel.deleteMyAdvertise.observe(viewLifecycleOwner){deleteMyAdvertiseResponse->
 
-        myAdvertiseAdapter.setOnItemClickListener(object : MyAdvertiseAdapter.onItemClickListener {
-            override fun onItemClick(position: Int) {
-                Toast.makeText(requireContext(), "Tıklandı $position", Toast.LENGTH_SHORT).show()
+            if(deleteMyAdvertiseResponse.isSuccessful){
+                if (deleteMyAdvertiseResponse.body()?.success ==true){
 
-                val mDialogView = LayoutInflater.from(requireContext())
-                    .inflate(R.layout.delete_alert_dialog, null)
-
-                alertDialog = AlertDialog.Builder(requireContext()).setView(mDialogView)
-
-
-
-                alertDialog.setNegativeButton("HAYIR") { _, _ -> }
-
-                alertDialog.setPositiveButton("EVET") { _, _ ->
-
-
+                    Toast.makeText(requireContext(), "silindi", Toast.LENGTH_SHORT).show()
                 }
-
-                alertDialog.show()
+                else{
+                    Toast.makeText(requireContext(), "silinmedi", Toast.LENGTH_SHORT).show()
+                }
+            }else{
+                Toast.makeText(requireContext(), "not isSuccessful", Toast.LENGTH_SHORT).show()
             }
 
-        })
-/*
-        myAdvertiseAdapter.onItemClick={
-            Toast.makeText(requireContext(), "Tıklandı", Toast.LENGTH_SHORT).show()
-        }*/
-/*
-        binding.myAdvertiseRecyclerView.setOnClickListener {
-
-            val mDialogView = LayoutInflater.from(requireContext())
-                .inflate(R.layout.myadvertise_item_layout, null)
-
-            val deleteMyAdvertiseDialog =
-                mDialogView.findViewById<LinearLayout>(R.id.myAdvertiseRowLinearLayout)
-
-            deleteMyAdvertiseDialog.setOnClickListener {
-                alertDialog = AlertDialog.Builder(requireContext()).setView(mDialogView)
-
-                alertDialog.setNegativeButton("HAYIR") { _, _ -> }
-
-                alertDialog.setPositiveButton("EVET") { _, _ ->
-
-
-
-                }
-                alertDialog.show()
         }
+    }
 
-
-        }*/
-
-
+    private fun myAdvertiseRequest(){
+        val sharedPreferences =
+            this.activity?.getSharedPreferences("login", AppCompatActivity.MODE_PRIVATE)
+        userId = sharedPreferences?.getString("users_id", null)!!
+        viewModel.getMyAdvertise(userId)
     }
 
     private fun setUpRV() {
@@ -131,7 +120,6 @@ class MyAdvertiseFragment : Fragment() {
 
         }
     }
-
 
     override fun onDestroy() {
         super.onDestroy()

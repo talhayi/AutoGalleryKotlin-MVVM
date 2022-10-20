@@ -4,19 +4,13 @@ package com.example.autogallerykotlin.ui.view
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.setupWithNavController
-
 import com.example.autogallerykotlin.databinding.ActivityMainBinding
-import com.example.autogallerykotlin.ui.fragment.AddAdvertiseFragment
 import com.example.autogallerykotlin.ui.fragment.AdvertsFragmentDirections
-import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
 
