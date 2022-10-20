@@ -15,7 +15,4 @@ class   MyAdvertiseRepository @Inject constructor(
 
     }
 
-    suspend fun deleteMyAdvertise(advert_id:String)
-            =apiService.deleteMyAdvertise(advert_id)
-
 }

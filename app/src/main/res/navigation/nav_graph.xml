@@ -18,16 +18,15 @@
         android:id="@+id/myAdvertsFragment"
         android:name="com.example.autogallerykotlin.ui.fragment.MyAdvertiseFragment"
         android:label="fragment_my_adverts"
-        tools:layout="@layout/fragment_my_advertise" >
-               <argument
-            android:name="delete_advert_id"
-            app:argType="string" />
-    </fragment>
+        tools:layout="@layout/fragment_my_advertise" />
     <fragment
         android:id="@+id/addAdvertiseFragment"
         android:name="com.example.autogallerykotlin.ui.fragment.AddAdvertiseFragment"
         android:label="fragment_add_advertise"
         tools:layout="@layout/fragment_add_advertise" >
+        <action
+            android:id="@+id/action_addAdvertiseFragment_to_advertsFragment"
+            app:destination="@id/advertsFragment" />
         <action
             android:id="@+id/action_addAdvertiseFragment_to_uploadImagesFragment"
             app:destination="@id/uploadImagesFragment" />

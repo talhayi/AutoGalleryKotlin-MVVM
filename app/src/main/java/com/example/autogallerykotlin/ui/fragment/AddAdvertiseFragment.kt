@@ -73,10 +73,10 @@ class AddAdvertiseFragment : Fragment() {
                 if (addAdvertiseResult.body()?.success == true) {
 
                     val advertId = addAdvertiseResult.body()!!.advert_id.toString()
+
                     Toast.makeText(requireContext(), "İlan yayınlandı", Toast.LENGTH_SHORT).show()
 
-                    findNavController().navigate(AddAdvertiseFragmentDirections.actionAddAdvertiseFragmentToUploadImagesFragment(advertId))
-
+                   findNavController().navigate(AddAdvertiseFragmentDirections.actionAddAdvertiseFragmentToUploadImagesFragment(advertId))
 
 
                 } else {

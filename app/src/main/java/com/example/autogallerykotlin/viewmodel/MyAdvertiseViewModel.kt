@@ -4,12 +4,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.autogallerykotlin.data.model.DeleteMyAdvertise
 import com.example.autogallerykotlin.data.model.MyAdvertise
 import com.example.autogallerykotlin.data.repository.MyAdvertiseRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-import retrofit2.Response
 import javax.inject.Inject
 
 @HiltViewModel
@@ -21,21 +19,12 @@ class MyAdvertiseViewModel @Inject constructor(
     val myAdvertise: LiveData<List<MyAdvertise>>
         get() = _myAdvertise
 
-    private val _deleteMyAdvertise = MutableLiveData<Response<DeleteMyAdvertise>>()
-    val deleteMyAdvertise: LiveData<Response<DeleteMyAdvertise>>
-        get() = _deleteMyAdvertise
+
 
 
     fun getMyAdvertise(
         user_id : String
     )=viewModelScope.launch {
         _myAdvertise.postValue(repository.myAdvertise(user_id))
-    }
-
-
-    fun getDeleteMyAdvertise(
-        advert_id: String
-    )=viewModelScope.launch {
-        _deleteMyAdvertise.postValue(repository.deleteMyAdvertise(advert_id))
     }
 }

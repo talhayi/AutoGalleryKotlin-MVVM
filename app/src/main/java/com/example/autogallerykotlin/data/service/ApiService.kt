@@ -72,9 +72,6 @@ interface ApiService {
     @GET("myAdvertise.php")
     suspend fun myAdvertise(@Query("user_id") user_id: String?): List<MyAdvertise>?
 
-    @GET("deleteMyAdvertise.php")
-    suspend fun deleteMyAdvertise(@Query("advert_id") advert_id: String?):Response<DeleteMyAdvertise>
-
 }
 
 
