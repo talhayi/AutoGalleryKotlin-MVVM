@@ -12,7 +12,6 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.autogallerykotlin.R
 import com.example.autogallerykotlin.adapter.MyAdvertiseAdapter
-import com.example.autogallerykotlin.data.model.MyAdvertise
 import com.example.autogallerykotlin.databinding.FragmentMyAdvertiseBinding
 import com.example.autogallerykotlin.viewmodel.MyAdvertiseViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -35,8 +34,6 @@ class MyAdvertiseFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentMyAdvertiseBinding.inflate(inflater, container, false)
         return binding.root
-
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -68,9 +65,10 @@ class MyAdvertiseFragment : Fragment() {
                         alertDialog.setNegativeButton("HAYIR") { _, _ -> }
 
                         alertDialog.setPositiveButton("EVET") { _, _ ->
-                            //todo silme işlemini burda yap ilan id bi şekilde bulman lazım
+
                             advertId = myAdvertiseResponse[position].advert_id.toString()
 
+                            //todo: notifyItemRemoved kullanınca db'den siliniyor ama uygulamadan silinmiyor
                            // myAdvertiseAdapter.notifyItemRemoved(position)
                             viewModel.getDeleteMyAdvertise(advertId)
                             viewModel.getMyAdvertise(userId)
@@ -98,7 +96,6 @@ class MyAdvertiseFragment : Fragment() {
             }else{
                 Toast.makeText(requireContext(), "not isSuccessful", Toast.LENGTH_SHORT).show()
             }
-
         }
     }
 
