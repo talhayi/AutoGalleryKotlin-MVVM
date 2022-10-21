@@ -46,7 +46,7 @@ class MyAdvertiseFragment : Fragment() {
 
     }
 
-    private fun deleteMyAdvertise() {
+    private fun deleteMyAdvertiseRequest() {
 
         viewModel.myAdvertise.observe(viewLifecycleOwner) { myAdvertiseResponse ->
             myAdvertiseResponse.let {
@@ -54,8 +54,6 @@ class MyAdvertiseFragment : Fragment() {
 
                 myAdvertiseAdapter.setOnItemClickListener(object : MyAdvertiseAdapter.onItemClickListener {
                     override fun onItemClick(position: Int) {
-
-                        Toast.makeText(requireContext(), "Tıklandı $position", Toast.LENGTH_SHORT).show()
 
                         val mDialogView = LayoutInflater.from(requireContext())
                             .inflate(R.layout.delete_alert_dialog, null)
@@ -81,7 +79,7 @@ class MyAdvertiseFragment : Fragment() {
         }
     }
 
-    private fun deleteMyAdvertiseRequest(){
+    private fun deleteMyAdvertise(){
 
         viewModel.deleteMyAdvertise.observe(viewLifecycleOwner){deleteMyAdvertiseResponse->
 

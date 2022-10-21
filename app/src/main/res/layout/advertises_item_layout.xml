@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:elevation="10dp"
+    android:layout_margin="1dp"
+    app:cardCornerRadius="10dp">
+<LinearLayout
+    android:id="@+id/advertisesRowLinearLayout"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    android:background="@color/second_color">
+
+    <ImageView
+        android:id="@+id/advertisesRowImageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_launcher_background"
+        android:scaleType="fitXY">
+
+    </ImageView>
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/advertisesRowAdvertTitleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:textColor="@color/black"
+            android:text="Title"
+            android:textSize="20sp"
+
+            android:layout_marginStart="14dp"
+            android:layout_marginBottom="4dp"
+            tools:ignore="HardcodedText">
+        </TextView>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            >
+            <TextView
+                android:id="@+id/advertisesRowAddressTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:text="Address"
+                android:layout_marginStart="14dp"
+                android:layout_marginBottom="4dp"
+                android:textSize="12sp"
+                tools:ignore="HardcodedText">
+            </TextView>
+
+            <TextView
+                android:id="@+id/advertisesRowPriceTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="Price"
+                android:gravity="right"
+                android:textColor="@color/primary_color"
+                android:layout_marginBottom="4dp"
+                android:paddingRight="5dp"
+                android:textSize="14sp"
+                tools:ignore="HardcodedText,RtlHardcoded,RtlSymmetry">
+            </TextView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>
+
+    </androidx.cardview.widget.CardView>
