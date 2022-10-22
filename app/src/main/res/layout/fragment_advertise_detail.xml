@@ -95,7 +95,7 @@
             android:gravity="center"
             android:padding="4dp"
             android:text="Address"
-            android:textColor="@color/gray"
+            android:textColor="@color/gray4"
             android:textSize="12sp"
             tools:ignore="HardcodedText,SmallSp">
 
@@ -121,7 +121,7 @@
             android:layout_weight="1"
             android:background="@drawable/background_button"
             android:text="Ara"
-            tools:ignore="HardcodedText" />
+            tools:ignore="ButtonStyle,HardcodedText" />
 
         <Button
             android:id="@+id/advertiseDetailFavoriteButton"
@@ -133,7 +133,7 @@
             android:layout_weight="1"
             android:background="@drawable/background_button"
             android:text="FAVORİYE AL"
-            tools:ignore="HardcodedText" />
+            tools:ignore="ButtonStyle,HardcodedText" />
 
     </LinearLayout>
 
@@ -153,6 +153,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -160,9 +162,9 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="5dp"
-                    android:text="Fiyat "
-                    android:textColor="@color/gray"
-                    android:textSize="20sp"
+                    android:text="Fiyat"
+                    android:textColor="@color/gray4"
+                    android:textSize="18sp"
                     tools:ignore="HardcodedText">
 
                 </TextView>
@@ -174,9 +176,9 @@
                     android:layout_weight="1"
                     android:gravity="right"
                     android:padding="5dp"
-                    android:text="Fiyat "
+                    android:text="Fiyat"
                     android:textColor="@color/primary_color"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     tools:ignore="HardcodedText,RtlHardcoded">
 
                 </TextView>
@@ -185,6 +187,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -193,8 +197,8 @@
                     android:layout_weight="1"
                     android:padding="5dp"
                     android:text="Marka"
-                    android:textColor="@color/gray"
-                    android:textSize="20sp"
+                    android:textColor="@color/gray4"
+                    android:textSize="18sp"
                     tools:ignore="HardcodedText">
 
                 </TextView>
@@ -206,9 +210,9 @@
                     android:layout_weight="1"
                     android:gravity="right"
                     android:padding="5dp"
-                    android:text="Marka "
-                    android:textColor="@color/gray"
-                    android:textSize="20sp"
+                    android:text="Marka"
+                    android:textColor="@color/gray4"
+                    android:textSize="18sp"
                     tools:ignore="HardcodedText,RtlHardcoded">
 
                 </TextView>
@@ -217,6 +221,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -225,8 +231,8 @@
                     android:layout_weight="1"
                     android:padding="5dp"
                     android:text="Seri "
-                    android:textColor="@color/gray"
-                    android:textSize="20sp"
+                    android:textColor="@color/gray4"
+                    android:textSize="18sp"
                     tools:ignore="HardcodedText">
 
                 </TextView>
@@ -239,8 +245,8 @@
                     android:gravity="right"
                     android:padding="5dp"
                     android:text="Seri"
-                    android:textColor="@color/gray"
-                    android:textSize="20sp"
+                    android:textColor="@color/gray4"
+                    android:textSize="18sp"
                     tools:ignore="HardcodedText,RtlHardcoded">
 
                 </TextView>
@@ -249,6 +255,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -257,8 +265,8 @@
                     android:layout_weight="1"
                     android:padding="5dp"
                     android:text="Model"
-                    android:textColor="@color/gray"
-                    android:textSize="20sp"
+                    android:textColor="@color/gray4"
+                    android:textSize="18sp"
                     tools:ignore="HardcodedText">
 
                 </TextView>
@@ -271,8 +279,8 @@
                     android:gravity="right"
                     android:padding="5dp"
                     android:text="Model"
-                    android:textColor="@color/gray"
-                    android:textSize="20sp"
+                    android:textColor="@color/gray4"
+                    android:textSize="18sp"
                     tools:ignore="HardcodedText,RtlHardcoded">
 
                 </TextView>
@@ -281,6 +289,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -289,8 +299,8 @@
                     android:layout_weight="1"
                     android:padding="5dp"
                     android:text="Yıl"
-                    android:textColor="@color/gray"
-                    android:textSize="20sp"
+                    android:textColor="@color/gray4"
+                    android:textSize="18sp"
                     tools:ignore="HardcodedText">
 
                 </TextView>
@@ -303,15 +313,18 @@
                     android:gravity="right"
                     android:padding="5dp"
                     android:text="Yıl"
-                    android:textColor="@color/gray"
-                    android:textSize="20sp"
+                    android:textColor="@color/gray4"
+                    android:textSize="18sp"
                     tools:ignore="HardcodedText,RtlHardcoded">
 
                 </TextView>
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -320,8 +333,8 @@
                     android:layout_weight="1"
                     android:padding="5dp"
                     android:text="Yakıt"
-                    android:textColor="@color/gray"
-                    android:textSize="20sp"
+                    android:textColor="@color/gray4"
+                    android:textSize="18sp"
                     tools:ignore="HardcodedText">
 
                 </TextView>
@@ -334,8 +347,8 @@
                     android:gravity="right"
                     android:padding="5dp"
                     android:text="Yakıt"
-                    android:textColor="@color/gray"
-                    android:textSize="20sp"
+                    android:textColor="@color/gray4"
+                    android:textSize="18sp"
                     tools:ignore="HardcodedText,RtlHardcoded">
 
                 </TextView>
@@ -344,6 +357,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -352,8 +367,8 @@
                     android:layout_weight="1"
                     android:padding="5dp"
                     android:text="Vites"
-                    android:textColor="@color/gray"
-                    android:textSize="20sp"
+                    android:textColor="@color/gray4"
+                    android:textSize="18sp"
                     tools:ignore="HardcodedText">
 
                 </TextView>
@@ -366,8 +381,8 @@
                     android:gravity="right"
                     android:padding="5dp"
                     android:text="Vites"
-                    android:textColor="@color/gray"
-                    android:textSize="20sp"
+                    android:textColor="@color/gray4"
+                    android:textSize="18sp"
                     tools:ignore="HardcodedText,RtlHardcoded">
 
                 </TextView>
@@ -376,6 +391,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -384,8 +401,8 @@
                     android:layout_weight="1"
                     android:padding="5dp"
                     android:text="Araç Durumu"
-                    android:textColor="@color/gray"
-                    android:textSize="20sp"
+                    android:textColor="@color/gray4"
+                    android:textSize="18sp"
                     tools:ignore="HardcodedText">
 
                 </TextView>
@@ -398,8 +415,8 @@
                     android:gravity="right"
                     android:padding="5dp"
                     android:text="Araç Durumu"
-                    android:textColor="@color/gray"
-                    android:textSize="20sp"
+                    android:textColor="@color/gray4"
+                    android:textSize="18sp"
                     tools:ignore="HardcodedText,RtlHardcoded">
 
                 </TextView>
@@ -408,6 +425,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -416,8 +435,8 @@
                     android:layout_weight="1"
                     android:padding="5dp"
                     android:text="Km"
-                    android:textColor="@color/gray"
-                    android:textSize="20sp"
+                    android:textColor="@color/gray4"
+                    android:textSize="18sp"
                     tools:ignore="HardcodedText">
 
                 </TextView>
@@ -430,8 +449,8 @@
                     android:gravity="right"
                     android:padding="5dp"
                     android:text="Km"
-                    android:textColor="@color/gray"
-                    android:textSize="20sp"
+                    android:textColor="@color/gray4"
+                    android:textSize="18sp"
                     tools:ignore="HardcodedText,RtlHardcoded">
 
                 </TextView>
@@ -439,6 +458,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -447,8 +468,8 @@
                     android:layout_weight="1"
                     android:padding="5dp"
                     android:text="Kasa Tipi"
-                    android:textColor="@color/gray"
-                    android:textSize="20sp"
+                    android:textColor="@color/gray4"
+                    android:textSize="18sp"
                     tools:ignore="HardcodedText">
 
                 </TextView>
@@ -461,8 +482,8 @@
                     android:gravity="right"
                     android:padding="5dp"
                     android:text="Kasa Tipi"
-                    android:textColor="@color/gray"
-                    android:textSize="20sp"
+                    android:textColor="@color/gray4"
+                    android:textSize="18sp"
                     tools:ignore="HardcodedText,RtlHardcoded">
 
                 </TextView>
@@ -471,6 +492,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -479,8 +502,8 @@
                     android:layout_weight="1"
                     android:padding="5dp"
                     android:text="Motor Gücü"
-                    android:textColor="@color/gray"
-                    android:textSize="20sp"
+                    android:textColor="@color/gray4"
+                    android:textSize="18sp"
                     tools:ignore="HardcodedText">
 
                 </TextView>
@@ -493,8 +516,8 @@
                     android:gravity="right"
                     android:padding="5dp"
                     android:text="Motor Gücü"
-                    android:textColor="@color/gray"
-                    android:textSize="20sp"
+                    android:textColor="@color/gray4"
+                    android:textSize="18sp"
                     tools:ignore="HardcodedText,RtlHardcoded">
 
                 </TextView>
@@ -503,6 +526,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -511,8 +536,8 @@
                     android:layout_weight="1"
                     android:padding="5dp"
                     android:text="Motor Hacmi"
-                    android:textColor="@color/gray"
-                    android:textSize="20sp"
+                    android:textColor="@color/gray4"
+                    android:textSize="18sp"
                     tools:ignore="HardcodedText">
 
                 </TextView>
@@ -525,8 +550,8 @@
                     android:gravity="right"
                     android:padding="5dp"
                     android:text="Motor Hacmi"
-                    android:textColor="@color/gray"
-                    android:textSize="20sp"
+                    android:textColor="@color/gray4"
+                    android:textSize="18sp"
                     tools:ignore="HardcodedText,RtlHardcoded">
 
                 </TextView>
@@ -535,6 +560,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -543,8 +570,8 @@
                     android:layout_weight="1"
                     android:padding="5dp"
                     android:text="Çekiş"
-                    android:textColor="@color/gray"
-                    android:textSize="20sp"
+                    android:textColor="@color/gray4"
+                    android:textSize="18sp"
                     tools:ignore="HardcodedText">
 
                 </TextView>
@@ -557,8 +584,8 @@
                     android:gravity="right"
                     android:padding="5dp"
                     android:text="Çekiş"
-                    android:textColor="@color/gray"
-                    android:textSize="20sp"
+                    android:textColor="@color/gray4"
+                    android:textSize="18sp"
                     tools:ignore="HardcodedText,RtlHardcoded">
 
                 </TextView>
@@ -567,6 +594,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -575,8 +604,8 @@
                     android:layout_weight="1"
                     android:padding="5dp"
                     android:text="Renk"
-                    android:textColor="@color/gray"
-                    android:textSize="20sp"
+                    android:textColor="@color/gray4"
+                    android:textSize="18sp"
                     tools:ignore="HardcodedText">
 
                 </TextView>
@@ -589,8 +618,8 @@
                     android:gravity="right"
                     android:padding="5dp"
                     android:text="Renk"
-                    android:textColor="@color/gray"
-                    android:textSize="20sp"
+                    android:textColor="@color/gray4"
+                    android:textSize="18sp"
                     tools:ignore="HardcodedText,RtlHardcoded">
 
                 </TextView>
@@ -599,6 +628,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -607,8 +638,8 @@
                     android:layout_weight="1"
                     android:padding="5dp"
                     android:text="Garanti"
-                    android:textColor="@color/gray"
-                    android:textSize="20sp"
+                    android:textColor="@color/gray4"
+                    android:textSize="18sp"
                     tools:ignore="HardcodedText">
 
                 </TextView>
@@ -621,8 +652,8 @@
                     android:gravity="right"
                     android:padding="5dp"
                     android:text="Garanti"
-                    android:textColor="@color/gray"
-                    android:textSize="20sp"
+                    android:textColor="@color/gray4"
+                    android:textSize="18sp"
                     tools:ignore="HardcodedText,RtlHardcoded">
 
                 </TextView>
@@ -631,6 +662,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -639,8 +672,8 @@
                     android:layout_weight="1"
                     android:padding="5dp"
                     android:text="Takaslı"
-                    android:textColor="@color/gray"
-                    android:textSize="20sp"
+                    android:textColor="@color/gray4"
+                    android:textSize="18sp"
                     tools:ignore="HardcodedText">
 
                 </TextView>
@@ -653,8 +686,8 @@
                     android:gravity="right"
                     android:padding="5dp"
                     android:text="Takaslı"
-                    android:textColor="@color/gray"
-                    android:textSize="20sp"
+                    android:textColor="@color/gray4"
+                    android:textSize="18sp"
                     tools:ignore="HardcodedText,RtlHardcoded">
 
                 </TextView>
@@ -663,6 +696,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -670,9 +705,9 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="5dp"
-                    android:text="Telefon Numarası"
-                    android:textColor="@color/gray"
-                    android:textSize="20sp"
+                    android:text="Telefon"
+                    android:textColor="@color/gray4"
+                    android:textSize="18sp"
                     tools:ignore="HardcodedText">
 
                 </TextView>
@@ -684,9 +719,9 @@
                     android:layout_weight="1"
                     android:gravity="right"
                     android:padding="5dp"
-                    android:text="Telefon Numarası"
-                    android:textColor="@color/gray"
-                    android:textSize="20sp"
+                    android:text="Telefon"
+                    android:textColor="@color/gray4"
+                    android:textSize="18sp"
                     tools:ignore="HardcodedText,RtlHardcoded">
 
                 </TextView>

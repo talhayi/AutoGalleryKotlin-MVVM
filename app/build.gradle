@@ -97,6 +97,9 @@ dependencies {
     //Phone Number
     implementation "io.github.vicmikhailau:MaskedEditText:4.0.7"
 
+    //ViewPager
+    implementation "androidx.viewpager2:viewpager2:1.0.0"
+
 
 }
 
