@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.example.autogallerykotlin.databinding.ActivityMainBinding
-import com.example.autogallerykotlin.ui.fragment.AdvertsFragmentDirections
+import com.example.autogallerykotlin.ui.fragment.AdvertisesFragmentDirections
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.addAdvertiseFAB.setOnClickListener {
 
-            navController.navigate(AdvertsFragmentDirections.actionAdvertsFragmentToAddAdvertiseFragment())
+            navController.navigate(AdvertisesFragmentDirections.actionAdvertsFragmentToAddAdvertiseFragment())
 /*
             binding.bottomNavigationView.visibility = View.GONE
             binding.navigationBottomBar.visibility = View.GONE
