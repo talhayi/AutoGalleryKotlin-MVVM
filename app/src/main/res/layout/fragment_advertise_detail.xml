@@ -1,0 +1,700 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerVertical="true"
+
+    tools:context=".ui.fragment.AdvertiseDetailFragment">
+
+
+    <LinearLayout
+        android:id="@+id/detailAdvertiseTitleLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/advertiseDetailTitleTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="İlan Başlığı"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            tools:ignore="HardcodedText">
+
+        </TextView>
+
+    </LinearLayout>
+
+
+
+    <RelativeLayout
+        android:id="@+id/advertiseDetailSliderLayout"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@+id/detailAdvertiseTitleLinearLayout"
+        android:orientation="vertical">
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/AdvertiseDetailSlider"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/second_color" />
+
+   <!--     </androidx.viewpager.widget.ViewPager>
+        <me.relex.circleindicator.CircleIndicator
+            android:id="@+id/sliderNokta"
+            android:layout_width="match_parent"
+            android:layout_alignParentBottom="true"
+            app:ci_drawable="@color/colorAccent"
+            app:ci_drawable_unselected="@color/colorOtoGaleri"
+            android:layout_height="40dp">
+
+        </me.relex.circleindicator.CircleIndicator>
+        -->
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/detailAdvertiseNameLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/advertiseDetailSliderLayout"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/advertiseDetailNameTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="Name"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            tools:ignore="HardcodedText">
+
+        </TextView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/advertiseDetailAddressLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/detailAdvertiseNameLinearLayout"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/advertiseDetailAddressTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="4dp"
+            android:text="Address"
+            android:textColor="@color/gray"
+            android:textSize="12sp"
+            tools:ignore="HardcodedText,SmallSp">
+
+        </TextView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/advertiseDetailLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        tools:ignore="NotSibling">
+
+        <Button
+            android:id="@+id/advertiseDetailCallButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/background_button"
+            android:text="Ara"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/advertiseDetailFavoriteButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/background_button"
+            android:text="FAVORİYE AL"
+            tools:ignore="HardcodedText" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/advertiseDetailLinearLayout"
+        android:layout_below="@+id/advertiseDetailAddressLinearLayout"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:text="Fiyat "
+                    android:textColor="@color/gray"
+                    android:textSize="20sp"
+                    tools:ignore="HardcodedText">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/advertiseDetailPriceTV"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:padding="5dp"
+                    android:text="Fiyat "
+                    android:textColor="@color/primary_color"
+                    android:textSize="20sp"
+                    tools:ignore="HardcodedText,RtlHardcoded">
+
+                </TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:text="Marka"
+                    android:textColor="@color/gray"
+                    android:textSize="20sp"
+                    tools:ignore="HardcodedText">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/advertiseDetailBrandTV"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:padding="5dp"
+                    android:text="Marka "
+                    android:textColor="@color/gray"
+                    android:textSize="20sp"
+                    tools:ignore="HardcodedText,RtlHardcoded">
+
+                </TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:text="Seri "
+                    android:textColor="@color/gray"
+                    android:textSize="20sp"
+                    tools:ignore="HardcodedText">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/advertiseDetailSerialTV"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:padding="5dp"
+                    android:text="Seri"
+                    android:textColor="@color/gray"
+                    android:textSize="20sp"
+                    tools:ignore="HardcodedText,RtlHardcoded">
+
+                </TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:text="Model"
+                    android:textColor="@color/gray"
+                    android:textSize="20sp"
+                    tools:ignore="HardcodedText">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/advertiseDetailModelTV"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:padding="5dp"
+                    android:text="Model"
+                    android:textColor="@color/gray"
+                    android:textSize="20sp"
+                    tools:ignore="HardcodedText,RtlHardcoded">
+
+                </TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:text="Yıl"
+                    android:textColor="@color/gray"
+                    android:textSize="20sp"
+                    tools:ignore="HardcodedText">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/advertiseDetailYearTV"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:padding="5dp"
+                    android:text="Yıl"
+                    android:textColor="@color/gray"
+                    android:textSize="20sp"
+                    tools:ignore="HardcodedText,RtlHardcoded">
+
+                </TextView>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:text="Yakıt"
+                    android:textColor="@color/gray"
+                    android:textSize="20sp"
+                    tools:ignore="HardcodedText">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/advertiseDetailFuelTV"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:padding="5dp"
+                    android:text="Yakıt"
+                    android:textColor="@color/gray"
+                    android:textSize="20sp"
+                    tools:ignore="HardcodedText,RtlHardcoded">
+
+                </TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:text="Vites"
+                    android:textColor="@color/gray"
+                    android:textSize="20sp"
+                    tools:ignore="HardcodedText">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/advertiseDetailGearTV"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:padding="5dp"
+                    android:text="Vites"
+                    android:textColor="@color/gray"
+                    android:textSize="20sp"
+                    tools:ignore="HardcodedText,RtlHardcoded">
+
+                </TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:text="Araç Durumu"
+                    android:textColor="@color/gray"
+                    android:textSize="20sp"
+                    tools:ignore="HardcodedText">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/advertiseDetailVehicleStatusTV"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:padding="5dp"
+                    android:text="Araç Durumu"
+                    android:textColor="@color/gray"
+                    android:textSize="20sp"
+                    tools:ignore="HardcodedText,RtlHardcoded">
+
+                </TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:text="Km"
+                    android:textColor="@color/gray"
+                    android:textSize="20sp"
+                    tools:ignore="HardcodedText">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/advertiseDetailKmTV"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:padding="5dp"
+                    android:text="Km"
+                    android:textColor="@color/gray"
+                    android:textSize="20sp"
+                    tools:ignore="HardcodedText,RtlHardcoded">
+
+                </TextView>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:text="Kasa Tipi"
+                    android:textColor="@color/gray"
+                    android:textSize="20sp"
+                    tools:ignore="HardcodedText">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/advertiseDetailCaseTypeTV"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:padding="5dp"
+                    android:text="Kasa Tipi"
+                    android:textColor="@color/gray"
+                    android:textSize="20sp"
+                    tools:ignore="HardcodedText,RtlHardcoded">
+
+                </TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:text="Motor Gücü"
+                    android:textColor="@color/gray"
+                    android:textSize="20sp"
+                    tools:ignore="HardcodedText">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/advertiseDetailMotorPowerTV"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:padding="5dp"
+                    android:text="Motor Gücü"
+                    android:textColor="@color/gray"
+                    android:textSize="20sp"
+                    tools:ignore="HardcodedText,RtlHardcoded">
+
+                </TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:text="Motor Hacmi"
+                    android:textColor="@color/gray"
+                    android:textSize="20sp"
+                    tools:ignore="HardcodedText">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/advertiseDetailMotorCapacityTV"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:padding="5dp"
+                    android:text="Motor Hacmi"
+                    android:textColor="@color/gray"
+                    android:textSize="20sp"
+                    tools:ignore="HardcodedText,RtlHardcoded">
+
+                </TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:text="Çekiş"
+                    android:textColor="@color/gray"
+                    android:textSize="20sp"
+                    tools:ignore="HardcodedText">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/advertiseDetailTractionTV"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:padding="5dp"
+                    android:text="Çekiş"
+                    android:textColor="@color/gray"
+                    android:textSize="20sp"
+                    tools:ignore="HardcodedText,RtlHardcoded">
+
+                </TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:text="Renk"
+                    android:textColor="@color/gray"
+                    android:textSize="20sp"
+                    tools:ignore="HardcodedText">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/advertiseDetailColorTV"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:padding="5dp"
+                    android:text="Renk"
+                    android:textColor="@color/gray"
+                    android:textSize="20sp"
+                    tools:ignore="HardcodedText,RtlHardcoded">
+
+                </TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:text="Garanti"
+                    android:textColor="@color/gray"
+                    android:textSize="20sp"
+                    tools:ignore="HardcodedText">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/advertiseDetailGuaranteeTV"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:padding="5dp"
+                    android:text="Garanti"
+                    android:textColor="@color/gray"
+                    android:textSize="20sp"
+                    tools:ignore="HardcodedText,RtlHardcoded">
+
+                </TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:text="Takaslı"
+                    android:textColor="@color/gray"
+                    android:textSize="20sp"
+                    tools:ignore="HardcodedText">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/advertiseDetailSwapTV"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:padding="5dp"
+                    android:text="Takaslı"
+                    android:textColor="@color/gray"
+                    android:textSize="20sp"
+                    tools:ignore="HardcodedText,RtlHardcoded">
+
+                </TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:text="Telefon Numarası"
+                    android:textColor="@color/gray"
+                    android:textSize="20sp"
+                    tools:ignore="HardcodedText">
+
+                </TextView>
+
+                <TextView
+                    android:id="@+id/advertiseDetailPhoneNumberTV"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:padding="5dp"
+                    android:text="Telefon Numarası"
+                    android:textColor="@color/gray"
+                    android:textSize="20sp"
+                    tools:ignore="HardcodedText,RtlHardcoded">
+
+                </TextView>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</RelativeLayout>

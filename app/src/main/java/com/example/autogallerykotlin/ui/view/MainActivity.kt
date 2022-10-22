@@ -6,6 +6,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -30,7 +31,9 @@ class MainActivity : AppCompatActivity() {
         val navHostFragment = supportFragmentManager.findFragmentById(com.example.autogallerykotlin.R.id.fragmentContainerView) as NavHostFragment
         navController = navHostFragment.navController
 
-
+        binding.bottomNavigationView.visibility = View.GONE
+        binding.navigationBottomBar.visibility = View.GONE
+        binding.addAdvertiseFAB.visibility = View.GONE
 
         binding.addAdvertiseFAB.setOnClickListener {
 
