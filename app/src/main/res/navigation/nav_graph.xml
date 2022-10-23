@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/advertiseDetailFragment">
+    app:startDestination="@id/advertsFragment">
 
     <fragment
         android:id="@+id/advertsFragment"
@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_advertsFragment_to_addAdvertiseFragment"
             app:destination="@id/addAdvertiseFragment" />
+        <action
+            android:id="@+id/action_advertsFragment_to_advertiseDetailFragment"
+            app:destination="@id/advertiseDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/myAdvertsFragment"
@@ -55,5 +58,10 @@
         android:id="@+id/advertiseDetailFragment"
         android:name="com.example.autogallerykotlin.ui.fragment.AdvertiseDetailFragment"
         android:label="fragment_advertise_detail"
-        tools:layout="@layout/fragment_advertise_detail" />
+        tools:layout="@layout/fragment_advertise_detail" >
+        <argument
+            android:name="advert_id"
+            app:argType="string"
+            android:defaultValue=""/>
+    </fragment>
 </navigation>

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.autogallerykotlin.adapter.AdvertisesAdapter
 import com.example.autogallerykotlin.databinding.FragmentAdvertisesBinding
@@ -45,7 +46,10 @@ class AdvertisesFragment : Fragment() {
                 advertisesAdapter.setOnItemClickListener(object : AdvertisesAdapter.onItemClickListener{
                     override fun onItemClick(position: Int) {
                         //todo: ilandetaya gidilecek
-                        Toast.makeText(requireContext(), "$position tıklandı", Toast.LENGTH_SHORT).show()
+                        val advertId = advertisesResponse[position].advert_id.toString()
+
+                        findNavController().navigate(AdvertisesFragmentDirections.actionAdvertsFragmentToAdvertiseDetailFragment(advertId))
+                       // Toast.makeText(requireContext(), "$position tıklandı", Toast.LENGTH_SHORT).show()
                     }
 
                 })
