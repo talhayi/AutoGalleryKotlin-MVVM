@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.viewpager2.widget.ViewPager2
+import com.example.autogallerykotlin.adapter.AdvertiseDetailImageAdapter
 import com.example.autogallerykotlin.databinding.FragmentAdvertiseDetailBinding
 import com.example.autogallerykotlin.viewmodel.AdvertiseDetailViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -17,12 +19,14 @@ class AdvertiseDetailFragment : Fragment() {
     private var _binding: FragmentAdvertiseDetailBinding? = null
     private val binding get() = _binding!!
     private val viewModel: AdvertiseDetailViewModel by viewModels()
+    private lateinit var advertiseDetailImageAdapter: AdvertiseDetailImageAdapter
+    private lateinit var advertiseDetailSlider: ViewPager2
     private var advertId=""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentAdvertiseDetailBinding.inflate(inflater, container, false)
         return binding.root
@@ -32,6 +36,7 @@ class AdvertiseDetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         advertiseDetailRequest()
         advertiseDetail()
+        setUpRV()
     }
 
     @SuppressLint("SetTextI18n")
@@ -75,6 +80,11 @@ class AdvertiseDetailFragment : Fragment() {
         }
     }
 
+    private fun setUpRV(){
+        advertiseDetailImageAdapter = AdvertiseDetailImageAdapter()
+        advertiseDetailSlider.adapter = advertiseDetailImageAdapter
+        advertiseDetailSlider.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+    }
     private fun advertiseDetailRequest(){
 
         arguments?.let {
@@ -83,4 +93,6 @@ class AdvertiseDetailFragment : Fragment() {
 
         viewModel.getAdvertiseDetail(advertId)
     }
+
+
 }
