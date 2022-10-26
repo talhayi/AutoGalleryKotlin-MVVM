@@ -5,7 +5,7 @@ import com.example.autogallerykotlin.data.model.MyAdvertise
 import com.example.autogallerykotlin.data.service.ApiService
 import javax.inject.Inject
 
-class   MyAdvertiseRepository @Inject constructor(
+class MyAdvertiseRepository @Inject constructor(
     private val apiService: ApiService
 ) {
     suspend fun myAdvertise(

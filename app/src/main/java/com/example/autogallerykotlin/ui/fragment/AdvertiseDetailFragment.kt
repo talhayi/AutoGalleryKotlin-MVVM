@@ -7,10 +7,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
+import androidx.viewpager2.widget.ViewPager2.ORIENTATION_HORIZONTAL
 import com.example.autogallerykotlin.adapter.AdvertiseDetailImageAdapter
 import com.example.autogallerykotlin.databinding.FragmentAdvertiseDetailBinding
 import com.example.autogallerykotlin.viewmodel.AdvertiseDetailViewModel
+import com.example.autogallerykotlin.viewmodel.AdvertisesViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -19,8 +24,9 @@ class AdvertiseDetailFragment : Fragment() {
     private var _binding: FragmentAdvertiseDetailBinding? = null
     private val binding get() = _binding!!
     private val viewModel: AdvertiseDetailViewModel by viewModels()
+    private val viewModel2: AdvertisesViewModel by viewModels()
     private lateinit var advertiseDetailImageAdapter: AdvertiseDetailImageAdapter
-    private lateinit var advertiseDetailSlider: ViewPager2
+    private var advertiseDetailViewPager: ViewPager2?= null
     private var advertId=""
 
     override fun onCreateView(
@@ -34,10 +40,14 @@ class AdvertiseDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setUpRV()
         advertiseDetailRequest()
         advertiseDetail()
-        setUpRV()
+        advertiseDetailImage()
+
+
     }
+
 
     @SuppressLint("SetTextI18n")
     private fun advertiseDetail(){
@@ -73,17 +83,29 @@ class AdvertiseDetailFragment : Fragment() {
 
                     }
                 }
-
-
             }
+        }
+    }
 
+    private fun advertiseDetailImage(){
+        viewModel2.advertiseDetailImage.observe(viewLifecycleOwner){advertiseDetailImage->
+
+                advertiseDetailImage.let {
+                    advertiseDetailImageAdapter.detailImages = advertiseDetailImage
+                }
         }
     }
 
     private fun setUpRV(){
+
         advertiseDetailImageAdapter = AdvertiseDetailImageAdapter()
-        advertiseDetailSlider.adapter = advertiseDetailImageAdapter
-        advertiseDetailSlider.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+
+        binding.advertiseDetailSlider.adapter = advertiseDetailImageAdapter
+        val dotsIndicator = binding.dotsIndicator
+        val viewPager = binding.advertiseDetailSlider
+        advertiseDetailViewPager?.adapter = advertiseDetailImageAdapter
+        dotsIndicator.attachTo(viewPager)
+        dotsIndicator.bringToFront()
     }
     private fun advertiseDetailRequest(){
 
@@ -92,6 +114,7 @@ class AdvertiseDetailFragment : Fragment() {
         }
 
         viewModel.getAdvertiseDetail(advertId)
+        //viewModel2.getAdvertiseDetailImage(advertId)
     }
 
 

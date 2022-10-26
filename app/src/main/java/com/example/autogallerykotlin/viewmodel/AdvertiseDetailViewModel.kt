@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.autogallerykotlin.data.model.AdvertiseDetail
+import com.example.autogallerykotlin.data.model.AdvertiseDetailImage
 
 import com.example.autogallerykotlin.data.repository.AdvertiseDetailRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -22,6 +23,9 @@ class AdvertiseDetailViewModel@Inject constructor(
         get() = _advertiseDetail
 
 
+
+
+
     fun getAdvertiseDetail(advert_id:String
     ) = viewModelScope.launch {
 
@@ -29,5 +33,4 @@ class AdvertiseDetailViewModel@Inject constructor(
             advert_id
         ))
     }
-
 }

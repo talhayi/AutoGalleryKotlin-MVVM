@@ -21,6 +21,7 @@ class AdvertisesFragment : Fragment() {
     private val binding get() = _binding!!
     private val viewModel: AdvertisesViewModel by viewModels()
     private lateinit var advertisesAdapter: AdvertisesAdapter
+    private var advertId=""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,26 +42,28 @@ class AdvertisesFragment : Fragment() {
         viewModel.advertises.observe(viewLifecycleOwner){advertisesResponse->
 
             advertisesResponse.let {
-                advertisesAdapter.advertises = advertisesResponse
+                advertisesAdapter.advertises =  advertisesResponse
 
                 advertisesAdapter.setOnItemClickListener(object : AdvertisesAdapter.onItemClickListener{
                     override fun onItemClick(position: Int) {
                         //todo: ilandetaya gidilecek
-                        val advertId = advertisesResponse[position].advert_id.toString()
+                        advertId = advertisesResponse[position].advert_id.toString()
+                        viewModel.getAdvertiseDetailImage(advertId)
 
                         findNavController().navigate(AdvertisesFragmentDirections.actionAdvertsFragmentToAdvertiseDetailFragment(advertId))
                        // Toast.makeText(requireContext(), "$position tıklandı", Toast.LENGTH_SHORT).show()
                     }
-
                 })
             }
-
         }
     }
+
+
     private fun advertisesRequest(){
 
         //todo: ProgressDialog eklenecek
         viewModel.getAdvertises()
+
     }
     private fun setUpRV(){
 

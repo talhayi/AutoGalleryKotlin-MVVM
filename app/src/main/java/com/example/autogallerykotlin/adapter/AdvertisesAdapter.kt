@@ -1,7 +1,9 @@
 package com.example.autogallerykotlin.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -50,20 +52,22 @@ class AdvertisesAdapter : RecyclerView.Adapter<AdvertisesAdapter.AdvertsViewHold
         }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdvertsViewHolder {
-        return AdvertsViewHolder(
-            AdvertisesItemLayoutBinding.inflate(
-                LayoutInflater.from(parent.context), parent, false
-            ), mListener
+
+        return AdvertsViewHolder(AdvertisesItemLayoutBinding.inflate(
+                LayoutInflater.from(parent.context), parent, false), mListener
         )
     }
 
     override fun onBindViewHolder(holder: AdvertsViewHolder, position: Int) {
+
+
         val currentAdvertises = advertises[position]
 
         holder.binding.apply {
             advertisesRowAdvertTitleTextView.text = currentAdvertises.advert_title
             advertisesRowAddressTextView.text = currentAdvertises.address
             advertisesRowPriceTextView.text = currentAdvertises.price
+            println("advertises"+currentAdvertises.image)
             advertisesRowImageView.load("http://yazilimgunlukleri.com/autogallerykotlin/" + currentAdvertises.image) {
                 crossfade(true)
                 crossfade(1000)

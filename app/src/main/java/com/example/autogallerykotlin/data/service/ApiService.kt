@@ -81,6 +81,9 @@ interface ApiService {
     @GET("advertiseDetail.php")
     suspend fun advertiseDetail(@Query("advert_id") advert_id: String?):Response<AdvertiseDetail>
 
+    @GET("advertiseDetailImage.php")
+    suspend fun advertiseDetailImage(@Query("advert_id") advert_id: String?):List<AdvertiseDetailImage>
+
 
 }
 
