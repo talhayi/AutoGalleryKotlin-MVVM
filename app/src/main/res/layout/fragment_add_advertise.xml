@@ -630,7 +630,7 @@
 
         </LinearLayout>
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/addAdvertiseNextButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -640,7 +640,6 @@
             android:layout_marginBottom="48dp"
 
             android:background="@drawable/background_button"
-            android:backgroundTint="@color/primary_color"
             android:text="Sıgn Up"
             android:textColor="@color/white"
             android:textSize="18sp"

@@ -21,17 +21,10 @@ class AdvertisesViewModel @Inject constructor(
     val advertises: LiveData<List<Advertises>>
         get() = _advertises
 
-    private val _advertiseDetailImage = MutableLiveData<List<AdvertiseDetailImage>>()
-    val advertiseDetailImage: LiveData<List<AdvertiseDetailImage>>
-        get() = _advertiseDetailImage
 
     fun getAdvertises() = viewModelScope.launch {
         _advertises.postValue(repository.advertises())
     }
 
-    fun getAdvertiseDetailImage(advert_id:String
-    ) = viewModelScope.launch {
 
-        _advertiseDetailImage.postValue(repository.advertiseDetailImage(advert_id))
-    }
 }

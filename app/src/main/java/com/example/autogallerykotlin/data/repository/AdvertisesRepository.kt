@@ -14,10 +14,4 @@ class AdvertisesRepository@Inject constructor(
         return apiService.advertises()
     }
 
-    suspend fun advertiseDetailImage(
-        advert_id: String
-    ): List<AdvertiseDetailImage> {
-        return apiService.advertiseDetailImage(advert_id)
-
-    }
 }

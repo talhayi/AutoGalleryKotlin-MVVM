@@ -14,7 +14,7 @@ import retrofit2.Response
 import javax.inject.Inject
 
 @HiltViewModel
-class AdvertiseDetailViewModel@Inject constructor(
+class AdvertiseDetailViewModel @Inject constructor(
     private val repository: AdvertiseDetailRepository
 ) : ViewModel() {
 
@@ -22,15 +22,26 @@ class AdvertiseDetailViewModel@Inject constructor(
     val advertiseDetail: LiveData<Response<AdvertiseDetail>>
         get() = _advertiseDetail
 
+    private val _advertiseDetailImage = MutableLiveData<List<AdvertiseDetailImage>>()
+    val advertiseDetailImage: LiveData<List<AdvertiseDetailImage>>
+        get() = _advertiseDetailImage
 
 
-
-
-    fun getAdvertiseDetail(advert_id:String
+    fun getAdvertiseDetail(
+        advert_id: String
     ) = viewModelScope.launch {
 
-        _advertiseDetail.postValue(repository.advertiseDetail(
-            advert_id
-        ))
+        _advertiseDetail.postValue(
+            repository.advertiseDetail(
+                advert_id
+            )
+        )
+    }
+
+    fun getAdvertiseDetailImage(
+        advert_id: String
+    ) = viewModelScope.launch {
+
+        _advertiseDetailImage.postValue(repository.advertiseDetailImage(advert_id))
     }
 }

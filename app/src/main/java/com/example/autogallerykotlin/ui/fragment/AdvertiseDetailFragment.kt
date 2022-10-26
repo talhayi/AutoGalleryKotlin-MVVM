@@ -24,7 +24,6 @@ class AdvertiseDetailFragment : Fragment() {
     private var _binding: FragmentAdvertiseDetailBinding? = null
     private val binding get() = _binding!!
     private val viewModel: AdvertiseDetailViewModel by viewModels()
-    private val viewModel2: AdvertisesViewModel by viewModels()
     private lateinit var advertiseDetailImageAdapter: AdvertiseDetailImageAdapter
     private var advertiseDetailViewPager: ViewPager2?= null
     private var advertId=""
@@ -44,6 +43,7 @@ class AdvertiseDetailFragment : Fragment() {
         advertiseDetailRequest()
         advertiseDetail()
         advertiseDetailImage()
+        advertiseDetailImageRequest()
 
 
     }
@@ -87,8 +87,18 @@ class AdvertiseDetailFragment : Fragment() {
         }
     }
 
+    private fun advertiseDetailRequest(){
+
+        arguments?.let {
+            advertId = AdvertiseDetailFragmentArgs.fromBundle(it).advertId
+        }
+
+        viewModel.getAdvertiseDetail(advertId)
+        //viewModel2.getAdvertiseDetailImage(advertId)
+    }
+
     private fun advertiseDetailImage(){
-        viewModel2.advertiseDetailImage.observe(viewLifecycleOwner){advertiseDetailImage->
+        viewModel.advertiseDetailImage.observe(viewLifecycleOwner){advertiseDetailImage->
 
                 advertiseDetailImage.let {
                     advertiseDetailImageAdapter.detailImages = advertiseDetailImage
@@ -96,6 +106,13 @@ class AdvertiseDetailFragment : Fragment() {
         }
     }
 
+    private fun advertiseDetailImageRequest(){
+
+        arguments?.let {
+            advertId = AdvertiseDetailFragmentArgs.fromBundle(it).advertId
+        }
+        viewModel.getAdvertiseDetailImage(advertId)
+    }
     private fun setUpRV(){
 
         advertiseDetailImageAdapter = AdvertiseDetailImageAdapter()
@@ -107,15 +124,7 @@ class AdvertiseDetailFragment : Fragment() {
         dotsIndicator.attachTo(viewPager)
         dotsIndicator.bringToFront()
     }
-    private fun advertiseDetailRequest(){
 
-        arguments?.let {
-            advertId = AdvertiseDetailFragmentArgs.fromBundle(it).advertId
-        }
-
-        viewModel.getAdvertiseDetail(advertId)
-        //viewModel2.getAdvertiseDetailImage(advertId)
-    }
 
 
 }
