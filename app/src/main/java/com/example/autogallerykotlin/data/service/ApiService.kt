@@ -52,13 +52,27 @@ interface ApiService {
     @FormUrlEncoded
     @POST("advertise.php")
     suspend fun addAdvertise(
-        @Field("user_id") user_id: String, @Field("advert_title") advert_title: String, @Field("explanation") explanation: String,
-        @Field("price") price: String, @Field("address") address: String, @Field("brand") brand: String,
-        @Field("serial") serial: String, @Field("model") model: String, @Field("year") year: String,
-        @Field("fuel") fuel: String, @Field("gear") gear: String, @Field("vehicleStatus") vehicleStatus: String,
-        @Field("km") km: String, @Field("caseType") caseType: String, @Field("motorPower") motorPower: String,
-        @Field("motorCapacity") motorCapacity: String, @Field("traction") traction: String, @Field("color") color: String,
-        @Field("guarantee") guarantee: String, @Field("swap") swap: String, @Field("phoneNumber") phoneNumber: String
+        @Field("user_id") user_id: String,
+        @Field("advert_title") advert_title: String,
+        @Field("explanation") explanation: String,
+        @Field("price") price: String,
+        @Field("address") address: String,
+        @Field("brand") brand: String,
+        @Field("serial") serial: String,
+        @Field("model") model: String,
+        @Field("year") year: String,
+        @Field("fuel") fuel: String,
+        @Field("gear") gear: String,
+        @Field("vehicleStatus") vehicleStatus: String,
+        @Field("km") km: String,
+        @Field("caseType") caseType: String,
+        @Field("motorPower") motorPower: String,
+        @Field("motorCapacity") motorCapacity: String,
+        @Field("traction") traction: String,
+        @Field("color") color: String,
+        @Field("guarantee") guarantee: String,
+        @Field("swap") swap: String,
+        @Field("phoneNumber") phoneNumber: String
     ): Response<AddAdvertise>
 
     @FormUrlEncoded
@@ -67,22 +81,28 @@ interface ApiService {
         @Field("user_id") user_id: String?,
         @Field("advert_id") advert_id: String?,
         @Field("image") image: String?
-    ):Response<AddAdvertiseImage>
+    ): Response<AddAdvertiseImage>
 
     @GET("myAdvertise.php")
     suspend fun myAdvertise(@Query("user_id") user_id: String?): List<MyAdvertise>?
 
     @GET("deleteMyAdvertise.php")
-    suspend fun deleteMyAdvertise(@Query("advert_id") advert_id: String?):Response<DeleteMyAdvertise>
+    suspend fun deleteMyAdvertise(@Query("advert_id") advert_id: String?): Response<DeleteMyAdvertise>
 
     @GET("advertises.php")
-    suspend fun advertises():List<Advertises>
+    suspend fun advertises(): List<Advertises>
 
     @GET("advertiseDetail.php")
-    suspend fun advertiseDetail(@Query("advert_id") advert_id: String?):Response<AdvertiseDetail>
+    suspend fun advertiseDetail(@Query("advert_id") advert_id: String?): Response<AdvertiseDetail>
 
     @GET("advertiseDetailImage.php")
-    suspend fun advertiseDetailImage(@Query("advert_id") advert_id: String?):List<AdvertiseDetailImage>
+    suspend fun advertiseDetailImage(@Query("advert_id") advert_id: String?): List<AdvertiseDetailImage>
+
+    @GET("changeFavoriteText.php")
+    suspend fun changeFavoriteText(
+        @Query("user_id") user_id: String?,
+        @Query("advert_id") advert_id: String?
+    ): Response<ChangeFavoriteText>
 
 
 }

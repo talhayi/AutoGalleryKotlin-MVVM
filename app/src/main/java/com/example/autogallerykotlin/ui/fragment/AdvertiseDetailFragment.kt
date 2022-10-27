@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -44,6 +46,44 @@ class AdvertiseDetailFragment : Fragment() {
         advertiseDetail()
         advertiseDetailImage()
         advertiseDetailImageRequest()
+        changeFavoriteText()
+        changeFavoriteTextRequest()
+
+
+
+
+    }
+
+    private fun changeFavoriteText(){
+        viewModel.changeFavoriteText.observe(viewLifecycleOwner){changeFavoriteTextResponse->
+            if (changeFavoriteTextResponse.isSuccessful){
+               if (changeFavoriteTextResponse.body()?.success==true){
+                   binding.advertiseDetailFavoriteButton.text = changeFavoriteTextResponse.body()?.text
+                   //Toast.makeText(requireContext(), changeFavoriteTextResponse.body()?.text, Toast.LENGTH_SHORT).show()
+               }
+               else{
+                   binding.advertiseDetailFavoriteButton.text = changeFavoriteTextResponse.body()?.text
+                   //Toast.makeText(requireContext(), changeFavoriteTextResponse.body()?.text, Toast.LENGTH_SHORT).show()
+               }
+
+            }
+
+        }
+
+    }
+
+    private fun changeFavoriteTextRequest(){
+        val sharedPreferences =
+            this.activity?.getSharedPreferences("login", AppCompatActivity.MODE_PRIVATE)
+        val userId = sharedPreferences?.getString("users_id", null)!!.toString()
+
+        arguments?.let {
+            advertId = AdvertiseDetailFragmentArgs.fromBundle(it).advertId
+        }
+
+        binding.advertiseDetailFavoriteButton.setOnClickListener {
+            viewModel.getChangeFavoriteText(userId,advertId)
+        }
 
 
     }
@@ -54,6 +94,7 @@ class AdvertiseDetailFragment : Fragment() {
 
         viewModel.advertiseDetail.observe(viewLifecycleOwner){advertiseDetail->
             if (advertiseDetail.isSuccessful){
+
 
                 val name = advertiseDetail.body()?.name.toString()
                 val surname= advertiseDetail.body()?.surname.toString()
