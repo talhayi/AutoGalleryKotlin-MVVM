@@ -27,8 +27,8 @@ class AdvertiseDetailFragment : Fragment() {
     private val binding get() = _binding!!
     private val viewModel: AdvertiseDetailViewModel by viewModels()
     private lateinit var advertiseDetailImageAdapter: AdvertiseDetailImageAdapter
-    private var advertiseDetailViewPager: ViewPager2?= null
-    private var advertId=""
+    private var advertiseDetailViewPager: ViewPager2? = null
+    private var advertId = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -48,31 +48,28 @@ class AdvertiseDetailFragment : Fragment() {
         advertiseDetailImageRequest()
         changeFavoriteText()
         changeFavoriteTextRequest()
-
-
-
+        favoriteAdvertiseRequest()
+        favoriteAdvertise()
 
     }
 
-    private fun changeFavoriteText(){
-        viewModel.changeFavoriteText.observe(viewLifecycleOwner){changeFavoriteTextResponse->
-            if (changeFavoriteTextResponse.isSuccessful){
-               if (changeFavoriteTextResponse.body()?.success==true){
-                   binding.advertiseDetailFavoriteButton.text = changeFavoriteTextResponse.body()?.text
-                   //Toast.makeText(requireContext(), changeFavoriteTextResponse.body()?.text, Toast.LENGTH_SHORT).show()
-               }
-               else{
-                   binding.advertiseDetailFavoriteButton.text = changeFavoriteTextResponse.body()?.text
-                   //Toast.makeText(requireContext(), changeFavoriteTextResponse.body()?.text, Toast.LENGTH_SHORT).show()
-               }
+    private fun favoriteAdvertise() {
+        viewModel.favoriteAdvertise.observe(viewLifecycleOwner) { favoriteAdvertiseResponse ->
+            if (favoriteAdvertiseResponse.isSuccessful) {
+                if (favoriteAdvertiseResponse.body()?.success == true) {
+                    binding.advertiseDetailFavoriteButton.text =
+                        favoriteAdvertiseResponse.body()?.text
 
+                } else {
+                    binding.advertiseDetailFavoriteButton.text =
+                        favoriteAdvertiseResponse.body()?.text
+
+                }
             }
-
         }
-
     }
 
-    private fun changeFavoriteTextRequest(){
+    private fun favoriteAdvertiseRequest() {
         val sharedPreferences =
             this.activity?.getSharedPreferences("login", AppCompatActivity.MODE_PRIVATE)
         val userId = sharedPreferences?.getString("users_id", null)!!.toString()
@@ -82,23 +79,46 @@ class AdvertiseDetailFragment : Fragment() {
         }
 
         binding.advertiseDetailFavoriteButton.setOnClickListener {
-            viewModel.getChangeFavoriteText(userId,advertId)
+            viewModel.getFavoriteAdvertise(userId, advertId)
         }
-
-
     }
 
+    private fun changeFavoriteText() {
+        viewModel.changeFavoriteText.observe(viewLifecycleOwner) { changeFavoriteTextResponse ->
+            if (changeFavoriteTextResponse.isSuccessful) {
+                if (changeFavoriteTextResponse.body()?.success == true) {
+                    binding.advertiseDetailFavoriteButton.text =
+                        changeFavoriteTextResponse.body()?.text
+                    //Toast.makeText(requireContext(), changeFavoriteTextResponse.body()?.text, Toast.LENGTH_SHORT).show()
+                } else {
+                    binding.advertiseDetailFavoriteButton.text =
+                        changeFavoriteTextResponse.body()?.text
+                    //Toast.makeText(requireContext(), changeFavoriteTextResponse.body()?.text, Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+    }
+
+    private fun changeFavoriteTextRequest() {
+        val sharedPreferences =
+            this.activity?.getSharedPreferences("login", AppCompatActivity.MODE_PRIVATE)
+        val userId = sharedPreferences?.getString("users_id", null)!!.toString()
+
+        arguments?.let {
+            advertId = AdvertiseDetailFragmentArgs.fromBundle(it).advertId
+        }
+        viewModel.getChangeFavoriteText(userId, advertId)
+    }
 
     @SuppressLint("SetTextI18n")
-    private fun advertiseDetail(){
+    private fun advertiseDetail() {
 
-        viewModel.advertiseDetail.observe(viewLifecycleOwner){advertiseDetail->
-            if (advertiseDetail.isSuccessful){
-
+        viewModel.advertiseDetail.observe(viewLifecycleOwner) { advertiseDetail ->
+            if (advertiseDetail.isSuccessful) {
 
                 val name = advertiseDetail.body()?.name.toString()
-                val surname= advertiseDetail.body()?.surname.toString()
-                if (advertiseDetail!=null){
+                val surname = advertiseDetail.body()?.surname.toString()
+                if (advertiseDetail != null) {
                     binding.apply {
 
                         advertiseDetailTitleTV.text = advertiseDetail.body()?.advert_title.toString()
@@ -121,14 +141,13 @@ class AdvertiseDetailFragment : Fragment() {
                         advertiseDetailGuaranteeTV.text = advertiseDetail.body()?.guarantee.toString()
                         advertiseDetailSwapTV.text = advertiseDetail.body()?.swap.toString()
                         advertiseDetailPhoneNumberTV.text = advertiseDetail.body()?.phoneNumber.toString()
-
                     }
                 }
             }
         }
     }
 
-    private fun advertiseDetailRequest(){
+    private fun advertiseDetailRequest() {
 
         arguments?.let {
             advertId = AdvertiseDetailFragmentArgs.fromBundle(it).advertId
@@ -138,23 +157,24 @@ class AdvertiseDetailFragment : Fragment() {
         //viewModel2.getAdvertiseDetailImage(advertId)
     }
 
-    private fun advertiseDetailImage(){
-        viewModel.advertiseDetailImage.observe(viewLifecycleOwner){advertiseDetailImage->
+    private fun advertiseDetailImage() {
+        viewModel.advertiseDetailImage.observe(viewLifecycleOwner) { advertiseDetailImage ->
 
-                advertiseDetailImage.let {
-                    advertiseDetailImageAdapter.detailImages = advertiseDetailImage
-                }
+            advertiseDetailImage.let {
+                advertiseDetailImageAdapter.detailImages = advertiseDetailImage
+            }
         }
     }
 
-    private fun advertiseDetailImageRequest(){
+    private fun advertiseDetailImageRequest() {
 
         arguments?.let {
             advertId = AdvertiseDetailFragmentArgs.fromBundle(it).advertId
         }
         viewModel.getAdvertiseDetailImage(advertId)
     }
-    private fun setUpRV(){
+
+    private fun setUpRV() {
 
         advertiseDetailImageAdapter = AdvertiseDetailImageAdapter()
 
@@ -165,7 +185,4 @@ class AdvertiseDetailFragment : Fragment() {
         dotsIndicator.attachTo(viewPager)
         dotsIndicator.bringToFront()
     }
-
-
-
 }

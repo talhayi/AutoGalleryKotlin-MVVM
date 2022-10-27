@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.autogallerykotlin.data.model.AdvertiseDetail
 import com.example.autogallerykotlin.data.model.AdvertiseDetailImage
 import com.example.autogallerykotlin.data.model.ChangeFavoriteText
+import com.example.autogallerykotlin.data.model.FavoriteAdvertise
 
 import com.example.autogallerykotlin.data.repository.AdvertiseDetailRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -30,6 +31,10 @@ class AdvertiseDetailViewModel @Inject constructor(
     private val _changeFavoriteText = MutableLiveData<Response<ChangeFavoriteText>>()
     val changeFavoriteText: LiveData<Response<ChangeFavoriteText>>
         get() = _changeFavoriteText
+
+    private val _favoriteAdvertise = MutableLiveData<Response<FavoriteAdvertise>>()
+    val favoriteAdvertise: LiveData<Response<FavoriteAdvertise>>
+        get() = _favoriteAdvertise
 
 
     fun getAdvertiseDetail(
@@ -56,5 +61,13 @@ class AdvertiseDetailViewModel @Inject constructor(
     ) = viewModelScope.launch {
 
         _changeFavoriteText.postValue(repository.changeFavoriteText(user_id, advert_id))
+    }
+
+    fun getFavoriteAdvertise(
+        user_id: String,
+        advert_id: String
+    ) = viewModelScope.launch {
+
+        _favoriteAdvertise.postValue(repository.favoriteAdvertise(user_id, advert_id))
     }
 }

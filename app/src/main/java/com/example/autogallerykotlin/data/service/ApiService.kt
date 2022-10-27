@@ -104,6 +104,12 @@ interface ApiService {
         @Query("advert_id") advert_id: String?
     ): Response<ChangeFavoriteText>
 
+    @GET("favoriteAdvertise.php")
+    suspend fun favoriteAdvertise(
+        @Query("user_id") user_id: String?,
+        @Query("advert_id") advert_id: String?
+    ): Response<FavoriteAdvertise>
+
 
 }
 
