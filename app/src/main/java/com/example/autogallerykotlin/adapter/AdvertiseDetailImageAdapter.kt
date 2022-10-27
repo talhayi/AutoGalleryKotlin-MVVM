@@ -68,9 +68,6 @@ class AdvertiseDetailImageAdapter: RecyclerView.Adapter<AdvertiseDetailImageAdap
     override fun onBindViewHolder(holder: AdvertiseDetailImageViewHolder, position: Int) {
        val currentDetailImages = detailImages[position]
 
-        println("detailImage  "+currentDetailImages.image)
-        println(detailImages[position])
-        println(position)
         holder.binding.apply {
             advertiseDetailImageView.load("http://yazilimgunlukleri.com/autogallerykotlin/" + currentDetailImages.image){
                 crossfade(true)

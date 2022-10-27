@@ -1,6 +1,8 @@
 package com.example.autogallerykotlin.ui.fragment
 
 import android.annotation.SuppressLint
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -29,6 +31,7 @@ class AdvertiseDetailFragment : Fragment() {
     private lateinit var advertiseDetailImageAdapter: AdvertiseDetailImageAdapter
     private var advertiseDetailViewPager: ViewPager2? = null
     private var advertId = ""
+    private var phoneNumber =""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -50,6 +53,7 @@ class AdvertiseDetailFragment : Fragment() {
         changeFavoriteTextRequest()
         favoriteAdvertiseRequest()
         favoriteAdvertise()
+        callPhoneNumber()
 
     }
 
@@ -115,7 +119,7 @@ class AdvertiseDetailFragment : Fragment() {
 
         viewModel.advertiseDetail.observe(viewLifecycleOwner) { advertiseDetail ->
             if (advertiseDetail.isSuccessful) {
-
+                phoneNumber = advertiseDetail.body()?.phoneNumber.toString()
                 val name = advertiseDetail.body()?.name.toString()
                 val surname = advertiseDetail.body()?.surname.toString()
                 if (advertiseDetail != null) {
@@ -146,6 +150,13 @@ class AdvertiseDetailFragment : Fragment() {
             }
         }
     }
+    private fun callPhoneNumber(){
+        binding.advertiseDetailCallButton.setOnClickListener {
+
+                val uri:Uri = Uri.parse("tel:$phoneNumber")
+                startActivity(Intent(Intent.ACTION_DIAL,uri))
+        }
+    }
 
     private fun advertiseDetailRequest() {
 
@@ -154,7 +165,7 @@ class AdvertiseDetailFragment : Fragment() {
         }
 
         viewModel.getAdvertiseDetail(advertId)
-        //viewModel2.getAdvertiseDetailImage(advertId)
+
     }
 
     private fun advertiseDetailImage() {
