@@ -10,28 +10,8 @@ import com.example.autogallerykotlin.data.model.AdvertiseDetailImage
 import com.example.autogallerykotlin.databinding.DetailImageItemLayoutBinding
 
 class AdvertiseDetailImageAdapter: RecyclerView.Adapter<AdvertiseDetailImageAdapter.AdvertiseDetailImageViewHolder>() {
-/*
-    private lateinit var mListener: onItemClickListener
 
-    interface onItemClickListener {
-        fun onItemClick(position: Int)
-    }
-
-    fun setOnItemClickListener(listener: onItemClickListener) {
-        mListener = listener
-    }*/
-
-    class AdvertiseDetailImageViewHolder(var binding: DetailImageItemLayoutBinding,
-    //listener: onItemClickListener
-    ):RecyclerView.ViewHolder(binding.root) {
-
-
-     /*   init {
-            itemView.setOnClickListener {
-                listener.onItemClick(adapterPosition)
-            }
-        }*/
-    }
+    class AdvertiseDetailImageViewHolder(var binding: DetailImageItemLayoutBinding):RecyclerView.ViewHolder(binding.root)
 
     private val diffCallBack = object: DiffUtil.ItemCallback<AdvertiseDetailImage>(){
         override fun areItemsTheSame(

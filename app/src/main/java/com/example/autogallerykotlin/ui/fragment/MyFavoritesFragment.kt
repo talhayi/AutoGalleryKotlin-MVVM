@@ -5,18 +5,82 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.autogallerykotlin.R
+import com.example.autogallerykotlin.adapter.MyFavoriteAdvertiseAdapter
+import com.example.autogallerykotlin.databinding.FragmentMyAdvertiseBinding
+import com.example.autogallerykotlin.databinding.FragmentMyFavoritesBinding
+import com.example.autogallerykotlin.viewmodel.AdvertiseDetailViewModel
+import com.example.autogallerykotlin.viewmodel.MyFavoriteAdvertiseViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+
+@AndroidEntryPoint
 class MyFavoritesFragment : Fragment() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
+    private var _binding: FragmentMyFavoritesBinding?= null
+    private val binding get() = _binding!!
+    private val viewModel: MyFavoriteAdvertiseViewModel by viewModels()
+    private lateinit var myFavoriteAdvertiseAdapter: MyFavoriteAdvertiseAdapter
+    private var advertId=""
+    private var userId=""
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_my_favorites, container, false)
+        _binding = FragmentMyFavoritesBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setUpRV()
+        myFavoriteAdvertise()
+        myFavoriteAdvertiseRequest()
+    }
+
+    private fun myFavoriteAdvertise(){
+        viewModel.myFavoriteAdvertise.observe(viewLifecycleOwner){myFavoriteAdvertiseResponse->
+
+            myFavoriteAdvertiseResponse.let {
+                myFavoriteAdvertiseAdapter.myFavoriteAdvertise = myFavoriteAdvertiseResponse
+                myFavoriteAdvertiseAdapter.setOnItemClickListener(object : MyFavoriteAdvertiseAdapter.onItemClickListener{
+                    override fun onItemClick(position: Int) {
+                        advertId = myFavoriteAdvertiseResponse[position].advert_id.toString()
+                        findNavController().navigate(MyFavoritesFragmentDirections.actionMyFavoritesFragmentToAdvertiseDetailFragment(advertId))
+
+                    }
+
+                })
+            }
+
+        }
+    }
+
+    private fun myFavoriteAdvertiseRequest(){
+        val sharedPreferences =
+            this.activity?.getSharedPreferences("login", AppCompatActivity.MODE_PRIVATE)
+        userId = sharedPreferences?.getString("users_id", null)!!
+
+        viewModel.getMyFavoriteAdvertise(userId)
+
+    }
+
+    private fun setUpRV(){
+
+        myFavoriteAdvertiseAdapter = MyFavoriteAdvertiseAdapter()
+        binding.myFavoriteAdvertiseRecyclerView.apply {
+            layoutManager = LinearLayoutManager(requireContext())
+            adapter = myFavoriteAdvertiseAdapter
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }

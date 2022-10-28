@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.autogallerykotlin.data.model.MyAdvertise
-import com.example.autogallerykotlin.databinding.MyadvertiseItemLayoutBinding
+import com.example.autogallerykotlin.databinding.MyAdvertiseItemLayoutBinding
 
 
 class MyAdvertiseAdapter : RecyclerView.Adapter<MyAdvertiseAdapter.MyAdvertiseViewHolder>() {
@@ -24,7 +24,7 @@ class MyAdvertiseAdapter : RecyclerView.Adapter<MyAdvertiseAdapter.MyAdvertiseVi
     }
 
 
-    class MyAdvertiseViewHolder(val binding: MyadvertiseItemLayoutBinding, listener: onItemClickListener):RecyclerView.ViewHolder(binding.root) {
+    class MyAdvertiseViewHolder(val binding: MyAdvertiseItemLayoutBinding, listener: onItemClickListener):RecyclerView.ViewHolder(binding.root) {
 
         init {
             itemView.setOnClickListener {
@@ -57,7 +57,7 @@ class MyAdvertiseAdapter : RecyclerView.Adapter<MyAdvertiseAdapter.MyAdvertiseVi
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyAdvertiseViewHolder {
-        return MyAdvertiseViewHolder(MyadvertiseItemLayoutBinding.inflate(
+        return MyAdvertiseViewHolder(MyAdvertiseItemLayoutBinding.inflate(
             LayoutInflater.from(parent.context),parent,false),mListener)
     }
 
