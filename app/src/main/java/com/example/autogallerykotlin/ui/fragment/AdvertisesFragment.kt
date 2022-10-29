@@ -34,6 +34,7 @@ class AdvertisesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         setUpRV()
         advertisesRequest()
         advertises()
@@ -48,7 +49,6 @@ class AdvertisesFragment : Fragment() {
                     override fun onItemClick(position: Int) {
                         //todo: ilandetaya gidilecek
                         advertId = advertisesResponse[position].advert_id.toString()
-                       // viewModel.getAdvertiseDetailImage(advertId)
                         findNavController().navigate(AdvertisesFragmentDirections.actionAdvertsFragmentToAdvertiseDetailFragment(advertId))
                        // Toast.makeText(requireContext(), "$position tıklandı", Toast.LENGTH_SHORT).show()
                     }

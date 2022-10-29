@@ -10,9 +10,12 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.NavigationUI.setupWithNavController
+import com.example.autogallerykotlin.R
 import com.example.autogallerykotlin.databinding.ActivityMainBinding
-import com.example.autogallerykotlin.ui.fragment.AdvertisesFragmentDirections
+import com.example.autogallerykotlin.ui.fragment.*
 import dagger.hilt.android.AndroidEntryPoint
+import javax.annotation.meta.When
 
 
 @AndroidEntryPoint
@@ -28,17 +31,19 @@ class MainActivity : AppCompatActivity() {
 
         binding.bottomNavigationView.background = null
 
-        val navHostFragment = supportFragmentManager.findFragmentById(com.example.autogallerykotlin.R.id.fragmentContainerView) as NavHostFragment
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
         navController = navHostFragment.navController
 
-        binding.bottomNavigationView.visibility = View.GONE
-        binding.navigationBottomBar.visibility = View.GONE
-        binding.addAdvertiseFAB.visibility = View.GONE
+        val bottomNavigationView = binding.bottomNavigationView
+        setupWithNavController(bottomNavigationView,navController)
 
         binding.addAdvertiseFAB.setOnClickListener {
 
+
+
             navController.navigate(AdvertisesFragmentDirections.actionAdvertsFragmentToAddAdvertiseFragment())
-/*
+
+            /*
             binding.bottomNavigationView.visibility = View.GONE
             binding.navigationBottomBar.visibility = View.GONE
             binding.addAdvertiseFAB.visibility = View.GONE*/
@@ -51,14 +56,14 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 
         val inflater = menuInflater
-        inflater.inflate(com.example.autogallerykotlin.R.menu.menu,menu)
+        inflater.inflate(R.menu.menu,menu)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         return when(item.itemId){
-            com.example.autogallerykotlin.R.id.SignOut->{
+            R.id.SignOut->{
                 val sharedPreferences = getSharedPreferences("login", MODE_PRIVATE)
                 val editor = sharedPreferences.edit()
                 sharedPreferences.getString("users_id",null)

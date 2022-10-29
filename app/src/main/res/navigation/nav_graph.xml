@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/profileFragment">
+    app:startDestination="@id/advertsFragment">
 
     <fragment
         android:id="@+id/advertsFragment"
@@ -25,6 +25,9 @@
                <argument
             android:name="delete_advert_id"
             app:argType="string" />
+        <action
+            android:id="@+id/action_myAdvertsFragment_to_addAdvertiseFragment"
+            app:destination="@id/addAdvertiseFragment" />
     </fragment>
     <fragment
         android:id="@+id/addAdvertiseFragment"
@@ -44,6 +47,9 @@
         <action
             android:id="@+id/action_myFavoritesFragment_to_advertiseDetailFragment"
             app:destination="@id/advertiseDetailFragment" />
+        <action
+            android:id="@+id/action_myFavoritesFragment_to_addAdvertiseFragment"
+            app:destination="@id/addAdvertiseFragment" />
     </fragment>
     <fragment
         android:id="@+id/uploadImagesFragment"
@@ -72,5 +78,9 @@
         android:id="@+id/profileFragment"
         android:name="com.example.autogallerykotlin.ui.fragment.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_addAdvertiseFragment"
+            app:destination="@id/addAdvertiseFragment" />
+    </fragment>
 </navigation>
