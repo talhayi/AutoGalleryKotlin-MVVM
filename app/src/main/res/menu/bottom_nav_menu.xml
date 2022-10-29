@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
 
     <item android:title="Adverts"
         android:id="@+id/advertsFragment"
-        android:icon="@drawable/ic_home"/>
+        android:icon="@drawable/ic_home"
+        tools:ignore="HardcodedText" />
 
     <item android:title="My Adverts"
         android:id="@+id/myAdvertsFragment"
-        android:icon="@drawable/ic_my_advertises"/>
+        android:icon="@drawable/ic_my_advertises"
+        tools:ignore="HardcodedText"/>
 
     <item android:title=""
         android:id="@+id/addAdvertiseFragment"
@@ -16,11 +19,13 @@
 
     <item android:title="My Favorites"
         android:id="@+id/myFavoritesFragment"
-        android:icon="@drawable/ic_my_favorites"/>
+        android:icon="@drawable/ic_my_favorites"
+        tools:ignore="HardcodedText"/>
 
-    <item android:title="Settings"
-        android:id="@+id/settings"
-        android:icon="@drawable/ic_settings"/>
+    <item android:title="Profile"
+        android:id="@+id/profileFragment"
+        android:icon="@drawable/ic_settings"
+        tools:ignore="HardcodedText"/>
 
 
 

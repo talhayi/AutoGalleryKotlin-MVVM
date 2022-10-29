@@ -8,6 +8,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:elevation="10dp"
     android:layout_margin="1dp"
+    app:cardUseCompatPadding="true"
     app:cardCornerRadius="10dp">
 <LinearLayout
     android:id="@+id/myAdvertiseRowLinearLayout"

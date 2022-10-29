@@ -67,7 +67,7 @@ class AdvertisesAdapter : RecyclerView.Adapter<AdvertisesAdapter.AdvertsViewHold
             advertisesRowAdvertTitleTextView.text = currentAdvertises.advert_title
             advertisesRowAddressTextView.text = currentAdvertises.address
             advertisesRowPriceTextView.text = currentAdvertises.price
-            println("advertises"+currentAdvertises.image)
+
             advertisesRowImageView.load("http://yazilimgunlukleri.com/autogallerykotlin/" + currentAdvertises.image) {
                 crossfade(true)
                 crossfade(1000)
