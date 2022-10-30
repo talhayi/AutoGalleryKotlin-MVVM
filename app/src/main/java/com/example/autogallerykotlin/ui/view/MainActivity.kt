@@ -6,16 +6,16 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI.setupWithNavController
+import com.example.autogallerykotlin.NavGraphDirections
 import com.example.autogallerykotlin.R
 import com.example.autogallerykotlin.databinding.ActivityMainBinding
 import com.example.autogallerykotlin.ui.fragment.*
 import dagger.hilt.android.AndroidEntryPoint
-import javax.annotation.meta.When
+
 
 
 @AndroidEntryPoint
@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.bottomNavigationView.background = null
 
+
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
         navController = navHostFragment.navController
 
@@ -40,10 +41,9 @@ class MainActivity : AppCompatActivity() {
         binding.addAdvertiseFAB.setOnClickListener {
 
 
+            navController.navigate(NavGraphDirections.actionGlobalToAddAdvertiseFragment())
 
-            navController.navigate(AdvertisesFragmentDirections.actionAdvertsFragmentToAddAdvertiseFragment())
-
-            /*
+/*
             binding.bottomNavigationView.visibility = View.GONE
             binding.navigationBottomBar.visibility = View.GONE
             binding.addAdvertiseFAB.visibility = View.GONE*/

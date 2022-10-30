@@ -28,8 +28,8 @@ class AddAdvertiseImageViewModel @Inject constructor(
         image:String
 
     )=viewModelScope.launch {
+
         _addAdvertiseImage.postValue(repository.addAdvertiseImage(
-            user_id,advert_id,image
-        ))
+            user_id,advert_id,image))
     }
 }

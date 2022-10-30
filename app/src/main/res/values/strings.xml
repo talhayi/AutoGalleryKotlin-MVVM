@@ -1,12 +1,12 @@
 <resources>
     <string name="app_name">AutoGalleryKotlin</string>
 
-    <string name="sign_up"> <u>Sign Up</u></string>
-    <string name="sign_in"> <u>Sign In</u></string>
-    <string name="signout">Sign Out</string>
-    <string name="forgot_password">Please enter your registered e-mail address. We will send the necessary information to your e-mail address.</string>
-    <string name="forgot_password_code">Please enter the code sent to your e-mail.</string>
-    <string name="new_password">Set your new password to use in your account..</string>
+    <string name="sign_up"> <u>Yeni hesap oluştur</u></string>
+    <string name="sign_in"> <u>Giriş yap</u></string>
+    <string name="signout">Çıkış Yap</string>
+    <string name="forgot_password">Lütfen kayıtlı e-posta adresinizi giriniz. Gerekli bilgileri e-mail adresinize göndereceğiz.</string>
+    <string name="forgot_password_code">Lütfen e-postanıza gönderilen kodu giriniz.</string>
+    <string name="new_password">Hesabınızda kullanmak üzere yeni şifrenizi belirleyin..</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="deleteMyAdvertise">Silmek istiyor musunuz?</string>

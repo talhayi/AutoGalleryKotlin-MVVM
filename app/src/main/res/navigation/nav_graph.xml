@@ -5,6 +5,13 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/advertsFragment">
 
+    <action
+        android:id="@+id/action_global_to_addAdvertiseFragment"
+        app:destination="@id/addAdvertiseFragment"
+        app:popUpTo="@id/advertsFragment"
+        app:popUpToInclusive="true" />
+
+
     <fragment
         android:id="@+id/advertsFragment"
         android:name="com.example.autogallerykotlin.ui.fragment.AdvertisesFragment"
@@ -22,7 +29,7 @@
         android:name="com.example.autogallerykotlin.ui.fragment.MyAdvertiseFragment"
         android:label="fragment_my_adverts"
         tools:layout="@layout/fragment_my_advertise" >
-               <argument
+        <argument
             android:name="delete_advert_id"
             app:argType="string" />
         <action
@@ -37,6 +44,9 @@
         <action
             android:id="@+id/action_addAdvertiseFragment_to_uploadImagesFragment"
             app:destination="@id/uploadImagesFragment" />
+        <action
+            android:id="@+id/action_addAdvertiseFragment_to_advertsFragment"
+            app:destination="@id/advertsFragment" />
 
     </fragment>
     <fragment
@@ -58,7 +68,9 @@
         tools:layout="@layout/fragment_upload_images" >
         <action
             android:id="@+id/action_uploadImagesFragment_to_advertsFragment"
-            app:destination="@id/advertsFragment" />
+            app:destination="@id/advertsFragment"
+            app:popUpTo="@id/advertsFragment"
+            app:popUpToInclusive="true"/>
         <argument
             android:name="advert_id"
             app:argType="string"

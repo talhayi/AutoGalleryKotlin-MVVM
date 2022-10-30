@@ -2,6 +2,7 @@ package com.example.autogallerykotlin.ui.fragment
 
 import android.Manifest
 import android.app.Activity.RESULT_OK
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
@@ -16,6 +17,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -55,20 +57,39 @@ class UploadImagesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         binding.uploadImageBackButton.setOnClickListener {
             findNavController().navigate(UploadImagesFragmentDirections.actionUploadImagesFragmentToAdvertsFragment())
+
 
         }
         selectImage(view)
         registerLauncher()
         addImage()
+        addAdvertiseImage()
 
+    }
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        val callback: OnBackPressedCallback =
+            object : OnBackPressedCallback(true)
+            {
+                override fun handleOnBackPressed() {
+                    findNavController().navigate(UploadImagesFragmentDirections.actionUploadImagesFragmentToAdvertsFragment())
+                }
+            }
+        requireActivity().onBackPressedDispatcher.addCallback(
+            this,
+            callback
+        )
+    }
+    private fun addAdvertiseImage(){
         viewModel.addAdvertiseImage.observe(viewLifecycleOwner){addAdvertiseImageResponse->
-            
+
             if (addAdvertiseImageResponse.isSuccessful){
                 if(addAdvertiseImageResponse.body()?.success ==true){
                     Toast.makeText(requireContext(), addAdvertiseImageResponse.body()?.result, Toast.LENGTH_SHORT).show()
-                } 
+                }
                 else {
                     Toast.makeText(requireContext(), addAdvertiseImageResponse.body()?.result, Toast.LENGTH_SHORT).show()
                 }
@@ -76,10 +97,8 @@ class UploadImagesFragment : Fragment() {
             else {
                 Toast.makeText(requireContext(), "not isSuccessful", Toast.LENGTH_SHORT).show()
             }
-            
         }
     }
-
 
     private fun addImage(){
 
@@ -94,10 +113,6 @@ class UploadImagesFragment : Fragment() {
             val image = imageToString()
 
                 viewModel.addAdvertiseImage(userId,advertId,image)
-
-
-
-
         }
     }
 
@@ -143,11 +158,12 @@ class UploadImagesFragment : Fragment() {
         val smallBitmap = makeSmallerBitmap(bitmap!!,300)
 
         val outputStream = ByteArrayOutputStream()
-        smallBitmap.compress(Bitmap.CompressFormat.PNG,50,outputStream)
+        smallBitmap. compress(Bitmap.CompressFormat.PNG,50,outputStream)
+       
         val byteArray = outputStream.toByteArray()
+
         return Base64.encodeToString(byteArray, Base64.DEFAULT)
-
-
+      
     }
     private fun registerLauncher() {
         activityResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
@@ -164,13 +180,16 @@ class UploadImagesFragment : Fragment() {
 
                                 val source = ImageDecoder.createSource(requireActivity().contentResolver, imageData!!)
 
+                                
                                 bitmap = ImageDecoder.decodeBitmap(source)
                                 binding.uploadImageView.setImageBitmap(bitmap)
                                 binding.uploadImageView.visibility = View.VISIBLE
+
                             }
                             else {
 
                                 bitmap = MediaStore.Images.Media.getBitmap(requireActivity().contentResolver, imageData)
+
                                 binding.uploadImageView.setImageBitmap(bitmap)
                                 binding.uploadImageView.visibility = View.VISIBLE
                             }
@@ -210,5 +229,10 @@ class UploadImagesFragment : Fragment() {
             width = scaledWidth.toInt()
         }
         return Bitmap.createScaledBitmap(image,width,height,true)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding=null
     }
 }

@@ -25,6 +25,7 @@ class LoginActivity : AppCompatActivity() {
 
         if (sharedPreferences.getString("users_id",null) != null && sharedPreferences.getString("users_email", null) != null){
             startActivity(Intent(this, MainActivity::class.java))
+            finish()
         }
 
         viewModel.login.observe(this) { loginResponse ->
@@ -40,9 +41,7 @@ class LoginActivity : AppCompatActivity() {
 
                     startActivity(Intent(this, MainActivity::class.java))
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-
-
-
+                    finish()
 
                 }
                 else {

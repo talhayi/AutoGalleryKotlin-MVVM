@@ -2,15 +2,14 @@ package com.example.autogallerykotlin.ui.fragment
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
-
+import android.content.Context
 import android.os.Bundle
 import android.view.*
 import android.widget.*
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.NavController
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.example.autogallerykotlin.R
 import com.example.autogallerykotlin.databinding.FragmentAddAdvertiseBinding
@@ -27,6 +26,8 @@ class AddAdvertiseFragment : Fragment() {
     private val viewModel: AddAdvertiseViewModel by viewModels()
 
     private lateinit var alertDialog: AlertDialog.Builder
+    private var userId=""
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -62,37 +63,20 @@ class AddAdvertiseFragment : Fragment() {
         guarantee()
         swap()
         phoneNumber()
+        addAdvertise()
+        addAdvertiseRequest()
 
-        val sharedPreferences =
-            this.activity?.getSharedPreferences("login", AppCompatActivity.MODE_PRIVATE)
+    }
 
+    private fun addAdvertiseRequest(){
 
-
-        viewModel.addAdvertise.observe(viewLifecycleOwner) { addAdvertiseResult ->
-            if (addAdvertiseResult.isSuccessful) {
-                if (addAdvertiseResult.body()?.success == true) {
-
-                    val advertId = addAdvertiseResult.body()!!.advert_id.toString()
-                    Toast.makeText(requireContext(), "İlan yayınlandı", Toast.LENGTH_SHORT).show()
-
-                    findNavController().navigate(AddAdvertiseFragmentDirections.actionAddAdvertiseFragmentToUploadImagesFragment(advertId))
-
-
-
-                } else {
-                    Toast.makeText(requireContext(), "not success", Toast.LENGTH_SHORT).show()
-                }
-            } else {
-                Toast.makeText(requireContext(), "not isSuccessful", Toast.LENGTH_SHORT).show()
-            }
-
-
-        }
 
         binding.addAdvertiseNextButton.setOnClickListener {
 
+            val sharedPreferences =
+                this.activity?.getSharedPreferences("login", AppCompatActivity.MODE_PRIVATE)
 
-            val userId = sharedPreferences?.getString("users_id", null)!!
+            userId = sharedPreferences?.getString("users_id", null)!!
             val advertTitle = binding.advertiseTitleTextView.text.toString().trim()
             val explanation = binding.explanationTextView.text.toString().trim()
 
@@ -120,6 +104,7 @@ class AddAdvertiseFragment : Fragment() {
             val swap = binding.swapTextView.text.toString().trim()
             val phoneNumber = binding.phoneNumberTextView.text.toString().trim()
 
+
             viewModel.addAdvertise(
                 userId, advertTitle, explanation,
                 price, address, brand,
@@ -129,9 +114,45 @@ class AddAdvertiseFragment : Fragment() {
                 motorCapacity, traction, color,
                 guarantee, swap, phoneNumber,
             )
+        }
+    }
+
+    private fun addAdvertise(){
+
+        viewModel.addAdvertise.observe(viewLifecycleOwner) { addAdvertiseResult ->
+            if (addAdvertiseResult.isSuccessful) {
+                if (addAdvertiseResult.body()?.success == true) {
+
+                    val advertId = addAdvertiseResult.body()!!.advert_id.toString()
+                    Toast.makeText(requireContext(), "İlan yayınlandııııı", Toast.LENGTH_SHORT).show()
+
+                    findNavController().navigate(AddAdvertiseFragmentDirections.actionAddAdvertiseFragmentToUploadImagesFragment(advertId))
+
+                } else {
+                    Toast.makeText(requireContext(), addAdvertiseResult.body()?.result, Toast.LENGTH_SHORT).show()
+                }
+            } else {
+                Toast.makeText(requireContext(), "not isSuccessful", Toast.LENGTH_SHORT).show()
+            }
+
 
         }
+    }
 
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        val callback: OnBackPressedCallback =
+            object : OnBackPressedCallback(true)
+            {
+                override fun handleOnBackPressed() {
+                    findNavController().navigate(AddAdvertiseFragmentDirections.actionAddAdvertiseFragmentToAdvertsFragment())
+                }
+            }
+        requireActivity().onBackPressedDispatcher.addCallback(
+            this,
+            callback
+        )
     }
 
     private fun advertiseTitle() {

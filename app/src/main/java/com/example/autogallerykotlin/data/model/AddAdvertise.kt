@@ -9,6 +9,7 @@ data class AddAdvertise(
     val advert_id: String? = null,
     val success: Boolean? = null,
 
+    val result: String? = null,
     val advert_title: String? = null,
     val explanation: String? = null,
 
