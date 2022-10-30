@@ -1,5 +1,6 @@
 package com.example.autogallerykotlin.ui.fragment
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -47,17 +48,18 @@ class MyFavoritesFragment : Fragment() {
         viewModel.myFavoriteAdvertise.observe(viewLifecycleOwner){myFavoriteAdvertiseResponse->
 
             myFavoriteAdvertiseResponse.let {
-                myFavoriteAdvertiseAdapter.myFavoriteAdvertise = myFavoriteAdvertiseResponse
-                myFavoriteAdvertiseAdapter.setOnItemClickListener(object : MyFavoriteAdvertiseAdapter.onItemClickListener{
-                    override fun onItemClick(position: Int) {
-                        advertId = myFavoriteAdvertiseResponse[position].advert_id.toString()
-                        findNavController().navigate(MyFavoritesFragmentDirections.actionMyFavoritesFragmentToAdvertiseDetailFragment(advertId))
 
-                    }
+                if (it[0].count!=null){
+                    myFavoriteAdvertiseAdapter.myFavoriteAdvertise = myFavoriteAdvertiseResponse
+                    myFavoriteAdvertiseAdapter.setOnItemClickListener(object : MyFavoriteAdvertiseAdapter.onItemClickListener{
+                        override fun onItemClick(position: Int) {
 
-                })
+                            advertId = myFavoriteAdvertiseResponse[position].advert_id.toString()
+                            findNavController().navigate(MyFavoritesFragmentDirections.actionMyFavoritesFragmentToAdvertiseDetailFragment(advertId))
+                        }
+                    })
+                }
             }
-
         }
     }
 
@@ -70,12 +72,14 @@ class MyFavoritesFragment : Fragment() {
 
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun setUpRV(){
 
         myFavoriteAdvertiseAdapter = MyFavoriteAdvertiseAdapter()
         binding.myFavoriteAdvertiseRecyclerView.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = myFavoriteAdvertiseAdapter
+
         }
     }
 

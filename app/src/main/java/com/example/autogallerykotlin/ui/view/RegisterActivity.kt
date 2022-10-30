@@ -3,6 +3,7 @@ package com.example.autogallerykotlin.ui.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import com.example.autogallerykotlin.databinding.ActivityRegisterBinding
@@ -28,6 +29,7 @@ class RegisterActivity : AppCompatActivity() {
 
                     val intent = Intent(this, EmailVerificationActivity::class.java)
                     intent.putExtra("email", registerResponse.body()?.email)
+
                     startActivity(intent)
                     finish()
                     Toast.makeText(this, "Lütfen doğrulama kodunu giriniz", Toast.LENGTH_LONG)
@@ -54,6 +56,7 @@ class RegisterActivity : AppCompatActivity() {
             val password = binding.registerPasswordEditText.text.toString().trim()
 
             viewModel.register(name, surname, email, password)
+
         /*
             } else {
                 Toast.makeText(this, "internet bağlantınızı kontrol edin", Toast.LENGTH_SHORT)

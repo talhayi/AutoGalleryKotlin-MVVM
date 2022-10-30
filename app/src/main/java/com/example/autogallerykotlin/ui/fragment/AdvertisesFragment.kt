@@ -42,6 +42,7 @@ class AdvertisesFragment : Fragment() {
         viewModel.advertises.observe(viewLifecycleOwner){advertisesResponse->
 
             advertisesResponse.let {
+
                 advertisesAdapter.advertises =  advertisesResponse
 
                 advertisesAdapter.setOnItemClickListener(object : AdvertisesAdapter.onItemClickListener{
@@ -60,16 +61,19 @@ class AdvertisesFragment : Fragment() {
 
     private fun advertisesRequest(){
 
-        //todo: ProgressDialog eklenecek
+
         viewModel.getAdvertises()
+
 
     }
     private fun setUpRV(){
 
         advertisesAdapter = AdvertisesAdapter()
+
         binding.advertisesRecyclerView.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = advertisesAdapter
+
         }
     }
     override fun onDestroy() {

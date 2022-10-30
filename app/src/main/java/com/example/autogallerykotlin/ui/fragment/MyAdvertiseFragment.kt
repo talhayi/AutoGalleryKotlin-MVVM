@@ -15,6 +15,7 @@ import com.example.autogallerykotlin.adapter.MyAdvertiseAdapter
 import com.example.autogallerykotlin.databinding.FragmentMyAdvertiseBinding
 import com.example.autogallerykotlin.viewmodel.MyAdvertiseViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import okhttp3.internal.notifyAll
 
 @AndroidEntryPoint
 class MyAdvertiseFragment : Fragment() {
@@ -50,31 +51,38 @@ class MyAdvertiseFragment : Fragment() {
 
         viewModel.myAdvertise.observe(viewLifecycleOwner) { myAdvertiseResponse ->
             myAdvertiseResponse.let {
-                myAdvertiseAdapter.myAdvertise = myAdvertiseResponse
 
-                myAdvertiseAdapter.setOnItemClickListener(object : MyAdvertiseAdapter.onItemClickListener {
-                    override fun onItemClick(position: Int) {
+                if (it[0].count!=null) {
 
-                        val mDialogView = LayoutInflater.from(requireContext())
-                            .inflate(R.layout.delete_alert_dialog, null)
+                    myAdvertiseAdapter.myAdvertise = myAdvertiseResponse
 
-                        alertDialog = AlertDialog.Builder(requireContext()).setView(mDialogView)
+                    myAdvertiseAdapter.setOnItemClickListener(object :
+                        MyAdvertiseAdapter.onItemClickListener {
+                        override fun onItemClick(position: Int) {
 
-                        alertDialog.setNegativeButton("HAYIR") { _, _ -> }
+                            val mDialogView = LayoutInflater.from(requireContext())
+                                .inflate(R.layout.delete_alert_dialog, null)
 
-                        alertDialog.setPositiveButton("EVET") { _, _ ->
+                            alertDialog = AlertDialog.Builder(requireContext()).setView(mDialogView)
 
-                            advertId = myAdvertiseResponse[position].advert_id.toString()
+                            alertDialog.setNegativeButton("HAYIR") { _, _ -> }
 
-                            //todo: notifyItemRemoved kullanınca db'den siliniyor ama uygulamadan silinmiyor
-                           // myAdvertiseAdapter.notifyItemRemoved(position)
-                            viewModel.getDeleteMyAdvertise(advertId)
-                            viewModel.getMyAdvertise(userId)
+                            alertDialog.setPositiveButton("EVET") { _, _ ->
 
+                                advertId = myAdvertiseResponse[position].advert_id.toString()
+
+                                //todo: notifyItemRemoved kullanınca db'den siliniyor ama uygulamadan silinmiyor
+                                // myAdvertiseAdapter.notifyItemRemoved(position)
+
+                                viewModel.getDeleteMyAdvertise(advertId)
+                                myAdvertiseAdapter.notifyItemRemoved(position)
+
+                            }
+
+                            alertDialog.show()
                         }
-                        alertDialog.show()
-                    }
-                })
+                    })
+                }
             }
         }
     }
@@ -110,7 +118,6 @@ class MyAdvertiseFragment : Fragment() {
         binding.myAdvertiseRecyclerView.apply {
 
             layoutManager = LinearLayoutManager(requireContext())
-
             adapter = myAdvertiseAdapter
 
         }

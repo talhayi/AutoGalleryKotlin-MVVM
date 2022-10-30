@@ -73,9 +73,11 @@ class AdvertisesAdapter : RecyclerView.Adapter<AdvertisesAdapter.AdvertsViewHold
                 crossfade(1000)
             }
         }
+
     }
 
     override fun getItemCount(): Int {
         return advertises.size
     }
+
 }

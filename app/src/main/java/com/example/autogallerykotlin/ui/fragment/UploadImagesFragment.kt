@@ -59,7 +59,7 @@ class UploadImagesFragment : Fragment() {
 
 
         binding.uploadImageBackButton.setOnClickListener {
-            findNavController().navigate(UploadImagesFragmentDirections.actionUploadImagesFragmentToAdvertsFragment())
+            findNavController().navigate(UploadImagesFragmentDirections.actionUploadImagesFragmentToAddAdvertiseFragment())
 
 
         }

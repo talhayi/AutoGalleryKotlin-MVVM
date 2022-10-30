@@ -75,6 +75,9 @@
             android:name="advert_id"
             app:argType="string"
             android:defaultValue="" />
+        <action
+            android:id="@+id/action_uploadImagesFragment_to_addAdvertiseFragment"
+            app:destination="@id/addAdvertiseFragment" />
     </fragment>
     <fragment
         android:id="@+id/advertiseDetailFragment"

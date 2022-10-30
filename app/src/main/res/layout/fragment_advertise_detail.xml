@@ -7,7 +7,12 @@
     android:layout_centerVertical="true"
     android:layout_marginBottom="64dp"
     tools:context=".ui.fragment.AdvertiseDetailFragment">
-
+    <ProgressBar
+        android:id="@+id/advertiseDetailProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_centerInParent="true"/>
 
     <LinearLayout
         android:id="@+id/detailAdvertiseTitleLinearLayout"
@@ -69,6 +74,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/advertiseDetailSliderLayout"
         android:orientation="vertical">
+
+
 
         <TextView
             android:id="@+id/advertiseDetailNameTV"
@@ -242,6 +249,8 @@
                     tools:ignore="HardcodedText">
 
                 </TextView>
+
+
 
                 <TextView
                     android:id="@+id/advertiseDetailSerialTV"
@@ -731,11 +740,11 @@
                     tools:ignore="HardcodedText,RtlHardcoded">
 
                 </TextView>
+
             </LinearLayout>
 
         </LinearLayout>
 
     </ScrollView>
-
 
 </RelativeLayout>
