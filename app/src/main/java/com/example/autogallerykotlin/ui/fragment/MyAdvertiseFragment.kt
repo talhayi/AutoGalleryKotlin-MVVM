@@ -12,6 +12,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.autogallerykotlin.R
 import com.example.autogallerykotlin.adapter.MyAdvertiseAdapter
+import com.example.autogallerykotlin.data.model.MyAdvertise
 import com.example.autogallerykotlin.databinding.FragmentMyAdvertiseBinding
 import com.example.autogallerykotlin.viewmodel.MyAdvertiseViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -24,6 +25,7 @@ class MyAdvertiseFragment : Fragment() {
     private val binding get() = _binding!!
     private val viewModel: MyAdvertiseViewModel by viewModels()
     private lateinit var myAdvertiseAdapter: MyAdvertiseAdapter
+
     private lateinit var alertDialog: AlertDialog.Builder
     private var advertId=""
     private var userId=""
@@ -35,13 +37,16 @@ class MyAdvertiseFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentMyAdvertiseBinding.inflate(inflater, container, false)
         return binding.root
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        myAdvertiseRequest()
+
         setUpRV()
+        myAdvertiseRequest()
+
         deleteMyAdvertiseRequest()
         deleteMyAdvertise()
 
@@ -52,12 +57,13 @@ class MyAdvertiseFragment : Fragment() {
         viewModel.myAdvertise.observe(viewLifecycleOwner) { myAdvertiseResponse ->
             myAdvertiseResponse.let {
 
-                if (it[0].count!=null) {
+               if (it[0].count!=null) {
 
                     myAdvertiseAdapter.myAdvertise = myAdvertiseResponse
 
                     myAdvertiseAdapter.setOnItemClickListener(object :
                         MyAdvertiseAdapter.onItemClickListener {
+
                         override fun onItemClick(position: Int) {
 
                             val mDialogView = LayoutInflater.from(requireContext())
@@ -71,10 +77,8 @@ class MyAdvertiseFragment : Fragment() {
 
                                 advertId = myAdvertiseResponse[position].advert_id.toString()
 
-                                //todo: notifyItemRemoved kullanınca db'den siliniyor ama uygulamadan silinmiyor
-                                // myAdvertiseAdapter.notifyItemRemoved(position)
-
                                 viewModel.getDeleteMyAdvertise(advertId)
+
                                 myAdvertiseAdapter.notifyItemRemoved(position)
 
                             }
@@ -110,6 +114,7 @@ class MyAdvertiseFragment : Fragment() {
             this.activity?.getSharedPreferences("login", AppCompatActivity.MODE_PRIVATE)
         userId = sharedPreferences?.getString("users_id", null)!!
         viewModel.getMyAdvertise(userId)
+
     }
 
     private fun setUpRV() {

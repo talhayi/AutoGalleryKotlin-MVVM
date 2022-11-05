@@ -112,6 +112,9 @@ interface ApiService {
 
     @GET("myFavoriteAdvertise.php")
     suspend fun myFavoriteAdvertise(@Query("user_id") user_id: String?): List<MyFavoriteAdvertise>
+
+    @GET("informationProfile.php")
+    suspend fun informationProfile(@Query("user_id") user_id: String?): Response<InformationProfile>
 }
 
 

@@ -1,19 +1,26 @@
 package com.example.autogallerykotlin.ui.fragment
 
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.viewModels
 import com.example.autogallerykotlin.databinding.FragmentProfileBinding
+import com.example.autogallerykotlin.viewmodel.ProfileViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
+@SuppressLint("SetTextI18n")
 class ProfileFragment : Fragment() {
 
     private var _binding: FragmentProfileBinding?= null
     private val binding get() = _binding!!
+    private val viewModel: ProfileViewModel by viewModels()
+    private var userId = ""
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -25,6 +32,9 @@ class ProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        informationProfileRequest()
+        informationProfile()
 
         binding.updateEmailButton.setOnClickListener {
             binding.updatePasswordButton.visibility = View.GONE
@@ -76,6 +86,28 @@ class ProfileFragment : Fragment() {
             binding.updateNeighborhoodContainer.visibility = View.GONE
 
         }
+
+    }
+
+    private fun informationProfile(){
+
+        viewModel.informationProfile.observe(viewLifecycleOwner){informationProfile->
+            if (informationProfile.isSuccessful){
+                val name = informationProfile.body()?.name
+                val surname= informationProfile.body()?.surname
+                binding.fullNameTV.text = "$name $surname"
+                binding.emailTV.text = informationProfile.body()?.email
+                binding.phoneNumberTV.text = informationProfile.body()?.phoneNumber
+                binding.addressTV.text = informationProfile.body()?.address
+            }
+        }
+    }
+
+    private fun informationProfileRequest(){
+        val sharedPreferences =
+            this.activity?.getSharedPreferences("login", AppCompatActivity.MODE_PRIVATE)
+        userId = sharedPreferences?.getString("users_id", null)!!
+        viewModel.getInformationProfile(userId)
 
     }
 }

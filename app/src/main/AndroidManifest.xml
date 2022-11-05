@@ -23,9 +23,7 @@
         android:theme="@style/Theme.AutoGalleryKotlin"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
-        <activity
-            android:name="com.example.autogallerykotlin.ui.view.MainActivity2"
-            android:exported="false" />
+
         <activity
             android:name="com.example.autogallerykotlin.ui.view.ForgotPasswordActivity"
             android:exported="false" />

@@ -2,6 +2,7 @@ package com.example.autogallerykotlin.adapter
 
 
 
+
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
@@ -13,6 +14,7 @@ import com.example.autogallerykotlin.databinding.MyAdvertiseItemLayoutBinding
 
 
 class MyAdvertiseAdapter : RecyclerView.Adapter<MyAdvertiseAdapter.MyAdvertiseViewHolder>() {
+
 
     private lateinit var mListener: onItemClickListener
 
@@ -44,17 +46,21 @@ class MyAdvertiseAdapter : RecyclerView.Adapter<MyAdvertiseAdapter.MyAdvertiseVi
             return newItem == oldItem
         }
 
+
     }
+
 
     private val differ = AsyncListDiffer(this,diffCallBack)
     var myAdvertise: List<MyAdvertise>
+
     get() = differ.currentList
+
     set(value){
+       // differ.currentList.clear()
+        //differ.currentList.addAll(myAdvertise)
         differ.submitList(value)
+
     }
-
-  //  var onItemClick: ((MyAdvertise)-> Unit)? = null
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyAdvertiseViewHolder {
         return MyAdvertiseViewHolder(MyAdvertiseItemLayoutBinding.inflate(
@@ -78,16 +84,57 @@ class MyAdvertiseAdapter : RecyclerView.Adapter<MyAdvertiseAdapter.MyAdvertiseVi
 
         }
 
-
-        /*
-        holder.itemView.setOnClickListener {
-            onItemClick?.invoke(currentMyAdvertise)
-        }*/
-
-
     }
 
     override fun getItemCount(): Int {
        return myAdvertise.size
     }
+    /*
+    fun setData(newMyAdvertiseList: List<MyAdvertise>){
+
+        val diffUtil = MyAdvertiseDiffUtil(oldMyAdvertiseList, newMyAdvertiseList)
+        val diffResults = DiffUtil.calculateDiff(diffUtil)
+        oldMyAdvertiseList = newMyAdvertiseList
+        diffResults.dispatchUpdatesTo(this)
+    }*/
 }
+/*
+class MyAdvertiseDiffUtil(
+    private val oldList: List<MyAdvertise>,
+    private val newList: List<MyAdvertise>
+): DiffUtil.Callback(){
+    override fun getOldListSize(): Int {
+        return oldList.size
+    }
+
+    override fun getNewListSize(): Int {
+        return newList.size
+    }
+
+    override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+         return oldList[oldItemPosition].advert_id == newList[newItemPosition].advert_id
+    }
+
+    override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+        return when{
+            oldList[oldItemPosition].advert_id!=newList[newItemPosition].advert_id->{
+                false
+            }
+            oldList[oldItemPosition].image!=newList[newItemPosition].image->{
+                false
+            }
+            oldList[oldItemPosition].advert_title!=newList[newItemPosition].advert_title->{
+                false
+            }
+            oldList[oldItemPosition].address!=newList[newItemPosition].address->{
+                false
+            }
+            oldList[oldItemPosition].price!=newList[newItemPosition].price->{
+                false
+            }
+            else-> true
+        }
+    }
+
+}
+*/
