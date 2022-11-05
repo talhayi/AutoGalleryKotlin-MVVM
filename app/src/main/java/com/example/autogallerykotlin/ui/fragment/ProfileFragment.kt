@@ -42,6 +42,7 @@ class ProfileFragment : Fragment() {
             binding.updateAddressButton.visibility = View.GONE
             binding.emailLinearLayout.visibility = View.VISIBLE
             binding.updateProfileButton.visibility = View.VISIBLE
+            binding.cancelProfileButton.visibility = View.VISIBLE
         }
 
         binding.updatePasswordButton.setOnClickListener {
@@ -50,6 +51,7 @@ class ProfileFragment : Fragment() {
             binding.updateAddressButton.visibility = View.GONE
             binding.passwordLinearLayout.visibility = View.VISIBLE
             binding.updateProfileButton.visibility = View.VISIBLE
+            binding.cancelProfileButton.visibility = View.VISIBLE
         }
 
         binding.updatePhoneNumberButton.setOnClickListener {
@@ -58,6 +60,7 @@ class ProfileFragment : Fragment() {
             binding.updateAddressButton.visibility = View.GONE
             binding.phoneNumberLinearLayout.visibility = View.VISIBLE
             binding.updateProfileButton.visibility = View.VISIBLE
+            binding.cancelProfileButton.visibility = View.VISIBLE
         }
 
         binding.updateAddressButton.setOnClickListener {
@@ -70,6 +73,7 @@ class ProfileFragment : Fragment() {
             binding.updateNeighborhoodContainer.visibility = View.VISIBLE
 
             binding.updateProfileButton.visibility = View.VISIBLE
+            binding.cancelProfileButton.visibility = View.VISIBLE
         }
 
         binding.updateProfileButton.setOnClickListener {
@@ -84,7 +88,23 @@ class ProfileFragment : Fragment() {
             binding.updateCityContainer.visibility = View.GONE
             binding.updateDistrictContainer.visibility = View.GONE
             binding.updateNeighborhoodContainer.visibility = View.GONE
+            binding.cancelProfileButton.visibility=View.GONE
 
+        }
+        binding.cancelProfileButton.setOnClickListener {
+
+            binding.updateEmailButton.visibility = View.VISIBLE
+            binding.updatePasswordButton.visibility = View.VISIBLE
+            binding.updatePhoneNumberButton.visibility = View.VISIBLE
+            binding.updateAddressButton.visibility = View.VISIBLE
+            binding.cancelProfileButton.visibility = View.GONE
+            binding.updateProfileButton.visibility = View.GONE
+            binding.emailLinearLayout.visibility = View.GONE
+            binding.passwordLinearLayout.visibility = View.GONE
+            binding.phoneNumberLinearLayout.visibility = View.GONE
+            binding.updateCityContainer.visibility = View.GONE
+            binding.updateDistrictContainer.visibility = View.GONE
+            binding.updateNeighborhoodContainer.visibility = View.GONE
         }
 
     }
