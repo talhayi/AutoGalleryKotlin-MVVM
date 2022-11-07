@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
 import com.example.autogallerykotlin.databinding.FragmentProfileBinding
@@ -35,6 +36,8 @@ class ProfileFragment : Fragment() {
 
         informationProfileRequest()
         informationProfile()
+        updateProfileRequest()
+        updateProfile()
 
         binding.updateEmailButton.setOnClickListener {
             binding.updatePasswordButton.visibility = View.GONE
@@ -76,21 +79,6 @@ class ProfileFragment : Fragment() {
             binding.cancelProfileButton.visibility = View.VISIBLE
         }
 
-        binding.updateProfileButton.setOnClickListener {
-            binding.updateEmailButton.visibility = View.VISIBLE
-            binding.updatePasswordButton.visibility = View.VISIBLE
-            binding.updatePhoneNumberButton.visibility = View.VISIBLE
-            binding.updateAddressButton.visibility = View.VISIBLE
-            binding.updateProfileButton.visibility = View.GONE
-            binding.emailLinearLayout.visibility = View.GONE
-            binding.passwordLinearLayout.visibility = View.GONE
-            binding.phoneNumberLinearLayout.visibility = View.GONE
-            binding.updateCityContainer.visibility = View.GONE
-            binding.updateDistrictContainer.visibility = View.GONE
-            binding.updateNeighborhoodContainer.visibility = View.GONE
-            binding.cancelProfileButton.visibility=View.GONE
-
-        }
         binding.cancelProfileButton.setOnClickListener {
 
             binding.updateEmailButton.visibility = View.VISIBLE
@@ -109,6 +97,72 @@ class ProfileFragment : Fragment() {
 
     }
 
+    private fun updateProfile(){
+
+        viewModel.updateProfile.observe(viewLifecycleOwner){updateProfile->
+            if (updateProfile.isSuccessful){
+                if (updateProfile.body()?.emailSuccess==true){
+                    viewModel.getInformationProfile(userId)
+                    Toast.makeText(requireContext(), updateProfile.body()?.result, Toast.LENGTH_SHORT).show()
+
+                }else{
+                    Toast.makeText(requireContext(), updateProfile.body()?.result, Toast.LENGTH_SHORT).show()
+                }
+                if (updateProfile.body()?.passwordSuccess==true){
+
+                    Toast.makeText(requireContext(), updateProfile.body()?.result, Toast.LENGTH_SHORT).show()
+
+                }else{
+                    Toast.makeText(requireContext(), updateProfile.body()?.result, Toast.LENGTH_SHORT).show()
+                }
+                if (updateProfile.body()?.phoneNumberSuccess==true){
+                    Toast.makeText(requireContext(), updateProfile.body()?.result, Toast.LENGTH_SHORT).show()
+
+                }else{
+                    Toast.makeText(requireContext(), updateProfile.body()?.result, Toast.LENGTH_SHORT).show()
+                }
+                if (updateProfile.body()?.addressSuccess==true){
+                    Toast.makeText(requireContext(), updateProfile.body()?.result, Toast.LENGTH_SHORT).show()
+
+                }else{
+                    Toast.makeText(requireContext(), updateProfile.body()?.result, Toast.LENGTH_SHORT).show()
+                }
+
+            }
+        }
+    }
+    private fun updateProfileRequest(){
+
+        binding.updateProfileButton.setOnClickListener {
+            binding.updateEmailButton.visibility = View.VISIBLE
+            binding.updatePasswordButton.visibility = View.VISIBLE
+            binding.updatePhoneNumberButton.visibility = View.VISIBLE
+            binding.updateAddressButton.visibility = View.VISIBLE
+            binding.updateProfileButton.visibility = View.GONE
+            binding.emailLinearLayout.visibility = View.GONE
+            binding.passwordLinearLayout.visibility = View.GONE
+            binding.phoneNumberLinearLayout.visibility = View.GONE
+            binding.updateCityContainer.visibility = View.GONE
+            binding.updateDistrictContainer.visibility = View.GONE
+            binding.updateNeighborhoodContainer.visibility = View.GONE
+            binding.cancelProfileButton.visibility=View.GONE
+
+            val sharedPreferences =
+                this.activity?.getSharedPreferences("login", AppCompatActivity.MODE_PRIVATE)
+            userId = sharedPreferences?.getString("users_id", null)!!
+
+            val email = binding.updateEmailET.text.toString().trim()
+            val password = binding.updatePasswordET.text.toString().trim()
+            val againPassword = binding.updatePasswordAgainET.text.toString().trim()
+            val phoneNumber = binding.phoneNumberAlertDialogEditText.text.toString().trim()
+            val city = binding.updateCityET.text.toString().trim()
+            val district = binding.updateDistrictET.text.toString().trim()
+            val neighborhood = binding.updateNeighborhoodET.text.toString().trim()
+            viewModel.getUpdateProfile(userId,email,password,againPassword,phoneNumber,city,district,neighborhood)
+
+        }
+
+    }
     private fun informationProfile(){
 
         viewModel.informationProfile.observe(viewLifecycleOwner){informationProfile->
