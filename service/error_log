@@ -1,0 +1,425 @@
+[13-Sep-2022 02:38:07 Europe/Minsk] PHP Warning:  json_decode() expects parameter 1 to be string, object given in /home/yazili26/public_html/autogallerykotlin/register.php on line 108
+[13-Sep-2022 02:38:56 Europe/Minsk] PHP Warning:  json_decode() expects parameter 1 to be string, object given in /home/yazili26/public_html/autogallerykotlin/register.php on line 107
+[13-Sep-2022 02:38:56 Europe/Minsk] PHP Warning:  json_decode() expects parameter 1 to be string, object given in /home/yazili26/public_html/autogallerykotlin/register.php on line 109
+[13-Sep-2022 02:38:56 Europe/Minsk] PHP Fatal error:  Uncaught Error: Call to a member function send() on null in /home/yazili26/public_html/autogallerykotlin/register.php:109
+Stack trace:
+#0 {main}
+  thrown in /home/yazili26/public_html/autogallerykotlin/register.php on line 109
+[13-Sep-2022 02:39:39 Europe/Minsk] PHP Warning:  json_decode() expects parameter 1 to be string, object given in /home/yazili26/public_html/autogallerykotlin/register.php on line 107
+[13-Sep-2022 02:39:39 Europe/Minsk] PHP Fatal error:  Uncaught Error: Call to a member function send() on string in /home/yazili26/public_html/autogallerykotlin/register.php:109
+Stack trace:
+#0 {main}
+  thrown in /home/yazili26/public_html/autogallerykotlin/register.php on line 109
+[13-Sep-2022 02:41:06 Europe/Minsk] PHP Warning:  json_decode() expects parameter 1 to be string, object given in /home/yazili26/public_html/autogallerykotlin/register.php on line 107
+[13-Sep-2022 02:41:06 Europe/Minsk] PHP Fatal error:  Uncaught Error: Call to a member function send() on string in /home/yazili26/public_html/autogallerykotlin/register.php:109
+Stack trace:
+#0 {main}
+  thrown in /home/yazili26/public_html/autogallerykotlin/register.php on line 109
+[13-Sep-2022 02:41:44 Europe/Minsk] PHP Fatal error:  Uncaught Error: Call to a member function send() on string in /home/yazili26/public_html/autogallerykotlin/register.php:109
+Stack trace:
+#0 {main}
+  thrown in /home/yazili26/public_html/autogallerykotlin/register.php on line 109
+[17-Sep-2022 04:29:56 Europe/Minsk] PHP Notice:  Undefined index: email in /home/yazili26/public_html/autogallerykotlin/verification.php on line 4
+[17-Sep-2022 04:33:51 Europe/Minsk] PHP Notice:  Undefined index: email in /home/yazili26/public_html/autogallerykotlin/verification.php on line 4
+[17-Sep-2022 04:34:41 Europe/Minsk] PHP Notice:  Undefined variable: email in /home/yazili26/public_html/autogallerykotlin/verification.php on line 15
+[17-Sep-2022 21:44:22 Europe/Minsk] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/yazili26/public_html/autogallerykotlin/login.php on line 17
+[17-Sep-2022 21:45:29 Europe/Minsk] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/yazili26/public_html/autogallerykotlin/login.php on line 17
+[17-Sep-2022 21:46:40 Europe/Minsk] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/yazili26/public_html/autogallerykotlin/login.php on line 18
+[17-Sep-2022 21:52:17 Europe/Minsk] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/yazili26/public_html/autogallerykotlin/login.php on line 19
+[17-Sep-2022 22:54:50 Europe/Minsk] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, array given in /home/yazili26/public_html/autogallerykotlin/login.php on line 22
+[17-Sep-2022 22:56:26 Europe/Minsk] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, array given in /home/yazili26/public_html/autogallerykotlin/login.php on line 22
+[17-Sep-2022 22:56:48 Europe/Minsk] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, array given in /home/yazili26/public_html/autogallerykotlin/login.php on line 22
+[17-Sep-2022 22:57:24 Europe/Minsk] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, array given in /home/yazili26/public_html/autogallerykotlin/login.php on line 22
+[17-Sep-2022 22:57:38 Europe/Minsk] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/yazili26/public_html/autogallerykotlin/login.php on line 22
+[21-Sep-2022 02:21:40 Europe/Minsk] PHP Warning:  Use of undefined constant basarili - assumed 'basarili' (this will throw an Error in a future version of PHP) in /home/yazili26/public_html/autogallerykotlin/resetPassword.php on line 20
+[21-Sep-2022 02:22:41 Europe/Minsk] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, bool given in /home/yazili26/public_html/autogallerykotlin/resetPassword.php on line 16
+[21-Sep-2022 02:23:13 Europe/Minsk] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, bool given in /home/yazili26/public_html/autogallerykotlin/resetPassword.php on line 16
+[21-Sep-2022 02:24:00 Europe/Minsk] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, bool given in /home/yazili26/public_html/autogallerykotlin/resetPassword.php on line 16
+[21-Sep-2022 02:24:03 Europe/Minsk] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, bool given in /home/yazili26/public_html/autogallerykotlin/resetPassword.php on line 16
+[21-Sep-2022 02:32:32 Europe/Minsk] PHP Notice:  Object of class Result could not be converted to number in /home/yazili26/public_html/autogallerykotlin/resetPassword.php on line 28
+[21-Sep-2022 02:39:37 Europe/Minsk] PHP Notice:  Undefined index: email in /home/yazili26/public_html/autogallerykotlin/resetPassword.php on line 4
+[21-Sep-2022 02:39:37 Europe/Minsk] PHP Notice:  Undefined index: password in /home/yazili26/public_html/autogallerykotlin/resetPassword.php on line 5
+[21-Sep-2022 03:10:59 Europe/Minsk] PHP Notice:  Undefined index: password in /home/yazili26/public_html/autogallerykotlin/resetPassword.php on line 5
+[21-Sep-2022 03:11:49 Europe/Minsk] PHP Notice:  Undefined index: password in /home/yazili26/public_html/autogallerykotlin/resetPassword.php on line 5
+[21-Sep-2022 03:12:26 Europe/Minsk] PHP Notice:  Undefined index: password in /home/yazili26/public_html/autogallerykotlin/resetPassword.php on line 5
+[21-Sep-2022 03:13:35 Europe/Minsk] PHP Notice:  Undefined index: password in /home/yazili26/public_html/autogallerykotlin/resetPassword.php on line 5
+[21-Sep-2022 03:14:56 Europe/Minsk] PHP Notice:  Undefined index: password in /home/yazili26/public_html/autogallerykotlin/resetPassword.php on line 5
+[21-Sep-2022 03:17:58 Europe/Minsk] PHP Notice:  Undefined index: password in /home/yazili26/public_html/autogallerykotlin/resetPassword.php on line 5
+[21-Sep-2022 03:19:06 Europe/Minsk] PHP Notice:  Undefined index: email in /home/yazili26/public_html/autogallerykotlin/resetPassword.php on line 4
+[21-Sep-2022 03:19:06 Europe/Minsk] PHP Notice:  Undefined index: password in /home/yazili26/public_html/autogallerykotlin/resetPassword.php on line 5
+[21-Sep-2022 03:20:11 Europe/Minsk] PHP Notice:  Undefined index: password in /home/yazili26/public_html/autogallerykotlin/resetPassword.php on line 5
+[21-Sep-2022 03:22:56 Europe/Minsk] PHP Notice:  Undefined index: password in /home/yazili26/public_html/autogallerykotlin/resetPassword.php on line 5
+[21-Sep-2022 03:25:09 Europe/Minsk] PHP Notice:  Undefined index: password in /home/yazili26/public_html/autogallerykotlin/resetPassword.php on line 5
+[21-Sep-2022 03:27:50 Europe/Minsk] PHP Notice:  Undefined index: password in /home/yazili26/public_html/autogallerykotlin/resetPassword.php on line 5
+[21-Sep-2022 03:28:31 Europe/Minsk] PHP Notice:  Undefined index: password in /home/yazili26/public_html/autogallerykotlin/resetPassword.php on line 5
+[23-Sep-2022 00:37:10 Europe/Minsk] PHP Notice:  Undefined index: code in /home/yazili26/public_html/autogallerykotlin/resetPasswordCode.php on line 5
+[23-Sep-2022 00:38:34 Europe/Minsk] PHP Notice:  Undefined index: code in /home/yazili26/public_html/autogallerykotlin/resetPasswordCode.php on line 5
+[23-Sep-2022 00:38:41 Europe/Minsk] PHP Notice:  Undefined index: code in /home/yazili26/public_html/autogallerykotlin/resetPasswordCode.php on line 5
+[23-Sep-2022 00:41:19 Europe/Minsk] PHP Notice:  Undefined index: code in /home/yazili26/public_html/autogallerykotlin/resetPasswordCode.php on line 5
+[23-Sep-2022 00:41:26 Europe/Minsk] PHP Notice:  Undefined index: code in /home/yazili26/public_html/autogallerykotlin/resetPasswordCode.php on line 5
+[23-Sep-2022 01:10:49 Europe/Minsk] PHP Notice:  Undefined variable: control in /home/yazili26/public_html/autogallerykotlin/resetPasswordCode.php on line 18
+[23-Sep-2022 01:10:49 Europe/Minsk] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/yazili26/public_html/autogallerykotlin/resetPasswordCode.php on line 18
+[23-Sep-2022 01:55:32 Europe/Minsk] PHP Notice:  Undefined variable: email in /home/yazili26/public_html/autogallerykotlin/resetPasswordCode.php on line 16
+[03-Oct-2022 16:56:46 Europe/Minsk] PHP Notice:  Undefined index: name in /home/yazili26/public_html/autogallerykotlin/register.php on line 15
+[03-Oct-2022 16:56:46 Europe/Minsk] PHP Notice:  Undefined index: surname in /home/yazili26/public_html/autogallerykotlin/register.php on line 16
+[03-Oct-2022 16:56:46 Europe/Minsk] PHP Notice:  Undefined index: email in /home/yazili26/public_html/autogallerykotlin/register.php on line 17
+[03-Oct-2022 16:56:46 Europe/Minsk] PHP Notice:  Undefined index: password in /home/yazili26/public_html/autogallerykotlin/register.php on line 18
+[03-Oct-2022 16:56:52 Europe/Minsk] PHP Notice:  Undefined index: user_id in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 4
+[03-Oct-2022 16:56:52 Europe/Minsk] PHP Notice:  Undefined index: advert_title in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 7
+[03-Oct-2022 16:56:52 Europe/Minsk] PHP Notice:  Undefined index: explanation in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 8
+[03-Oct-2022 16:56:52 Europe/Minsk] PHP Notice:  Undefined index: price in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 10
+[03-Oct-2022 16:56:52 Europe/Minsk] PHP Notice:  Undefined index: address in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 11
+[03-Oct-2022 16:56:52 Europe/Minsk] PHP Notice:  Undefined index: brand in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 12
+[03-Oct-2022 16:56:52 Europe/Minsk] PHP Notice:  Undefined index: serial in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 13
+[03-Oct-2022 16:56:52 Europe/Minsk] PHP Notice:  Undefined index: model in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 14
+[03-Oct-2022 16:56:52 Europe/Minsk] PHP Notice:  Undefined index: year in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 16
+[03-Oct-2022 16:56:52 Europe/Minsk] PHP Notice:  Undefined index: fuel in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 17
+[03-Oct-2022 16:56:52 Europe/Minsk] PHP Notice:  Undefined index: gear in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 18
+[03-Oct-2022 16:56:52 Europe/Minsk] PHP Notice:  Undefined index: vehicleStatus in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 19
+[03-Oct-2022 16:56:52 Europe/Minsk] PHP Notice:  Undefined index: km in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 20
+[03-Oct-2022 16:56:52 Europe/Minsk] PHP Notice:  Undefined index: caseType in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 22
+[03-Oct-2022 16:56:52 Europe/Minsk] PHP Notice:  Undefined index: motorPower in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 23
+[03-Oct-2022 16:56:52 Europe/Minsk] PHP Notice:  Undefined index: motorCapacity in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 24
+[03-Oct-2022 16:56:52 Europe/Minsk] PHP Notice:  Undefined index: traction in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 25
+[03-Oct-2022 16:56:52 Europe/Minsk] PHP Notice:  Undefined index: color in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 26
+[03-Oct-2022 16:56:52 Europe/Minsk] PHP Notice:  Undefined index: guarantee in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 27
+[03-Oct-2022 16:56:52 Europe/Minsk] PHP Notice:  Undefined index: swap in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 28
+[03-Oct-2022 16:56:52 Europe/Minsk] PHP Notice:  Undefined index: phoneNumber in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 29
+[03-Oct-2022 16:56:52 Europe/Minsk] PHP Notice:  Undefined variable: advert_no in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 40
+[03-Oct-2022 16:56:52 Europe/Minsk] PHP Notice:  Undefined variable: advert_date in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 40
+[03-Oct-2022 17:27:17 Europe/Minsk] PHP Notice:  Undefined index: user_id in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 4
+[03-Oct-2022 17:27:17 Europe/Minsk] PHP Notice:  Undefined index: advert_no in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 5
+[03-Oct-2022 17:27:17 Europe/Minsk] PHP Notice:  Undefined index: advert_date in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 6
+[03-Oct-2022 17:27:17 Europe/Minsk] PHP Notice:  Undefined index: advert_title in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 7
+[03-Oct-2022 17:27:17 Europe/Minsk] PHP Notice:  Undefined index: explanation in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 8
+[03-Oct-2022 17:27:17 Europe/Minsk] PHP Notice:  Undefined index: price in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 10
+[03-Oct-2022 17:27:17 Europe/Minsk] PHP Notice:  Undefined index: address in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 11
+[03-Oct-2022 17:27:17 Europe/Minsk] PHP Notice:  Undefined index: brand in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 12
+[03-Oct-2022 17:27:17 Europe/Minsk] PHP Notice:  Undefined index: serial in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 13
+[03-Oct-2022 17:27:17 Europe/Minsk] PHP Notice:  Undefined index: model in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 14
+[03-Oct-2022 17:28:43 Europe/Minsk] PHP Notice:  Undefined index: user_id in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 4
+[03-Oct-2022 17:28:43 Europe/Minsk] PHP Notice:  Undefined index: advert_title in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 7
+[03-Oct-2022 17:28:43 Europe/Minsk] PHP Notice:  Undefined index: explanation in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 8
+[03-Oct-2022 17:28:43 Europe/Minsk] PHP Notice:  Undefined index: price in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 9
+[03-Oct-2022 17:28:43 Europe/Minsk] PHP Notice:  Undefined index: address in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 10
+[03-Oct-2022 17:28:43 Europe/Minsk] PHP Notice:  Undefined index: brand in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 11
+[03-Oct-2022 17:28:43 Europe/Minsk] PHP Notice:  Undefined index: serial in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 12
+[03-Oct-2022 17:28:43 Europe/Minsk] PHP Notice:  Undefined index: model in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 13
+[03-Oct-2022 17:28:43 Europe/Minsk] PHP Notice:  Undefined index: year in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 14
+[03-Oct-2022 17:28:43 Europe/Minsk] PHP Notice:  Undefined index: fuel in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 15
+[03-Oct-2022 17:28:43 Europe/Minsk] PHP Notice:  Undefined index: gear in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 16
+[03-Oct-2022 17:28:43 Europe/Minsk] PHP Notice:  Undefined index: vehicleStatus in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 17
+[03-Oct-2022 17:28:43 Europe/Minsk] PHP Notice:  Undefined index: km in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 18
+[03-Oct-2022 17:28:43 Europe/Minsk] PHP Notice:  Undefined index: caseType in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 19
+[03-Oct-2022 17:28:43 Europe/Minsk] PHP Notice:  Undefined index: motorPower in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 20
+[03-Oct-2022 17:28:43 Europe/Minsk] PHP Notice:  Undefined index: motorCapacity in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 21
+[03-Oct-2022 17:28:43 Europe/Minsk] PHP Notice:  Undefined index: traction in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 22
+[03-Oct-2022 17:28:43 Europe/Minsk] PHP Notice:  Undefined index: color in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 23
+[03-Oct-2022 17:28:43 Europe/Minsk] PHP Notice:  Undefined index: guarantee in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 24
+[03-Oct-2022 17:28:43 Europe/Minsk] PHP Notice:  Undefined index: swap in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 25
+[03-Oct-2022 17:28:43 Europe/Minsk] PHP Notice:  Undefined index: phoneNumber in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 26
+[03-Oct-2022 17:28:43 Europe/Minsk] PHP Notice:  Undefined variable: advert_no in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 66
+[03-Oct-2022 17:28:43 Europe/Minsk] PHP Notice:  Undefined variable: advert_date in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 66
+[03-Oct-2022 21:26:47 Europe/Minsk] PHP Notice:  Undefined index: price in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 9
+[03-Oct-2022 21:26:47 Europe/Minsk] PHP Notice:  Undefined variable: advert_no in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 66
+[03-Oct-2022 21:26:47 Europe/Minsk] PHP Notice:  Undefined variable: advert_date in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 66
+[03-Oct-2022 21:36:31 Europe/Minsk] PHP Notice:  Undefined variable: advert_no in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 66
+[03-Oct-2022 21:36:31 Europe/Minsk] PHP Notice:  Undefined variable: advert_date in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 66
+[03-Oct-2022 21:39:03 Europe/Minsk] PHP Notice:  Undefined variable: advert_no in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 66
+[03-Oct-2022 21:39:03 Europe/Minsk] PHP Notice:  Undefined variable: advert_date in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 66
+[03-Oct-2022 21:40:21 Europe/Minsk] PHP Notice:  Undefined variable: advert_no in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 66
+[03-Oct-2022 21:40:21 Europe/Minsk] PHP Notice:  Undefined variable: advert_date in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 66
+[03-Oct-2022 22:16:02 Europe/Minsk] PHP Notice:  Undefined variable: advert_no in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 66
+[03-Oct-2022 22:16:02 Europe/Minsk] PHP Notice:  Undefined variable: advert_date in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 66
+[03-Oct-2022 22:16:42 Europe/Minsk] PHP Notice:  Undefined variable: advert_no in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 66
+[03-Oct-2022 22:16:42 Europe/Minsk] PHP Notice:  Undefined variable: advert_date in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 66
+[03-Oct-2022 22:17:56 Europe/Minsk] PHP Notice:  Undefined variable: advert_no in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 66
+[03-Oct-2022 22:17:56 Europe/Minsk] PHP Notice:  Undefined variable: advert_date in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 66
+[03-Oct-2022 22:18:55 Europe/Minsk] PHP Notice:  Undefined variable: advert_no in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 66
+[03-Oct-2022 22:18:55 Europe/Minsk] PHP Notice:  Undefined variable: advert_date in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 66
+[04-Oct-2022 18:19:56 Europe/Minsk] PHP Notice:  Undefined index: user_id in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 4
+[04-Oct-2022 18:19:56 Europe/Minsk] PHP Notice:  Undefined index: advert_title in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 7
+[04-Oct-2022 18:19:56 Europe/Minsk] PHP Notice:  Undefined index: explanation in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 8
+[04-Oct-2022 18:19:56 Europe/Minsk] PHP Notice:  Undefined index: price in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 9
+[04-Oct-2022 18:19:56 Europe/Minsk] PHP Notice:  Undefined index: address in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 10
+[04-Oct-2022 18:19:56 Europe/Minsk] PHP Notice:  Undefined index: brand in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 11
+[04-Oct-2022 18:19:56 Europe/Minsk] PHP Notice:  Undefined index: serial in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 12
+[04-Oct-2022 18:19:56 Europe/Minsk] PHP Notice:  Undefined index: model in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 13
+[04-Oct-2022 18:19:56 Europe/Minsk] PHP Notice:  Undefined index: year in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 14
+[04-Oct-2022 18:19:56 Europe/Minsk] PHP Notice:  Undefined index: fuel in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 15
+[04-Oct-2022 18:19:56 Europe/Minsk] PHP Notice:  Undefined index: gear in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 16
+[04-Oct-2022 18:19:56 Europe/Minsk] PHP Notice:  Undefined index: vehicleStatus in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 17
+[04-Oct-2022 18:19:56 Europe/Minsk] PHP Notice:  Undefined index: km in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 18
+[04-Oct-2022 18:19:56 Europe/Minsk] PHP Notice:  Undefined index: caseType in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 19
+[04-Oct-2022 18:19:56 Europe/Minsk] PHP Notice:  Undefined index: motorPower in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 20
+[04-Oct-2022 18:19:56 Europe/Minsk] PHP Notice:  Undefined index: motorCapacity in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 21
+[04-Oct-2022 18:19:56 Europe/Minsk] PHP Notice:  Undefined index: traction in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 22
+[04-Oct-2022 18:19:56 Europe/Minsk] PHP Notice:  Undefined index: color in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 23
+[04-Oct-2022 18:19:56 Europe/Minsk] PHP Notice:  Undefined index: guarantee in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 24
+[04-Oct-2022 18:19:56 Europe/Minsk] PHP Notice:  Undefined index: swap in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 25
+[04-Oct-2022 18:19:56 Europe/Minsk] PHP Notice:  Undefined index: phoneNumber in /home/yazili26/public_html/autogallerykotlin/advertise.php on line 26
+[06-Oct-2022 16:12:48 Europe/Minsk] PHP Notice:  Undefined index: user_id in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 4
+[06-Oct-2022 16:12:48 Europe/Minsk] PHP Notice:  Undefined index: advert_id in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 5
+[06-Oct-2022 16:12:48 Europe/Minsk] PHP Notice:  Undefined index: image in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 6
+[06-Oct-2022 16:12:48 Europe/Minsk] PHP Notice:  Array to string conversion in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 20
+[06-Oct-2022 16:12:48 Europe/Minsk] PHP Warning:  file_put_contents(advertiseImage/CoYfH01c8hJmK7w43RQzBqtUb2Pjre.jpg): failed to open stream: No such file or directory in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 37
+[06-Oct-2022 16:19:23 Europe/Minsk] PHP Notice:  Undefined index: user_id in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 4
+[06-Oct-2022 16:19:23 Europe/Minsk] PHP Notice:  Undefined index: advert_id in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 5
+[06-Oct-2022 16:19:23 Europe/Minsk] PHP Notice:  Undefined index: image in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 6
+[06-Oct-2022 16:19:23 Europe/Minsk] PHP Notice:  Array to string conversion in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 20
+[06-Oct-2022 16:19:39 Europe/Minsk] PHP Notice:  Undefined index: user_id in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 4
+[06-Oct-2022 16:19:39 Europe/Minsk] PHP Notice:  Undefined index: advert_id in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 5
+[06-Oct-2022 16:19:39 Europe/Minsk] PHP Notice:  Undefined index: image in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 6
+[06-Oct-2022 16:19:39 Europe/Minsk] PHP Notice:  Array to string conversion in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 20
+[06-Oct-2022 16:19:41 Europe/Minsk] PHP Notice:  Undefined index: user_id in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 4
+[06-Oct-2022 16:19:41 Europe/Minsk] PHP Notice:  Undefined index: advert_id in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 5
+[06-Oct-2022 16:19:41 Europe/Minsk] PHP Notice:  Undefined index: image in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 6
+[06-Oct-2022 16:19:41 Europe/Minsk] PHP Notice:  Array to string conversion in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 20
+[06-Oct-2022 16:20:40 Europe/Minsk] PHP Notice:  Array to string conversion in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 20
+[06-Oct-2022 16:21:00 Europe/Minsk] PHP Notice:  Array to string conversion in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 20
+[06-Oct-2022 16:21:04 Europe/Minsk] PHP Notice:  Array to string conversion in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 20
+[06-Oct-2022 16:24:07 Europe/Minsk] PHP Notice:  Array to string conversion in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 20
+[06-Oct-2022 16:24:07 Europe/Minsk] PHP Notice:  Undefined variable: user_id in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 27
+[06-Oct-2022 16:24:07 Europe/Minsk] PHP Notice:  Undefined variable: advert_id in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 27
+[06-Oct-2022 16:24:07 Europe/Minsk] PHP Fatal error:  Uncaught Error: Class 'Result' not found in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php:30
+Stack trace:
+#0 {main}
+  thrown in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 30
+[06-Oct-2022 16:24:58 Europe/Minsk] PHP Notice:  Array to string conversion in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 20
+[06-Oct-2022 16:24:58 Europe/Minsk] PHP Notice:  Undefined variable: user_id in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 27
+[06-Oct-2022 16:24:58 Europe/Minsk] PHP Notice:  Undefined variable: advert_id in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 27
+[06-Oct-2022 16:24:58 Europe/Minsk] PHP Fatal error:  Uncaught Error: Class 'Result' not found in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php:30
+Stack trace:
+#0 {main}
+  thrown in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 30
+[06-Oct-2022 16:25:11 Europe/Minsk] PHP Notice:  Array to string conversion in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 20
+[06-Oct-2022 16:25:11 Europe/Minsk] PHP Notice:  Undefined variable: user_id in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 27
+[06-Oct-2022 16:25:11 Europe/Minsk] PHP Notice:  Undefined variable: advert_id in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 27
+[06-Oct-2022 16:25:11 Europe/Minsk] PHP Fatal error:  Uncaught Error: Class 'Result' not found in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php:30
+Stack trace:
+#0 {main}
+  thrown in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 30
+[06-Oct-2022 16:26:06 Europe/Minsk] PHP Notice:  Undefined index: image in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 6
+[06-Oct-2022 16:26:06 Europe/Minsk] PHP Notice:  Array to string conversion in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 20
+[06-Oct-2022 16:26:19 Europe/Minsk] PHP Notice:  Undefined index: image in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 6
+[06-Oct-2022 16:26:19 Europe/Minsk] PHP Notice:  Array to string conversion in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 20
+[06-Oct-2022 16:27:27 Europe/Minsk] PHP Notice:  Undefined index: image in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 6
+[06-Oct-2022 16:27:27 Europe/Minsk] PHP Notice:  Array to string conversion in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 20
+[06-Oct-2022 16:28:11 Europe/Minsk] PHP Notice:  Undefined index: user_id in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 4
+[06-Oct-2022 16:28:11 Europe/Minsk] PHP Notice:  Undefined index: advert_id in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 5
+[06-Oct-2022 16:28:11 Europe/Minsk] PHP Notice:  Undefined index: image in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 6
+[06-Oct-2022 16:28:11 Europe/Minsk] PHP Notice:  Array to string conversion in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 20
+[06-Oct-2022 16:33:58 Europe/Minsk] PHP Notice:  Undefined index: user_id in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 4
+[06-Oct-2022 16:33:58 Europe/Minsk] PHP Notice:  Undefined index: advert_id in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 5
+[06-Oct-2022 16:33:58 Europe/Minsk] PHP Notice:  Undefined index: image in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 6
+[06-Oct-2022 16:33:58 Europe/Minsk] PHP Notice:  Array to string conversion in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 20
+[06-Oct-2022 16:35:07 Europe/Minsk] PHP Notice:  Undefined index: user_id in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 4
+[06-Oct-2022 16:35:07 Europe/Minsk] PHP Notice:  Undefined index: advert_id in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 5
+[06-Oct-2022 16:35:07 Europe/Minsk] PHP Notice:  Undefined index: image in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 6
+[06-Oct-2022 16:35:07 Europe/Minsk] PHP Notice:  Array to string conversion in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 20
+[06-Oct-2022 16:35:07 Europe/Minsk] PHP Notice:  Undefined variable: query in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 40
+[06-Oct-2022 16:35:17 Europe/Minsk] PHP Notice:  Undefined index: user_id in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 4
+[06-Oct-2022 16:35:17 Europe/Minsk] PHP Notice:  Undefined index: advert_id in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 5
+[06-Oct-2022 16:35:17 Europe/Minsk] PHP Notice:  Undefined index: image in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 6
+[06-Oct-2022 16:35:17 Europe/Minsk] PHP Notice:  Array to string conversion in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 20
+[06-Oct-2022 16:35:17 Europe/Minsk] PHP Notice:  Undefined variable: query in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 40
+[06-Oct-2022 16:35:24 Europe/Minsk] PHP Notice:  Undefined index: user_id in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 4
+[06-Oct-2022 16:35:24 Europe/Minsk] PHP Notice:  Undefined index: advert_id in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 5
+[06-Oct-2022 16:35:24 Europe/Minsk] PHP Notice:  Undefined index: image in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 6
+[06-Oct-2022 16:35:24 Europe/Minsk] PHP Notice:  Array to string conversion in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 20
+[06-Oct-2022 16:35:24 Europe/Minsk] PHP Notice:  Undefined variable: query in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 40
+[06-Oct-2022 16:35:26 Europe/Minsk] PHP Notice:  Undefined index: user_id in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 4
+[06-Oct-2022 16:35:26 Europe/Minsk] PHP Notice:  Undefined index: advert_id in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 5
+[06-Oct-2022 16:35:26 Europe/Minsk] PHP Notice:  Undefined index: image in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 6
+[06-Oct-2022 16:35:26 Europe/Minsk] PHP Notice:  Array to string conversion in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 20
+[06-Oct-2022 16:35:26 Europe/Minsk] PHP Notice:  Undefined variable: query in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 40
+[06-Oct-2022 16:35:57 Europe/Minsk] PHP Notice:  Undefined index: user_id in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 4
+[06-Oct-2022 16:35:57 Europe/Minsk] PHP Notice:  Undefined index: advert_id in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 5
+[06-Oct-2022 16:35:57 Europe/Minsk] PHP Notice:  Undefined index: image in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 6
+[06-Oct-2022 16:35:57 Europe/Minsk] PHP Notice:  Array to string conversion in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 20
+[12-Oct-2022 02:11:37 Europe/Minsk] PHP Notice:  Array to string conversion in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 20
+[12-Oct-2022 02:13:56 Europe/Minsk] PHP Notice:  Array to string conversion in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 20
+[12-Oct-2022 02:28:01 Europe/Minsk] PHP Notice:  Array to string conversion in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 20
+[12-Oct-2022 02:31:30 Europe/Minsk] PHP Notice:  Array to string conversion in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 20
+[12-Oct-2022 02:45:56 Europe/Minsk] PHP Notice:  Array to string conversion in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 20
+[12-Oct-2022 02:50:08 Europe/Minsk] PHP Notice:  Array to string conversion in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 20
+[12-Oct-2022 02:54:26 Europe/Minsk] PHP Notice:  Array to string conversion in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 20
+[12-Oct-2022 02:58:30 Europe/Minsk] PHP Notice:  Array to string conversion in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 20
+[12-Oct-2022 03:04:15 Europe/Minsk] PHP Notice:  Array to string conversion in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 20
+[12-Oct-2022 03:04:15 Europe/Minsk] PHP Notice:  Undefined variable: image in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 37
+[12-Oct-2022 03:18:24 Europe/Minsk] PHP Notice:  Array to string conversion in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 20
+[12-Oct-2022 03:19:43 Europe/Minsk] PHP Notice:  Array to string conversion in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 20
+[12-Oct-2022 03:21:34 Europe/Minsk] PHP Notice:  Array to string conversion in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 20
+[12-Oct-2022 03:24:11 Europe/Minsk] PHP Notice:  Array to string conversion in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 20
+[12-Oct-2022 03:24:39 Europe/Minsk] PHP Notice:  Array to string conversion in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 20
+[12-Oct-2022 03:25:33 Europe/Minsk] PHP Notice:  Array to string conversion in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 20
+[12-Oct-2022 03:28:40 Europe/Minsk] PHP Notice:  Array to string conversion in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 21
+[12-Oct-2022 03:30:19 Europe/Minsk] PHP Notice:  Array to string conversion in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 21
+[12-Oct-2022 03:30:35 Europe/Minsk] PHP Notice:  Array to string conversion in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 21
+[12-Oct-2022 03:31:52 Europe/Minsk] PHP Notice:  Array to string conversion in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 21
+[12-Oct-2022 03:31:56 Europe/Minsk] PHP Notice:  Array to string conversion in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 21
+[12-Oct-2022 03:32:57 Europe/Minsk] PHP Notice:  Array to string conversion in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 21
+[12-Oct-2022 03:32:57 Europe/Minsk] PHP Fatal error:  Uncaught Error: Cannot use object of type mysqli_result as array in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php:42
+Stack trace:
+#0 {main}
+  thrown in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 42
+[12-Oct-2022 03:33:17 Europe/Minsk] PHP Notice:  Array to string conversion in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 21
+[12-Oct-2022 03:36:57 Europe/Minsk] PHP Notice:  Array to string conversion in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 21
+[12-Oct-2022 03:37:13 Europe/Minsk] PHP Notice:  Array to string conversion in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 21
+[12-Oct-2022 03:37:15 Europe/Minsk] PHP Notice:  Array to string conversion in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 21
+[12-Oct-2022 03:39:28 Europe/Minsk] PHP Notice:  Array to string conversion in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 21
+[12-Oct-2022 04:14:08 Europe/Minsk] PHP Warning:  file_put_contents(): supplied resource is not a valid stream resource in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 42
+[12-Oct-2022 04:16:21 Europe/Minsk] PHP Warning:  file_get_contents(advertiseImage/KxbGoqdhr5yBg8ilf0HIMzJ4XOsueD.jpg): failed to open stream: No such file or directory in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 40
+[12-Oct-2022 04:22:50 Europe/Minsk] PHP Warning:  file_get_contents(advertiseImage/IaYFw6824oOBre1sMdfTnthmHZxR3E.jpg): failed to open stream: No such file or directory in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 40
+[12-Oct-2022 04:26:13 Europe/Minsk] PHP Notice:  Undefined index: user_id in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 5
+[12-Oct-2022 04:26:13 Europe/Minsk] PHP Notice:  Undefined index: advert_id in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 6
+[12-Oct-2022 04:26:13 Europe/Minsk] PHP Notice:  Undefined index: image in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 7
+[12-Oct-2022 04:26:29 Europe/Minsk] PHP Notice:  Undefined index: user_id in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 5
+[12-Oct-2022 04:26:29 Europe/Minsk] PHP Notice:  Undefined index: advert_id in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 6
+[12-Oct-2022 04:26:29 Europe/Minsk] PHP Notice:  Undefined index: image in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 7
+[13-Oct-2022 17:00:48 Europe/Minsk] PHP Notice:  Undefined variable: baglan in /home/yazili26/public_html/autogallerykotlin/myAdvertise.php on line 5
+[13-Oct-2022 17:00:48 Europe/Minsk] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/yazili26/public_html/autogallerykotlin/myAdvertise.php on line 5
+[13-Oct-2022 17:04:16 Europe/Minsk] PHP Parse error:  syntax error, unexpected '*', expecting end of file in /home/yazili26/public_html/autogallerykotlin/myAdvertise.php on line 64
+[13-Oct-2022 17:04:34 Europe/Minsk] PHP Notice:  Undefined variable: say in /home/yazili26/public_html/autogallerykotlin/myAdvertise.php on line 28
+[13-Oct-2022 17:04:34 Europe/Minsk] PHP Warning:  Creating default object from empty value in /home/yazili26/public_html/autogallerykotlin/myAdvertise.php on line 58
+[13-Oct-2022 17:12:22 Europe/Minsk] PHP Notice:  Undefined index: fiyat in /home/yazili26/public_html/autogallerykotlin/myAdvertise.php on line 38
+[13-Oct-2022 17:12:22 Europe/Minsk] PHP Notice:  Undefined index: resimyolu in /home/yazili26/public_html/autogallerykotlin/myAdvertise.php on line 39
+[13-Oct-2022 17:12:22 Europe/Minsk] PHP Notice:  Undefined index: aciklama in /home/yazili26/public_html/autogallerykotlin/myAdvertise.php on line 40
+[13-Oct-2022 17:12:22 Europe/Minsk] PHP Notice:  Undefined index: baslik in /home/yazili26/public_html/autogallerykotlin/myAdvertise.php on line 41
+[13-Oct-2022 17:12:22 Europe/Minsk] PHP Notice:  Undefined index: fiyat in /home/yazili26/public_html/autogallerykotlin/myAdvertise.php on line 38
+[13-Oct-2022 17:12:22 Europe/Minsk] PHP Notice:  Undefined index: resimyolu in /home/yazili26/public_html/autogallerykotlin/myAdvertise.php on line 39
+[13-Oct-2022 17:12:22 Europe/Minsk] PHP Notice:  Undefined index: aciklama in /home/yazili26/public_html/autogallerykotlin/myAdvertise.php on line 40
+[13-Oct-2022 17:12:22 Europe/Minsk] PHP Notice:  Undefined index: baslik in /home/yazili26/public_html/autogallerykotlin/myAdvertise.php on line 41
+[13-Oct-2022 17:41:50 Europe/Minsk] PHP Notice:  Undefined index: user_id in /home/yazili26/public_html/autogallerykotlin/myAdvertise.php on line 4
+[17-Oct-2022 00:35:57 Europe/Minsk] PHP Notice:  Undefined index: user_id in /home/yazili26/public_html/autogallerykotlin/myAdvertise.php on line 4
+[17-Oct-2022 03:16:58 Europe/Minsk] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, bool given in /home/yazili26/public_html/autogallerykotlin/myAdvertise.php on line 29
+[17-Oct-2022 03:17:43 Europe/Minsk] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, bool given in /home/yazili26/public_html/autogallerykotlin/myAdvertise.php on line 29
+[17-Oct-2022 03:17:45 Europe/Minsk] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, bool given in /home/yazili26/public_html/autogallerykotlin/myAdvertise.php on line 29
+[21-Oct-2022 16:30:54 Europe/Minsk] PHP Notice:  Undefined variable: user_id in /home/yazili26/public_html/autogallerykotlin/Advertises.php on line 37
+[21-Oct-2022 16:30:54 Europe/Minsk] PHP Notice:  Undefined variable: user_id in /home/yazili26/public_html/autogallerykotlin/Advertises.php on line 37
+[21-Oct-2022 16:30:54 Europe/Minsk] PHP Notice:  Undefined variable: user_id in /home/yazili26/public_html/autogallerykotlin/Advertises.php on line 37
+[21-Oct-2022 16:30:54 Europe/Minsk] PHP Notice:  Undefined variable: user_id in /home/yazili26/public_html/autogallerykotlin/Advertises.php on line 37
+[21-Oct-2022 16:30:54 Europe/Minsk] PHP Notice:  Undefined variable: user_id in /home/yazili26/public_html/autogallerykotlin/Advertises.php on line 37
+[21-Oct-2022 18:14:02 Europe/Minsk] PHP Notice:  Undefined variable: user_id in /home/yazili26/public_html/autogallerykotlin/Advertises.php on line 37
+[21-Oct-2022 18:14:02 Europe/Minsk] PHP Notice:  Undefined variable: user_id in /home/yazili26/public_html/autogallerykotlin/Advertises.php on line 37
+[21-Oct-2022 18:14:02 Europe/Minsk] PHP Notice:  Undefined variable: user_id in /home/yazili26/public_html/autogallerykotlin/Advertises.php on line 37
+[21-Oct-2022 18:14:02 Europe/Minsk] PHP Notice:  Undefined variable: user_id in /home/yazili26/public_html/autogallerykotlin/Advertises.php on line 37
+[21-Oct-2022 18:14:02 Europe/Minsk] PHP Notice:  Undefined variable: user_id in /home/yazili26/public_html/autogallerykotlin/Advertises.php on line 37
+[21-Oct-2022 18:16:48 Europe/Minsk] PHP Notice:  Undefined variable: user_id in /home/yazili26/public_html/autogallerykotlin/Advertises.php on line 37
+[21-Oct-2022 18:16:48 Europe/Minsk] PHP Notice:  Undefined variable: user_id in /home/yazili26/public_html/autogallerykotlin/Advertises.php on line 37
+[21-Oct-2022 18:16:48 Europe/Minsk] PHP Notice:  Undefined variable: user_id in /home/yazili26/public_html/autogallerykotlin/Advertises.php on line 37
+[21-Oct-2022 18:16:48 Europe/Minsk] PHP Notice:  Undefined variable: user_id in /home/yazili26/public_html/autogallerykotlin/Advertises.php on line 37
+[21-Oct-2022 18:16:48 Europe/Minsk] PHP Notice:  Undefined variable: user_id in /home/yazili26/public_html/autogallerykotlin/Advertises.php on line 37
+[21-Oct-2022 18:16:48 Europe/Minsk] PHP Notice:  Undefined variable: user_id in /home/yazili26/public_html/autogallerykotlin/Advertises.php on line 37
+[21-Oct-2022 19:17:22 Europe/Minsk] PHP Notice:  Undefined variable: user_id in /home/yazili26/public_html/autogallerykotlin/advertises.php on line 37
+[21-Oct-2022 19:17:22 Europe/Minsk] PHP Notice:  Undefined variable: user_id in /home/yazili26/public_html/autogallerykotlin/advertises.php on line 37
+[21-Oct-2022 19:17:22 Europe/Minsk] PHP Notice:  Undefined variable: user_id in /home/yazili26/public_html/autogallerykotlin/advertises.php on line 37
+[21-Oct-2022 19:17:22 Europe/Minsk] PHP Notice:  Undefined variable: user_id in /home/yazili26/public_html/autogallerykotlin/advertises.php on line 37
+[21-Oct-2022 19:32:30 Europe/Minsk] PHP Notice:  Undefined variable: user_id in /home/yazili26/public_html/autogallerykotlin/advertises.php on line 37
+[21-Oct-2022 19:32:30 Europe/Minsk] PHP Notice:  Undefined variable: user_id in /home/yazili26/public_html/autogallerykotlin/advertises.php on line 37
+[21-Oct-2022 19:32:30 Europe/Minsk] PHP Notice:  Undefined variable: user_id in /home/yazili26/public_html/autogallerykotlin/advertises.php on line 37
+[21-Oct-2022 19:32:30 Europe/Minsk] PHP Notice:  Undefined variable: user_id in /home/yazili26/public_html/autogallerykotlin/advertises.php on line 37
+[23-Oct-2022 03:31:20 Europe/Minsk] PHP Notice:  Undefined index: advert_title in /home/yazili26/public_html/autogallerykotlin/advertises.php on line 42
+[23-Oct-2022 03:31:20 Europe/Minsk] PHP Notice:  Undefined index: advert_title in /home/yazili26/public_html/autogallerykotlin/advertises.php on line 42
+[23-Oct-2022 03:31:20 Europe/Minsk] PHP Notice:  Undefined index: advert_title in /home/yazili26/public_html/autogallerykotlin/advertises.php on line 42
+[23-Oct-2022 03:31:20 Europe/Minsk] PHP Notice:  Undefined index: advert_title in /home/yazili26/public_html/autogallerykotlin/advertises.php on line 42
+[23-Oct-2022 03:31:22 Europe/Minsk] PHP Notice:  Undefined index: advert_title in /home/yazili26/public_html/autogallerykotlin/advertises.php on line 42
+[23-Oct-2022 03:31:22 Europe/Minsk] PHP Notice:  Undefined index: advert_title in /home/yazili26/public_html/autogallerykotlin/advertises.php on line 42
+[23-Oct-2022 03:31:22 Europe/Minsk] PHP Notice:  Undefined index: advert_title in /home/yazili26/public_html/autogallerykotlin/advertises.php on line 42
+[23-Oct-2022 03:31:22 Europe/Minsk] PHP Notice:  Undefined index: advert_title in /home/yazili26/public_html/autogallerykotlin/advertises.php on line 42
+[23-Oct-2022 03:31:24 Europe/Minsk] PHP Notice:  Undefined index: advert_title in /home/yazili26/public_html/autogallerykotlin/advertises.php on line 42
+[23-Oct-2022 03:31:24 Europe/Minsk] PHP Notice:  Undefined index: advert_title in /home/yazili26/public_html/autogallerykotlin/advertises.php on line 42
+[23-Oct-2022 03:31:24 Europe/Minsk] PHP Notice:  Undefined index: advert_title in /home/yazili26/public_html/autogallerykotlin/advertises.php on line 42
+[23-Oct-2022 03:31:24 Europe/Minsk] PHP Notice:  Undefined index: advert_title in /home/yazili26/public_html/autogallerykotlin/advertises.php on line 42
+[23-Oct-2022 03:31:27 Europe/Minsk] PHP Notice:  Undefined index: advert_title in /home/yazili26/public_html/autogallerykotlin/advertises.php on line 42
+[23-Oct-2022 03:31:27 Europe/Minsk] PHP Notice:  Undefined index: advert_title in /home/yazili26/public_html/autogallerykotlin/advertises.php on line 42
+[23-Oct-2022 03:31:27 Europe/Minsk] PHP Notice:  Undefined index: advert_title in /home/yazili26/public_html/autogallerykotlin/advertises.php on line 42
+[23-Oct-2022 03:31:27 Europe/Minsk] PHP Notice:  Undefined index: advert_title in /home/yazili26/public_html/autogallerykotlin/advertises.php on line 42
+[23-Oct-2022 03:32:18 Europe/Minsk] PHP Notice:  Undefined index: advert_id in /home/yazili26/public_html/autogallerykotlin/advertiseDetail.php on line 4
+[24-Oct-2022 02:09:49 Europe/Minsk] PHP Notice:  Undefined index: user_id in /home/yazili26/public_html/autogallerykotlin/myAdvertise.php on line 4
+[27-Oct-2022 01:58:19 Europe/Minsk] PHP Fatal error:  Uncaught Error: Class 'Result' not found in /home/yazili26/public_html/autogallerykotlin/changeFavorite.php:20
+Stack trace:
+#0 {main}
+  thrown in /home/yazili26/public_html/autogallerykotlin/changeFavorite.php on line 20
+[27-Oct-2022 02:33:09 Europe/Minsk] PHP Notice:  Undefined variable: count in /home/yazili26/public_html/autogallerykotlin/changeFavoriteText.php on line 22
+[27-Oct-2022 13:12:03 Europe/Minsk] PHP Notice:  Undefined index: advert_id in /home/yazili26/public_html/autogallerykotlin/advertiseDetailImage.php on line 4
+[27-Oct-2022 13:20:38 Europe/Minsk] PHP Notice:  Undefined index: email in /home/yazili26/public_html/autogallerykotlin/login.php on line 4
+[27-Oct-2022 13:20:38 Europe/Minsk] PHP Notice:  Undefined index: password in /home/yazili26/public_html/autogallerykotlin/login.php on line 5
+[27-Oct-2022 23:08:40 Europe/Minsk] PHP Notice:  Undefined index: email in /home/yazili26/public_html/autogallerykotlin/login.php on line 4
+[27-Oct-2022 23:08:40 Europe/Minsk] PHP Notice:  Undefined index: password in /home/yazili26/public_html/autogallerykotlin/login.php on line 5
+[27-Oct-2022 23:09:33 Europe/Minsk] PHP Notice:  Undefined index: email in /home/yazili26/public_html/autogallerykotlin/login.php on line 4
+[27-Oct-2022 23:09:33 Europe/Minsk] PHP Notice:  Undefined index: password in /home/yazili26/public_html/autogallerykotlin/login.php on line 5
+[27-Oct-2022 23:09:55 Europe/Minsk] PHP Notice:  Undefined index: email in /home/yazili26/public_html/autogallerykotlin/login.php on line 4
+[27-Oct-2022 23:09:55 Europe/Minsk] PHP Notice:  Undefined index: password in /home/yazili26/public_html/autogallerykotlin/login.php on line 5
+[27-Oct-2022 23:10:28 Europe/Minsk] PHP Notice:  Undefined index: email in /home/yazili26/public_html/autogallerykotlin/login.php on line 4
+[27-Oct-2022 23:10:28 Europe/Minsk] PHP Notice:  Undefined index: password in /home/yazili26/public_html/autogallerykotlin/login.php on line 5
+[27-Oct-2022 23:11:03 Europe/Minsk] PHP Notice:  Undefined index: email in /home/yazili26/public_html/autogallerykotlin/login.php on line 4
+[27-Oct-2022 23:11:03 Europe/Minsk] PHP Notice:  Undefined index: password in /home/yazili26/public_html/autogallerykotlin/login.php on line 5
+[27-Oct-2022 23:11:04 Europe/Minsk] PHP Notice:  Undefined index: email in /home/yazili26/public_html/autogallerykotlin/login.php on line 4
+[27-Oct-2022 23:11:04 Europe/Minsk] PHP Notice:  Undefined index: password in /home/yazili26/public_html/autogallerykotlin/login.php on line 5
+[27-Oct-2022 23:52:14 Europe/Minsk] PHP Notice:  Undefined index: email in /home/yazili26/public_html/autogallerykotlin/login.php on line 4
+[27-Oct-2022 23:52:14 Europe/Minsk] PHP Notice:  Undefined index: password in /home/yazili26/public_html/autogallerykotlin/login.php on line 5
+[27-Oct-2022 23:56:38 Europe/Minsk] PHP Notice:  Undefined index: email in /home/yazili26/public_html/autogallerykotlin/login.php on line 4
+[27-Oct-2022 23:56:38 Europe/Minsk] PHP Notice:  Undefined index: password in /home/yazili26/public_html/autogallerykotlin/login.php on line 5
+[28-Oct-2022 01:15:36 Europe/Minsk] PHP Notice:  Undefined index: email in /home/yazili26/public_html/autogallerykotlin/login.php on line 4
+[28-Oct-2022 01:15:36 Europe/Minsk] PHP Notice:  Undefined index: password in /home/yazili26/public_html/autogallerykotlin/login.php on line 5
+[28-Oct-2022 01:15:49 Europe/Minsk] PHP Notice:  Undefined index: name in /home/yazili26/public_html/autogallerykotlin/register.php on line 15
+[28-Oct-2022 01:15:49 Europe/Minsk] PHP Notice:  Undefined index: surname in /home/yazili26/public_html/autogallerykotlin/register.php on line 16
+[28-Oct-2022 01:15:49 Europe/Minsk] PHP Notice:  Undefined index: email in /home/yazili26/public_html/autogallerykotlin/register.php on line 17
+[28-Oct-2022 01:15:49 Europe/Minsk] PHP Notice:  Undefined index: password in /home/yazili26/public_html/autogallerykotlin/register.php on line 18
+[28-Oct-2022 01:16:17 Europe/Minsk] PHP Notice:  Undefined index: email in /home/yazili26/public_html/autogallerykotlin/login.php on line 4
+[28-Oct-2022 01:16:17 Europe/Minsk] PHP Notice:  Undefined index: password in /home/yazili26/public_html/autogallerykotlin/login.php on line 5
+[28-Oct-2022 01:20:34 Europe/Minsk] PHP Notice:  Undefined index: name in /home/yazili26/public_html/autogallerykotlin/register.php on line 15
+[28-Oct-2022 01:20:34 Europe/Minsk] PHP Notice:  Undefined index: surname in /home/yazili26/public_html/autogallerykotlin/register.php on line 16
+[28-Oct-2022 01:20:34 Europe/Minsk] PHP Notice:  Undefined index: email in /home/yazili26/public_html/autogallerykotlin/register.php on line 17
+[28-Oct-2022 01:20:34 Europe/Minsk] PHP Notice:  Undefined index: password in /home/yazili26/public_html/autogallerykotlin/register.php on line 18
+[28-Oct-2022 15:07:23 Europe/Minsk] PHP Notice:  Undefined index: address in /home/yazili26/public_html/autogallerykotlin/myFavoriteAdvertise.php on line 42
+[28-Oct-2022 15:07:23 Europe/Minsk] PHP Notice:  Undefined index: explanation in /home/yazili26/public_html/autogallerykotlin/myFavoriteAdvertise.php on line 43
+[28-Oct-2022 15:09:20 Europe/Minsk] PHP Notice:  Undefined index: explanation in /home/yazili26/public_html/autogallerykotlin/myFavoriteAdvertise.php on line 43
+[28-Oct-2022 16:15:34 Europe/Minsk] PHP Notice:  Undefined index: user_id in /home/yazili26/public_html/autogallerykotlin/myFavoriteAdvertise.php on line 4
+[28-Oct-2022 17:58:26 Europe/Minsk] PHP Notice:  Undefined index: name in /home/yazili26/public_html/autogallerykotlin/register.php on line 15
+[28-Oct-2022 17:58:26 Europe/Minsk] PHP Notice:  Undefined index: surname in /home/yazili26/public_html/autogallerykotlin/register.php on line 16
+[28-Oct-2022 17:58:26 Europe/Minsk] PHP Notice:  Undefined index: email in /home/yazili26/public_html/autogallerykotlin/register.php on line 17
+[28-Oct-2022 17:58:26 Europe/Minsk] PHP Notice:  Undefined index: password in /home/yazili26/public_html/autogallerykotlin/register.php on line 18
+[30-Oct-2022 00:13:36 Europe/Minsk] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, bool given in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 29
+[30-Oct-2022 00:21:24 Europe/Minsk] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, bool given in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 29
+[30-Oct-2022 00:23:10 Europe/Minsk] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, bool given in /home/yazili26/public_html/autogallerykotlin/addAdvertiseImage.php on line 29
+[04-Nov-2022 17:52:45 Europe/Minsk] PHP Notice:  Undefined index: name in /home/yazili26/public_html/autogallerykotlin/register.php on line 15
+[04-Nov-2022 17:52:45 Europe/Minsk] PHP Notice:  Undefined index: surname in /home/yazili26/public_html/autogallerykotlin/register.php on line 16
+[04-Nov-2022 17:52:45 Europe/Minsk] PHP Notice:  Undefined index: email in /home/yazili26/public_html/autogallerykotlin/register.php on line 17
+[04-Nov-2022 17:52:45 Europe/Minsk] PHP Notice:  Undefined index: password in /home/yazili26/public_html/autogallerykotlin/register.php on line 18
+[06-Nov-2022 04:34:47 Europe/Minsk] PHP Notice:  Undefined index: name in /home/yazili26/public_html/autogallerykotlin/register.php on line 15
+[06-Nov-2022 04:34:47 Europe/Minsk] PHP Notice:  Undefined index: surname in /home/yazili26/public_html/autogallerykotlin/register.php on line 16
+[06-Nov-2022 04:34:47 Europe/Minsk] PHP Notice:  Undefined index: email in /home/yazili26/public_html/autogallerykotlin/register.php on line 17
+[06-Nov-2022 04:34:47 Europe/Minsk] PHP Notice:  Undefined index: password in /home/yazili26/public_html/autogallerykotlin/register.php on line 18
+[07-Nov-2022 02:38:40 Europe/Minsk] PHP Notice:  Undefined index: uye_id in /home/yazili26/public_html/autogallerykotlin/updateProfile.php on line 4
+[07-Nov-2022 02:38:40 Europe/Minsk] PHP Notice:  Undefined variable: baglan in /home/yazili26/public_html/autogallerykotlin/updateProfile.php on line 7
+[07-Nov-2022 02:38:40 Europe/Minsk] PHP Notice:  Undefined variable: email in /home/yazili26/public_html/autogallerykotlin/updateProfile.php on line 7
+[07-Nov-2022 02:38:40 Europe/Minsk] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/yazili26/public_html/autogallerykotlin/updateProfile.php on line 7
+[07-Nov-2022 02:38:40 Europe/Minsk] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/yazili26/public_html/autogallerykotlin/updateProfile.php on line 17
+[07-Nov-2022 02:38:40 Europe/Minsk] PHP Notice:  Undefined variable: email in /home/yazili26/public_html/autogallerykotlin/updateProfile.php on line 19
+[07-Nov-2022 02:43:09 Europe/Minsk] PHP Warning:  mysqli_query() expects at most 3 parameters, 4 given in /home/yazili26/public_html/autogallerykotlin/updateProfile.php on line 105
+[07-Nov-2022 02:45:10 Europe/Minsk] PHP Warning:  mysqli_query() expects at most 3 parameters, 4 given in /home/yazili26/public_html/autogallerykotlin/updateProfile.php on line 105
+[07-Nov-2022 02:46:40 Europe/Minsk] PHP Warning:  mysqli_query() expects at most 3 parameters, 4 given in /home/yazili26/public_html/autogallerykotlin/updateProfile.php on line 105
+[07-Nov-2022 02:47:32 Europe/Minsk] PHP Warning:  mysqli_query() expects at most 3 parameters, 4 given in /home/yazili26/public_html/autogallerykotlin/updateProfile.php on line 105
+[07-Nov-2022 02:47:56 Europe/Minsk] PHP Warning:  mysqli_query() expects at most 3 parameters, 4 given in /home/yazili26/public_html/autogallerykotlin/updateProfile.php on line 105
+[07-Nov-2022 02:47:59 Europe/Minsk] PHP Warning:  mysqli_query() expects at most 3 parameters, 4 given in /home/yazili26/public_html/autogallerykotlin/updateProfile.php on line 105
+[07-Nov-2022 02:48:43 Europe/Minsk] PHP Warning:  mysqli_query() expects at most 3 parameters, 4 given in /home/yazili26/public_html/autogallerykotlin/updateProfile.php on line 105
+[07-Nov-2022 02:48:46 Europe/Minsk] PHP Warning:  mysqli_query() expects at most 3 parameters, 4 given in /home/yazili26/public_html/autogallerykotlin/updateProfile.php on line 105
+[07-Nov-2022 12:47:50 Europe/Minsk] PHP Warning:  mysqli_query() expects at most 3 parameters, 4 given in /home/yazili26/public_html/autogallerykotlin/updateProfile.php on line 105
+[07-Nov-2022 13:59:01 Europe/Minsk] PHP Warning:  Use of undefined constant address - assumed 'address' (this will throw an Error in a future version of PHP) in /home/yazili26/public_html/autogallerykotlin/updateProfile.php on line 113
+[07-Nov-2022 14:03:38 Europe/Minsk] PHP Notice:  Undefined variable: address in /home/yazili26/public_html/autogallerykotlin/updateProfile.php on line 23
+[07-Nov-2022 14:14:46 Europe/Minsk] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, bool given in /home/yazili26/public_html/autogallerykotlin/updateProfile.php on line 116
+[07-Nov-2022 15:40:25 Europe/Minsk] PHP Parse error:  syntax error, unexpected '*', expecting end of file in /home/yazili26/public_html/autogallerykotlin/updateProfile.php on line 158
+[07-Nov-2022 15:41:41 Europe/Minsk] PHP Parse error:  syntax error, unexpected '*', expecting end of file in /home/yazili26/public_html/autogallerykotlin/updateProfile.php on line 159
+[07-Nov-2022 15:42:45 Europe/Minsk] PHP Parse error:  syntax error, unexpected '*', expecting end of file in /home/yazili26/public_html/autogallerykotlin/updateProfile.php on line 159
+[07-Nov-2022 15:44:57 Europe/Minsk] PHP Parse error:  syntax error, unexpected '*', expecting end of file in /home/yazili26/public_html/autogallerykotlin/updateProfile.php on line 159
+[07-Nov-2022 15:47:44 Europe/Minsk] PHP Parse error:  syntax error, unexpected '*', expecting end of file in /home/yazili26/public_html/autogallerykotlin/updateProfile.php on line 159
+[07-Nov-2022 16:00:15 Europe/Minsk] PHP Notice:  Undefined index: user_id in /home/yazili26/public_html/autogallerykotlin/updateProfile.php on line 4
+[07-Nov-2022 16:00:15 Europe/Minsk] PHP Notice:  Undefined index: email in /home/yazili26/public_html/autogallerykotlin/updateProfile.php on line 5
+[07-Nov-2022 16:00:15 Europe/Minsk] PHP Notice:  Undefined index: password in /home/yazili26/public_html/autogallerykotlin/updateProfile.php on line 6
+[07-Nov-2022 16:00:15 Europe/Minsk] PHP Notice:  Undefined index: againPassword in /home/yazili26/public_html/autogallerykotlin/updateProfile.php on line 7
+[07-Nov-2022 16:00:15 Europe/Minsk] PHP Notice:  Undefined index: phoneNumber in /home/yazili26/public_html/autogallerykotlin/updateProfile.php on line 8
+[07-Nov-2022 16:00:15 Europe/Minsk] PHP Notice:  Undefined index: city in /home/yazili26/public_html/autogallerykotlin/updateProfile.php on line 9
+[07-Nov-2022 16:00:15 Europe/Minsk] PHP Notice:  Undefined index: district in /home/yazili26/public_html/autogallerykotlin/updateProfile.php on line 10
+[07-Nov-2022 16:00:15 Europe/Minsk] PHP Notice:  Undefined index: neighborhood in /home/yazili26/public_html/autogallerykotlin/updateProfile.php on line 11
