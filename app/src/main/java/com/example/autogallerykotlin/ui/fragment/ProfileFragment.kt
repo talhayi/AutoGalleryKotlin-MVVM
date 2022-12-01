@@ -107,7 +107,7 @@ class ProfileFragment : Fragment() {
 
                 }else{
                     Toast.makeText(requireContext(), updateProfile.body()?.result, Toast.LENGTH_SHORT).show()
-                }
+                }/*
                 if (updateProfile.body()?.passwordSuccess==true){
 
                     Toast.makeText(requireContext(), updateProfile.body()?.result, Toast.LENGTH_SHORT).show()
@@ -126,7 +126,7 @@ class ProfileFragment : Fragment() {
 
                 }else{
                     Toast.makeText(requireContext(), updateProfile.body()?.result, Toast.LENGTH_SHORT).show()
-                }
+                }*/
 
             }
         }

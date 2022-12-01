@@ -16,17 +16,14 @@ import com.example.autogallerykotlin.databinding.MyAdvertiseItemLayoutBinding
 class MyAdvertiseAdapter : RecyclerView.Adapter<MyAdvertiseAdapter.MyAdvertiseViewHolder>() {
 
 
-    private lateinit var mListener: onItemClickListener
+    private lateinit var mListener: OnItemClickListener
 
-    interface onItemClickListener{
-        fun onItemClick(position: Int)
-    }
-    fun setOnItemClickListener(listener:onItemClickListener){
+    fun setOnItemClickListener(listener:OnItemClickListener){
         mListener = listener
     }
 
 
-    class MyAdvertiseViewHolder(val binding: MyAdvertiseItemLayoutBinding, listener: onItemClickListener):RecyclerView.ViewHolder(binding.root) {
+    class MyAdvertiseViewHolder(val binding: MyAdvertiseItemLayoutBinding, listener: OnItemClickListener):RecyclerView.ViewHolder(binding.root) {
 
         init {
             itemView.setOnClickListener {

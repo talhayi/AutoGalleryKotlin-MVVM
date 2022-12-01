@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.autogallerykotlin.R
 import com.example.autogallerykotlin.adapter.MyFavoriteAdvertiseAdapter
+import com.example.autogallerykotlin.adapter.OnItemClickListener
 import com.example.autogallerykotlin.databinding.FragmentMyAdvertiseBinding
 import com.example.autogallerykotlin.databinding.FragmentMyFavoritesBinding
 import com.example.autogallerykotlin.viewmodel.AdvertiseDetailViewModel
@@ -51,7 +52,7 @@ class MyFavoritesFragment : Fragment() {
 
                 if (it[0].count!=null){
                     myFavoriteAdvertiseAdapter.myFavoriteAdvertise = myFavoriteAdvertiseResponse
-                    myFavoriteAdvertiseAdapter.setOnItemClickListener(object : MyFavoriteAdvertiseAdapter.onItemClickListener{
+                    myFavoriteAdvertiseAdapter.setOnItemClickListener(object : OnItemClickListener {
                         override fun onItemClick(position: Int) {
 
                             advertId = myFavoriteAdvertiseResponse[position].advert_id.toString()

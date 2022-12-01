@@ -12,20 +12,16 @@ import com.example.autogallerykotlin.data.model.MyFavoriteAdvertise
 import com.example.autogallerykotlin.databinding.MyFavoriteAdvertiseItemLayoutBinding
 
 
-
 class MyFavoriteAdvertiseAdapter : RecyclerView.Adapter<MyFavoriteAdvertiseAdapter.MyFavoriteAdvertiseViewHolder>() {
 
-    private lateinit var mListener: onItemClickListener
+    private lateinit var mListener: OnItemClickListener
 
-    interface onItemClickListener{
-        fun onItemClick(position: Int)
-    }
-    fun setOnItemClickListener(listener:onItemClickListener){
+    fun setOnItemClickListener(listener:OnItemClickListener){
         mListener = listener
     }
 
 
-    class MyFavoriteAdvertiseViewHolder(val binding: MyFavoriteAdvertiseItemLayoutBinding, listener: onItemClickListener):RecyclerView.ViewHolder(binding.root) {
+    class MyFavoriteAdvertiseViewHolder(val binding: MyFavoriteAdvertiseItemLayoutBinding, listener: OnItemClickListener):RecyclerView.ViewHolder(binding.root) {
 
         init {
             itemView.setOnClickListener {

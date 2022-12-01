@@ -5,10 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.autogallerykotlin.adapter.AdvertisesAdapter
+import com.example.autogallerykotlin.adapter.OnItemClickListener
 import com.example.autogallerykotlin.databinding.FragmentAdvertisesBinding
 import com.example.autogallerykotlin.viewmodel.AdvertisesViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -45,7 +47,7 @@ class AdvertisesFragment : Fragment() {
 
                 advertisesAdapter.advertises =  advertisesResponse
 
-                advertisesAdapter.setOnItemClickListener(object : AdvertisesAdapter.onItemClickListener{
+                advertisesAdapter.setOnItemClickListener(object : OnItemClickListener {
                     override fun onItemClick(position: Int) {
                         //todo: ilandetaya gidilecek
                         advertId = advertisesResponse[position].advert_id.toString()

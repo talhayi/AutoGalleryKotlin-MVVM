@@ -12,6 +12,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.autogallerykotlin.R
 import com.example.autogallerykotlin.adapter.MyAdvertiseAdapter
+import com.example.autogallerykotlin.adapter.OnItemClickListener
 import com.example.autogallerykotlin.data.model.MyAdvertise
 import com.example.autogallerykotlin.databinding.FragmentMyAdvertiseBinding
 import com.example.autogallerykotlin.viewmodel.MyAdvertiseViewModel
@@ -61,8 +62,7 @@ class MyAdvertiseFragment : Fragment() {
 
                     myAdvertiseAdapter.myAdvertise = myAdvertiseResponse
 
-                    myAdvertiseAdapter.setOnItemClickListener(object :
-                        MyAdvertiseAdapter.onItemClickListener {
+                    myAdvertiseAdapter.setOnItemClickListener(object : OnItemClickListener {
 
                         override fun onItemClick(position: Int) {
 
