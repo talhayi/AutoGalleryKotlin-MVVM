@@ -117,16 +117,16 @@ interface ApiService {
     suspend fun informationProfile(@Query("user_id") user_id: String?): Response<InformationProfile>
 
     @FormUrlEncoded
-    @POST("updateProfile.php")
+    @POST("updateProfileEmail.php")
     suspend fun updateProfile(
         @Field("user_id") user_id: String?,
         @Field("email") email: String?,
-        @Field("password") password: String?,
+        /*@Field("password") password: String?,
         @Field("againPassword") againPassword: String?,
         @Field("phoneNumber") phoneNumber: String?,
         @Field("city") city: String?,
         @Field("district") district: String?,
-        @Field("neighborhood") neighborhood: String?
+        @Field("neighborhood") neighborhood: String?*/
 
     ): Response<UpdateProfile>
 }

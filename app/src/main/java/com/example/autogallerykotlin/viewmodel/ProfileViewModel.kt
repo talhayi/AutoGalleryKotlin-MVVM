@@ -36,22 +36,22 @@ class ProfileViewModel@Inject constructor(
     fun getUpdateProfile(
         user_id : String,
         email : String,
-        password : String,
+       /* password : String,
         againPassword : String,
         phoneNumber : String,
         city : String,
         district : String,
-        neighborhood : String,
+        neighborhood : String,*/
     )=viewModelScope.launch {
         _updateProfile.postValue(repository.updateProfile(
             user_id,
             email,
-            password,
+           /* password,
             againPassword,
             phoneNumber,
             city,
             district,
-            neighborhood,
+            neighborhood,*/
         ))
     }
 }

@@ -18,7 +18,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @SuppressLint("SetTextI18n")
 class ProfileFragment : Fragment() {
 
-    private var _binding: FragmentProfileBinding?= null
+    private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
     private val viewModel: ProfileViewModel by viewModels()
     private var userId = ""
@@ -97,41 +97,31 @@ class ProfileFragment : Fragment() {
 
     }
 
-    private fun updateProfile(){
+    private fun updateProfile() {
 
-        viewModel.updateProfile.observe(viewLifecycleOwner){updateProfile->
-            if (updateProfile.isSuccessful){
-                if (updateProfile.body()?.emailSuccess==true){
+        viewModel.updateProfile.observe(viewLifecycleOwner) { updateProfile ->
+            if (updateProfile.isSuccessful) {
+                if (updateProfile.body()?.emailSuccess == true) {
                     viewModel.getInformationProfile(userId)
-                    Toast.makeText(requireContext(), updateProfile.body()?.result, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        requireContext(),
+                        updateProfile.body()?.result,
+                        Toast.LENGTH_SHORT
+                    ).show()
 
-                }else{
-                    Toast.makeText(requireContext(), updateProfile.body()?.result, Toast.LENGTH_SHORT).show()
-                }/*
-                if (updateProfile.body()?.passwordSuccess==true){
-
-                    Toast.makeText(requireContext(), updateProfile.body()?.result, Toast.LENGTH_SHORT).show()
-
-                }else{
-                    Toast.makeText(requireContext(), updateProfile.body()?.result, Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(
+                        requireContext(),
+                        updateProfile.body()?.result,
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
-                if (updateProfile.body()?.phoneNumberSuccess==true){
-                    Toast.makeText(requireContext(), updateProfile.body()?.result, Toast.LENGTH_SHORT).show()
-
-                }else{
-                    Toast.makeText(requireContext(), updateProfile.body()?.result, Toast.LENGTH_SHORT).show()
-                }
-                if (updateProfile.body()?.addressSuccess==true){
-                    Toast.makeText(requireContext(), updateProfile.body()?.result, Toast.LENGTH_SHORT).show()
-
-                }else{
-                    Toast.makeText(requireContext(), updateProfile.body()?.result, Toast.LENGTH_SHORT).show()
-                }*/
 
             }
         }
     }
-    private fun updateProfileRequest(){
+
+    private fun updateProfileRequest() {
 
         binding.updateProfileButton.setOnClickListener {
             binding.updateEmailButton.visibility = View.VISIBLE
@@ -145,7 +135,7 @@ class ProfileFragment : Fragment() {
             binding.updateCityContainer.visibility = View.GONE
             binding.updateDistrictContainer.visibility = View.GONE
             binding.updateNeighborhoodContainer.visibility = View.GONE
-            binding.cancelProfileButton.visibility=View.GONE
+            binding.cancelProfileButton.visibility = View.GONE
 
             val sharedPreferences =
                 this.activity?.getSharedPreferences("login", AppCompatActivity.MODE_PRIVATE)
@@ -158,17 +148,27 @@ class ProfileFragment : Fragment() {
             val city = binding.updateCityET.text.toString().trim()
             val district = binding.updateDistrictET.text.toString().trim()
             val neighborhood = binding.updateNeighborhoodET.text.toString().trim()
-            viewModel.getUpdateProfile(userId,email,password,againPassword,phoneNumber,city,district,neighborhood)
+            viewModel.getUpdateProfile(
+                userId,
+                email,
+             /*   password,
+                againPassword,
+                phoneNumber,
+                city,
+                district,
+                neighborhood*/
+            )
 
         }
 
     }
-    private fun informationProfile(){
 
-        viewModel.informationProfile.observe(viewLifecycleOwner){informationProfile->
-            if (informationProfile.isSuccessful){
+    private fun informationProfile() {
+
+        viewModel.informationProfile.observe(viewLifecycleOwner) { informationProfile ->
+            if (informationProfile.isSuccessful) {
                 val name = informationProfile.body()?.name
-                val surname= informationProfile.body()?.surname
+                val surname = informationProfile.body()?.surname
                 binding.fullNameTV.text = "$name $surname"
                 binding.emailTV.text = informationProfile.body()?.email
                 binding.phoneNumberTV.text = informationProfile.body()?.phoneNumber
@@ -177,7 +177,7 @@ class ProfileFragment : Fragment() {
         }
     }
 
-    private fun informationProfileRequest(){
+    private fun informationProfileRequest() {
         val sharedPreferences =
             this.activity?.getSharedPreferences("login", AppCompatActivity.MODE_PRIVATE)
         userId = sharedPreferences?.getString("users_id", null)!!
