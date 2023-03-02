@@ -16,3 +16,23 @@
 |Navigation	Component |2.5.0|
 |Coroutines |1.6.1|
 |Coil |2.1.0|
+
+## Images in AutoGallery
+
+![register](https://user-images.githubusercontent.com/56438103/222549098-2290b0d0-8944-4c76-aa17-af6b984e7a25.jpeg)
+![email kayıt doğrulama](https://user-images.githubusercontent.com/56438103/222561176-e3654754-7618-47f1-8a8f-e1847a416c07.jpeg)
+![login](https://user-images.githubusercontent.com/56438103/222549119-9ca56c99-d564-496a-88d8-29d212e349d0.jpeg)
+![ilan yayınla](https://user-images.githubusercontent.com/56438103/222560879-33d85a3b-cad4-406c-9e4e-6b048ab293fa.jpeg)
+![ilan yayınla2](https://user-images.githubusercontent.com/56438103/222560880-430e92be-ac0e-4603-bd1c-16773a262cc3.jpeg)
+![ilan verme](https://user-images.githubusercontent.com/56438103/222560943-b452b9aa-e0b5-460c-b92d-2f03def84765.jpeg)
+![ilanlar](https://user-images.githubusercontent.com/56438103/222561034-085d2681-13ef-4998-a6c7-ffd74595d646.jpeg)
+![ilanlarım](https://user-images.githubusercontent.com/56438103/222561075-fed38891-438c-4583-9a3c-787af2e14653.jpeg)
+![ilan detay](https://user-images.githubusercontent.com/56438103/222561267-4c5c5ea1-2fca-4898-90ff-4aa51a2d3f2e.jpeg)
+![favori ilanlarım](https://user-images.githubusercontent.com/56438103/222561327-b2389307-8300-42d0-9bf3-9289de0de5e0.jpeg)
+![şifre yenileme email](https://user-images.githubusercontent.com/56438103/222561424-7abe24ed-a834-41eb-9f50-fb77dd24ecf0.jpeg)
+![şifre belirleme doğrulama kodu](https://user-images.githubusercontent.com/56438103/222561436-cbe5e16c-ee16-4391-a741-467cc12cffae.jpeg)
+![yeni şifre belirleme](https://user-images.githubusercontent.com/56438103/222561462-0b0c4777-abae-4280-bc47-7cd990db6db2.jpeg)
+![profil adres düzenle](https://user-images.githubusercontent.com/56438103/222561609-bda9ee26-6235-498a-a42b-415ae6377def.jpeg)
+![profil email düzenle](https://user-images.githubusercontent.com/56438103/222561613-650c2dcb-c512-4c3b-8138-8de2917fcac1.jpeg)
+![profil phone düzenle](https://user-images.githubusercontent.com/56438103/222561614-83579de9-db2c-4fdc-bb7f-fdb6f7367eed.jpeg)
+![profil şifre düzenle](https://user-images.githubusercontent.com/56438103/222561616-ff0032bb-5a3d-4862-9341-4a023a692e61.jpeg)
