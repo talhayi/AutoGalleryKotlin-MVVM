@@ -22,7 +22,6 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MyFavoritesFragment : Fragment() {
-
     private var _binding: FragmentMyFavoritesBinding?= null
     private val binding get() = _binding!!
     private val viewModel: MyFavoriteAdvertiseViewModel by viewModels()
@@ -37,7 +36,6 @@ class MyFavoritesFragment : Fragment() {
         _binding = FragmentMyFavoritesBinding.inflate(inflater, container, false)
         return binding.root
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpRV()
@@ -47,14 +45,11 @@ class MyFavoritesFragment : Fragment() {
 
     private fun myFavoriteAdvertise(){
         viewModel.myFavoriteAdvertise.observe(viewLifecycleOwner){myFavoriteAdvertiseResponse->
-
             myFavoriteAdvertiseResponse.let {
-
                 if (it[0].count!=null){
                     myFavoriteAdvertiseAdapter.myFavoriteAdvertise = myFavoriteAdvertiseResponse
                     myFavoriteAdvertiseAdapter.setOnItemClickListener(object : OnItemClickListener {
                         override fun onItemClick(position: Int) {
-
                             advertId = myFavoriteAdvertiseResponse[position].advert_id.toString()
                             findNavController().navigate(MyFavoritesFragmentDirections.actionMyFavoritesFragmentToAdvertiseDetailFragment(advertId))
                         }
@@ -63,27 +58,21 @@ class MyFavoritesFragment : Fragment() {
             }
         }
     }
-
     private fun myFavoriteAdvertiseRequest(){
         val sharedPreferences =
             this.activity?.getSharedPreferences("login", AppCompatActivity.MODE_PRIVATE)
         userId = sharedPreferences?.getString("users_id", null)!!
-
         viewModel.getMyFavoriteAdvertise(userId)
-
     }
 
     @SuppressLint("NotifyDataSetChanged")
     private fun setUpRV(){
-
         myFavoriteAdvertiseAdapter = MyFavoriteAdvertiseAdapter()
         binding.myFavoriteAdvertiseRecyclerView.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = myFavoriteAdvertiseAdapter
-
         }
     }
-
     override fun onDestroy() {
         super.onDestroy()
         _binding = null

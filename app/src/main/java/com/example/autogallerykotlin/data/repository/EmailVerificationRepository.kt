@@ -10,5 +10,4 @@ class EmailVerificationRepository @Inject constructor(
         email: String,
         code: String
     ) = apiService.emailVerification(email,code)
-
 }

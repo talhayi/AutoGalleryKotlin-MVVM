@@ -127,7 +127,6 @@ interface ApiService {
         @Field("city") city: String?,
         @Field("district") district: String?,
         @Field("neighborhood") neighborhood: String?*/
-
     ): Response<UpdateProfile>
 }
 

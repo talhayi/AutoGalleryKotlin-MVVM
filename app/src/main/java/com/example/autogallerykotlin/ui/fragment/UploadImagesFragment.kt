@@ -44,7 +44,6 @@ class UploadImagesFragment : Fragment() {
     private var bitmap: Bitmap? = null
     private val viewModel: AddAdvertiseImageViewModel by viewModels()
     private var advertId = ""
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -53,21 +52,15 @@ class UploadImagesFragment : Fragment() {
         _binding = FragmentUploadImagesBinding.inflate(inflater, container, false)
         return binding.root
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-
         binding.uploadImageBackButton.setOnClickListener {
             findNavController().navigate(UploadImagesFragmentDirections.actionUploadImagesFragmentToAddAdvertiseFragment())
-
-
         }
         selectImage(view)
         registerLauncher()
         addImage()
         addAdvertiseImage()
-
     }
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -85,7 +78,6 @@ class UploadImagesFragment : Fragment() {
     }
     private fun addAdvertiseImage(){
         viewModel.addAdvertiseImage.observe(viewLifecycleOwner){addAdvertiseImageResponse->
-
             if (addAdvertiseImageResponse.isSuccessful){
                 if(addAdvertiseImageResponse.body()?.success ==true){
                     Toast.makeText(requireContext(), addAdvertiseImageResponse.body()?.result, Toast.LENGTH_SHORT).show()
@@ -101,49 +93,34 @@ class UploadImagesFragment : Fragment() {
     }
 
     private fun addImage(){
-
         binding.addImageButton.setOnClickListener {
-
             val sharedPreferences = this.activity?.getSharedPreferences("login", AppCompatActivity.MODE_PRIVATE)
             val userId = sharedPreferences?.getString("users_id", null)!!
             arguments?.let {
                 advertId = UploadImagesFragmentArgs.fromBundle(it).advertId
             }
-
             val image = imageToString()
-
                 viewModel.addAdvertiseImage(userId,advertId,image)
         }
     }
-
-
-
     private fun selectImage(view: View) {
         binding.pickImageButton.setOnClickListener {
             if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-
                 if (ActivityCompat.shouldShowRequestPermissionRationale(requireActivity(), Manifest.permission.READ_EXTERNAL_STORAGE)) {
-
                     val snackbar = Snackbar.make(view, "Galeri için izin gerekiyor", Snackbar.LENGTH_INDEFINITE)
-
                     snackbar.setActionTextColor(Color.WHITE)
                     snackbar.setBackgroundTint(resources.getColor( R.color.primary_color))
                     snackbar.setAction("İzin Ver") {
                         permissionLauncher.launch(Manifest.permission.READ_EXTERNAL_STORAGE)
-
                     }.show()
-
                     val params = snackbar.view.layoutParams as CoordinatorLayout.LayoutParams
                     params.anchorId = R.id.navigationBottomBar //id of the bottom navigation view
-
                     params.gravity = Gravity.TOP
                     params.anchorGravity = Gravity.TOP
                     snackbar.view.layoutParams = params
-
                 }
                 else {
                     permissionLauncher.launch(Manifest.permission.READ_EXTERNAL_STORAGE)
-
                 }
             }
             else {
@@ -152,44 +129,29 @@ class UploadImagesFragment : Fragment() {
             }
         }
     }
-
     private fun imageToString(): String {
-
         val smallBitmap = makeSmallerBitmap(bitmap!!,300)
-
         val outputStream = ByteArrayOutputStream()
         smallBitmap. compress(Bitmap.CompressFormat.PNG,50,outputStream)
-       
         val byteArray = outputStream.toByteArray()
-
         return Base64.encodeToString(byteArray, Base64.DEFAULT)
-      
     }
     private fun registerLauncher() {
         activityResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
                 if (result.resultCode == RESULT_OK) {
-
                     val intentFromResult = result.data
-
                     if (intentFromResult != null) {
-
                         val imageData = intentFromResult.data
-
                         try {
                             if (Build.VERSION.SDK_INT >= 28) {
-
                                 val source = ImageDecoder.createSource(requireActivity().contentResolver, imageData!!)
-
-                                
                                 bitmap = ImageDecoder.decodeBitmap(source)
                                 binding.uploadImageView.setImageBitmap(bitmap)
                                 binding.uploadImageView.visibility = View.VISIBLE
 
                             }
                             else {
-
                                 bitmap = MediaStore.Images.Media.getBitmap(requireActivity().contentResolver, imageData)
-
                                 binding.uploadImageView.setImageBitmap(bitmap)
                                 binding.uploadImageView.visibility = View.VISIBLE
                             }
@@ -201,23 +163,19 @@ class UploadImagesFragment : Fragment() {
             }
         permissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { result ->
             if (result) {
-                    //permission granted
-                val intentToGallery = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-                    activityResultLauncher.launch(intentToGallery)
-
-                }
-            else {
-                    //permission denied
-                    Toast.makeText(requireContext(), "İzin gerekiyor", Toast.LENGTH_LONG).show()
-                }
+                //permission granted
+                val intentToGallery =
+                    Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+                activityResultLauncher.launch(intentToGallery)
+            } else {
+                //permission denied
+                Toast.makeText(requireContext(), "İzin gerekiyor", Toast.LENGTH_LONG).show()
             }
+        }
     }
-
-
     private fun makeSmallerBitmap(image: Bitmap, maximumSize : Int) : Bitmap {
         var width = image.width
         var height = image.height
-
         val bitmapRatio : Double = width.toDouble() / height.toDouble()
         if (bitmapRatio > 1) {
             width = maximumSize
@@ -230,7 +188,6 @@ class UploadImagesFragment : Fragment() {
         }
         return Bitmap.createScaledBitmap(image,width,height,true)
     }
-
     override fun onDestroy() {
         super.onDestroy()
         _binding=null

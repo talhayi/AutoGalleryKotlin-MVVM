@@ -6,7 +6,6 @@ import javax.inject.Inject
 class AddAdvertiseImageRepository @Inject constructor(
     private val apiService: ApiService
 ) {
-
     suspend fun addAdvertiseImage(
         user_id:String,
         advert_id:String,

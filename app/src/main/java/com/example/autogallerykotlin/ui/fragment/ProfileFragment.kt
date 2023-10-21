@@ -17,7 +17,6 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 @SuppressLint("SetTextI18n")
 class ProfileFragment : Fragment() {
-
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
     private val viewModel: ProfileViewModel by viewModels()
@@ -30,15 +29,12 @@ class ProfileFragment : Fragment() {
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         return binding.root
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         informationProfileRequest()
         informationProfile()
         updateProfileRequest()
         updateProfile()
-
         binding.updateEmailButton.setOnClickListener {
             binding.updatePasswordButton.visibility = View.GONE
             binding.updatePhoneNumberButton.visibility = View.GONE
@@ -70,17 +66,14 @@ class ProfileFragment : Fragment() {
             binding.updatePasswordButton.visibility = View.GONE
             binding.updateEmailButton.visibility = View.GONE
             binding.updatePhoneNumberButton.visibility = View.GONE
-
             binding.updateCityContainer.visibility = View.VISIBLE
             binding.updateDistrictContainer.visibility = View.VISIBLE
             binding.updateNeighborhoodContainer.visibility = View.VISIBLE
-
             binding.updateProfileButton.visibility = View.VISIBLE
             binding.cancelProfileButton.visibility = View.VISIBLE
         }
 
         binding.cancelProfileButton.setOnClickListener {
-
             binding.updateEmailButton.visibility = View.VISIBLE
             binding.updatePasswordButton.visibility = View.VISIBLE
             binding.updatePhoneNumberButton.visibility = View.VISIBLE
@@ -94,11 +87,9 @@ class ProfileFragment : Fragment() {
             binding.updateDistrictContainer.visibility = View.GONE
             binding.updateNeighborhoodContainer.visibility = View.GONE
         }
-
     }
 
     private fun updateProfile() {
-
         viewModel.updateProfile.observe(viewLifecycleOwner) { updateProfile ->
             if (updateProfile.isSuccessful) {
                 if (updateProfile.body()?.emailSuccess == true) {
@@ -108,7 +99,6 @@ class ProfileFragment : Fragment() {
                         updateProfile.body()?.result,
                         Toast.LENGTH_SHORT
                     ).show()
-
                 } else {
                     Toast.makeText(
                         requireContext(),
@@ -116,13 +106,10 @@ class ProfileFragment : Fragment() {
                         Toast.LENGTH_SHORT
                     ).show()
                 }
-
             }
         }
     }
-
     private fun updateProfileRequest() {
-
         binding.updateProfileButton.setOnClickListener {
             binding.updateEmailButton.visibility = View.VISIBLE
             binding.updatePasswordButton.visibility = View.VISIBLE
@@ -158,13 +145,10 @@ class ProfileFragment : Fragment() {
                 district,
                 neighborhood*/
             )
-
         }
-
     }
 
     private fun informationProfile() {
-
         viewModel.informationProfile.observe(viewLifecycleOwner) { informationProfile ->
             if (informationProfile.isSuccessful) {
                 val name = informationProfile.body()?.name
@@ -176,12 +160,10 @@ class ProfileFragment : Fragment() {
             }
         }
     }
-
     private fun informationProfileRequest() {
         val sharedPreferences =
             this.activity?.getSharedPreferences("login", AppCompatActivity.MODE_PRIVATE)
         userId = sharedPreferences?.getString("users_id", null)!!
         viewModel.getInformationProfile(userId)
-
     }
 }

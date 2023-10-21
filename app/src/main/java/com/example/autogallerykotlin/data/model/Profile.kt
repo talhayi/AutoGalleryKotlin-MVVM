@@ -8,7 +8,6 @@ data class InformationProfile(
     val phoneNumber: String? = null,
     val address: String? = null,
 )
-
 data class UpdateProfile(
 
     val emailSuccess: Boolean? =null,

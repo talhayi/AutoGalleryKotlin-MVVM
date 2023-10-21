@@ -17,18 +17,14 @@ import javax.inject.Inject
 class AddAdvertiseImageViewModel @Inject constructor(
     private val repository: AddAdvertiseImageRepository
 ) : ViewModel() {
-
     private val _addAdvertiseImage = MutableLiveData<Response<AddAdvertiseImage>>()
     val addAdvertiseImage: LiveData<Response<AddAdvertiseImage>>
         get() = _addAdvertiseImage
-
     fun addAdvertiseImage(
         user_id:String,
         advert_id:String,
         image:String
-
     )=viewModelScope.launch {
-
         _addAdvertiseImage.postValue(repository.addAdvertiseImage(
             user_id,advert_id,image))
     }

@@ -10,22 +10,17 @@ import okhttp3.logging.HttpLoggingInterceptor
 
 object Util {
     const val BASE_URL = "http://yazilimgunlukleri.com/autogallerykotlin/"
-
     private val interceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
     val client = OkHttpClient.Builder().addInterceptor(interceptor).build()
-
     fun checkForInternet(context: Context): Boolean {
-
         // register activity with the connectivity manager service
         val connectivityManager =
             context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-
         // if the android version is equal to M
         // or greater we need to use the
         // NetworkCapabilities to check what type of
         // network has the internet connection
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-
             // Returns a Network object corresponding to
             // the currently active default data network.
             val network = connectivityManager.activeNetwork ?: return false

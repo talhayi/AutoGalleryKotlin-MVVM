@@ -9,14 +9,11 @@ import javax.inject.Inject
 class ProfileRepository @Inject constructor(
     private val apiService: ApiService
 ) {
-
     suspend fun informationProfile(
         user_id: String
     ): Response<InformationProfile> {
         return apiService.informationProfile(user_id)
-
     }
-
     suspend fun updateProfile(
         user_id: String,
         email: String,
@@ -37,7 +34,5 @@ class ProfileRepository @Inject constructor(
             district,
             neighborhood,*/
         )
-
     }
-
 }

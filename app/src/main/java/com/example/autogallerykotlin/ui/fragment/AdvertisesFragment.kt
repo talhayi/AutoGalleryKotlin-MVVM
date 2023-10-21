@@ -42,11 +42,8 @@ class AdvertisesFragment : Fragment() {
     }
     private fun advertises(){
         viewModel.advertises.observe(viewLifecycleOwner){advertisesResponse->
-
             advertisesResponse.let {
-
                 advertisesAdapter.advertises =  advertisesResponse
-
                 advertisesAdapter.setOnItemClickListener(object : OnItemClickListener {
                     override fun onItemClick(position: Int) {
                         //todo: ilandetaya gidilecek
@@ -59,19 +56,11 @@ class AdvertisesFragment : Fragment() {
             }
         }
     }
-
-
     private fun advertisesRequest(){
-
-
         viewModel.getAdvertises()
-
-
     }
     private fun setUpRV(){
-
         advertisesAdapter = AdvertisesAdapter()
-
         binding.advertisesRecyclerView.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = advertisesAdapter

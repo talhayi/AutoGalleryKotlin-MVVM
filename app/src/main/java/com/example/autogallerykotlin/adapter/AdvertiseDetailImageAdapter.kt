@@ -10,7 +10,6 @@ import com.example.autogallerykotlin.data.model.AdvertiseDetailImage
 import com.example.autogallerykotlin.databinding.DetailImageItemLayoutBinding
 
 class AdvertiseDetailImageAdapter: RecyclerView.Adapter<AdvertiseDetailImageAdapter.AdvertiseDetailImageViewHolder>() {
-
     class AdvertiseDetailImageViewHolder(var binding: DetailImageItemLayoutBinding):RecyclerView.ViewHolder(binding.root)
 
     private val diffCallBack = object: DiffUtil.ItemCallback<AdvertiseDetailImage>(){
@@ -28,8 +27,6 @@ class AdvertiseDetailImageAdapter: RecyclerView.Adapter<AdvertiseDetailImageAdap
             return newItem == oldItem
         }
     }
-
-
     private val differ = AsyncListDiffer(this, diffCallBack)
     var detailImages: List<AdvertiseDetailImage>
 
@@ -53,7 +50,6 @@ class AdvertiseDetailImageAdapter: RecyclerView.Adapter<AdvertiseDetailImageAdap
                 crossfade(true)
                 crossfade(1000)
             }
-
         }
     }
 

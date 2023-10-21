@@ -11,13 +11,10 @@ import com.example.autogallerykotlin.data.model.Advertises
 import com.example.autogallerykotlin.databinding.AdvertisesItemLayoutBinding
 
 class AdvertisesAdapter : RecyclerView.Adapter<AdvertisesAdapter.AdvertsViewHolder>() {
-
     private lateinit var mListener: OnItemClickListener
-
     fun setOnItemClickListener(listener: OnItemClickListener) {
         mListener = listener
     }
-
     class AdvertsViewHolder(
         val binding: AdvertisesItemLayoutBinding,
         listener: OnItemClickListener
@@ -54,10 +51,7 @@ class AdvertisesAdapter : RecyclerView.Adapter<AdvertisesAdapter.AdvertsViewHold
     }
 
     override fun onBindViewHolder(holder: AdvertsViewHolder, position: Int) {
-
-
         val currentAdvertises = advertises[position]
-
         holder.binding.apply {
             advertisesRowAdvertTitleTextView.text = currentAdvertises.advert_title
             advertisesRowAddressTextView.text = currentAdvertises.address
@@ -68,11 +62,8 @@ class AdvertisesAdapter : RecyclerView.Adapter<AdvertisesAdapter.AdvertsViewHold
                 crossfade(1000)
             }
         }
-
     }
-
     override fun getItemCount(): Int {
         return advertises.size
     }
-
 }

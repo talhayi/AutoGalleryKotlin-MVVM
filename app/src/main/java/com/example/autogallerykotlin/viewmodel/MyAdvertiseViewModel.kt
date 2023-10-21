@@ -16,23 +16,17 @@ import javax.inject.Inject
 class MyAdvertiseViewModel @Inject constructor(
     private val repository: MyAdvertiseRepository
 ) : ViewModel() {
-
     private val _myAdvertise = MutableLiveData<List<MyAdvertise>>()
     val myAdvertise: LiveData<List<MyAdvertise>>
         get() = _myAdvertise
-
     private val _deleteMyAdvertise = MutableLiveData<Response<DeleteMyAdvertise>>()
     val deleteMyAdvertise: LiveData<Response<DeleteMyAdvertise>>
         get() = _deleteMyAdvertise
-
-
     fun getMyAdvertise(
         user_id : String
     )=viewModelScope.launch {
         _myAdvertise.postValue(repository.myAdvertise(user_id))
     }
-
-
     fun getDeleteMyAdvertise(
         advert_id: String
     )=viewModelScope.launch {

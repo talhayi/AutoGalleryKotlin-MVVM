@@ -12,29 +12,19 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class ForgotPasswordActivity : AppCompatActivity() {
-
     private lateinit var binding: ActivityForgotPasswordBinding
     private val viewModel: ForgotPasswordViewModel by viewModels()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityForgotPasswordBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-
-            binding.forgotPasswordEmailButton.setOnClickListener {
-
-                    val email = binding.forgotPasswordEditText.text.toString().trim()
-
-                    viewModel.forgotPasswordEmail(email)
-            }
-
-        viewModel.forgotPasswordEmail.observe(this){forgotPasswordEmailResponse->
-
-            if (forgotPasswordEmailResponse.isSuccessful){
-
-                if(forgotPasswordEmailResponse.body()?.email != null){
-
+        binding.forgotPasswordEmailButton.setOnClickListener {
+            val email = binding.forgotPasswordEditText.text.toString().trim()
+            viewModel.forgotPasswordEmail(email)
+        }
+        viewModel.forgotPasswordEmail.observe(this) { forgotPasswordEmailResponse ->
+            if (forgotPasswordEmailResponse.isSuccessful) {
+                if (forgotPasswordEmailResponse.body()?.email != null) {
                     binding.apply {
                         forgotPasswordEditText.visibility = View.GONE
                         forgotPasswordEmailButton.visibility = View.GONE
@@ -43,36 +33,40 @@ class ForgotPasswordActivity : AppCompatActivity() {
                         forgotPasswordCodeButton.visibility = View.VISIBLE
                         forgotPasswordCodetextView.visibility = View.VISIBLE
                     }
-                }
-                else{
-                    Toast.makeText(this, "Doğru e mail adresini girdiğinizden emin olun", Toast.LENGTH_LONG).show()
+                } else {
+                    Toast.makeText(
+                        this,
+                        "Doğru e mail adresini girdiğinizden emin olun",
+                        Toast.LENGTH_LONG
+                    ).show()
                 }
             }
         }
 
         binding.apply {
             forgotPasswordCodeButton.setOnClickListener {
-
                     val code = forgotPasswordCodeEditText.text.toString()
                     viewModel.resetPasswordCode(code)
             }
         }
 
-        viewModel.resetPasswordCode.observe(this){resetPasswordCodeResponse->
-
-            if(resetPasswordCodeResponse.isSuccessful){
-                if (resetPasswordCodeResponse.body()?.success == true){
-                   binding.apply {
-                       forgotPasswordCodeEditText.visibility = View.GONE
-                       forgotPasswordCodeButton.visibility = View.GONE
-                       forgotPasswordCodetextView.visibility = View.GONE
-                       newPasswordEditText.visibility = View.VISIBLE
-                       newPasswordButton.visibility = View.VISIBLE
-                       newPasswordtextView.visibility = View.VISIBLE
-                   }
-                }
-                else{
-                    Toast.makeText(this, resetPasswordCodeResponse.body()?.result, Toast.LENGTH_SHORT).show()
+        viewModel.resetPasswordCode.observe(this) { resetPasswordCodeResponse ->
+            if (resetPasswordCodeResponse.isSuccessful) {
+                if (resetPasswordCodeResponse.body()?.success == true) {
+                    binding.apply {
+                        forgotPasswordCodeEditText.visibility = View.GONE
+                        forgotPasswordCodeButton.visibility = View.GONE
+                        forgotPasswordCodetextView.visibility = View.GONE
+                        newPasswordEditText.visibility = View.VISIBLE
+                        newPasswordButton.visibility = View.VISIBLE
+                        newPasswordtextView.visibility = View.VISIBLE
+                    }
+                } else {
+                    Toast.makeText(
+                        this,
+                        resetPasswordCodeResponse.body()?.result,
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
         }
@@ -86,7 +80,6 @@ class ForgotPasswordActivity : AppCompatActivity() {
         }
 
         viewModel.resetPassword.observe(this){resetPasswordResponse->
-
             if(resetPasswordResponse.isSuccessful){
                 if (resetPasswordResponse.body()?.success == true){
                     startActivity(Intent(this, MainActivity::class.java))

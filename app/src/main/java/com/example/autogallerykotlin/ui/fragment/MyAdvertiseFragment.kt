@@ -21,16 +21,13 @@ import okhttp3.internal.notifyAll
 
 @AndroidEntryPoint
 class MyAdvertiseFragment : Fragment() {
-
     private var _binding: FragmentMyAdvertiseBinding? = null
     private val binding get() = _binding!!
     private val viewModel: MyAdvertiseViewModel by viewModels()
     private lateinit var myAdvertiseAdapter: MyAdvertiseAdapter
-
     private lateinit var alertDialog: AlertDialog.Builder
     private var advertId=""
     private var userId=""
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -38,51 +35,30 @@ class MyAdvertiseFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentMyAdvertiseBinding.inflate(inflater, container, false)
         return binding.root
-
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-
         setUpRV()
         myAdvertiseRequest()
-
         deleteMyAdvertiseRequest()
         deleteMyAdvertise()
-
     }
-
     private fun deleteMyAdvertiseRequest() {
-
         viewModel.myAdvertise.observe(viewLifecycleOwner) { myAdvertiseResponse ->
             myAdvertiseResponse.let {
-
                if (it[0].count!=null) {
-
                     myAdvertiseAdapter.myAdvertise = myAdvertiseResponse
-
                     myAdvertiseAdapter.setOnItemClickListener(object : OnItemClickListener {
-
                         override fun onItemClick(position: Int) {
-
                             val mDialogView = LayoutInflater.from(requireContext())
                                 .inflate(R.layout.delete_alert_dialog, null)
-
                             alertDialog = AlertDialog.Builder(requireContext()).setView(mDialogView)
-
                             alertDialog.setNegativeButton("HAYIR") { _, _ -> }
-
                             alertDialog.setPositiveButton("EVET") { _, _ ->
-
                                 advertId = myAdvertiseResponse[position].advert_id.toString()
-
                                 viewModel.getDeleteMyAdvertise(advertId)
-
                                 myAdvertiseAdapter.notifyItemRemoved(position)
-
                             }
-
                             alertDialog.show()
                         }
                     })
@@ -90,14 +66,10 @@ class MyAdvertiseFragment : Fragment() {
             }
         }
     }
-
     private fun deleteMyAdvertise(){
-
         viewModel.deleteMyAdvertise.observe(viewLifecycleOwner){deleteMyAdvertiseResponse->
-
             if(deleteMyAdvertiseResponse.isSuccessful){
                 if (deleteMyAdvertiseResponse.body()?.success ==true){
-
                     Toast.makeText(requireContext(), "silindi", Toast.LENGTH_SHORT).show()
                 }
                 else{
@@ -114,20 +86,14 @@ class MyAdvertiseFragment : Fragment() {
             this.activity?.getSharedPreferences("login", AppCompatActivity.MODE_PRIVATE)
         userId = sharedPreferences?.getString("users_id", null)!!
         viewModel.getMyAdvertise(userId)
-
     }
-
     private fun setUpRV() {
-
         myAdvertiseAdapter = MyAdvertiseAdapter()
         binding.myAdvertiseRecyclerView.apply {
-
             layoutManager = LinearLayoutManager(requireContext())
             adapter = myAdvertiseAdapter
-
         }
     }
-
     override fun onDestroy() {
         super.onDestroy()
         _binding = null

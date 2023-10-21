@@ -11,7 +11,6 @@ import javax.inject.Inject
 class AdvertiseDetailRepository @Inject constructor(
     private val apiService: ApiService
 ) {
-
     suspend fun advertiseDetail(
         advert_id: String
     ): Response<AdvertiseDetail> {
@@ -19,14 +18,11 @@ class AdvertiseDetailRepository @Inject constructor(
             advert_id
         )
     }
-
     suspend fun advertiseDetailImage(
         advert_id: String
     ): List<AdvertiseDetailImage> {
         return apiService.advertiseDetailImage(advert_id)
-
     }
-
     suspend fun changeFavoriteText(
         user_id:String,
         advert_id: String
@@ -35,7 +31,6 @@ class AdvertiseDetailRepository @Inject constructor(
             user_id,advert_id
         )
     }
-
     suspend fun favoriteAdvertise(
         user_id:String,
         advert_id: String
@@ -44,6 +39,4 @@ class AdvertiseDetailRepository @Inject constructor(
             user_id,advert_id
         )
     }
-
-
 }

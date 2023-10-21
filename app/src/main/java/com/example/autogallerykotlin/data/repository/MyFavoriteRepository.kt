@@ -13,7 +13,5 @@ class MyFavoriteRepository @Inject constructor(
         user_id: String
     ): List<MyFavoriteAdvertise> {
        return apiService.myFavoriteAdvertise(user_id)
-
     }
-
 }

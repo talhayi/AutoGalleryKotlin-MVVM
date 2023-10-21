@@ -15,17 +15,14 @@ import javax.inject.Inject
 class AddAdvertiseViewModel @Inject constructor(
     private val repository: AddAdvertiseRepository
 ) : ViewModel() {
-
     private val _addAdvertise = MutableLiveData<Response<AddAdvertise>>()
     val addAdvertise: LiveData<Response<AddAdvertise>>
     get() = _addAdvertise
-
 /*
     private val _addAdvertiseResult = MutableLiveData<Response<AddAdvertiseResult>>()
     val addAdvertiseResult: LiveData<Response<AddAdvertiseResult>>
         get() = _addAdvertiseResult
 */
-
     fun addAdvertise(
 
         user_id: String, advert_title: String, explanation: String,
@@ -35,9 +32,7 @@ class AddAdvertiseViewModel @Inject constructor(
         km: String, caseType: String, motorPower: String,
         motorCapacity: String, traction: String, color: String,
         guarantee: String, swap: String, phoneNumber: String
-
     ) = viewModelScope.launch {
-
         _addAdvertise.postValue(repository.addAdvertise(
             user_id,advert_title,explanation,
             price,address,brand,

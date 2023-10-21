@@ -16,15 +16,10 @@ import javax.inject.Inject
 class AdvertisesViewModel @Inject constructor(
     private val repository: AdvertisesRepository
 ) : ViewModel(){
-
     private val _advertises = MutableLiveData<List<Advertises>>()
     val advertises: LiveData<List<Advertises>>
         get() = _advertises
-
-
-    fun getAdvertises() = viewModelScope.launch {
+        fun getAdvertises() = viewModelScope.launch {
         _advertises.postValue(repository.advertises())
     }
-
-
 }

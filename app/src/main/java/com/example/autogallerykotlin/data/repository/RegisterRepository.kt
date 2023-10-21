@@ -6,7 +6,6 @@ import javax.inject.Inject
 class RegisterRepository @Inject constructor(
     private val apiService: ApiService
 ) {
-
     suspend fun register(
         name: String,
         surname: String,

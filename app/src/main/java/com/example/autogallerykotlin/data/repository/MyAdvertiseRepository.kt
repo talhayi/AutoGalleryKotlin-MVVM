@@ -12,10 +12,7 @@ class MyAdvertiseRepository @Inject constructor(
         user_id: String
     ): List<MyAdvertise>? {
        return apiService.myAdvertise(user_id)
-
     }
-
     suspend fun deleteMyAdvertise(advert_id:String)
             =apiService.deleteMyAdvertise(advert_id)
-
 }

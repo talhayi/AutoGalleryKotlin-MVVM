@@ -18,15 +18,12 @@ import javax.inject.Inject
 class MyFavoriteAdvertiseViewModel @Inject constructor(
     private val repository:MyFavoriteRepository
 ) : ViewModel() {
-
     private val _myFavoriteAdvertise = MutableLiveData<List<MyFavoriteAdvertise>>()
     val myFavoriteAdvertise: LiveData<List<MyFavoriteAdvertise>>
         get() = _myFavoriteAdvertise
-
     fun getMyFavoriteAdvertise(
         user_id : String
     )=viewModelScope.launch {
         _myFavoriteAdvertise.postValue(repository.myFavoriteAdvertise(user_id))
     }
-
 }

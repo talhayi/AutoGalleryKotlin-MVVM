@@ -15,16 +15,13 @@ import javax.inject.Inject
 class EmailVerificationViewModel @Inject constructor(
     private val repository: EmailVerificationRepository
 ): ViewModel() {
-
     private val _emailVerification = MutableLiveData<Response<EmailVerification>>()
     val emailVerification: LiveData<Response<EmailVerification>>
         get() = _emailVerification
-
     fun emailVerification(
         email: String,
         code: String
     ) = viewModelScope.launch {
         _emailVerification.postValue(repository.emailVerification(email,code))
-
     }
 }

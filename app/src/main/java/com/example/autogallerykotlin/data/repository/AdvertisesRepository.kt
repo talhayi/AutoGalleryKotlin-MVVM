@@ -9,9 +9,7 @@ import javax.inject.Inject
 class AdvertisesRepository@Inject constructor(
     private val apiService: ApiService
 ) {
-
     suspend fun advertises():List<Advertises>{
         return apiService.advertises()
     }
-
 }
