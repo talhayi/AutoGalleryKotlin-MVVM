@@ -9,14 +9,6 @@ data class InformationProfile(
     val address: String? = null,
 )
 data class UpdateProfile(
-
-    val emailSuccess: Boolean? =null,
-    val email: String? = null,
+    val success: Boolean? =null,
     val result: String? =null,
-    /*
-    val passwordSuccess: Boolean? =null,
-    val phoneNumberSuccess: Boolean? =null,
-    val addressSuccess: Boolean? =null,
-    val phoneNumber: String? = null,
-    val address: String? = null,*/
 )

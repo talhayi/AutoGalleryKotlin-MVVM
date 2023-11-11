@@ -118,7 +118,7 @@ interface ApiService {
 
     @FormUrlEncoded
     @POST("updateProfileEmail.php")
-    suspend fun updateProfile(
+    suspend fun updateProfileEmail(
         @Field("user_id") user_id: String?,
         @Field("email") email: String?,
         /*@Field("password") password: String?,

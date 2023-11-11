@@ -14,7 +14,7 @@ class ProfileRepository @Inject constructor(
     ): Response<InformationProfile> {
         return apiService.informationProfile(user_id)
     }
-    suspend fun updateProfile(
+    suspend fun updateProfileEmail(
         user_id: String,
         email: String,
       /*  password: String,
@@ -24,7 +24,7 @@ class ProfileRepository @Inject constructor(
         district: String,
         neighborhood: String,*/
     ): Response<UpdateProfile> {
-        return apiService.updateProfile(
+        return apiService.updateProfileEmail(
             user_id,
             email,
           /*  password,
