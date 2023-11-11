@@ -27,6 +27,7 @@ class LoginActivity : AppCompatActivity() {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
+
         viewModel.login.observe(this) { loginResponse ->
             if (loginResponse.isSuccessful) {
                 if (loginResponse.body()?.id != null && loginResponse.body()?.email != null) {

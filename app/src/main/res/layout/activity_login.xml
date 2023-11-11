@@ -74,6 +74,8 @@
             android:drawableRight="@drawable/ic_email"
             android:ems="10"
             android:hint="Email"
+            android:textColor="@color/black"
+            android:textColorHint="@color/text_color2"
             android:inputType="textEmailAddress"
             android:padding="17dp"
             tools:ignore="HardcodedText" />
@@ -84,6 +86,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:background="@drawable/background_edittext"
+            android:textColorHint="@color/text_color2"
+            android:textColor="@color/black"
             android:drawableRight="@drawable/ic_lock"
             android:ems="10"
             android:hint="Şifre"

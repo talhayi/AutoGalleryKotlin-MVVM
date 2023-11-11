@@ -46,6 +46,8 @@
         android:layout_height="60dp"
         android:layout_margin="24dp"
         android:background="@drawable/background_edittext"
+        android:textColorHint="@color/text_color2"
+        android:textColor="@color/black"
         android:drawableRight="@drawable/ic_verified_user"
         android:ems="10"
         android:hint="Code"

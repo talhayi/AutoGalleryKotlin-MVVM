@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    app:cardBackgroundColor="@color/white"
     android:layout_margin="1dp"
     android:elevation="10dp"
     app:cardCornerRadius="10dp">
@@ -59,6 +60,7 @@
                     android:layout_marginBottom="4dp"
                     android:layout_weight="5"
                     android:text="Address"
+                    android:textColor="@color/black"
                     android:textSize="12sp"
                     tools:ignore="HardcodedText"/>
 

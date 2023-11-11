@@ -186,6 +186,7 @@
                             <com.google.android.material.textfield.TextInputLayout
                                 android:id="@+id/emailContainer"
                                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                                android:textColorHint="@color/text_color2"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content">
 
@@ -197,6 +198,7 @@
                                     android:ems="10"
                                     android:hint="Email"
                                     android:padding="17dp"
+                                    android:textColor="@color/black"
                                     android:textColorHint="@color/black"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
@@ -237,6 +239,7 @@
                             <com.google.android.material.textfield.TextInputLayout
                                 android:id="@+id/passwordContainer"
                                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                                android:textColorHint="@color/text_color2"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content">
 
@@ -247,6 +250,7 @@
                                     android:background="@drawable/background_textinput"
                                     android:ems="10"
                                     android:hint="Şifre"
+                                    android:textColor="@color/black"
                                     android:padding="17dp"
                                     android:textColorHint="@color/black"
                                     app:layout_constraintEnd_toEndOf="parent"
@@ -258,6 +262,7 @@
                             <com.google.android.material.textfield.TextInputLayout
                                 android:id="@+id/passwordAgainContainer"
                                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                                android:textColorHint="@color/text_color2"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content">
 
@@ -269,6 +274,7 @@
                                     android:background="@drawable/background_textinput"
                                     android:ems="10"
                                     android:hint="Şifre Tekrar"
+                                    android:textColor="@color/black"
                                     android:padding="17dp"
                                     android:textColorHint="@color/black"
                                     tools:ignore="HardcodedText" />
@@ -309,6 +315,8 @@
                                 android:background="@drawable/background_textinput"
                                 android:ems="10"
                                 android:hint="_(___) ___ __ __"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/text_color2"
                                 android:inputType="phone"
                                 android:padding="17dp"
                                 app:mask="#(###) ### ## ##"
@@ -335,6 +343,7 @@
                         <com.google.android.material.textfield.TextInputLayout
                             android:id="@+id/updateCityContainer"
                             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                            android:textColorHint="@color/text_color2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="24dp"
@@ -349,6 +358,7 @@
                                 android:background="@drawable/background_textinput"
                                 android:ems="10"
                                 android:hint="Şehir"
+                                android:textColor="@color/black"
                                 android:padding="17dp"
                                 android:textColorHint="@color/black"
                                 tools:ignore="HardcodedText" />
@@ -357,6 +367,7 @@
                         <com.google.android.material.textfield.TextInputLayout
                             android:id="@+id/updateDistrictContainer"
                             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                            android:textColorHint="@color/text_color2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="24dp"
@@ -371,6 +382,7 @@
                                 android:background="@drawable/background_textinput"
                                 android:ems="10"
                                 android:hint="İlçe"
+                                android:textColor="@color/black"
                                 android:padding="17dp"
                                 android:textColorHint="@color/black"
                                 tools:ignore="HardcodedText" />
@@ -380,6 +392,7 @@
                         <com.google.android.material.textfield.TextInputLayout
                             android:id="@+id/updateNeighborhoodContainer"
                             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                            android:textColorHint="@color/text_color2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="24dp"
@@ -394,6 +407,7 @@
                                 android:background="@drawable/background_textinput"
                                 android:ems="10"
                                 android:hint="Mahalle"
+                                android:textColor="@color/black"
                                 android:padding="17dp"
                                 android:textColorHint="@color/black"
                                 tools:ignore="HardcodedText" />

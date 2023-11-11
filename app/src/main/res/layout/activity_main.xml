@@ -29,13 +29,15 @@
         app:tint="@color/second_color"
         tools:ignore="ContentDescription" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
+        <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:menu="@menu/bottom_nav_menu"
         app:labelVisibilityMode="labeled"
         android:background="@android:color/transparent"
+        app:itemTextColor="@color/bottom_nav_color"
+        app:itemIconTint="@color/bottom_nav_color"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
         android:layout_gravity="bottom"/>
