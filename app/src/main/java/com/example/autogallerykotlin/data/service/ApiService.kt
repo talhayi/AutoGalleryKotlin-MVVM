@@ -136,6 +136,13 @@ interface ApiService {
         @Field("password") password: String?,
         @Field("againPassword") againPassword: String?,
     ): Response<UpdateProfile>
+
+    @FormUrlEncoded
+    @POST("updateProfilePhone.php")
+    suspend fun updateProfilePhone(
+        @Field("user_id") user_id: String?,
+        @Field("phoneNumber") phoneNumber: String?,
+    ): Response<UpdateProfile>
 }
 
 

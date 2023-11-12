@@ -48,4 +48,14 @@ class ProfileRepository @Inject constructor(
 
             )
     }
+
+    suspend fun updateProfilePhone(
+        user_id: String,
+        phoneNumber: String,
+    ): Response<UpdateProfile> {
+        return apiService.updateProfilePhone(
+            user_id,
+            phoneNumber
+            )
+    }
 }

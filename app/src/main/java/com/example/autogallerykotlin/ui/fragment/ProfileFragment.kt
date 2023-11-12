@@ -93,7 +93,7 @@ class ProfileFragment : Fragment() {
         viewModel.updateProfileEmail.observe(viewLifecycleOwner) { updateProfileEmail ->
             if (updateProfileEmail.isSuccessful) {
                 if (updateProfileEmail.body()?.success == true) {
-                    viewModel.getInformationProfile(userId)
+                    //viewModel.getInformationProfile(userId)
                     Toast.makeText(
                         requireContext(),
                         updateProfileEmail.body()?.result,
@@ -112,7 +112,6 @@ class ProfileFragment : Fragment() {
         viewModel.updateProfilePassword.observe(viewLifecycleOwner) { updateProfilePassword ->
             if (updateProfilePassword.isSuccessful) {
                 if (updateProfilePassword.body()?.success == true) {
-                    viewModel.getInformationProfile(userId)
                     Toast.makeText(
                         requireContext(),
                         updateProfilePassword.body()?.result,
@@ -127,8 +126,28 @@ class ProfileFragment : Fragment() {
                 }
             }
         }
+
+        viewModel.updateProfilePhone.observe(viewLifecycleOwner) { updateProfilePhone ->
+            if (updateProfilePhone.isSuccessful) {
+                if (updateProfilePhone.body()?.success == true) {
+
+                    Toast.makeText(
+                        requireContext(),
+                        updateProfilePhone.body()?.result,
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else {
+                    Toast.makeText(
+                        requireContext(),
+                        updateProfilePhone.body()?.result,
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+        }
     }
     private fun updateProfileRequest() {
+        //todo güncelleme isteği atıldığında profil ekranındaki kullanıcıya ait bilgiler de güncellenmeli
         binding.updateProfileButton.setOnClickListener {
             binding.updateEmailButton.visibility = View.VISIBLE
             binding.updatePasswordButton.visibility = View.VISIBLE
@@ -170,6 +189,10 @@ class ProfileFragment : Fragment() {
                 password,
                 againPassword,
                 )
+            viewModel.getUpdateProfilePhone(
+                userId,
+                phoneNumber,
+            )
         }
     }
 
