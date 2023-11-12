@@ -110,7 +110,7 @@ class ProfileFragment : Fragment() {
         viewModel.updateProfileEmail.observe(viewLifecycleOwner) { updateProfileEmail ->
             if (updateProfileEmail.isSuccessful && isUpdateTriggered) {
                 if (updateProfileEmail.body()?.success == true) {
-                    //viewModel.getInformationProfile(userId)
+                    viewModel.getInformationProfile(userId)
                     Toast.makeText(
                         requireContext(),
                         updateProfileEmail.body()?.result,
@@ -147,6 +147,7 @@ class ProfileFragment : Fragment() {
         viewModel.updateProfilePhone.observe(viewLifecycleOwner) { updateProfilePhone ->
             if (updateProfilePhone.isSuccessful && isUpdateTriggered) {
                 if (updateProfilePhone.body()?.success == true) {
+                    viewModel.getInformationProfile(userId)
                     Toast.makeText(
                         requireContext(),
                         updateProfilePhone.body()?.result,
@@ -165,6 +166,7 @@ class ProfileFragment : Fragment() {
         viewModel.updateProfileAddress.observe(viewLifecycleOwner) { updateProfileAddress ->
             if (updateProfileAddress.isSuccessful && isUpdateTriggered) {
                 if (updateProfileAddress.body()?.success == true) {
+                    viewModel.getInformationProfile(userId)
                     Toast.makeText(
                         requireContext(),
                         updateProfileAddress.body()?.result,
