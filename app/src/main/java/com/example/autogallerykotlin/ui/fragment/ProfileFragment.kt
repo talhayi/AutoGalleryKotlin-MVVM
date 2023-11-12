@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
 import com.example.autogallerykotlin.databinding.FragmentProfileBinding
+import com.example.autogallerykotlin.util.UpdateProfileType
 import com.example.autogallerykotlin.viewmodel.ProfileViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -21,6 +22,8 @@ class ProfileFragment : Fragment() {
     private val binding get() = _binding!!
     private val viewModel: ProfileViewModel by viewModels()
     private var userId = ""
+    private var selectedUpdateProfileType: UpdateProfileType? = null
+    private var isUpdateTriggered = false
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -35,7 +38,14 @@ class ProfileFragment : Fragment() {
         informationProfile()
         updateProfileRequest()
         updateProfile()
+        onButtonClickListener()
+
+    }
+
+    private fun onButtonClickListener(){
         binding.updateEmailButton.setOnClickListener {
+            selectedUpdateProfileType = UpdateProfileType.EMAIL
+            isUpdateTriggered = true
             binding.updatePasswordButton.visibility = View.GONE
             binding.updatePhoneNumberButton.visibility = View.GONE
             binding.updateAddressButton.visibility = View.GONE
@@ -45,6 +55,8 @@ class ProfileFragment : Fragment() {
         }
 
         binding.updatePasswordButton.setOnClickListener {
+            isUpdateTriggered = true
+            selectedUpdateProfileType = UpdateProfileType.PASSWORD
             binding.updateEmailButton.visibility = View.GONE
             binding.updatePhoneNumberButton.visibility = View.GONE
             binding.updateAddressButton.visibility = View.GONE
@@ -54,6 +66,8 @@ class ProfileFragment : Fragment() {
         }
 
         binding.updatePhoneNumberButton.setOnClickListener {
+            isUpdateTriggered = true
+            selectedUpdateProfileType = UpdateProfileType.PHONE
             binding.updatePasswordButton.visibility = View.GONE
             binding.updateEmailButton.visibility = View.GONE
             binding.updateAddressButton.visibility = View.GONE
@@ -63,6 +77,8 @@ class ProfileFragment : Fragment() {
         }
 
         binding.updateAddressButton.setOnClickListener {
+            isUpdateTriggered = true
+            selectedUpdateProfileType = UpdateProfileType.ADDRESS
             binding.updatePasswordButton.visibility = View.GONE
             binding.updateEmailButton.visibility = View.GONE
             binding.updatePhoneNumberButton.visibility = View.GONE
@@ -86,12 +102,13 @@ class ProfileFragment : Fragment() {
             binding.updateCityContainer.visibility = View.GONE
             binding.updateDistrictContainer.visibility = View.GONE
             binding.updateNeighborhoodContainer.visibility = View.GONE
+            clearText()
         }
     }
 
     private fun updateProfile() {
         viewModel.updateProfileEmail.observe(viewLifecycleOwner) { updateProfileEmail ->
-            if (updateProfileEmail.isSuccessful) {
+            if (updateProfileEmail.isSuccessful && isUpdateTriggered) {
                 if (updateProfileEmail.body()?.success == true) {
                     //viewModel.getInformationProfile(userId)
                     Toast.makeText(
@@ -110,7 +127,7 @@ class ProfileFragment : Fragment() {
         }
 
         viewModel.updateProfilePassword.observe(viewLifecycleOwner) { updateProfilePassword ->
-            if (updateProfilePassword.isSuccessful) {
+            if (updateProfilePassword.isSuccessful && isUpdateTriggered) {
                 if (updateProfilePassword.body()?.success == true) {
                     Toast.makeText(
                         requireContext(),
@@ -128,9 +145,8 @@ class ProfileFragment : Fragment() {
         }
 
         viewModel.updateProfilePhone.observe(viewLifecycleOwner) { updateProfilePhone ->
-            if (updateProfilePhone.isSuccessful) {
+            if (updateProfilePhone.isSuccessful && isUpdateTriggered) {
                 if (updateProfilePhone.body()?.success == true) {
-
                     Toast.makeText(
                         requireContext(),
                         updateProfilePhone.body()?.result,
@@ -140,6 +156,25 @@ class ProfileFragment : Fragment() {
                     Toast.makeText(
                         requireContext(),
                         updateProfilePhone.body()?.result,
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+        }
+
+        viewModel.updateProfileAddress.observe(viewLifecycleOwner) { updateProfileAddress ->
+            if (updateProfileAddress.isSuccessful && isUpdateTriggered) {
+                if (updateProfileAddress.body()?.success == true) {
+
+                    Toast.makeText(
+                        requireContext(),
+                        updateProfileAddress.body()?.result,
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else {
+                    Toast.makeText(
+                        requireContext(),
+                        updateProfileAddress.body()?.result,
                         Toast.LENGTH_SHORT
                     ).show()
                 }
@@ -173,26 +208,28 @@ class ProfileFragment : Fragment() {
             val city = binding.updateCityET.text.toString().trim()
             val district = binding.updateDistrictET.text.toString().trim()
             val neighborhood = binding.updateNeighborhoodET.text.toString().trim()
-            viewModel.getUpdateProfileEmail(
-                userId,
-                email,
-             /*   password,
-                againPassword,
-                phoneNumber,
-                city,
-                district,
-                neighborhood*/
-            )
+            when (selectedUpdateProfileType) {
+                UpdateProfileType.EMAIL -> {
+                    viewModel.getUpdateProfileEmail(userId, email)
+                }
 
-            viewModel.getUpdateProfilePassword(
-                userId,
-                password,
-                againPassword,
-                )
-            viewModel.getUpdateProfilePhone(
-                userId,
-                phoneNumber,
-            )
+                UpdateProfileType.PASSWORD -> {
+                    viewModel.getUpdateProfilePassword(userId, password, againPassword)
+                }
+
+                UpdateProfileType.PHONE -> {
+                    viewModel.getUpdateProfilePhone(userId, phoneNumber)
+                }
+
+                UpdateProfileType.ADDRESS -> {
+                    viewModel.getUpdateProfileAddress(userId, city, district, neighborhood)
+                }
+
+                else -> {
+                    // Nothing
+                }
+            }
+            clearText()
         }
     }
 
@@ -213,5 +250,14 @@ class ProfileFragment : Fragment() {
             this.activity?.getSharedPreferences("login", AppCompatActivity.MODE_PRIVATE)
         userId = sharedPreferences?.getString("users_id", null)!!
         viewModel.getInformationProfile(userId)
+    }
+    private fun clearText(){
+        binding.updateEmailET.text!!.clear()
+        binding.updatePasswordET.text!!.clear()
+        binding.updatePasswordAgainET.text!!.clear()
+        binding.phoneNumberAlertDialogEditText.text!!.clear()
+        binding.updateCityET.text!!.clear()
+        binding.updateDistrictET.text!!.clear()
+        binding.updateNeighborhoodET.text!!.clear()
     }
 }

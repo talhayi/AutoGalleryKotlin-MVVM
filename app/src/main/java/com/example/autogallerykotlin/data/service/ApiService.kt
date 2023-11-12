@@ -121,12 +121,6 @@ interface ApiService {
     suspend fun updateProfileEmail(
         @Field("user_id") user_id: String?,
         @Field("email") email: String?,
-        /*@Field("password") password: String?,
-        @Field("againPassword") againPassword: String?,
-        @Field("phoneNumber") phoneNumber: String?,
-        @Field("city") city: String?,
-        @Field("district") district: String?,
-        @Field("neighborhood") neighborhood: String?*/
     ): Response<UpdateProfile>
 
     @FormUrlEncoded
@@ -142,6 +136,15 @@ interface ApiService {
     suspend fun updateProfilePhone(
         @Field("user_id") user_id: String?,
         @Field("phoneNumber") phoneNumber: String?,
+    ): Response<UpdateProfile>
+
+    @FormUrlEncoded
+    @POST("updateProfileAddress.php")
+    suspend fun updateProfileAddress(
+        @Field("user_id") user_id: String?,
+        @Field("city") city: String?,
+        @Field("district") district: String?,
+        @Field("neighborhood") neighborhood: String?
     ): Response<UpdateProfile>
 }
 

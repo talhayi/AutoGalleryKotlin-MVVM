@@ -30,6 +30,10 @@ class ProfileViewModel@Inject constructor(
     private val _updateProfilePhone = MutableLiveData<Response<UpdateProfile>>()
     val updateProfilePhone: LiveData<Response<UpdateProfile>>
         get() = _updateProfilePhone
+
+    private val _updateProfileAddress = MutableLiveData<Response<UpdateProfile>>()
+    val updateProfileAddress: LiveData<Response<UpdateProfile>>
+        get() = _updateProfileAddress
     fun getInformationProfile(
         user_id : String
     )=viewModelScope.launch {
@@ -38,22 +42,10 @@ class ProfileViewModel@Inject constructor(
     fun getUpdateProfileEmail(
         user_id : String,
         email : String,
-       /* password : String,
-        againPassword : String,
-        phoneNumber : String,
-        city : String,
-        district : String,
-        neighborhood : String,*/
     )=viewModelScope.launch {
         _updateProfileEmail.postValue(repository.updateProfileEmail(
             user_id,
             email,
-           /* password,
-            againPassword,
-            phoneNumber,
-            city,
-            district,
-            neighborhood,*/
         ))
     }
 
@@ -79,6 +71,22 @@ class ProfileViewModel@Inject constructor(
             repository.updateProfilePhone(
                 user_id,
                 phoneNumber
+            )
+        )
+    }
+
+    fun getUpdateProfileAddress(
+        user_id: String,
+        city : String,
+        district : String,
+        neighborhood : String,
+    ) = viewModelScope.launch {
+        _updateProfileAddress.postValue(
+            repository.updateProfileAddress(
+                user_id,
+                city,
+                district,
+                neighborhood,
             )
         )
     }
