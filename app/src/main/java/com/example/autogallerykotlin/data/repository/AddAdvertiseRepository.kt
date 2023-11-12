@@ -7,7 +7,7 @@ class AddAdvertiseRepository @Inject constructor(
     private val apiService: ApiService
 ) {
     suspend fun addAdvertise(
-        user_id: String, advert_title: String, explanation: String,
+        userId: String, advertTitle: String, explanation: String,
         price: String, address: String, brand: String,
         serial: String, model: String, year: String,
         fuel: String, gear: String, vehicleStatus: String,
@@ -16,7 +16,7 @@ class AddAdvertiseRepository @Inject constructor(
         guarantee: String, swap: String, phoneNumber: String
 
     ) = apiService.addAdvertise(
-        user_id,advert_title,explanation,
+        userId,advertTitle,explanation,
         price,address,brand,
         serial,model,year,
         fuel,gear,vehicleStatus,

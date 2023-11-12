@@ -23,13 +23,13 @@ class MyAdvertiseViewModel @Inject constructor(
     val deleteMyAdvertise: LiveData<Response<DeleteMyAdvertise>>
         get() = _deleteMyAdvertise
     fun getMyAdvertise(
-        user_id : String
+        userId : String
     )=viewModelScope.launch {
-        _myAdvertise.postValue(repository.myAdvertise(user_id))
+        _myAdvertise.postValue(repository.myAdvertise(userId))
     }
     fun getDeleteMyAdvertise(
-        advert_id: String
+        advertId: String
     )=viewModelScope.launch {
-        _deleteMyAdvertise.postValue(repository.deleteMyAdvertise(advert_id))
+        _deleteMyAdvertise.postValue(repository.deleteMyAdvertise(advertId))
     }
 }

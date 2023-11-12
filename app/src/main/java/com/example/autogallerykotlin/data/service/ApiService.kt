@@ -52,8 +52,8 @@ interface ApiService {
     @FormUrlEncoded
     @POST("advertise.php")
     suspend fun addAdvertise(
-        @Field("user_id") user_id: String,
-        @Field("advert_title") advert_title: String,
+        @Field("user_id") userId: String,
+        @Field("advert_title") advertTitle: String,
         @Field("explanation") explanation: String,
         @Field("price") price: String,
         @Field("address") address: String,
@@ -78,55 +78,55 @@ interface ApiService {
     @FormUrlEncoded
     @POST("addAdvertiseImage.php")
     suspend fun addAdvertiseImage(
-        @Field("user_id") user_id: String?,
-        @Field("advert_id") advert_id: String?,
+        @Field("user_id") userId: String?,
+        @Field("advert_id") advertId: String?,
         @Field("image") image: String?
     ): Response<AddAdvertiseImage>
 
     @GET("myAdvertise.php")
-    suspend fun myAdvertise(@Query("user_id") user_id: String?): List<MyAdvertise>?
+    suspend fun myAdvertise(@Query("user_id") userId: String?): List<MyAdvertise>?
 
     @GET("deleteMyAdvertise.php")
-    suspend fun deleteMyAdvertise(@Query("advert_id") advert_id: String?): Response<DeleteMyAdvertise>
+    suspend fun deleteMyAdvertise(@Query("advert_id") advertId: String?): Response<DeleteMyAdvertise>
 
     @GET("advertises.php")
     suspend fun advertises(): List<Advertises>
 
     @GET("advertiseDetail.php")
-    suspend fun advertiseDetail(@Query("advert_id") advert_id: String?): Response<AdvertiseDetail>
+    suspend fun advertiseDetail(@Query("advert_id") advertId: String?): Response<AdvertiseDetail>
 
     @GET("advertiseDetailImage.php")
-    suspend fun advertiseDetailImage(@Query("advert_id") advert_id: String?): List<AdvertiseDetailImage>
+    suspend fun advertiseDetailImage(@Query("advert_id") advertId: String?): List<AdvertiseDetailImage>
 
     @GET("changeFavoriteText.php")
     suspend fun changeFavoriteText(
-        @Query("user_id") user_id: String?,
-        @Query("advert_id") advert_id: String?
+        @Query("user_id") userId: String?,
+        @Query("advert_id") advertId: String?
     ): Response<ChangeFavoriteText>
 
     @GET("favoriteAdvertise.php")
     suspend fun favoriteAdvertise(
-        @Query("user_id") user_id: String?,
-        @Query("advert_id") advert_id: String?
+        @Query("user_id") userId: String?,
+        @Query("advert_id") advertId: String?
     ): Response<FavoriteAdvertise>
 
     @GET("myFavoriteAdvertise.php")
-    suspend fun myFavoriteAdvertise(@Query("user_id") user_id: String?): List<MyFavoriteAdvertise>
+    suspend fun myFavoriteAdvertise(@Query("user_id") userId: String?): List<MyFavoriteAdvertise>
 
     @GET("informationProfile.php")
-    suspend fun informationProfile(@Query("user_id") user_id: String?): Response<InformationProfile>
+    suspend fun informationProfile(@Query("user_id") userId: String?): Response<InformationProfile>
 
     @FormUrlEncoded
     @POST("updateProfileEmail.php")
     suspend fun updateProfileEmail(
-        @Field("user_id") user_id: String?,
+        @Field("user_id") userId: String?,
         @Field("email") email: String?,
     ): Response<UpdateProfile>
 
     @FormUrlEncoded
     @POST("updateProfilePassword.php")
     suspend fun updateProfilePassword(
-        @Field("user_id") user_id: String?,
+        @Field("user_id") userId: String?,
         @Field("password") password: String?,
         @Field("againPassword") againPassword: String?,
     ): Response<UpdateProfile>
@@ -134,14 +134,14 @@ interface ApiService {
     @FormUrlEncoded
     @POST("updateProfilePhone.php")
     suspend fun updateProfilePhone(
-        @Field("user_id") user_id: String?,
+        @Field("user_id") userId: String?,
         @Field("phoneNumber") phoneNumber: String?,
     ): Response<UpdateProfile>
 
     @FormUrlEncoded
     @POST("updateProfileAddress.php")
     suspend fun updateProfileAddress(
-        @Field("user_id") user_id: String?,
+        @Field("user_id") userId: String?,
         @Field("city") city: String?,
         @Field("district") district: String?,
         @Field("neighborhood") neighborhood: String?

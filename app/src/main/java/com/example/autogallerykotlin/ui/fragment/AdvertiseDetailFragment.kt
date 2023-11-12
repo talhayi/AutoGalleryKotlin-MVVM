@@ -8,18 +8,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
-import androidx.viewpager2.widget.ViewPager2.ORIENTATION_HORIZONTAL
 import com.example.autogallerykotlin.adapter.AdvertiseDetailImageAdapter
 import com.example.autogallerykotlin.databinding.FragmentAdvertiseDetailBinding
 import com.example.autogallerykotlin.viewmodel.AdvertiseDetailViewModel
-import com.example.autogallerykotlin.viewmodel.AdvertisesViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -125,7 +119,7 @@ class AdvertiseDetailFragment : Fragment() {
                 if (advertiseDetail != null) {
                     binding.apply {
 
-                        advertiseDetailTitleTV.text = advertiseDetail.body()?.advert_title.toString()
+                        advertiseDetailTitleTV.text = advertiseDetail.body()?.advertTitle.toString()
                         advertiseDetailNameTV.text = "$name $surname"
                         advertiseDetailAddressTV.text = advertiseDetail.body()?.address.toString()
                         advertiseDetailPriceTV.text = advertiseDetail.body()?.price.toString()

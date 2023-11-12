@@ -27,7 +27,7 @@ class MyFavoriteAdvertiseAdapter : RecyclerView.Adapter<MyFavoriteAdvertiseAdapt
     private val diffCallBack = object : DiffUtil.ItemCallback<MyFavoriteAdvertise>(){
 
         override fun areItemsTheSame(oldItem: MyFavoriteAdvertise, newItem: MyFavoriteAdvertise): Boolean {
-            return oldItem.advert_id == newItem.advert_id
+            return oldItem.advertId == newItem.advertId
         }
 
         override fun areContentsTheSame(oldItem: MyFavoriteAdvertise, newItem: MyFavoriteAdvertise): Boolean {
@@ -49,7 +49,7 @@ class MyFavoriteAdvertiseAdapter : RecyclerView.Adapter<MyFavoriteAdvertiseAdapt
     override fun onBindViewHolder(holder: MyFavoriteAdvertiseViewHolder, position: Int) {
         val currentMyFavoriteAdvertise = myFavoriteAdvertise[position]
         holder.binding.apply {
-            myFavoriteAdvertiseRowAdvertTitleTextView.text = currentMyFavoriteAdvertise.advert_title
+            myFavoriteAdvertiseRowAdvertTitleTextView.text = currentMyFavoriteAdvertise.advertTitle
             myFavoriteAdvertiseRowAddressTextView.text = currentMyFavoriteAdvertise.address
             myFavoriteAdvertiseRowPriceTextView.text = currentMyFavoriteAdvertise.price
             myFavoriteAdvertiseRowImageView.load("http://yazilimgunlukleri.com/autogallerykotlin/"+currentMyFavoriteAdvertise.image){

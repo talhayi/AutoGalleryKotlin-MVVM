@@ -29,7 +29,7 @@ class AdvertisesAdapter : RecyclerView.Adapter<AdvertisesAdapter.AdvertsViewHold
 
     private val diffCallBack = object : DiffUtil.ItemCallback<Advertises>() {
         override fun areItemsTheSame(oldItem: Advertises, newItem: Advertises): Boolean {
-            return oldItem.advert_id == newItem.advert_id
+            return oldItem.advertId == newItem.advertId
         }
 
         override fun areContentsTheSame(oldItem: Advertises, newItem: Advertises): Boolean {
@@ -53,7 +53,7 @@ class AdvertisesAdapter : RecyclerView.Adapter<AdvertisesAdapter.AdvertsViewHold
     override fun onBindViewHolder(holder: AdvertsViewHolder, position: Int) {
         val currentAdvertises = advertises[position]
         holder.binding.apply {
-            advertisesRowAdvertTitleTextView.text = currentAdvertises.advert_title
+            advertisesRowAdvertTitleTextView.text = currentAdvertises.advertTitle
             advertisesRowAddressTextView.text = currentAdvertises.address
             advertisesRowPriceTextView.text = currentAdvertises.price
 

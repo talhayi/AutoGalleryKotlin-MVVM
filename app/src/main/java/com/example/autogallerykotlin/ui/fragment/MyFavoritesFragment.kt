@@ -10,12 +10,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.autogallerykotlin.R
 import com.example.autogallerykotlin.adapter.MyFavoriteAdvertiseAdapter
 import com.example.autogallerykotlin.adapter.OnItemClickListener
-import com.example.autogallerykotlin.databinding.FragmentMyAdvertiseBinding
 import com.example.autogallerykotlin.databinding.FragmentMyFavoritesBinding
-import com.example.autogallerykotlin.viewmodel.AdvertiseDetailViewModel
 import com.example.autogallerykotlin.viewmodel.MyFavoriteAdvertiseViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -50,7 +47,7 @@ class MyFavoritesFragment : Fragment() {
                     myFavoriteAdvertiseAdapter.myFavoriteAdvertise = myFavoriteAdvertiseResponse
                     myFavoriteAdvertiseAdapter.setOnItemClickListener(object : OnItemClickListener {
                         override fun onItemClick(position: Int) {
-                            advertId = myFavoriteAdvertiseResponse[position].advert_id.toString()
+                            advertId = myFavoriteAdvertiseResponse[position].advertId.toString()
                             findNavController().navigate(MyFavoritesFragmentDirections.actionMyFavoritesFragmentToAdvertiseDetailFragment(advertId))
                         }
                     })

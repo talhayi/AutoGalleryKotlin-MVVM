@@ -13,11 +13,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.autogallerykotlin.R
 import com.example.autogallerykotlin.adapter.MyAdvertiseAdapter
 import com.example.autogallerykotlin.adapter.OnItemClickListener
-import com.example.autogallerykotlin.data.model.MyAdvertise
 import com.example.autogallerykotlin.databinding.FragmentMyAdvertiseBinding
 import com.example.autogallerykotlin.viewmodel.MyAdvertiseViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import okhttp3.internal.notifyAll
 
 @AndroidEntryPoint
 class MyAdvertiseFragment : Fragment() {
@@ -55,7 +53,7 @@ class MyAdvertiseFragment : Fragment() {
                             alertDialog = AlertDialog.Builder(requireContext()).setView(mDialogView)
                             alertDialog.setNegativeButton("HAYIR") { _, _ -> }
                             alertDialog.setPositiveButton("EVET") { _, _ ->
-                                advertId = myAdvertiseResponse[position].advert_id.toString()
+                                advertId = myAdvertiseResponse[position].advertId.toString()
                                 viewModel.getDeleteMyAdvertise(advertId)
                                 myAdvertiseAdapter.notifyItemRemoved(position)
                             }

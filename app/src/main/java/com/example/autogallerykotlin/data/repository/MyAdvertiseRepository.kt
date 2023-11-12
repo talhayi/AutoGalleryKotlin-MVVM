@@ -9,10 +9,10 @@ class MyAdvertiseRepository @Inject constructor(
     private val apiService: ApiService
 ) {
     suspend fun myAdvertise(
-        user_id: String
+        userId: String
     ): List<MyAdvertise>? {
-       return apiService.myAdvertise(user_id)
+       return apiService.myAdvertise(userId)
     }
-    suspend fun deleteMyAdvertise(advert_id:String)
-            =apiService.deleteMyAdvertise(advert_id)
+    suspend fun deleteMyAdvertise(advertId:String)
+            =apiService.deleteMyAdvertise(advertId)
 }

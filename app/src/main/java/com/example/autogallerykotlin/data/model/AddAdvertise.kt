@@ -1,15 +1,19 @@
 package com.example.autogallerykotlin.data.model
 
 import android.os.Parcelable
+import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class AddAdvertise(
-    val user_id: String? = null,
-    val advert_id: String? = null,
+    @SerializedName("user_id")
+    val userId: String? = null,
+    @SerializedName("advert_id")
+    val advertId: String? = null,
     val success: Boolean? = null,
     val result: String? = null,
-    val advert_title: String? = null,
+    @SerializedName("advert_title")
+    val advertTitle: String? = null,
     val explanation: String? = null,
     val price: String? = null,
     val address: String? = null,

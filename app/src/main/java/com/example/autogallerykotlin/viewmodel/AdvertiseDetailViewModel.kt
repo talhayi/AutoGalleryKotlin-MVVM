@@ -32,29 +32,29 @@ class AdvertiseDetailViewModel @Inject constructor(
     val favoriteAdvertise: LiveData<Response<FavoriteAdvertise>>
         get() = _favoriteAdvertise
     fun getAdvertiseDetail(
-        advert_id: String
+        advertId: String
     ) = viewModelScope.launch {
         _advertiseDetail.postValue(
             repository.advertiseDetail(
-                advert_id
+                advertId
             )
         )
     }
     fun getAdvertiseDetailImage(
-        advert_id: String
+        advertId: String
     ) = viewModelScope.launch {
-        _advertiseDetailImage.postValue(repository.advertiseDetailImage(advert_id))
+        _advertiseDetailImage.postValue(repository.advertiseDetailImage(advertId))
     }
     fun getChangeFavoriteText(
-        user_id: String,
-        advert_id: String
+        userId: String,
+        advertId: String
     ) = viewModelScope.launch {
-        _changeFavoriteText.postValue(repository.changeFavoriteText(user_id, advert_id))
+        _changeFavoriteText.postValue(repository.changeFavoriteText(userId, advertId))
     }
     fun getFavoriteAdvertise(
-        user_id: String,
-        advert_id: String
+        userId: String,
+        advertId: String
     ) = viewModelScope.launch {
-        _favoriteAdvertise.postValue(repository.favoriteAdvertise(user_id, advert_id))
+        _favoriteAdvertise.postValue(repository.favoriteAdvertise(userId, advertId))
     }
 }

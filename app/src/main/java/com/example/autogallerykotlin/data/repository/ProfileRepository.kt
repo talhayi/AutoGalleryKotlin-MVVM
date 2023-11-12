@@ -10,27 +10,27 @@ class ProfileRepository @Inject constructor(
     private val apiService: ApiService
 ) {
     suspend fun informationProfile(
-        user_id: String
+        userId: String
     ): Response<InformationProfile> {
-        return apiService.informationProfile(user_id)
+        return apiService.informationProfile(userId)
     }
     suspend fun updateProfileEmail(
-        user_id: String,
+        userId: String,
         email: String,
     ): Response<UpdateProfile> {
         return apiService.updateProfileEmail(
-            user_id,
+            userId,
             email,
         )
     }
 
     suspend fun updateProfilePassword(
-        user_id: String,
+        userId: String,
         password: String,
         againPassword: String,
         ): Response<UpdateProfile> {
         return apiService.updateProfilePassword(
-            user_id,
+            userId,
             password,
             againPassword,
 
@@ -38,23 +38,23 @@ class ProfileRepository @Inject constructor(
     }
 
     suspend fun updateProfilePhone(
-        user_id: String,
+        userId: String,
         phoneNumber: String,
     ): Response<UpdateProfile> {
         return apiService.updateProfilePhone(
-            user_id,
+            userId,
             phoneNumber
             )
     }
 
     suspend fun updateProfileAddress(
-        user_id: String,
+        userId: String,
         city: String,
         district: String,
         neighborhood: String,
     ): Response<UpdateProfile> {
         return apiService.updateProfileAddress(
-            user_id,
+            userId,
             city,
             district,
             neighborhood,

@@ -47,7 +47,7 @@ class AdvertisesFragment : Fragment() {
                 advertisesAdapter.setOnItemClickListener(object : OnItemClickListener {
                     override fun onItemClick(position: Int) {
                         //todo: ilandetaya gidilecek
-                        advertId = advertisesResponse[position].advert_id.toString()
+                        advertId = advertisesResponse[position].advertId.toString()
 
                         findNavController().navigate(AdvertisesFragmentDirections.actionAdvertsFragmentToAdvertiseDetailFragment(advertId))
                        // Toast.makeText(requireContext(), "$position tıklandı", Toast.LENGTH_SHORT).show()

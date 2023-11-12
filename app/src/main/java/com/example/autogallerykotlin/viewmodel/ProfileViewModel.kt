@@ -19,6 +19,7 @@ class ProfileViewModel@Inject constructor(
     private val _informationProfile = MutableLiveData<Response<InformationProfile>>()
     val informationProfile: LiveData<Response<InformationProfile>>
         get() = _informationProfile
+
     private val _updateProfileEmail = MutableLiveData<Response<UpdateProfile>>()
     val updateProfileEmail: LiveData<Response<UpdateProfile>>
         get() = _updateProfileEmail
@@ -35,28 +36,28 @@ class ProfileViewModel@Inject constructor(
     val updateProfileAddress: LiveData<Response<UpdateProfile>>
         get() = _updateProfileAddress
     fun getInformationProfile(
-        user_id : String
+        userId : String
     )=viewModelScope.launch {
-        _informationProfile.postValue(repository.informationProfile(user_id))
+        _informationProfile.postValue(repository.informationProfile(userId))
     }
     fun getUpdateProfileEmail(
-        user_id : String,
+        userId : String,
         email : String,
     )=viewModelScope.launch {
         _updateProfileEmail.postValue(repository.updateProfileEmail(
-            user_id,
+            userId,
             email,
         ))
     }
 
     fun getUpdateProfilePassword(
-        user_id: String,
+        userId: String,
         password: String,
         againPassword: String,
         ) = viewModelScope.launch {
         _updateProfilePassword.postValue(
             repository.updateProfilePassword(
-                user_id,
+                userId,
                 password,
                 againPassword
             )
@@ -64,26 +65,26 @@ class ProfileViewModel@Inject constructor(
     }
 
     fun getUpdateProfilePhone(
-        user_id: String,
+        userId: String,
         phoneNumber : String,
     ) = viewModelScope.launch {
         _updateProfilePhone.postValue(
             repository.updateProfilePhone(
-                user_id,
+                userId,
                 phoneNumber
             )
         )
     }
 
     fun getUpdateProfileAddress(
-        user_id: String,
+        userId: String,
         city : String,
         district : String,
         neighborhood : String,
     ) = viewModelScope.launch {
         _updateProfileAddress.postValue(
             repository.updateProfileAddress(
-                user_id,
+                userId,
                 city,
                 district,
                 neighborhood,

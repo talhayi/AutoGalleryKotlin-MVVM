@@ -114,7 +114,7 @@ class AddAdvertiseFragment : Fragment() {
         viewModel.addAdvertise.observe(viewLifecycleOwner) { addAdvertiseResult ->
             if (addAdvertiseResult.isSuccessful) {
                 if (addAdvertiseResult.body()?.success == true) {
-                    val advertId = addAdvertiseResult.body()!!.advert_id.toString()
+                    val advertId = addAdvertiseResult.body()!!.advertId.toString()
                     Toast.makeText(requireContext(), "İlan yayınlandııııı", Toast.LENGTH_SHORT).show()
                     findNavController().navigate(AddAdvertiseFragmentDirections.actionAddAdvertiseFragmentToUploadImagesFragment(advertId))
                 } else {

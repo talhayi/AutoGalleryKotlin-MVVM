@@ -1,11 +1,14 @@
 package com.example.autogallerykotlin.data.model
 
+import com.google.gson.annotations.SerializedName
+
 data class AdvertiseDetail(
 	val motorPower: String? = null,
 	val km: String? = null,
 	val address: String? = null,
 	val color: String? = null,
-	val advert_title: String? = null,
+	@SerializedName("advert_title")
+	val advertTitle: String? = null,
 	val year: String? = null,
 	val swap: String? = null,
 	val fuel: String? = null,

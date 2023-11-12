@@ -165,7 +165,6 @@ class ProfileFragment : Fragment() {
         viewModel.updateProfileAddress.observe(viewLifecycleOwner) { updateProfileAddress ->
             if (updateProfileAddress.isSuccessful && isUpdateTriggered) {
                 if (updateProfileAddress.body()?.success == true) {
-
                     Toast.makeText(
                         requireContext(),
                         updateProfileAddress.body()?.result,
@@ -208,6 +207,7 @@ class ProfileFragment : Fragment() {
             val city = binding.updateCityET.text.toString().trim()
             val district = binding.updateDistrictET.text.toString().trim()
             val neighborhood = binding.updateNeighborhoodET.text.toString().trim()
+
             when (selectedUpdateProfileType) {
                 UpdateProfileType.EMAIL -> {
                     viewModel.getUpdateProfileEmail(userId, email)

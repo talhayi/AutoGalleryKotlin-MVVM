@@ -7,11 +7,11 @@ class AddAdvertiseImageRepository @Inject constructor(
     private val apiService: ApiService
 ) {
     suspend fun addAdvertiseImage(
-        user_id:String,
-        advert_id:String,
+        userId:String,
+        advertId:String,
         image:String
 
     )=apiService.addAdvertiseImage(
-        user_id, advert_id,image
+        userId, advertId,image
     )
 }

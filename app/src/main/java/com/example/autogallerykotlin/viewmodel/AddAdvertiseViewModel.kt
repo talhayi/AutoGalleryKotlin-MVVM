@@ -25,16 +25,16 @@ class AddAdvertiseViewModel @Inject constructor(
 */
     fun addAdvertise(
 
-        user_id: String, advert_title: String, explanation: String,
-        price: String, address: String, brand: String,
-        serial: String, model: String, year: String,
-        fuel: String, gear: String, vehicleStatus: String,
-        km: String, caseType: String, motorPower: String,
-        motorCapacity: String, traction: String, color: String,
-        guarantee: String, swap: String, phoneNumber: String
+    userId: String, advertTitle: String, explanation: String,
+    price: String, address: String, brand: String,
+    serial: String, model: String, year: String,
+    fuel: String, gear: String, vehicleStatus: String,
+    km: String, caseType: String, motorPower: String,
+    motorCapacity: String, traction: String, color: String,
+    guarantee: String, swap: String, phoneNumber: String
     ) = viewModelScope.launch {
         _addAdvertise.postValue(repository.addAdvertise(
-            user_id,advert_title,explanation,
+            userId,advertTitle,explanation,
             price,address,brand,
             serial,model,year,
             fuel,gear,vehicleStatus,

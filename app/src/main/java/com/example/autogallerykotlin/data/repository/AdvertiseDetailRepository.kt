@@ -12,31 +12,31 @@ class AdvertiseDetailRepository @Inject constructor(
     private val apiService: ApiService
 ) {
     suspend fun advertiseDetail(
-        advert_id: String
+        advertId: String
     ): Response<AdvertiseDetail> {
         return apiService.advertiseDetail(
-            advert_id
+            advertId
         )
     }
     suspend fun advertiseDetailImage(
-        advert_id: String
+        advertId: String
     ): List<AdvertiseDetailImage> {
-        return apiService.advertiseDetailImage(advert_id)
+        return apiService.advertiseDetailImage(advertId)
     }
     suspend fun changeFavoriteText(
-        user_id:String,
-        advert_id: String
+        userId:String,
+        advertId: String
     ): Response<ChangeFavoriteText> {
         return apiService.changeFavoriteText(
-            user_id,advert_id
+            userId,advertId
         )
     }
     suspend fun favoriteAdvertise(
-        user_id:String,
-        advert_id: String
+        userId:String,
+        advertId: String
     ): Response<FavoriteAdvertise> {
         return apiService.favoriteAdvertise(
-            user_id,advert_id
+            userId,advertId
         )
     }
 }
