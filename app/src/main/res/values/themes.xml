@@ -16,5 +16,29 @@
     <style name="MySnackBarStyle" parent="Widget.MaterialComponents.Snackbar">
         <item name="android:background">#2196F3</item>
     </style>
+    <style name="AlertDialogStyle" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="buttonBarNegativeButtonStyle">@style/NegativeButtonStyle</item>
+        <item name="buttonBarPositiveButtonStyle">@style/PositiveButtonStyle</item>
+        <item name="android:windowBackground">@drawable/background_alert_dialog</item>
+    </style>
 
+    <style name="NegativeButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/text_color</item>
+        <item name="backgroundTint">@color/text_color</item>
+    </style>
+
+    <style name="PositiveButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/text_color</item>
+        <item name="backgroundTint">@color/text_color</item>
+    </style>
+
+    <style name="CustomAutoCompleteTextViewStyle" parent="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="materialThemeOverlay">@style/AppTheme.ExposedDropdownMenu.MaterialThemeOverlay</item>
+    </style>
+
+    <style name="AppTheme.ExposedDropdownMenu.MaterialThemeOverlay" parent="Theme.MaterialComponents.DayNight.DarkActionBar.Bridge">
+        <!-- background color of dropdown (popup) items -->
+        <item name="colorSurface">@color/white</item>
+        <item name="colorOnSurface">@color/black</item>
+    </style>
 </resources>
