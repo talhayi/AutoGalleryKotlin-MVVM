@@ -128,6 +128,14 @@ interface ApiService {
         @Field("district") district: String?,
         @Field("neighborhood") neighborhood: String?*/
     ): Response<UpdateProfile>
+
+    @FormUrlEncoded
+    @POST("updateProfilePassword.php")
+    suspend fun updateProfilePassword(
+        @Field("user_id") user_id: String?,
+        @Field("password") password: String?,
+        @Field("againPassword") againPassword: String?,
+    ): Response<UpdateProfile>
 }
 
 

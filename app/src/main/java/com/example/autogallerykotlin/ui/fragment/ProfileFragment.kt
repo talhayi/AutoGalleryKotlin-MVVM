@@ -90,19 +90,38 @@ class ProfileFragment : Fragment() {
     }
 
     private fun updateProfile() {
-        viewModel.updateProfileEmail.observe(viewLifecycleOwner) { updateProfile ->
-            if (updateProfile.isSuccessful) {
-                if (updateProfile.body()?.success == true) {
+        viewModel.updateProfileEmail.observe(viewLifecycleOwner) { updateProfileEmail ->
+            if (updateProfileEmail.isSuccessful) {
+                if (updateProfileEmail.body()?.success == true) {
                     viewModel.getInformationProfile(userId)
                     Toast.makeText(
                         requireContext(),
-                        updateProfile.body()?.result,
+                        updateProfileEmail.body()?.result,
                         Toast.LENGTH_SHORT
                     ).show()
                 } else {
                     Toast.makeText(
                         requireContext(),
-                        updateProfile.body()?.result,
+                        updateProfileEmail.body()?.result,
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+        }
+
+        viewModel.updateProfilePassword.observe(viewLifecycleOwner) { updateProfilePassword ->
+            if (updateProfilePassword.isSuccessful) {
+                if (updateProfilePassword.body()?.success == true) {
+                    viewModel.getInformationProfile(userId)
+                    Toast.makeText(
+                        requireContext(),
+                        updateProfilePassword.body()?.result,
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else {
+                    Toast.makeText(
+                        requireContext(),
+                        updateProfilePassword.body()?.result,
                         Toast.LENGTH_SHORT
                     ).show()
                 }
@@ -145,6 +164,12 @@ class ProfileFragment : Fragment() {
                 district,
                 neighborhood*/
             )
+
+            viewModel.getUpdateProfilePassword(
+                userId,
+                password,
+                againPassword,
+                )
         }
     }
 

@@ -35,4 +35,17 @@ class ProfileRepository @Inject constructor(
             neighborhood,*/
         )
     }
+
+    suspend fun updateProfilePassword(
+        user_id: String,
+        password: String,
+        againPassword: String,
+        ): Response<UpdateProfile> {
+        return apiService.updateProfilePassword(
+            user_id,
+            password,
+            againPassword,
+
+            )
+    }
 }
