@@ -46,9 +46,9 @@ class MyAdvertiseFragment : Fragment() {
 
     private fun deleteMyAdvertiseRequest() {
         viewModel.myAdvertise.observe(viewLifecycleOwner) { deleteMyAdvertiseList ->
-            myAdvertiseAdapter.myAdvertise = deleteMyAdvertiseList
             deleteMyAdvertiseList.let {
                 if (it[0].count != null) {
+                    myAdvertiseAdapter.myAdvertise = deleteMyAdvertiseList
                     myAdvertiseAdapter.setOnItemClickListener(object : OnItemClickListener {
                         override fun onItemClick(position: Int) {
                             handleItemClick(deleteMyAdvertiseList[position])

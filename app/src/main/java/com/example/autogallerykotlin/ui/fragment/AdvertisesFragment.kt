@@ -43,16 +43,15 @@ class AdvertisesFragment : Fragment() {
     private fun advertises(){
         viewModel.advertises.observe(viewLifecycleOwner){advertisesResponse->
             advertisesResponse.let {
-                advertisesAdapter.advertises =  advertisesResponse
-                advertisesAdapter.setOnItemClickListener(object : OnItemClickListener {
-                    override fun onItemClick(position: Int) {
-                        //todo: ilandetaya gidilecek
-                        advertId = advertisesResponse[position].advertId.toString()
-
-                        findNavController().navigate(AdvertisesFragmentDirections.actionAdvertsFragmentToAdvertiseDetailFragment(advertId))
-                       // Toast.makeText(requireContext(), "$position tıklandı", Toast.LENGTH_SHORT).show()
-                    }
-                })
+                if (it[0].count != null){
+                    advertisesAdapter.advertises =  advertisesResponse
+                    advertisesAdapter.setOnItemClickListener(object : OnItemClickListener {
+                        override fun onItemClick(position: Int) {
+                            advertId = advertisesResponse[position].advertId.toString()
+                            findNavController().navigate(AdvertisesFragmentDirections.actionAdvertsFragmentToAdvertiseDetailFragment(advertId))
+                        }
+                    })
+                }
             }
         }
     }
