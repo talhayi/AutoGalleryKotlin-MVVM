@@ -1,25 +1,15 @@
 package com.example.autogallerykotlin.data.model
 
-import com.google.gson.annotations.SerializedName
-
-/*
-data class MyAdvertise(
-	val myAdvertise: List<MyAdvertiseItem>? = null
-)*/
-
 data class MyAdvertise(
 	val result: String? = null,
 	val image: String? = null,
-	@SerializedName("user_id")
-	val userId: String? = null,
-	@SerializedName("advert_title")
-	val advertTitle: String? = null,
-	val price: String? = null,
 	val address: String? = null,
+	val price: String? = null,
 	val success: Boolean? = null,
+	val advertTitle: String? = null,
 	val count: Int? = null,
 	val explanation: String? = null,
-	@SerializedName("advert_id")
-	val advertId: String? = null
+	val userId: String? = null,
+	val advertId: String? = null,
+	val isDeleted: Boolean? = null,
 )
-

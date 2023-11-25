@@ -36,19 +36,22 @@ class MyAdvertiseFragment : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val sharedPreferences =
+            this.activity?.getSharedPreferences("login", AppCompatActivity.MODE_PRIVATE)
+        userId = sharedPreferences?.getString("users_id", null)!!
         setUpRV()
         myAdvertiseRequest()
         deleteMyAdvertiseRequest()
     }
 
     private fun deleteMyAdvertiseRequest() {
-        viewModel.myAdvertise.observe(viewLifecycleOwner) { myAdvertiseResponse ->
-            myAdvertiseResponse.let {
+        viewModel.myAdvertise.observe(viewLifecycleOwner) { deleteMyAdvertiseList ->
+            myAdvertiseAdapter.myAdvertise = deleteMyAdvertiseList
+            deleteMyAdvertiseList.let {
                 if (it[0].count != null) {
-                    myAdvertiseAdapter.myAdvertise = myAdvertiseResponse
                     myAdvertiseAdapter.setOnItemClickListener(object : OnItemClickListener {
                         override fun onItemClick(position: Int) {
-                            handleItemClick(myAdvertiseResponse[position], position)
+                            handleItemClick(deleteMyAdvertiseList[position])
                         }
                     })
                 }
@@ -56,38 +59,19 @@ class MyAdvertiseFragment : Fragment() {
         }
     }
 
-    private fun handleItemClick(item: MyAdvertise, position: Int) {
+    private fun handleItemClick(myAdvertise: MyAdvertise) {
         val mDialogView = LayoutInflater.from(requireContext()).inflate(R.layout.delete_alert_dialog, null)
         alertDialog = AlertDialog.Builder(requireContext()).setView(mDialogView)
         alertDialog.setNegativeButton("HAYIR") { _, _ -> }
         alertDialog.setPositiveButton("EVET") { _, _ ->
-                viewModel.getDeleteMyAdvertise(item.advertId!!)
-                deleteMyAdvertise()
-                myAdvertiseAdapter.notifyItemRemoved(position)
+            viewModel.getMyAdvertise(userId,myAdvertise.advertId!!)
+            Toast.makeText(requireContext(), myAdvertise.result, Toast.LENGTH_SHORT).show()
         }
         alertDialog.show()
     }
 
-    private fun deleteMyAdvertise() {
-        viewModel.deleteMyAdvertise.observe(viewLifecycleOwner) { deleteMyAdvertiseResponse ->
-            if (deleteMyAdvertiseResponse.isSuccessful) {
-                if (deleteMyAdvertiseResponse.body()?.success == true) {
-                    Toast.makeText(requireContext(), deleteMyAdvertiseResponse.body()?.result, Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(requireContext(),deleteMyAdvertiseResponse.body()?.result,Toast.LENGTH_SHORT).show()
-                }
-            } else {
-                Toast.makeText(requireContext(), "not isSuccessful", Toast.LENGTH_SHORT).show()
-            }
-            viewModel.deleteMyAdvertise.removeObservers(viewLifecycleOwner)
-        }
-    }
-
     private fun myAdvertiseRequest() {
-        val sharedPreferences =
-            this.activity?.getSharedPreferences("login", AppCompatActivity.MODE_PRIVATE)
-        userId = sharedPreferences?.getString("users_id", null)!!
-        viewModel.getMyAdvertise(userId)
+        viewModel.getMyAdvertise(userId, "")
     }
 
     private fun setUpRV() {

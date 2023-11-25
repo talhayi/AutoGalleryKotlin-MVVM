@@ -84,10 +84,10 @@ interface ApiService {
     ): Response<AddAdvertiseImage>
 
     @GET("myAdvertise.php")
-    suspend fun myAdvertise(@Query("user_id") userId: String?): List<MyAdvertise>?
-
-    @GET("deleteMyAdvertise.php")
-    suspend fun deleteMyAdvertise(@Query("advert_id") advertId: String?): Response<DeleteMyAdvertise>
+    suspend fun myAdvertise(
+        @Query("user_id") userId: String?,
+        @Query("advert_id") advertId: String?
+    ): List<MyAdvertise>
 
     @GET("advertises.php")
     suspend fun advertises(): List<Advertises>
