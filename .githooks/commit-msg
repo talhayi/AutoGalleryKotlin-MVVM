@@ -1,0 +1,32 @@
+#!/bin/sh
+
+#  An example hook script to check the commit log message.
+#  Called by "git commit" with one argument, the name of the file
+#  that has the commit message.  The hook should exit with non-zero
+#  status after issuing an appropriate message if it wants to stop the
+#  commit.  The hook is allowed to edit the commit message file.
+#
+#  To enable this hook, rename this file to "commit-msg".
+
+#  Uncomment the below to add a Signed-off-by line to the message.
+#  Doing this in a hook is a bad idea in general, but the prepare-commit-msg
+#  hook is more suited to it.
+#
+#  SOB=$(git var GIT_AUTHOR_IDENT | sed -n 's/^\(.*>\).*$/Signed-off-by: \1/p')
+#  grep -qs "^$SOB" "$1" || echo "$SOB" >> "$1"
+
+#  This example catches duplicate Signed-off-by lines.
+
+# The creation of a new hooks folder needs to be communicated to Git.
+# git config core.hooksPath .githooks
+
+printf "\nValidating commit message format...\n\n"
+commit_message=$(cat $1)
+regex="^(Sprint)+ #[0-9]+ Ticket #[0-9]+ (fix|feat|bugfix|refactor): .*"
+if [[ $commit_message =~ $regex ]]; then
+    printf "Commit message format is valid.\n"
+    exit 0
+else
+    printf "Please enter your commit message in the specified format: 'Sprint #X Ticket #Y YourMessage'"
+    exit 1
+fi
