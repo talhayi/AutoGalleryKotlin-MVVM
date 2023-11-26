@@ -47,6 +47,7 @@ class MainActivity : AppCompatActivity() {
                 editor.clear()
                 editor.apply()
                 startActivity(Intent(this, LoginActivity::class.java))
+                finish()
                 true
             }
             else->{
