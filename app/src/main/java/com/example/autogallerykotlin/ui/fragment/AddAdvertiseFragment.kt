@@ -13,6 +13,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.autogallerykotlin.R
 import com.example.autogallerykotlin.databinding.FragmentAddAdvertiseBinding
+import com.example.autogallerykotlin.ui.MoneyTextWatcher
 import com.example.autogallerykotlin.viewmodel.AddAdvertiseViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputEditText
@@ -179,13 +180,13 @@ class AddAdvertiseFragment : Fragment() {
             val mDialogView = LayoutInflater.from(requireContext())
                 .inflate(R.layout.price_alert_dialog, null)
             val alertDialogStyle = R.style.AlertDialogStyle
+            val priceDialog = mDialogView.findViewById<EditText>(R.id.priceAlertDialogEditText)
+            priceDialog.addTextChangedListener(MoneyTextWatcher(mDialogView.findViewById(R.id.priceAlertDialogEditText)))
             alertDialog = MaterialAlertDialogBuilder(ContextThemeWrapper(requireContext(), alertDialogStyle)).setView(mDialogView)
             alertDialog.setNegativeButton("İPTAL") { _, _ -> }
             alertDialog.setPositiveButton("TAMAM") { _, _ ->
-                val priceDialog =
-                    mDialogView.findViewById<EditText>(R.id.priceAlertDialogEditText).text.toString()
-                        .trim()
-                binding.priceTextView.text = "$priceDialog TL"
+                val formattedPrice = formatPrice(MoneyTextWatcher.parseCurrencyValue(priceDialog.text.toString()).toString())
+                binding.priceTextView.text = "$formattedPrice TL"
             }
             alertDialogBackground(alertDialog)
             alertDialog.show()
@@ -521,6 +522,22 @@ class AddAdvertiseFragment : Fragment() {
             }
             alertDialogBackground(alertDialog)
             alertDialog.show()
+        }
+    }
+
+    private fun formatPrice(input: String): String {
+        return if (input.isNotEmpty()) {
+            val reversedInput = input.reversed()
+            val stringBuilder = StringBuilder()
+            for (i in reversedInput.indices) {
+                if (i % 3 == 0 && i != 0) {
+                    stringBuilder.append('.')
+                }
+                stringBuilder.append(reversedInput[i])
+            }
+            stringBuilder.reverse().toString()
+        } else {
+            input
         }
     }
 }
