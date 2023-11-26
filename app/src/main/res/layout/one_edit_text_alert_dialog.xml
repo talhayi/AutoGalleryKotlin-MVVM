@@ -36,6 +36,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
+        android:maxLength="64"
         android:padding="17dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

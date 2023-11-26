@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.Configuration
 import android.os.Bundle
+import android.text.InputFilter
 import android.view.*
 import android.widget.*
 import androidx.activity.OnBackPressedCallback
@@ -162,14 +163,17 @@ class AddAdvertiseFragment : Fragment() {
             val mDialogView = LayoutInflater.from(requireContext())
                 .inflate(R.layout.one_edit_text_alert_dialog, null)
             val alertDialogStyle = R.style.AlertDialogStyle
+            val explanationDialog = mDialogView.findViewById<EditText>(R.id.alertDialogOneEditText)
+            val oldMaxLength = explanationDialog.filters.firstOrNull { it is InputFilter.LengthFilter } as? InputFilter.LengthFilter
+            explanationDialog.filters = explanationDialog.filters.filterNot { it is InputFilter.LengthFilter }.toTypedArray()
             alertDialog = MaterialAlertDialogBuilder(ContextThemeWrapper(requireContext(), alertDialogStyle)).setView(mDialogView)
             mDialogView.findViewById<TextView>(R.id.textView).text = "Açıklama"
             alertDialog.setNegativeButton("İPTAL") { _, _ -> }
             alertDialog.setPositiveButton("TAMAM") { _, _ ->
-                val explanationDialog =
-                    mDialogView.findViewById<EditText>(R.id.alertDialogOneEditText).text.toString()
-                        .trim()
-                binding.explanationTextView.text = explanationDialog
+                binding.explanationTextView.text = explanationDialog.text.toString().trim()
+                oldMaxLength?.let {
+                    explanationDialog.filters = explanationDialog.filters.plus(it)
+                }
             }
             alertDialogBackground(alertDialog)
             alertDialog.show()
