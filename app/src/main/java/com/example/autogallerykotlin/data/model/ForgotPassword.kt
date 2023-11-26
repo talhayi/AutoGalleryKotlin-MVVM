@@ -8,11 +8,10 @@ data class ForgotPassword(
 )
 
 data class ResetPassword(
+      val id: String? = null,
       val email: String? = null,
       val result: String? = null,
       val success: Boolean? = null,
-      val password: String? = null
-
 )
 data class ResetPasswordCode(
       val result: String? = null,

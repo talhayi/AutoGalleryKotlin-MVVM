@@ -19,6 +19,13 @@ class ForgotPasswordActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityForgotPasswordBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        val sharedPreferences = getSharedPreferences(getString(R.string.shared_pref_login), MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        if (sharedPreferences.getString(getString(R.string.shared_pref_user_id), null) != null
+            && sharedPreferences.getString(getString(R.string.shared_pref_user_email), null) != null) {
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+        }
         binding.forgotPasswordEmailButton.setOnClickListener {
             val email = binding.forgotPasswordEditText.text.toString().trim()
             viewModel.forgotPasswordEmail(email)
@@ -80,17 +87,23 @@ class ForgotPasswordActivity : AppCompatActivity() {
             }
         }
 
-        viewModel.resetPassword.observe(this){resetPasswordResponse->
-            if(resetPasswordResponse.isSuccessful){
-                if (resetPasswordResponse.body()?.success == true){
-                    startActivity(Intent(this, MainActivity::class.java))
-                    Toast.makeText(this, getString(R.string.your_password_reset), Toast.LENGTH_SHORT).show()
-                    finish()
-                }
-                else{
-                    Toast.makeText(this, resetPasswordResponse.body()?.result, Toast.LENGTH_SHORT).show()
+        viewModel.resetPassword.observe(this) { resetPasswordResponse ->
+            if (resetPasswordResponse.isSuccessful) {
+                if (resetPasswordResponse.body()?.success == true) {
+                    editor.putString(getString(R.string.shared_pref_user_id), resetPasswordResponse.body()?.id.toString()).apply()
+                    editor.putString(getString(R.string.shared_pref_user_email), resetPasswordResponse.body()?.email.toString()).apply()
+                    editor.clear()
+                    if (sharedPreferences.getString(getString(R.string.shared_pref_user_id), null) != null
+                        && sharedPreferences.getString(getString(R.string.shared_pref_user_email), null) != null) {
+                        startActivity(Intent(this, MainActivity::class.java))
+                        Toast.makeText(this, getString(R.string.your_password_reset), Toast.LENGTH_SHORT).show()
+                        finish()
+                    }
+                } else {
+                    Toast.makeText(this, resetPasswordResponse?.body()?.result, Toast.LENGTH_SHORT).show()
                 }
             }
         }
+
     }
 }

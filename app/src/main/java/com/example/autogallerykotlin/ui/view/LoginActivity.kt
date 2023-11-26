@@ -20,11 +20,8 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
         val sharedPreferences = getSharedPreferences(getString(R.string.shared_pref_login), MODE_PRIVATE)
         val editor = sharedPreferences.edit()
-        if (sharedPreferences.getString(
-                getString(R.string.shared_pref_user_id),
-                null
-            ) != null && sharedPreferences.getString(getString(R.string.shared_pref_user_email), null) != null
-        ) {
+        if (sharedPreferences.getString(getString(R.string.shared_pref_user_id), null) != null
+            && sharedPreferences.getString(getString(R.string.shared_pref_user_email), null) != null) {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
