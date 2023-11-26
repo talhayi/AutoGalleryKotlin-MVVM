@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.autogallerykotlin.data.model.AdvertiseDetailImage
 import com.example.autogallerykotlin.databinding.DetailImageItemLayoutBinding
+import com.example.autogallerykotlin.util.Util.BASE_URL
 
 class AdvertiseDetailImageAdapter: RecyclerView.Adapter<AdvertiseDetailImageAdapter.AdvertiseDetailImageViewHolder>() {
     class AdvertiseDetailImageViewHolder(var binding: DetailImageItemLayoutBinding):RecyclerView.ViewHolder(binding.root)
@@ -46,7 +47,7 @@ class AdvertiseDetailImageAdapter: RecyclerView.Adapter<AdvertiseDetailImageAdap
        val currentDetailImages = detailImages[position]
 
         holder.binding.apply {
-            advertiseDetailImageView.load("http://yazilimgunlukleri.com/autogallerykotlin/" + currentDetailImages.image){
+            advertiseDetailImageView.load(BASE_URL + currentDetailImages.image){
                 crossfade(true)
                 crossfade(1000)
             }

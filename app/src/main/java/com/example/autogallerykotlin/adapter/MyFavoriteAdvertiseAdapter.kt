@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.autogallerykotlin.data.model.MyFavoriteAdvertise
 import com.example.autogallerykotlin.databinding.MyFavoriteAdvertiseItemLayoutBinding
+import com.example.autogallerykotlin.util.Util.BASE_URL
+
 class MyFavoriteAdvertiseAdapter : RecyclerView.Adapter<MyFavoriteAdvertiseAdapter.MyFavoriteAdvertiseViewHolder>() {
 
     private lateinit var mListener: OnItemClickListener
@@ -41,7 +43,7 @@ class MyFavoriteAdvertiseAdapter : RecyclerView.Adapter<MyFavoriteAdvertiseAdapt
     set(value){
         differ.submitList(value)
     }
-  //  var onItemClick: ((MyAdvertise)-> Unit)? = null
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyFavoriteAdvertiseViewHolder {
         return MyFavoriteAdvertiseViewHolder(MyFavoriteAdvertiseItemLayoutBinding.inflate(
             LayoutInflater.from(parent.context),parent,false),mListener)
@@ -52,15 +54,11 @@ class MyFavoriteAdvertiseAdapter : RecyclerView.Adapter<MyFavoriteAdvertiseAdapt
             myFavoriteAdvertiseRowAdvertTitleTextView.text = currentMyFavoriteAdvertise.advertTitle
             myFavoriteAdvertiseRowAddressTextView.text = currentMyFavoriteAdvertise.address
             myFavoriteAdvertiseRowPriceTextView.text = currentMyFavoriteAdvertise.price
-            myFavoriteAdvertiseRowImageView.load("http://yazilimgunlukleri.com/autogallerykotlin/"+currentMyFavoriteAdvertise.image){
+            myFavoriteAdvertiseRowImageView.load(BASE_URL + currentMyFavoriteAdvertise.image){
                 crossfade(true)
                 crossfade(1000)
             }
         }
-        /*
-        holder.itemView.setOnClickListener {
-            onItemClick?.invoke(currentMyAdvertise)
-        }*/
     }
 
     override fun getItemCount(): Int {

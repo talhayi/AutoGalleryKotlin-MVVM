@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.autogallerykotlin.R
 import com.example.autogallerykotlin.adapter.MyFavoriteAdvertiseAdapter
 import com.example.autogallerykotlin.adapter.OnItemClickListener
 import com.example.autogallerykotlin.databinding.FragmentMyFavoritesBinding
@@ -57,8 +58,8 @@ class MyFavoritesFragment : Fragment() {
     }
     private fun myFavoriteAdvertiseRequest(){
         val sharedPreferences =
-            this.activity?.getSharedPreferences("login", AppCompatActivity.MODE_PRIVATE)
-        userId = sharedPreferences?.getString("users_id", null)!!
+            this.activity?.getSharedPreferences(getString(R.string.shared_pref_login), AppCompatActivity.MODE_PRIVATE)
+        userId = sharedPreferences?.getString(getString(R.string.shared_pref_user_id), null)!!
         viewModel.getMyFavoriteAdvertise(userId)
     }
 

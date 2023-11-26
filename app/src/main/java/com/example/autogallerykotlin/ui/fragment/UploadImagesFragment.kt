@@ -35,6 +35,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import java.io.ByteArrayOutputStream
 import java.io.IOException
 
+@Suppress("DEPRECATION")
 @AndroidEntryPoint
 class UploadImagesFragment : Fragment() {
     private var _binding: FragmentUploadImagesBinding? = null
@@ -87,15 +88,15 @@ class UploadImagesFragment : Fragment() {
                 }
             }
             else {
-                Toast.makeText(requireContext(), "not isSuccessful", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), getString(R.string.not_issuccessful), Toast.LENGTH_SHORT).show()
             }
         }
     }
 
     private fun addImage(){
         binding.addImageButton.setOnClickListener {
-            val sharedPreferences = this.activity?.getSharedPreferences("login", AppCompatActivity.MODE_PRIVATE)
-            val userId = sharedPreferences?.getString("users_id", null)!!
+            val sharedPreferences = this.activity?.getSharedPreferences(getString(R.string.shared_pref_login), AppCompatActivity.MODE_PRIVATE)
+            val userId = sharedPreferences?.getString(getString(R.string.shared_pref_user_id), null)!!
             arguments?.let {
                 advertId = UploadImagesFragmentArgs.fromBundle(it).advertId
             }
@@ -107,10 +108,10 @@ class UploadImagesFragment : Fragment() {
         binding.pickImageButton.setOnClickListener {
             if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
                 if (ActivityCompat.shouldShowRequestPermissionRationale(requireActivity(), Manifest.permission.READ_EXTERNAL_STORAGE)) {
-                    val snackbar = Snackbar.make(view, "Galeri için izin gerekiyor", Snackbar.LENGTH_INDEFINITE)
+                    val snackbar = Snackbar.make(view, getString(R.string.permission_gallery), Snackbar.LENGTH_INDEFINITE)
                     snackbar.setActionTextColor(Color.WHITE)
                     snackbar.setBackgroundTint(resources.getColor( R.color.primary_color))
-                    snackbar.setAction("İzin Ver") {
+                    snackbar.setAction(getString(R.string.give_permission)) {
                         permissionLauncher.launch(Manifest.permission.READ_EXTERNAL_STORAGE)
                     }.show()
                     val params = snackbar.view.layoutParams as CoordinatorLayout.LayoutParams
@@ -169,7 +170,7 @@ class UploadImagesFragment : Fragment() {
                 activityResultLauncher.launch(intentToGallery)
             } else {
                 //permission denied
-                Toast.makeText(requireContext(), "İzin gerekiyor", Toast.LENGTH_LONG).show()
+                Toast.makeText(requireContext(), getString(R.string.permission_gallery), Toast.LENGTH_LONG).show()
             }
         }
     }

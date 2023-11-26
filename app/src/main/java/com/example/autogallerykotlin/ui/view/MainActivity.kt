@@ -13,10 +13,7 @@ import androidx.navigation.ui.NavigationUI.setupWithNavController
 import com.example.autogallerykotlin.NavGraphDirections
 import com.example.autogallerykotlin.R
 import com.example.autogallerykotlin.databinding.ActivityMainBinding
-import com.example.autogallerykotlin.ui.fragment.*
 import dagger.hilt.android.AndroidEntryPoint
-
-
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -33,11 +30,6 @@ class MainActivity : AppCompatActivity() {
         setupWithNavController(bottomNavigationView,navController)
         binding.addAdvertiseFAB.setOnClickListener {
             navController.navigate(NavGraphDirections.actionGlobalToAddAdvertiseFragment())
-/*
-            binding.bottomNavigationView.visibility = View.GONE
-            binding.navigationBottomBar.visibility = View.GONE
-            binding.addAdvertiseFAB.visibility = View.GONE*/
-
         }
     }
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -49,9 +41,9 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when(item.itemId){
             R.id.SignOut->{
-                val sharedPreferences = getSharedPreferences("login", MODE_PRIVATE)
+                val sharedPreferences = getSharedPreferences(getString(R.string.shared_pref_login), MODE_PRIVATE)
                 val editor = sharedPreferences.edit()
-                sharedPreferences.getString("users_id",null)
+                sharedPreferences.getString(getString(R.string.shared_pref_user_id), null)
                 editor.clear()
                 editor.apply()
                 startActivity(Intent(this, LoginActivity::class.java))

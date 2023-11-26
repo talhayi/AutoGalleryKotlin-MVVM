@@ -78,8 +78,8 @@ class AddAdvertiseFragment : Fragment() {
     private fun addAdvertiseRequest(){
         binding.addAdvertiseNextButton.setOnClickListener {
             val sharedPreferences =
-                this.activity?.getSharedPreferences("login", AppCompatActivity.MODE_PRIVATE)
-            userId = sharedPreferences?.getString("users_id", null)!!
+                this.activity?.getSharedPreferences(getString(R.string.shared_pref_login), AppCompatActivity.MODE_PRIVATE)
+            userId = sharedPreferences?.getString(getString(R.string.shared_pref_user_id), null)!!
             val advertTitle = binding.advertiseTitleTextView.text.toString().trim()
             val explanation = binding.explanationTextView.text.toString().trim()
             val price = binding.priceTextView.text.toString().trim()
@@ -117,13 +117,13 @@ class AddAdvertiseFragment : Fragment() {
             if (addAdvertiseResult.isSuccessful) {
                 if (addAdvertiseResult.body()?.success == true) {
                     val advertId = addAdvertiseResult.body()!!.advertId.toString()
-                    Toast.makeText(requireContext(), "İlan yayınlandııııı", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), addAdvertiseResult.body()?.result, Toast.LENGTH_SHORT).show()
                     findNavController().navigate(AddAdvertiseFragmentDirections.actionAddAdvertiseFragmentToUploadImagesFragment(advertId))
                 } else {
                     Toast.makeText(requireContext(), addAdvertiseResult.body()?.result, Toast.LENGTH_SHORT).show()
                 }
             } else {
-                Toast.makeText(requireContext(), "not isSuccessful", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), getString(R.string.not_issuccessful), Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -147,8 +147,8 @@ class AddAdvertiseFragment : Fragment() {
                 .inflate(R.layout.one_edit_text_alert_dialog, null)
             val alertDialogStyle = R.style.AlertDialogStyle
             alertDialog = MaterialAlertDialogBuilder(ContextThemeWrapper(requireContext(), alertDialogStyle)).setView(mDialogView)
-            alertDialog.setNegativeButton("İPTAL") { _, _ -> }
-            alertDialog.setPositiveButton("TAMAM") { _, _ ->
+            alertDialog.setNegativeButton(getString(R.string.cancel)) { _, _ -> }
+            alertDialog.setPositiveButton(getString(R.string.okay)) { _, _ ->
                 val advertiseTitleDialog =
                     mDialogView.findViewById<EditText>(R.id.alertDialogOneEditText).text.toString()
                         .trim()
@@ -167,9 +167,9 @@ class AddAdvertiseFragment : Fragment() {
             val oldMaxLength = explanationDialog.filters.firstOrNull { it is InputFilter.LengthFilter } as? InputFilter.LengthFilter
             explanationDialog.filters = explanationDialog.filters.filterNot { it is InputFilter.LengthFilter }.toTypedArray()
             alertDialog = MaterialAlertDialogBuilder(ContextThemeWrapper(requireContext(), alertDialogStyle)).setView(mDialogView)
-            mDialogView.findViewById<TextView>(R.id.textView).text = "Açıklama"
-            alertDialog.setNegativeButton("İPTAL") { _, _ -> }
-            alertDialog.setPositiveButton("TAMAM") { _, _ ->
+            mDialogView.findViewById<TextView>(R.id.textView).text = getString(R.string.explanation)
+            alertDialog.setNegativeButton(getString(R.string.cancel)) { _, _ -> }
+            alertDialog.setPositiveButton(getString(R.string.okay)) { _, _ ->
                 binding.explanationTextView.text = explanationDialog.text.toString().trim()
                 oldMaxLength?.let {
                     explanationDialog.filters = explanationDialog.filters.plus(it)
@@ -187,10 +187,10 @@ class AddAdvertiseFragment : Fragment() {
             val priceDialog = mDialogView.findViewById<EditText>(R.id.priceAlertDialogEditText)
             priceDialog.addTextChangedListener(MoneyTextWatcher(mDialogView.findViewById(R.id.priceAlertDialogEditText)))
             alertDialog = MaterialAlertDialogBuilder(ContextThemeWrapper(requireContext(), alertDialogStyle)).setView(mDialogView)
-            alertDialog.setNegativeButton("İPTAL") { _, _ -> }
-            alertDialog.setPositiveButton("TAMAM") { _, _ ->
+            alertDialog.setNegativeButton(getString(R.string.cancel)) { _, _ -> }
+            alertDialog.setPositiveButton(getString(R.string.okay)) { _, _ ->
                 val formattedPrice = formatPrice(MoneyTextWatcher.parseCurrencyValue(priceDialog.text.toString()).toString())
-                binding.priceTextView.text = "$formattedPrice TL"
+                binding.priceTextView.text = formattedPrice + getString(R.string.currency)
             }
             alertDialogBackground(alertDialog)
             alertDialog.show()
@@ -203,8 +203,8 @@ class AddAdvertiseFragment : Fragment() {
                 .inflate(R.layout.address_alert_dialog, null)
             val alertDialogStyle = R.style.AlertDialogStyle
             alertDialog = MaterialAlertDialogBuilder(ContextThemeWrapper(requireContext(), alertDialogStyle)).setView(mDialogView)
-            alertDialog.setNegativeButton("İPTAL") { _, _ -> }
-            alertDialog.setPositiveButton("TAMAM") { _, _ ->
+            alertDialog.setNegativeButton(getString(R.string.cancel)) { _, _ -> }
+            alertDialog.setPositiveButton(getString(R.string.okay)) { _, _ ->
                 val city =
                     mDialogView.findViewById<TextInputEditText>(R.id.alertDialogCityEditDText).text.toString()
                         .trim()
@@ -227,9 +227,9 @@ class AddAdvertiseFragment : Fragment() {
                 .inflate(R.layout.one_edit_text_alert_dialog, null)
             val alertDialogStyle = R.style.AlertDialogStyle
             alertDialog = MaterialAlertDialogBuilder(ContextThemeWrapper(requireContext(), alertDialogStyle)).setView(mDialogView)
-            mDialogView.findViewById<TextView>(R.id.textView).text = "Marka"
-            alertDialog.setNegativeButton("İPTAL") { _, _ -> }
-            alertDialog.setPositiveButton("TAMAM") { _, _ ->
+            mDialogView.findViewById<TextView>(R.id.textView).text = getString(R.string.brand)
+            alertDialog.setNegativeButton(getString(R.string.cancel)) { _, _ -> }
+            alertDialog.setPositiveButton(getString(R.string.okay)) { _, _ ->
                 val brandDialog =
                     mDialogView.findViewById<EditText>(R.id.alertDialogOneEditText).text.toString()
                         .trim()
@@ -245,9 +245,9 @@ class AddAdvertiseFragment : Fragment() {
                 .inflate(R.layout.one_edit_text_alert_dialog, null)
             val alertDialogStyle = R.style.AlertDialogStyle
             alertDialog = MaterialAlertDialogBuilder(ContextThemeWrapper(requireContext(), alertDialogStyle)).setView(mDialogView)
-            mDialogView.findViewById<TextView>(R.id.textView).text = "Seri"
-            alertDialog.setNegativeButton("İPTAL") { _, _ -> }
-            alertDialog.setPositiveButton("TAMAM") { _, _ ->
+            mDialogView.findViewById<TextView>(R.id.textView).text = getString(R.string.serial)
+            alertDialog.setNegativeButton(getString(R.string.cancel)) { _, _ -> }
+            alertDialog.setPositiveButton(getString(R.string.okay)) { _, _ ->
                 val serialDialog =
                     mDialogView.findViewById<EditText>(R.id.alertDialogOneEditText).text.toString()
                         .trim()
@@ -264,9 +264,9 @@ class AddAdvertiseFragment : Fragment() {
                 .inflate(R.layout.one_edit_text_alert_dialog, null)
             val alertDialogStyle = R.style.AlertDialogStyle
             alertDialog = MaterialAlertDialogBuilder(ContextThemeWrapper(requireContext(), alertDialogStyle)).setView(mDialogView)
-            mDialogView.findViewById<TextView>(R.id.textView).text = "Model"
-            alertDialog.setNegativeButton("İPTAL") { _, _ -> }
-            alertDialog.setPositiveButton("TAMAM") { _, _ ->
+            mDialogView.findViewById<TextView>(R.id.textView).text = getString(R.string.model)
+            alertDialog.setNegativeButton(getString(R.string.cancel)) { _, _ -> }
+            alertDialog.setPositiveButton(getString(R.string.okay)) { _, _ ->
                 val modelDialog =
                     mDialogView.findViewById<EditText>(R.id.alertDialogOneEditText).text.toString()
                         .trim()
@@ -283,9 +283,9 @@ class AddAdvertiseFragment : Fragment() {
                 .inflate(R.layout.number_alert_dialog, null)
             val alertDialogStyle = R.style.AlertDialogStyle
             alertDialog = MaterialAlertDialogBuilder(ContextThemeWrapper(requireContext(), alertDialogStyle)).setView(mDialogView)
-            mDialogView.findViewById<TextView>(R.id.textView).text = "Yıl"
-            alertDialog.setNegativeButton("İPTAL") { _, _ -> }
-            alertDialog.setPositiveButton("TAMAM") { _, _ ->
+            mDialogView.findViewById<TextView>(R.id.textView).text = getString(R.string.year)
+            alertDialog.setNegativeButton(getString(R.string.cancel)) { _, _ -> }
+            alertDialog.setPositiveButton(getString(R.string.okay)) { _, _ ->
                 val yearDialog =
                     mDialogView.findViewById<EditText>(R.id.numberAlertDialogEditText).text.toString()
                         .trim()
@@ -306,8 +306,8 @@ class AddAdvertiseFragment : Fragment() {
             alertDialog = MaterialAlertDialogBuilder(ContextThemeWrapper(requireContext(), alertDialogStyle)).setView(mDialogView)
             mDialogView.findViewById<AutoCompleteTextView>(R.id.autoCompleteFuelTextView)
                 .setAdapter(arrayAdapter)
-            alertDialog.setNegativeButton("İPTAL") { _, _ -> }
-            alertDialog.setPositiveButton("TAMAM") { _, _ ->
+            alertDialog.setNegativeButton(getString(R.string.cancel)) { _, _ -> }
+            alertDialog.setPositiveButton(getString(R.string.okay)) { _, _ ->
                 val fuelDialog =
                     mDialogView.findViewById<AutoCompleteTextView>(R.id.autoCompleteFuelTextView).text.toString()
                 binding.fuelTextView.text = fuelDialog
@@ -327,8 +327,8 @@ class AddAdvertiseFragment : Fragment() {
             alertDialog = MaterialAlertDialogBuilder(ContextThemeWrapper(requireContext(), alertDialogStyle)).setView(mDialogView)
             mDialogView.findViewById<AutoCompleteTextView>(R.id.autoCompleteGearTextView)
                 .setAdapter(arrayAdapter)
-            alertDialog.setNegativeButton("İPTAL") { _, _ -> }
-            alertDialog.setPositiveButton("TAMAM") { _, _ ->
+            alertDialog.setNegativeButton(getString(R.string.cancel)) { _, _ -> }
+            alertDialog.setPositiveButton(getString(R.string.okay)) { _, _ ->
                 val gearDialog =
                     mDialogView.findViewById<AutoCompleteTextView>(R.id.autoCompleteGearTextView).text.toString()
                 binding.gearTextView.text = gearDialog
@@ -347,8 +347,8 @@ class AddAdvertiseFragment : Fragment() {
             alertDialog = MaterialAlertDialogBuilder(ContextThemeWrapper(requireContext(), alertDialogStyle)).setView(mDialogView)
             mDialogView.findViewById<AutoCompleteTextView>(R.id.autoCompleteVehicleStatusTextView)
                 .setAdapter(arrayAdapter)
-            alertDialog.setNegativeButton("İPTAL") { _, _ -> }
-            alertDialog.setPositiveButton("TAMAM") { _, _ ->
+            alertDialog.setNegativeButton(getString(R.string.cancel)) { _, _ -> }
+            alertDialog.setPositiveButton(getString(R.string.okay)) { _, _ ->
                 val vehicleStatusDialog =
                     mDialogView.findViewById<AutoCompleteTextView>(R.id.autoCompleteVehicleStatusTextView).text.toString()
                 binding.vehicleStatusTextView.text = vehicleStatusDialog
@@ -363,13 +363,13 @@ class AddAdvertiseFragment : Fragment() {
                 .inflate(R.layout.number_alert_dialog, null)
             val alertDialogStyle = R.style.AlertDialogStyle
             alertDialog = MaterialAlertDialogBuilder(ContextThemeWrapper(requireContext(), alertDialogStyle)).setView(mDialogView)
-            mDialogView.findViewById<TextView>(R.id.textView).text = "KM"
-            alertDialog.setNegativeButton("İPTAL") { _, _ -> }
-            alertDialog.setPositiveButton("TAMAM") { _, _ ->
+            mDialogView.findViewById<TextView>(R.id.textView).text = getString(R.string.km)
+            alertDialog.setNegativeButton(getString(R.string.cancel)) { _, _ -> }
+            alertDialog.setPositiveButton(getString(R.string.okay)) { _, _ ->
                 val vehicleStatusDialog =
                     mDialogView.findViewById<EditText>(R.id.numberAlertDialogEditText).text.toString()
                         .trim()
-                binding.kmTextView.text = "$vehicleStatusDialog KM"
+                binding.kmTextView.text = vehicleStatusDialog + getString(R.string.km)
             }
             alertDialogBackground(alertDialog)
             alertDialog.show()
@@ -382,9 +382,9 @@ class AddAdvertiseFragment : Fragment() {
                 .inflate(R.layout.one_edit_text_alert_dialog, null)
             val alertDialogStyle = R.style.AlertDialogStyle
             alertDialog = MaterialAlertDialogBuilder(ContextThemeWrapper(requireContext(), alertDialogStyle)).setView(mDialogView)
-            mDialogView.findViewById<TextView>(R.id.textView).text = "Kasa Tipi"
-            alertDialog.setNegativeButton("İPTAL") { _, _ -> }
-            alertDialog.setPositiveButton("TAMAM") { _, _ ->
+            mDialogView.findViewById<TextView>(R.id.textView).text = getString(R.string.caseType)
+            alertDialog.setNegativeButton(getString(R.string.cancel)) { _, _ -> }
+            alertDialog.setPositiveButton(getString(R.string.okay)) { _, _ ->
                 val caseTypeDialog =
                     mDialogView.findViewById<EditText>(R.id.alertDialogOneEditText).text.toString()
                         .trim()
@@ -401,9 +401,9 @@ class AddAdvertiseFragment : Fragment() {
                 .inflate(R.layout.one_edit_text_alert_dialog, null)
             val alertDialogStyle = R.style.AlertDialogStyle
             alertDialog = MaterialAlertDialogBuilder(ContextThemeWrapper(requireContext(), alertDialogStyle)).setView(mDialogView)
-            mDialogView.findViewById<TextView>(R.id.textView).text = "Motor Gücü"
-            alertDialog.setNegativeButton("İPTAL") { _, _ -> }
-            alertDialog.setPositiveButton("TAMAM") { _, _ ->
+            mDialogView.findViewById<TextView>(R.id.textView).text = getString(R.string.motor_power)
+            alertDialog.setNegativeButton(getString(R.string.cancel)) { _, _ -> }
+            alertDialog.setPositiveButton(getString(R.string.okay)) { _, _ ->
                 val motorPowerDialog =
                     mDialogView.findViewById<EditText>(R.id.alertDialogOneEditText).text.toString()
                         .trim()
@@ -420,9 +420,10 @@ class AddAdvertiseFragment : Fragment() {
                 .inflate(R.layout.one_edit_text_alert_dialog, null)
             val alertDialogStyle = R.style.AlertDialogStyle
             alertDialog = MaterialAlertDialogBuilder(ContextThemeWrapper(requireContext(), alertDialogStyle)).setView(mDialogView)
-            mDialogView.findViewById<TextView>(R.id.textView).text = "Motor Hacmi"
-            alertDialog.setNegativeButton("İPTAL") { _, _ -> }
-            alertDialog.setPositiveButton("TAMAM") { _, _ ->
+            mDialogView.findViewById<TextView>(R.id.textView).text =
+                getString(R.string.motor_capacity)
+            alertDialog.setNegativeButton(getString(R.string.cancel)) { _, _ -> }
+            alertDialog.setPositiveButton(getString(R.string.okay)) { _, _ ->
                 val motorCapacityDialog =
                     mDialogView.findViewById<EditText>(R.id.alertDialogOneEditText).text.toString()
                         .trim()
@@ -439,9 +440,9 @@ class AddAdvertiseFragment : Fragment() {
                 .inflate(R.layout.one_edit_text_alert_dialog, null)
             val alertDialogStyle = R.style.AlertDialogStyle
             alertDialog = MaterialAlertDialogBuilder(ContextThemeWrapper(requireContext(), alertDialogStyle)).setView(mDialogView)
-            mDialogView.findViewById<TextView>(R.id.textView).text = "Çekiş"
-            alertDialog.setNegativeButton("İPTAL") { _, _ -> }
-            alertDialog.setPositiveButton("TAMAM") { _, _ ->
+            mDialogView.findViewById<TextView>(R.id.textView).text = getString(R.string.traction)
+            alertDialog.setNegativeButton(getString(R.string.cancel)) { _, _ -> }
+            alertDialog.setPositiveButton(getString(R.string.okay)) { _, _ ->
                 val tractionDialog =
                     mDialogView.findViewById<EditText>(R.id.alertDialogOneEditText).text.toString()
                         .trim()
@@ -461,8 +462,8 @@ class AddAdvertiseFragment : Fragment() {
             alertDialog = MaterialAlertDialogBuilder(ContextThemeWrapper(requireContext(), alertDialogStyle)).setView(mDialogView)
             mDialogView.findViewById<AutoCompleteTextView>(R.id.autoCompleteColorTextView)
                 .setAdapter(arrayAdapter)
-            alertDialog.setNegativeButton("İPTAL") { _, _ -> }
-            alertDialog.setPositiveButton("TAMAM") { _, _ ->
+            alertDialog.setNegativeButton(getString(R.string.cancel)) { _, _ -> }
+            alertDialog.setPositiveButton(getString(R.string.okay)) { _, _ ->
                 val colorDialog =
                     mDialogView.findViewById<AutoCompleteTextView>(R.id.autoCompleteColorTextView).text.toString()
                 binding.colorTextView.text = colorDialog
@@ -481,8 +482,8 @@ class AddAdvertiseFragment : Fragment() {
             alertDialog = MaterialAlertDialogBuilder(ContextThemeWrapper(requireContext(), alertDialogStyle)).setView(mDialogView)
             mDialogView.findViewById<AutoCompleteTextView>(R.id.autoCompleteGuaranteeTextView)
                 .setAdapter(arrayAdapter)
-            alertDialog.setNegativeButton("İPTAL") { _, _ -> }
-            alertDialog.setPositiveButton("TAMAM") { _, _ ->
+            alertDialog.setNegativeButton(getString(R.string.cancel)) { _, _ -> }
+            alertDialog.setPositiveButton(getString(R.string.okay)) { _, _ ->
                 val guaranteeDialog =
                     mDialogView.findViewById<AutoCompleteTextView>(R.id.autoCompleteGuaranteeTextView).text.toString()
                 binding.guaranteeTextView.text = guaranteeDialog
@@ -501,8 +502,8 @@ class AddAdvertiseFragment : Fragment() {
             alertDialog = MaterialAlertDialogBuilder(ContextThemeWrapper(requireContext(), alertDialogStyle)).setView(mDialogView)
             mDialogView.findViewById<AutoCompleteTextView>(R.id.autoCompleteSwapTextView)
                 .setAdapter(arrayAdapter)
-            alertDialog.setNegativeButton("İPTAL") { _, _ -> }
-            alertDialog.setPositiveButton("TAMAM") { _, _ ->
+            alertDialog.setNegativeButton(getString(R.string.cancel)) { _, _ -> }
+            alertDialog.setPositiveButton(getString(R.string.okay)) { _, _ ->
                 val swapDialog =
                     mDialogView.findViewById<AutoCompleteTextView>(R.id.autoCompleteSwapTextView).text.toString()
                 binding.swapTextView.text = swapDialog
@@ -517,8 +518,8 @@ class AddAdvertiseFragment : Fragment() {
                 .inflate(R.layout.phone_number_alert_dialog, null)
             val alertDialogStyle = R.style.AlertDialogStyle
             alertDialog = MaterialAlertDialogBuilder(ContextThemeWrapper(requireContext(), alertDialogStyle)).setView(mDialogView)
-            alertDialog.setNegativeButton("İPTAL") { _, _ -> }
-            alertDialog.setPositiveButton("TAMAM") { _, _ ->
+            alertDialog.setNegativeButton(getString(R.string.cancel)) { _, _ -> }
+            alertDialog.setPositiveButton(getString(R.string.okay)) { _, _ ->
                 val phoneNumberDialog =
                     mDialogView.findViewById<EditText>(R.id.phoneNumberAlertDialogEditText).text.toString()
                         .trim()

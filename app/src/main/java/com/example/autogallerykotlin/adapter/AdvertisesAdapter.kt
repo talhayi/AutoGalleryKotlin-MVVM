@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.autogallerykotlin.data.model.Advertises
 import com.example.autogallerykotlin.databinding.AdvertisesItemLayoutBinding
+import com.example.autogallerykotlin.util.Util.BASE_URL
 
 class AdvertisesAdapter : RecyclerView.Adapter<AdvertisesAdapter.AdvertsViewHolder>() {
     private lateinit var mListener: OnItemClickListener
@@ -57,7 +58,7 @@ class AdvertisesAdapter : RecyclerView.Adapter<AdvertisesAdapter.AdvertsViewHold
             advertisesRowAddressTextView.text = currentAdvertises.address
             advertisesRowPriceTextView.text = currentAdvertises.price
 
-            advertisesRowImageView.load("http://yazilimgunlukleri.com/autogallerykotlin/" + currentAdvertises.image) {
+            advertisesRowImageView.load(BASE_URL + currentAdvertises.image) {
                 crossfade(true)
                 crossfade(1000)
             }

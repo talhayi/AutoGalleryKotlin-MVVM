@@ -3,9 +3,9 @@ package com.example.autogallerykotlin.ui.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
+import com.example.autogallerykotlin.R
 import com.example.autogallerykotlin.databinding.ActivityRegisterBinding
 import com.example.autogallerykotlin.viewmodel.RegisterViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -22,10 +22,11 @@ class RegisterActivity : AppCompatActivity() {
             if (registerResponse.isSuccessful) {
                 if (registerResponse.body()?.tf == true) {
                     val intent = Intent(this, EmailVerificationActivity::class.java)
-                    intent.putExtra("email", registerResponse.body()?.email)
+                    intent.putExtra(getString(R.string.email), registerResponse.body()?.email)
                     startActivity(intent)
                     finish()
-                    Toast.makeText(this, "Lütfen doğrulama kodunu giriniz", Toast.LENGTH_LONG)
+                    Toast.makeText(this,
+                        getString(R.string.enter_verification_code), Toast.LENGTH_LONG)
                         .show()
                 }
                 else {
@@ -35,7 +36,7 @@ class RegisterActivity : AppCompatActivity() {
                 }
             }
             else {
-                Toast.makeText(this, "Sunucu Hatası", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, getString(R.string.connection_error), Toast.LENGTH_LONG).show()
             }
         }
         binding.registerButton.setOnClickListener {

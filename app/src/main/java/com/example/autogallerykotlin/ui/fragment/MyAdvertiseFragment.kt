@@ -37,8 +37,8 @@ class MyAdvertiseFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val sharedPreferences =
-            this.activity?.getSharedPreferences("login", AppCompatActivity.MODE_PRIVATE)
-        userId = sharedPreferences?.getString("users_id", null)!!
+            this.activity?.getSharedPreferences(getString(R.string.shared_pref_login), AppCompatActivity.MODE_PRIVATE)
+        userId = sharedPreferences?.getString(getString(R.string.shared_pref_user_id), null)!!
         setUpRV()
         myAdvertiseRequest()
         deleteMyAdvertiseRequest()
@@ -62,8 +62,8 @@ class MyAdvertiseFragment : Fragment() {
     private fun handleItemClick(myAdvertise: MyAdvertise) {
         val mDialogView = LayoutInflater.from(requireContext()).inflate(R.layout.delete_alert_dialog, null)
         alertDialog = AlertDialog.Builder(requireContext()).setView(mDialogView)
-        alertDialog.setNegativeButton("HAYIR") { _, _ -> }
-        alertDialog.setPositiveButton("EVET") { _, _ ->
+        alertDialog.setNegativeButton(getString(R.string.cancel)) { _, _ -> }
+        alertDialog.setPositiveButton(getString(R.string.okay)) { _, _ ->
             viewModel.getMyAdvertise(userId,myAdvertise.advertId!!)
             Toast.makeText(requireContext(), myAdvertise.result, Toast.LENGTH_SHORT).show()
         }

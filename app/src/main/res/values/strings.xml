@@ -7,13 +7,38 @@
     <string name="forgot_password">Lütfen kayıtlı e-posta adresinizi giriniz. Gerekli bilgileri e-mail adresinize göndereceğiz.</string>
     <string name="forgot_password_code">Lütfen e-postanıza gönderilen kodu giriniz.</string>
     <string name="new_password">Hesabınızda kullanmak üzere yeni şifrenizi belirleyin..</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="deleteMyAdvertise">Silmek istiyor musunuz?</string>
     <string name="title">Title</string>
     <string name="address">Address</string>
     <string name="price">Price</string>
     <string name="car_image">Car image</string>
+    <string name="your_email_address_verified">Email adresiniz doğrulandı</string>
+    <string name="your_email_address_no_verified">Email adresiniz doğrulanmadı</string>
+    <string name="email">email</string>
+    <string name="check_your_internet_connetcion">internet bağlantınızı kontrol edin</string>
+    <string name="correct_email_address">Doğru e mail adresini girdiğinizden emin olun</string>
+    <string name="your_password_reset">Şifreniz yenilendi</string>
+    <string name="connection_error">Bağlantı hatası</string>
+    <string name="enter_verification_code">Lütfen doğrulama kodunu giriniz</string>
+    <string name="not_issuccessful">not isSuccessful</string>
+    <string name="cancel">İPTAL</string>
+    <string name="okay">TAMAM</string>
+    <string name="explanation">Açıklama</string>
+    <string name="currency"> TL</string>
+    <string name="brand">Marka</string>
+    <string name="serial">Seri</string>
+    <string name="model">Model</string>
+    <string name="year">Yıl</string>
+    <string name="km"> KM</string>
+    <string name="caseType">Kasa Tipi</string>
+    <string name="motor_power">Motor Gücü</string>
+    <string name="motor_capacity">Motor Hacmi</string>
+    <string name="traction">Çekiş</string>
+    <string name="permission_gallery">Galeri için izin gerekiyor</string>
+    <string name="give_permission">İzin Ver</string>
+    <string name="shared_pref_login">login</string>
+    <string name="shared_pref_user_id">users_id</string>
+    <string name="shared_pref_user_email">users_email</string>
 
     <string-array name="fuels">
         <item>Benzin</item>

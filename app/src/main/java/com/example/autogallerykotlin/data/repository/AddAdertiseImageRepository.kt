@@ -10,7 +10,6 @@ class AddAdvertiseImageRepository @Inject constructor(
         userId:String,
         advertId:String,
         image:String
-
     )=apiService.addAdvertiseImage(
         userId, advertId,image
     )

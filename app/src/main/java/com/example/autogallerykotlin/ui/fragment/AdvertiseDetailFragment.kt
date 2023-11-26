@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
 import androidx.viewpager2.widget.ViewPager2
+import com.example.autogallerykotlin.R
 import com.example.autogallerykotlin.adapter.AdvertiseDetailImageAdapter
 import com.example.autogallerykotlin.databinding.FragmentAdvertiseDetailBinding
 import com.example.autogallerykotlin.viewmodel.AdvertiseDetailViewModel
@@ -69,8 +70,8 @@ class AdvertiseDetailFragment : Fragment() {
 
     private fun favoriteAdvertiseRequest() {
         val sharedPreferences =
-            this.activity?.getSharedPreferences("login", AppCompatActivity.MODE_PRIVATE)
-        val userId = sharedPreferences?.getString("users_id", null)!!.toString()
+            this.activity?.getSharedPreferences(getString(R.string.shared_pref_login), AppCompatActivity.MODE_PRIVATE)
+        val userId = sharedPreferences?.getString(getString(R.string.shared_pref_user_id), null)!!.toString()
 
         arguments?.let {
             advertId = AdvertiseDetailFragmentArgs.fromBundle(it).advertId
@@ -99,8 +100,8 @@ class AdvertiseDetailFragment : Fragment() {
 
     private fun changeFavoriteTextRequest() {
         val sharedPreferences =
-            this.activity?.getSharedPreferences("login", AppCompatActivity.MODE_PRIVATE)
-        val userId = sharedPreferences?.getString("users_id", null)!!.toString()
+            this.activity?.getSharedPreferences(getString(R.string.shared_pref_login), AppCompatActivity.MODE_PRIVATE)
+        val userId = sharedPreferences?.getString(getString(R.string.shared_pref_user_id), null)!!.toString()
 
         arguments?.let {
             advertId = AdvertiseDetailFragmentArgs.fromBundle(it).advertId

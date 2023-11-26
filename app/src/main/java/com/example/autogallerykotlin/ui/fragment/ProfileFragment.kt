@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
+import com.example.autogallerykotlin.R
 import com.example.autogallerykotlin.databinding.FragmentProfileBinding
 import com.example.autogallerykotlin.util.UpdateProfileType
 import com.example.autogallerykotlin.viewmodel.ProfileViewModel
@@ -183,7 +184,6 @@ class ProfileFragment : Fragment() {
         }
     }
     private fun updateProfileRequest() {
-        //todo güncelleme isteği atıldığında profil ekranındaki kullanıcıya ait bilgiler de güncellenmeli
         binding.updateProfileButton.setOnClickListener {
             binding.updateEmailButton.visibility = View.VISIBLE
             binding.updatePasswordButton.visibility = View.VISIBLE
@@ -199,8 +199,8 @@ class ProfileFragment : Fragment() {
             binding.cancelProfileButton.visibility = View.GONE
 
             val sharedPreferences =
-                this.activity?.getSharedPreferences("login", AppCompatActivity.MODE_PRIVATE)
-            userId = sharedPreferences?.getString("users_id", null)!!
+                this.activity?.getSharedPreferences(getString(R.string.shared_pref_login), AppCompatActivity.MODE_PRIVATE)
+            userId = sharedPreferences?.getString(getString(R.string.shared_pref_user_id), null)!!
 
             val email = binding.updateEmailET.text.toString().trim()
             val password = binding.updatePasswordET.text.toString().trim()
@@ -249,8 +249,8 @@ class ProfileFragment : Fragment() {
     }
     private fun informationProfileRequest() {
         val sharedPreferences =
-            this.activity?.getSharedPreferences("login", AppCompatActivity.MODE_PRIVATE)
-        userId = sharedPreferences?.getString("users_id", null)!!
+            this.activity?.getSharedPreferences(getString(R.string.shared_pref_login), AppCompatActivity.MODE_PRIVATE)
+        userId = sharedPreferences?.getString(getString(R.string.shared_pref_user_id), null)!!
         viewModel.getInformationProfile(userId)
     }
     private fun clearText(){

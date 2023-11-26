@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
+import com.example.autogallerykotlin.R
 import com.example.autogallerykotlin.databinding.ActivityForgotPasswordBinding
 import com.example.autogallerykotlin.viewmodel.ForgotPasswordViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -36,7 +37,7 @@ class ForgotPasswordActivity : AppCompatActivity() {
                 } else {
                     Toast.makeText(
                         this,
-                        "Doğru e mail adresini girdiğinizden emin olun",
+                        getString(R.string.correct_email_address),
                         Toast.LENGTH_LONG
                     ).show()
                 }
@@ -83,7 +84,7 @@ class ForgotPasswordActivity : AppCompatActivity() {
             if(resetPasswordResponse.isSuccessful){
                 if (resetPasswordResponse.body()?.success == true){
                     startActivity(Intent(this, MainActivity::class.java))
-                    Toast.makeText(this, "Şifreniz yenilendi", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.your_password_reset), Toast.LENGTH_SHORT).show()
                     finish()
                 }
                 else{
