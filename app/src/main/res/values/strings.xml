@@ -10,6 +10,10 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="deleteMyAdvertise">Silmek istiyor musunuz?</string>
+    <string name="title">Title</string>
+    <string name="address">Address</string>
+    <string name="price">Price</string>
+    <string name="car_image">Car image</string>
 
     <string-array name="fuels">
         <item>Benzin</item>
