@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "958916461222",
+    "project_id": "autogalleryproject",
+    "storage_bucket": "autogalleryproject.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:958916461222:android:a5cee828f35b398525ea67",
+        "android_client_info": {
+          "package_name": "com.example.autogallerykotlin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNzdmZANVjgKy7Nb4rek4k4Dr_nx-OGD0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
